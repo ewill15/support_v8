@@ -55,41 +55,32 @@ class UserController extends Controller
       
       return response()->json($result, $responseCode);
   }
-  /** crear usuario participante */
+  /** crear usuario */
   public function register_user(Request $request)
   {
       $responseCode = 200;
       $v = Validator::make($request->all(), [
           'first_name' => 'required|string',
           'last_name' => 'required|string',
-          'cellphone'=>'required|string',
-          'email' => 'unique:users,email'
+          'email' => 'unique:users,email',
+          'role'=> 'numeric'
       ]);
       if ($v && $v->fails()) {
           $result = [
-              'detail' => 'Usuario Participante no agregado',
+              'detail' => 'Usuario no agregado',
               'errors' => $v->errors()
           ];
           $responseCode = 409;
       } else {
-          $fields = $request->all();
-          $allow = ['president','admin'];
-          if(\in_array($request->role,)){
-              if (isset($request->image)) {
-                  if (strlen($request->image) > 0) {
-                      $fields['image'] = Helper::saveBase64Image($request->image, 'users_images');
-                  } else {
-                      $fields['image'] = "";
-                  }
-              }
-              $fields['role'] = 'user';
-              $fields['access_token'] = '';
-              
-              $user = User::create($fields);
-              $result = new UserResource($user);
-          }else{
+        $fields = $request->all();
+        if($request->role_id)
+        $fields['role_id'] = $request->role_id;
 
-          }
+        $fields['access_token'] = '';
+        
+        $user = User::create($fields);
+        $result = new UserResource($user);
+          
       }
       return response()->json($result, $responseCode);
   }
