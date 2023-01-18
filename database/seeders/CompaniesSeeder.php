@@ -17,6 +17,7 @@ class CompaniesSeeder extends Seeder
             'address' => 'Calle Monteagudo s/n',
             'NIT' => '1000063020',
             'phone' => '6455689',
+            'area'=>'comida(chocolates)',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);        
@@ -25,6 +26,7 @@ class CompaniesSeeder extends Seeder
             'address' => 'Camargo #120',
             'NIT'=>'1234567890',
             'phone' => '',
+            'area'=>'varios',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
@@ -33,6 +35,7 @@ class CompaniesSeeder extends Seeder
             'address' => 'Av. America esq. Av. G. Rene Moreno',
             'NIT'=>'4294967295',
             'phone' => '',
+            'area'=>'derivados lacteos',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
@@ -41,6 +44,7 @@ class CompaniesSeeder extends Seeder
             'address' => 'Av. America',
             'NIT'=>'4294967295',
             'phone' => '',
+            'area'=>'comida',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
@@ -49,6 +53,7 @@ class CompaniesSeeder extends Seeder
             'address' => '',
             'NIT'=>'1009311029',
             'phone' => '',
+            'area'=>'comida',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
@@ -56,7 +61,8 @@ class CompaniesSeeder extends Seeder
             'name' => 'Hipermaxi',
             'address' => 'Av. Juan de la Rosa - Av. Ballivian',
             'NIT'=>'1028627025',
-            'phone' => '',            
+            'phone' => '', 
+            'area'=>'varios',           
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
@@ -64,7 +70,8 @@ class CompaniesSeeder extends Seeder
             'name' => 'Pollos VIKMAR',
             'address' => 'Av. America',
             'NIT'=>'850160015',
-            'phone' => '',            
+            'phone' => '', 
+            'area'=>'comida',           
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
@@ -72,15 +79,17 @@ class CompaniesSeeder extends Seeder
             'name' => 'POLLOS CHUY',
             'address' => '',
             'phone' => '',
+            'area'=>'comida',
             'NIT'=>'310864028',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
         DB::table('companies')->insert([
-            'name' => 'COURO MODA',
+            'name' => 'COURO MODA-SCZ',
             'address' => 'plazuela colon',
             'NIT'=>'290072021',
             'phone' => '',
+            'area'=>'zapatos',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
@@ -89,6 +98,7 @@ class CompaniesSeeder extends Seeder
             'address' => 'Av. America',
             'NIT'=>'4294967295',
             'phone' => '',
+            'area'=>'comida',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
@@ -97,22 +107,25 @@ class CompaniesSeeder extends Seeder
             'address' => '',
             'NIT'=>'356582025',
             'phone' => '',
+            'area'=>'cine',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
         DB::table('companies')->insert([
-            'name' => 'BIMBOM',
+            'name' => 'BIMBOM-La Paz',
             'address' => '',
             'NIT'=>'2669505019',
             'phone' => '',
+            'area'=>'comida',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
         DB::table('companies')->insert([
-            'name' => 'Las Rieles',
+            'name' => 'Las Rieles-La Paz',
             'address' => '',
             'NIT'=>'2682631015',
             'phone' => '',
+            'area'=>'comida',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
@@ -121,6 +134,7 @@ class CompaniesSeeder extends Seeder
             'address' => 'Terminal Cbba',
             'NIT'=>'139241023',
             'phone' => '',
+            'area'=>'transporte',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
@@ -130,14 +144,16 @@ class CompaniesSeeder extends Seeder
             'type' => 'Sucursal 56',
             'NIT'=>'1015447026',
             'phone' => '4401085',
+            'area'=>'medicamentos',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
         DB::table('companies')->insert([
             'name' => 'Pollos WILLYS',
-            'address' => '',
+            'address' => 'Av. Melhor Perez',
             'NIT'=>'294490023',
             'phone' => '',
+            'area'=>'comida',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
@@ -146,6 +162,7 @@ class CompaniesSeeder extends Seeder
             'address' => 'Av. Juan de la Rosa 963',
             'NIT'=>'662524811',
             'phone' => '',
+            'area'=>'derivados lacteos',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
@@ -154,6 +171,7 @@ class CompaniesSeeder extends Seeder
             'address' => 'Av. America 459',
             'NIT'=>'937910017',
             'phone' => '',
+            'area'=>'comida',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
@@ -162,6 +180,7 @@ class CompaniesSeeder extends Seeder
             'address' => 'Av. San Martin 2531',
             'NIT'=>'8019137019',
             'phone' => '4315390',
+            'area'=>'comida',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
@@ -170,6 +189,7 @@ class CompaniesSeeder extends Seeder
             'address' => 'Espana 654',
             'NIT'=>'3780462018',
             'phone' => '4529722',
+            'area'=>'comida',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
@@ -178,6 +198,7 @@ class CompaniesSeeder extends Seeder
             'address' => 'Ramon Rivero S/N',
             'NIT'=>'224504026',
             'phone' => '4235657',
+            'area'=>'comida',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
@@ -187,6 +208,7 @@ class CompaniesSeeder extends Seeder
             'type' => 'Sucursal: Tarija',
             'NIT'=>'246828025',
             'phone' => '4253522',
+            'area'=>'medicamentos',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
@@ -195,6 +217,7 @@ class CompaniesSeeder extends Seeder
             'address' => 'Av. America 407',
             'NIT'=>'305076020',
             'phone' => '4038613',
+            'area'=>'comida',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
@@ -204,6 +227,7 @@ class CompaniesSeeder extends Seeder
             'type' => 'Sucursal 3',
             'NIT'=>'206256029',
             'phone' => '4661014',
+            'area'=>'comida',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
@@ -213,6 +237,7 @@ class CompaniesSeeder extends Seeder
             'type'=>'Sucursal:25 Mayo',
             'NIT'=>'1024389029',
             'phone' => '4510631',
+            'area'=>'vestimenta',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
@@ -221,6 +246,7 @@ class CompaniesSeeder extends Seeder
             'address' => 'Av. San Martin 579 casa matriz',
             'NIT'=>'8019137019',
             'phone' => '4315390',
+            'area'=>'comida',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
@@ -230,6 +256,7 @@ class CompaniesSeeder extends Seeder
             'type' => 'Sucursal',
             'NIT'=>'2050307013',
             'phone' => '4510722',
+            'area'=>'comida',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
@@ -239,6 +266,7 @@ class CompaniesSeeder extends Seeder
             'type'=>'Sucursal 42',
             'NIT'=>'1015447026',
             'phone' => '4243256',
+            'area'=>'medicamentos',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
