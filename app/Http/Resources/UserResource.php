@@ -21,7 +21,7 @@ class UserResource extends JsonResource
             'last_name' =>$this->last_name,
             'full_name'=>$this->full_name,
             'email'=>$this->email,
-            'role_id'=>$this->role_id,
+            'role_id'=>$this->role->name,
             'access_token'=>$this->access_token,
             'created_at' => Carbon::parse($this->created_at)->format('d-m-Y'),
             'updated_at' => Carbon::parse($this->updated_at)->format('d-m-Y')
