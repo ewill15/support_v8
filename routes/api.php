@@ -18,6 +18,7 @@ use App\Http\Controllers\Api\UserController;
 Route::group(['prefix' => 'v1'], function () {   
     
     /** AUTHENTICATION  */ 
+    Route::post('register',[UserController::class,'register_user']);
     Route::post('login',[UserController::class,'login']);
     // Route::post('logout','Api\v1@logout');
     // Route::post('recovery_password','Api\v1@recovery_password_client');
