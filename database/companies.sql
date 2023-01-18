@@ -3,7 +3,6 @@
 insert into companies(name,address,type,nit,phone,area,created_at,updated_at) values('vikmar','Av. America 989','sucursal',3021547011,4412109,'comida',NOW(),NOW()),
 ('hipermaxi','Av. Ballivian','sucursal',1028627025,,'comida',NOW(),NOW()),
 ('hipermaxi','Av. Blanco Galindo','sucursal',1028627025,,'comida',NOW(),NOW()),
-('hipermaxi','Av. Ballivian','sucursal',1028627025,,'comida',NOW(),NOW()),
 ('farmacorp 57','Av. Ballivian','sucursal',1015447026,,'comida',NOW(),NOW()),
 ('ice norte','Av. Melchor Perez','sucursal',1009445021,4403040,'comida',NOW(),NOW()),
 ('farmacorp 161','ballivian 883','sucursal',1015447026,4719936,'comida',NOW(),NOW()),
