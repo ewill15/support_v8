@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\RoleController;
+use App\Http\Controllers\Api\CompanyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,4 +42,15 @@ Route::group(['prefix' => 'v1'], function () {
     // Route::post('add_tense','Api\v1@set_tense');
     // Route::post('edit_tense','Api\v1@edit_tense');
     // Route::post('delete_tense','Api\v1@delete_tense');
+
+    /** APIs */
+    /** ROLES */
+    Route::get('list_roles',[RoleController::class,'list_roles']);
+    Route::post('add_role',[RoleController::class,'set_role']);
+    // Route::post('edit_user','Api\v1@edit_user');    
+    // Route::post('delete_user','Api\v1@delete_user');
+
+    /** COMPANIES */
+    Route::get('list_companys',[CompanyController::class,'list_companies']);
+    Route::post('add_company',[CompanyController::class,'set_company']);
 });
