@@ -40,9 +40,14 @@ class DatabaseSeeder extends Seeder
         
         Artisan::call('migrate:fresh');
 
-        $this->call([UserSeeder::class,RoleSeeder::class]);
-        // $this->call(BillSeeder::class);
-        // $this->call(CompaniesSeeder::class);
+        $seeders = [
+            UserSeeder::class,
+            RoleSeeder::class,
+            BillSeeder::class,
+            CompaniesSeeder::class
+        ];
+        $this->call($seeders);
+        // $this->call();
         // $this->call(BankSeeder::class);
         // $this->call(AccountsSeeder::class);
         // $this->call(ServicesSeeder::class);
