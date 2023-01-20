@@ -161,7 +161,7 @@ class UserController extends Controller
       }
       return response()->json($result, $responseCode);
   }
-  /** editar palabra */
+  /** editar usuario */
   public function edit_user(Request $request)
   {
      $responseCode = 200;
@@ -201,7 +201,7 @@ class UserController extends Controller
      return response()->json($result, $responseCode);
   }
 
-  /** eliminar palabra */
+  /** eliminar usuario */
   public function delete_user(Request $request)
   {
       $responseCode = 200;        
