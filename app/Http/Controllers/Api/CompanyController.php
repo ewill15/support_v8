@@ -71,4 +71,80 @@ class CompanyController extends Controller
 
         return response()->json($result, $responseCode);
     }
+
+    /** editar company */
+    public function edit_company(Request $request)
+    {
+        $responseCode = 200;
+        
+        $v = Validator::make($request->all(), [
+            'access_token' => 'required|exists:users,access_token',
+            'id' => 'required|exists:users,id'
+        ]);
+        if ($v && $v->fails()) {
+        $result = [
+            'code' => 'Company not edited',
+            'detail' => 'The company does not edited',
+            'errors' => $v->errors()
+        ];
+        $responseCode = 409;
+        } else {
+            $user = User::byAccessToken($request->access_token)
+                ->admin() 
+                ->first();
+            if($user){
+                $fields = $request->all();
+                $company_edit = Company::byId($request->id)->first();
+
+                $company_edit->update($fields);
+                $result = new CompanyResource($role_edit);
+                
+            }else{
+                $result = [
+                    'code' => 'Forbidden',
+                    'detail' => 'El usuario no puede realizar la operacion',
+                    'errors' => $v->errors()
+                ];
+                $responseCode = 409;
+            }            
+        }
+
+        return response()->json($result, $responseCode);
+    }
+
+    /** eliminar company */
+    public function delete_company(Request $request)
+    {
+        $responseCode = 200;        
+        $v = Validator::make($request->all(), [
+            'access_token' => 'required|exists:users,access_token',
+            'id' => 'required|exists:users,id',            
+        ]);
+        if ($v && $v->fails()) {
+            $result = [
+                'code' => 'Deleted Company',
+                'detail' => 'La company no pudo ser eliminada',
+                'errors' => $v->errors()
+            ];
+            $responseCode = 409;
+        } else {
+            $user = User::byAccessToken($request->access_token)->get();
+            if($user){
+                $company_app = Company::find($request->id);
+                $company_app->delete();
+                $result = [
+                    'code' => 'Deleted Company',
+                    'detail' => 'Company eliminada'
+                ];
+            }else{
+                $responseCode =  409;
+                $result = [
+                    'code' => 'User not found',
+                    'detail' => 'User does not exist'
+                ];
+            }
+        }
+
+        return response()->json($result, $responseCode);
+    }     
 }
