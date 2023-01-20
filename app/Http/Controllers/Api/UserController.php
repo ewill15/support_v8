@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
-  /** Login inicio de secion  */
+  /** Login inicio de sesion  */
   public function login(Request $request)
   {
       $responseCode = 200;
@@ -55,6 +55,82 @@ class UserController extends Controller
       
       return response()->json($result, $responseCode);
   }
+
+  /** Cerrar sesion */
+  public function logout(Request $request)
+  {
+      $responseCode = 200;
+
+      $v = Validator::make($request->all(), [
+        'access_token' => 'required|string|exists:users,access_token'
+      ]);
+
+      if ($v && $v->fails()) {
+          $result = [
+              'code' => 'LOGOUT_UNSUCCESSFUL',
+              'detail' => 'Logout Unsuccessfully',
+              'errors' => $v->errors(),
+          ];
+          $responseCode = 409;
+      } else {
+        $user = User::byAccessToken($request->access_token)->first();
+        if($user){
+            $user->access_token = null;
+            $user->save();
+            $result = [
+                'code' => 'user logged out',
+                'detail' => 'user logged out successfullly'
+            ];
+        }else{
+            $result = [
+                'code' => 'user not founded',
+                'detail' => 'user not founded'
+            ];
+            $responseCode = 409;
+        }
+      }
+      
+      return response()->json($result, $responseCode);
+  }
+
+  /** cambiar password */
+  public function update_password(Request $request)
+  {
+      $responseCode = 200;
+      $v = Validator::make($request->all(), [
+          'access_token' => 'required|string|exists:users,access_token',
+          'new_password' => 'required|min:4'
+      ]);
+      if ($v && $v->fails()) {
+          $result = [
+              'code' => 'INCORRECT_ACCESS_TOKEN',
+              'detail' => 'incorrect access token',
+              'errors' => $v->errors()
+          ];
+          $responseCode = 409;
+      } else {
+          $user = User::byAccessToken($request->access_token)
+              ->first();
+          if ($user) {
+              $user->password = bcrypt($request->new_password);
+              $user->save();
+
+              $result = [
+                  'code' => 'PASSWORD UPDATED',
+                  'detail' => 'Password actualizado'
+              ];
+          } else {
+              $result = [
+                  'code' => 'USER_DO_NOT EXIST',
+                  'detail' => 'not exist'
+              ];
+              $responseCode = 409;
+          }
+      }
+
+      return response()->json($result, $responseCode);
+  }
+
   /** crear usuario */
   public function register_user(Request $request)
   {
@@ -85,7 +161,7 @@ class UserController extends Controller
       return response()->json($result, $responseCode);
   }
 
-  /** Lista de palabras en el dictionario */
+  /** Lista de usuarios */
   public function list_users(Request $request)
   {
       $responseCode = 200;

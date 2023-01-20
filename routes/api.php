@@ -22,9 +22,9 @@ Route::group(['prefix' => 'v1'], function () {
     /** AUTHENTICATION  */ 
     Route::post('register',[UserController::class,'register_user']);
     Route::post('login',[UserController::class,'login']);
-    // Route::post('logout','Api\v1@logout');
+    Route::post('logout',[UserController::class,'logout']);
     // Route::post('recovery_password','Api\v1@recovery_password_client');
-    // Route::post('update_password','Api\v1@update_password');
+    Route::post('password',[UserController::class,'update_password']);
 
     // /** Apis para admin  */
     // /** USERS */
