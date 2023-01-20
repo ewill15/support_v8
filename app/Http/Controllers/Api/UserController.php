@@ -160,6 +160,45 @@ class UserController extends Controller
       }
       return response()->json($result, $responseCode);
   }
+  /** editar palabra */
+  public function edit_user(Request $request)
+  {
+     $responseCode = 200;
+     
+     $v = Validator::make($request->all(), [
+         'access_token' => 'required|exists:users,access_token',
+         'id' => 'required|exists:users,id'
+     ]);
+     if ($v && $v->fails()) {
+     $result = [
+         'code' => 'User not edited',
+         'detail' => 'El usuario no fue editado',
+         'errors' => $v->errors()
+     ];
+     $responseCode = 409;
+     } else {
+         $user = User::byAccessToken($request->access_token)
+             ->admin() 
+             ->first();
+         if($user){
+             $fields = $request->all();
+             $user_edit = User::byId($request->id)->first();
+
+             $user_edit->update($fields);
+             $result = new UserResource($user_edit);
+             
+         }else{
+             $result = [
+                'code' => 'Forbidden',
+                'detail' => 'El ususario no puede realizar la operacion',
+                'errors' => $v->errors()
+             ];
+             $responseCode = 409;
+         }            
+     }
+
+     return response()->json($result, $responseCode);
+  }
 
   /** Lista de usuarios */
   public function list_users(Request $request)

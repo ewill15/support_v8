@@ -25,6 +25,7 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('logout',[UserController::class,'logout']);
     // Route::post('recovery_password','Api\v1@recovery_password_client');
     Route::post('password',[UserController::class,'update_password']);
+    Route::post('edit_user',[UserController::class,'edit_user']);
 
     // /** Apis para admin  */
     // /** USERS */

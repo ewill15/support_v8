@@ -60,9 +60,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function scopeAdmin($query)
+    {
+        return $query->where('role_id',1);
+    }
     
     public function scopeByAccessToken($query, $access_token)
     {
         return $query->where('access_token',$access_token);
+    }
+
+    public function scopeById($query, $id)
+    {
+        return $query->where('id',$id);
     }
 }
