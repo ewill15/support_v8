@@ -23,6 +23,9 @@ class CreateBillsTable extends Migration
             $table->integer('company_id')->unsigned()->default(1);
             $table->integer('user_id')->unsigned()->default(1);
             $table->timestamps();
+
+            $table->foreign('company_id')->on('companies')->references('id');
+            $table->foreign('user_id')->on('users')->references('id');
         });
     }
 

@@ -37,7 +37,7 @@ class UserController extends Controller
               ])
           ) {
               $user_find = Auth::user();
-              $user_sp = User::find($user_find->id);
+              $user_sp = User::with(['role'])->where('id',$user_find->id)->first();
 
               if ($user_sp->access_token == '' || $user_sp->access_token) {
                   $user_sp->access_token = Helper::getToken();
@@ -138,7 +138,8 @@ class UserController extends Controller
       $v = Validator::make($request->all(), [
           'first_name' => 'required|string',
           'last_name' => 'required|string',
-          'email' => 'unique:users,email',
+          'username' => 'required',
+          'email' => 'required|unique:users,email',
           'role'=> 'numeric'
       ]);
       if ($v && $v->fails()) {
@@ -150,11 +151,11 @@ class UserController extends Controller
       } else {
         $fields = $request->all();
         if($request->role_id)
-        $fields['role_id'] = $request->role_id;
-
+        $fields['password'] = bcrypt($request->password);
         $fields['access_token'] = '';
         
         $user = User::create($fields);
+        // dd($fields);
         $result = new UserResource($user);
           
       }
@@ -199,6 +200,42 @@ class UserController extends Controller
 
      return response()->json($result, $responseCode);
   }
+
+  /** eliminar palabra */
+  public function delete_user(Request $request)
+  {
+      $responseCode = 200;        
+      $v = Validator::make($request->all(), [
+          'access_token' => 'required|exists:users,access_token',
+          'id' => 'required|exists:users,id',            
+      ]);
+      if ($v && $v->fails()) {
+          $result = [
+              'code' => 'Deleted User',
+              'detail' => 'El usuario no pudo ser eliminado',
+              'errors' => $v->errors()
+          ];
+          $responseCode = 409;
+      } else {
+          $user = User::byAccessToken($request->access_token)->get();
+          if($user){
+              $user_app = User::find($request->id);
+              $user_app->delete();
+              $result = [
+                  'code' => 'Deleted User',
+                  'detail' => 'Usuario eliminado'
+              ];
+          }else{
+              $responseCode =  409;
+              $result = [
+                  'code' => 'User not found',
+                  'detail' => 'No existe el usuario'
+              ];
+          }
+      }
+
+      return response()->json($result, $responseCode);
+  } 
 
   /** Lista de usuarios */
   public function list_users(Request $request)
