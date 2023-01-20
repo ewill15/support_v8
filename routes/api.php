@@ -44,10 +44,12 @@ Route::group(['prefix' => 'v1'], function () {
     /** ROLES */
     Route::get('list_roles',[RoleController::class,'list_roles']);
     Route::post('add_role',[RoleController::class,'set_role']);
-    // Route::post('edit_user','Api\v1@edit_user');    
-    // Route::post('delete_user','Api\v1@delete_user');
+    Route::post('edit_role',[RoleController::class,'edit_role']);
+    Route::post('delete_role',[RoleController::class,'delete_role']);
 
     /** COMPANIES */
     Route::get('list_companys',[CompanyController::class,'list_companies']);
     Route::post('add_company',[CompanyController::class,'set_company']);
+    Route::post('edit_company',[CompanyController::class,'edit_company']);
+    Route::post('delete_company',[CompanyController::class,'delete_company']);
 });
