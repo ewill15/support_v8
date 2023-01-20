@@ -2,7 +2,7 @@
 
 namespace App\Http\Resources;
 
-use Carbon\Carbon;
+use App\Models\Helper;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class UserResource extends JsonResource
@@ -23,8 +23,8 @@ class UserResource extends JsonResource
             'email'=>$this->email,
             'role_id'=>$this->role->name,
             'access_token'=>$this->access_token,
-            'created_at' => Carbon::parse($this->created_at)->format('d-m-Y'),
-            'updated_at' => Carbon::parse($this->updated_at)->format('d-m-Y')
+            'created_at' => Helper::get_database_date($this->created_at),
+            'updated_at' => Helper::get_database_date($this->updated_at)
         ];
 
         return $response;

@@ -19,8 +19,8 @@ class RoleResource extends JsonResource
             "id" => $this->id,
             'name' => $this->name,
             'description' => $this->description,
-            'created_at' => Carbon::parse($this->created_at)->format('d-m-Y'),
-            'updated_at' => Carbon::parse($this->updated_at)->format('d-m-Y')
+            'created_at' => Helper::get_database_date($this->created_at),
+            'updated_at' => Helper::get_database_date($this->updated_at)
         ];
 
         return $response;

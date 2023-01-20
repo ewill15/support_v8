@@ -23,8 +23,8 @@ class CompanyResource extends JsonResource
             'phone'=>$this->phone,
             'area'=>$this->area?$this->area:'',
             'nit'=>$this->nit,
-            'created_at' => Carbon::parse($this->created_at)->format('d-m-Y'),
-            'updated_at' => Carbon::parse($this->updated_at)->format('d-m-Y')
+            'created_at' => Helper::get_database_date($this->created_at),
+            'updated_at' => Helper::get_database_date($this->updated_at)
         ];
 
         return $response;

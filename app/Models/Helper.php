@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Helper extends Model
 {
@@ -251,5 +252,10 @@ class Helper extends Model
         }else
             return "No hay contenido disponible aplicando los filtros seleccionados";
     //        return "No se encontraron resultados para <span>".$keyword."</span>";
+    }
+
+    public static function get_database_date($date)
+    {
+        return Carbon::parse($date)->format('d-m-Y H:i:s');
     }
 }
