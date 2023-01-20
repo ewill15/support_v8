@@ -69,4 +69,80 @@ class RoleController extends Controller
 
         return response()->json($result, $responseCode);
     }
+
+     /** editar usuario */
+  public function edit_role(Request $request)
+  {
+     $responseCode = 200;
+     
+     $v = Validator::make($request->all(), [
+         'access_token' => 'required|exists:users,access_token',
+         'id' => 'required|exists:users,id'
+     ]);
+     if ($v && $v->fails()) {
+     $result = [
+         'code' => 'User not edited',
+         'detail' => 'El usuario no fue editado',
+         'errors' => $v->errors()
+     ];
+     $responseCode = 409;
+     } else {
+         $user = User::byAccessToken($request->access_token)
+             ->admin() 
+             ->first();
+         if($user){
+             $fields = $request->all();
+             $role_edit = Role::byId($request->id)->first();
+
+             $role_edit->update($fields);
+             $result = new RoleResource($role_edit);
+             
+         }else{
+             $result = [
+                'code' => 'Forbidden',
+                'detail' => 'El usuario no puede realizar la operacion',
+                'errors' => $v->errors()
+             ];
+             $responseCode = 409;
+         }            
+     }
+
+     return response()->json($result, $responseCode);
+  }
+
+  /** eliminar usuario */
+  public function delete_role(Request $request)
+  {
+      $responseCode = 200;        
+      $v = Validator::make($request->all(), [
+          'access_token' => 'required|exists:users,access_token',
+          'id' => 'required|exists:users,id',            
+      ]);
+      if ($v && $v->fails()) {
+          $result = [
+              'code' => 'Deleted Role',
+              'detail' => 'El role no pudo ser eliminado',
+              'errors' => $v->errors()
+          ];
+          $responseCode = 409;
+      } else {
+          $user = User::byAccessToken($request->access_token)->get();
+          if($user){
+              $role_app = Role::find($request->id);
+              $role_app->delete();
+              $result = [
+                  'code' => 'Deleted Role',
+                  'detail' => 'Role eliminado'
+              ];
+          }else{
+              $responseCode =  409;
+              $result = [
+                  'code' => 'User not found',
+                  'detail' => 'No existe el usuario'
+              ];
+          }
+      }
+
+      return response()->json($result, $responseCode);
+  } 
 }
