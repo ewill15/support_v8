@@ -42,6 +42,11 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class);
     }
 
+    public function bills()
+    {
+        return $this->hasMany(Bill::class);
+    }
+
     public function getFullNameAttribute()
     {
         return "{$this->first_name} {$this->last_name}";

@@ -20,6 +20,6 @@ class Company extends Model
 
     public function bills()
     {
-        return $this->hasMany('App\Bill','id');
+        return $this->hasMany(Bill::class);
     }
 }
