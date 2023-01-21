@@ -146,5 +146,5 @@ class CompanyController extends Controller
         }
 
         return response()->json($result, $responseCode);
-    }     
+    }
 }

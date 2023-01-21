@@ -44,7 +44,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             RoleSeeder::class,
             BillSeeder::class,
-            CompaniesSeeder::class
+            CompaniesSeeder::class,
+            RegisterSeeder::class
         ];
         $this->call($seeders);
         // $this->call();

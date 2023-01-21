@@ -1,6 +1,6 @@
 -- NOW()  >>  fecha y hora
 -- NOW ()  >> fecha
-insert into registers(type,username,password,date,description,created_at) values ('samsung','ewill_za@hotmail.com','luciana07','2021-04-10','',NOW()),
+insert into register_web(`type`,`username`,`password`,`date`,`description`,`created_at`) values ('samsung','ewill_za@hotmail.com','luciana07','2021-04-10','',NOW()),
 ('AFP','6210230@','Bvp172154','2021-04-10','',NOW()),
 ('INTEL XDK','ewill0405@hotmail.com','xdk-ewaz1*','2021-04-10','',NOW()),
 ('gmail','soporte.azweb@gmail.com','soportewebaz5060*','2021-04-10','',NOW()),
