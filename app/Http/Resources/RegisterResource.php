@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use App\Models\Helper;
+use App\Http\Resources\UserNTResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class RegisterResource extends JsonResource
@@ -15,11 +16,6 @@ class RegisterResource extends JsonResource
      */
     public function toArray($request)
     {
-        $user_array = [
-            'full_name'=> $this->user->fullname,
-            'email'=>$this->user->email            
-        ];
-
         $response = [
             'id' => $this->id,
             'username' => $this->username,
@@ -32,7 +28,7 @@ class RegisterResource extends JsonResource
             'date_old_password' => $this->date_old_password?Helper::get_database_date($this->date_old_password,false):null,
             'description' => $this->description,
             'status' => $this->status,
-            'user_id' => $this->user_array,
+            'user' => new UserNTResource($this->user),
             'created_at' => Helper::get_database_date($this->created_at),
             'updated_at' => Helper::get_database_date($this->updated_at)
         ];

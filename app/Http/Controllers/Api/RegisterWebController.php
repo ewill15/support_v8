@@ -16,10 +16,11 @@ class RegisterWebController extends Controller
      {
          $responseCode = 200;
          $v = Validator::make($request->all(), [
-             'page' => 'required|string',
-             'username' => 'required|string',
-             'password' => 'required|numeric',
-             'user_id' => 'exists:users,id'
+            'access_token' => 'required|exists:users,access_token',
+            'page' => 'required|string',
+            'username' => 'required|string',
+            'password' => 'required',
+            'user_id' => 'exists:users,id'
          ]);
          if ($v && $v->fails()) {
              $result = [
@@ -28,11 +29,14 @@ class RegisterWebController extends Controller
              ];
              $responseCode = 409;
          } else {
-             $fields = $request->all();
- 
-             $register_web = Register::create($fields);
-             $result = new RegisterResource($register_web);
-             
+            $fields = $request->all();
+            $fields['hash_password'] = bcrypt($request->password);
+            $user = User::byAccessToken($request->access_token)->user()->first();
+            if($user){
+                $fields['user_id'] = $user->id;
+            }
+            $register_web = Register::create($fields);
+            $result = new RegisterResource($register_web);             
          }
          return response()->json($result, $responseCode);
      }
@@ -43,7 +47,7 @@ class RegisterWebController extends Controller
          $responseCode = 200;
  
          $v = Validator::make($request->all(), [
-             'access_token' => 'required|string|exists:users,access_token',
+            'access_token' => 'required|string|exists:users,access_token',
          ]);
          if ($v && $v->fails()) {
              $result = [
@@ -80,7 +84,7 @@ class RegisterWebController extends Controller
          
          $v = Validator::make($request->all(), [
              'access_token' => 'required|exists:users,access_token',
-             'id' => 'required|exists:users,id'
+             'id' => 'required|exists:register_web,id'
          ]);
          if ($v && $v->fails()) {
          $result = [
@@ -119,7 +123,7 @@ class RegisterWebController extends Controller
          $responseCode = 200;        
          $v = Validator::make($request->all(), [
              'access_token' => 'required|exists:users,access_token',
-             'id' => 'required|exists:users,id',            
+             'id' => 'required|exists:register_web,id',            
          ]);
          if ($v && $v->fails()) {
              $result = [
@@ -129,7 +133,7 @@ class RegisterWebController extends Controller
              ];
              $responseCode = 409;
          } else {
-             $user = User::byAccessToken($request->access_token)->user()->get();
+             $user = User::byAccessToken($request->access_token)->admin()->get();
              if($user){
                  $register_app = Register::find($request->id);
                  $register_app->delete();
