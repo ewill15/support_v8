@@ -20,7 +20,7 @@ class CreateDishesTable extends Migration
             $table->text('description')->nullable();
             $table->decimal('price',5,2)->nullable();
             $table->boolean('available')->default(false);
-            $table->integer('user_id')->unsigned()->nullable();
+            $table->integer('restaurant_id')->unsigned()->nullable();
             $table->timestamps();
         });
     }

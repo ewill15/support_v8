@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\CompanyController;
 use App\Http\Controllers\Api\BillController;
 use App\Http\Controllers\Api\RegisterWebController;
 use App\Http\Controllers\Api\RestaurantController;
+use App\Http\Controllers\Api\DishController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +17,7 @@ use App\Http\Controllers\Api\RestaurantController;
 |
 | Here is where you can register API routes for your application. These
 | routes are aded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
+| is assigned the "api" middleware group. Enjoy bu1ilding your API!
 |
 */
 
@@ -68,9 +69,15 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('edit_web_register',[RegisterWebController::class,'edit_web_register']);
     Route::post('delete_web_register',[RegisterWebController::class,'delete_web_register']);
 
-    /** REGISTER WEB */
+    /** RESTAURANT */
     Route::get('list_restaurant',[RestaurantController::class,'list_restaurants']);
     Route::post('add_restaurant',[RestaurantController::class,'set_restaurant']);
     Route::post('edit_restaurant',[RestaurantController::class,'edit_restaurant']);
     Route::post('delete_restaurant',[RestaurantController::class,'delete_restaurant']);
+
+    /** DISHES RESTAURANT */
+    Route::get('list_dish',[DishController::class,'list_dishs']);
+    // Route::post('add_dish',[DishController::class,'set_dish']);
+    // Route::post('edit_dish',[DishController::class,'edit_dish']);
+    // Route::post('delete_dish',[DishController::class,'delete_dish']);
 });
