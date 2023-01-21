@@ -45,16 +45,10 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             BillSeeder::class,
             CompaniesSeeder::class,
-            RegisterSeeder::class
+            RegisterSeeder::class,
+            RestaurantSeeder::class
         ];
         $this->call($seeders);
-        // $this->call();
-        // $this->call(BankSeeder::class);
-        // $this->call(AccountsSeeder::class);
-        // $this->call(ServicesSeeder::class);
-        // $this->call(SongsSeeder::class);
-        // $this->call(QuestionSeeder::class);
-        // $this->call(RegisterSeeder::class);
 
         Schema::enableForeignKeyConstraints();
     }

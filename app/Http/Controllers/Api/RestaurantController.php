@@ -3,46 +3,16 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\User;
-use App\Models\Register;
+use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\RegisterResource;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Resources\RestaurantResource;
 
-class RegisterWebController extends Controller
+class RestaurantController extends Controller
 {
-    /** create new register */
-    public function set_web_register(Request $request)
-    {
-        $responseCode = 200;
-        $v = Validator::make($request->all(), [
-        'access_token' => 'required|exists:users,access_token',
-        'page' => 'required|string',
-        'username' => 'required|string',
-        'password' => 'required',
-        'user_id' => 'exists:users,id'
-        ]);
-        if ($v && $v->fails()) {
-            $result = [
-                'detail' => 'Register web not added',
-                'errors' => $v->errors()
-            ];
-            $responseCode = 409;
-        } else {
-        $fields = $request->all();
-        $fields['hash_password'] = bcrypt($request->password);
-        $user = User::byAccessToken($request->access_token)->user()->first();
-        if($user){
-            $fields['user_id'] = $user->id;
-        }
-        $register_web = Register::create($fields);
-        $result = new RegisterResource($register_web);             
-        }
-        return response()->json($result, $responseCode);
-    }
-
-    /** Lista de registros webs */
-    public function list_web_registers(Request $request)
+    /** Lista de registros de restaurants */
+    public function list_restaurants(Request $request)
     {
         $responseCode = 200;
 
@@ -60,9 +30,9 @@ class RegisterWebController extends Controller
             $user = User::byAccessToken($request->access_token)->user()->first();
             if($user){
                 $result = [];
-                $registers = Register::with(['user'])->get();
+                $registers = Restaurant::with(['user'])->get();
                 foreach ($registers as $register) {
-                    $result_register = new RegisterResource($register);
+                    $result_register = new RestaurantResource($register);
                     array_push($result, $result_register);
                 }
             }else{
@@ -76,9 +46,37 @@ class RegisterWebController extends Controller
 
         return response()->json($result, $responseCode);
     }
+    /** create new register */
+    public function set_restaurant(Request $request)
+    {
+        $responseCode = 200;
+        $v = Validator::make($request->all(), [
+        'access_token' => 'required|exists:users,access_token',
+        'name' => 'required|string',
+        'address' => 'required|string',
+        'open_daytime' => 'required',
+        'close_daytime' => 'required'
+        ]);
+        if ($v && $v->fails()) {
+            $result = [
+                'detail' => 'Register web not added',
+                'errors' => $v->errors()
+            ];
+            $responseCode = 409;
+        } else {
+        $fields = $request->all();
+        $user = User::byAccessToken($request->access_token)->user()->first();
+        if($user){
+            $fields['user_id'] = $user->id;
+        }
+        $register_web = Restaurant::create($fields);
+        $result = new RestaurantResource($register_web);             
+        }
+        return response()->json($result, $responseCode);
+    }
 
-    /** editar register web */
-    public function edit_web_register(Request $request)
+    /** editar datos restaurant*/
+    public function edit_restaurant(Request $request)
     {
         $responseCode = 200;
         
@@ -99,10 +97,10 @@ class RegisterWebController extends Controller
                 ->first();
             if($user){
                 $fields = $request->all();
-                $register_web_edit = Register::where('id',$request->id)->first();
+                $register_web_edit = Restaurant::where('id',$request->id)->first();
 
                 $register_web_edit->update($fields);
-                $result = new RegisterResource($register_web_edit);
+                $result = new RestaurantResource($register_web_edit);
                 
             }else{
                 $result = [
@@ -117,29 +115,29 @@ class RegisterWebController extends Controller
         return response()->json($result, $responseCode);
     }
 
-    /** eliminar register web */
-    public function delete_web_register(Request $request)
+    /** eliminar restaurant */
+    public function delete_restaurant(Request $request)
     {
         $responseCode = 200;        
         $v = Validator::make($request->all(), [
             'access_token' => 'required|exists:users,access_token',
-            'id' => 'required|exists:register_web,id',            
+            'id' => 'required|exists:restaurants,id',            
         ]);
         if ($v && $v->fails()) {
             $result = [
-                'code' => 'Deleted Register web',
-                'detail' => 'El register web no pudo ser eliminada',
+                'code' => 'Deleted Restaurnat',
+                'detail' => 'El restaurant no pudo ser eliminado',
                 'errors' => $v->errors()
             ];
             $responseCode = 409;
         } else {
             $user = User::byAccessToken($request->access_token)->admin()->get();
             if($user){
-                $register_app = Register::find($request->id);
-                $register_app->delete();
+                $restaurant_app = Restaurant::find($request->id);
+                $restaurant_app->delete();
                 $result = [
-                    'code' => 'Deleted Register Web',
-                    'detail' => 'Register Web eliminada'
+                    'code' => 'Deleted Restaurant',
+                    'detail' => 'Restaurant eliminado'
                 ];
             }else{
                 $responseCode =  409;

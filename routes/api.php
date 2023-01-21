@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\RoleController;
 use App\Http\Controllers\Api\CompanyController;
 use App\Http\Controllers\Api\BillController;
 use App\Http\Controllers\Api\RegisterWebController;
+use App\Http\Controllers\Api\RestaurantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,4 +67,10 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('add_web_register',[RegisterWebController::class,'set_web_register']);
     Route::post('edit_web_register',[RegisterWebController::class,'edit_web_register']);
     Route::post('delete_web_register',[RegisterWebController::class,'delete_web_register']);
+
+    /** REGISTER WEB */
+    Route::get('list_restaurant',[RestaurantController::class,'list_restaurants']);
+    Route::post('add_restaurant',[RestaurantController::class,'set_restaurant']);
+    Route::post('edit_restaurant',[RestaurantController::class,'edit_restaurant']);
+    Route::post('delete_restaurant',[RestaurantController::class,'delete_restaurant']);
 });
