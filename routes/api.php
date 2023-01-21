@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\RoleController;
 use App\Http\Controllers\Api\CompanyController;
+use App\Http\Controllers\Api\BillController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,4 +53,10 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('add_company',[CompanyController::class,'set_company']);
     Route::post('edit_company',[CompanyController::class,'edit_company']);
     Route::post('delete_company',[CompanyController::class,'delete_company']);
+
+    /** BILLS */
+    Route::get('list_bills',[BillController::class,'list_bills']);
+    Route::post('add_bill',[BillController::class,'set_bill']);
+    Route::post('edit_bill',[BillController::class,'edit_bill']);
+    Route::post('delete_bill',[BillController::class,'delete_bill']);
 });

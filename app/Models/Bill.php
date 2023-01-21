@@ -27,4 +27,8 @@ class Bill extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function scopeById($query, $id)
+    {
+        return $query->where('id',$id);
+    }
 }

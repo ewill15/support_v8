@@ -254,8 +254,18 @@ class Helper extends Model
     //        return "No se encontraron resultados para <span>".$keyword."</span>";
     }
 
-    public static function get_database_date($date)
+    public static function get_database_date($date,$time=true)
     {
-        return Carbon::parse($date)->format('d-m-Y H:i:s');
+        if($time)
+            $format = 'd-m-Y H:i:s';
+        else
+            $format = 'd-m-Y';
+            
+        return Carbon::parse($date)->format($format);
+    }
+
+    public static function get_english_date($date)
+    {
+        return Carbon::parse($date)->format('Y-m-d');
     }
 }
