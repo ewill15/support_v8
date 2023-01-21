@@ -27,7 +27,7 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('password',[UserController::class,'update_password']);
     Route::post('edit_user',[UserController::class,'edit_user']);
     Route::post('delete_user',[UserController::class,'delete_user']);
-
+    Route::get('list_users',[UserController::class,'list_users']);
     // /** Apis para admin  */
     // /** WORDS */ 
     // Route::post('add_word','Api\v1@set_word');

@@ -60,6 +60,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    // select  only users
+    public function scopeUsers($query)
+    {
+        return $query->where('role_id','>',1);
+    }
 
     public function scopeAdmin($query)
     {

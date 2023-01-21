@@ -7,6 +7,7 @@ use App\Models\Helper;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\UserResource;
+use App\Http\Resources\UserNTResource;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
@@ -256,9 +257,9 @@ class UserController extends Controller
           $user = User::byAccessToken($request->access_token)->first();
           if($user){
               $result = [];
-              $users = User::users()->get();
+              $users = User::with(['role'])->users()->get();
               foreach ($users as $user) {
-                  $result_user = new UserResource($user);
+                  $result_user = new UserNTResource($user);
                   array_push($result, $result_user);
               }
           }else{
