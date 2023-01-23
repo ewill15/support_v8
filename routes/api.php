@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\RegisterWebController;
 use App\Http\Controllers\Api\RestaurantController;
 use App\Http\Controllers\Api\DishController;
 use App\Http\Controllers\Api\ServiceController;
+use App\Http\Controllers\Api\PaymentController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -86,4 +87,10 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('add_service',[ServiceController::class,'set_service']);
     Route::post('edit_service',[ServiceController::class,'edit_service']);
     Route::post('delete_service',[ServiceController::class,'delete_service']);
+
+    /** PAYMENT */
+    Route::get('list_payments',[PaymentController::class,'list_payments']);
+    Route::post('add_payment',[PaymentController::class,'set_payment']);
+    Route::post('edit_payment',[PaymentController::class,'edit_payment']);
+    Route::post('delete_payment',[PaymentController::class,'delete_payment']);
 });

@@ -22,8 +22,9 @@ class DatabaseSeeder extends Seeder
             'migrations',            
             'users', 
             'roles',
-            // 'bills',
-            // 'companies',
+            'bills',
+            'companies',
+            'registers',
             // 'banks',
             // 'accounts',
             // 'services',
@@ -49,7 +50,7 @@ class DatabaseSeeder extends Seeder
             RestaurantSeeder::class,
             DishSeeder::class,
             MonthSeeder::class,
-            ServiceSeeder::class,
+            ServicesSeeder::class,
             PaymentSeeder::class
         ];
         $this->call($seeders);
