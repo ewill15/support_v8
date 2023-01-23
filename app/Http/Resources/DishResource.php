@@ -22,7 +22,7 @@ class DishResource extends JsonResource
             'picture' => $this->picture,
             'description' => $this->description,
             'price' => $this->price,
-            'available'=>$this->available,
+            'available'=>(bool)$this->available,
             'restaurant' => new RestaurantResource($this->restaurant),
             'created_at' => Helper::get_database_date($this->created_at),
             'updated_at' => Helper::get_database_date($this->updated_at)

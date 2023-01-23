@@ -52,10 +52,10 @@ class DishController extends Controller
         $responseCode = 200;
         $v = Validator::make($request->all(), [
         'access_token' => 'required|exists:users,access_token',
-        'name' => 'required|string',
-        'address' => 'required|string',
-        'open_daytime' => 'required',
-        'close_daytime' => 'required'
+        'name' => 'required',
+        'description' => 'required',
+        'price' => 'required',
+        'restaurant_id' => 'required|exists:restaurants,id'
         ]);
         if ($v && $v->fails()) {
             $result = [
