@@ -133,7 +133,7 @@ class RegisterWebController extends Controller
             ];
             $responseCode = 409;
         } else {
-            $user = User::byAccessToken($request->access_token)->admin()->get();
+            $user = User::byAccessToken($request->access_token)->admin()->first();
             if($user){
                 $register_app = Register::find($request->id);
                 $register_app->delete();

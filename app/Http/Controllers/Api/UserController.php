@@ -162,6 +162,42 @@ class UserController extends Controller
       }
       return response()->json($result, $responseCode);
   }
+  /** Lista de usuarios */
+  public function list_users(Request $request)
+  {
+      $responseCode = 200;
+
+      $v = Validator::make($request->all(), [
+          'access_token' => 'required|string|exists:users,access_token',
+      ]);
+      if ($v && $v->fails()) {
+          $result = [
+              'code' => 'users couldn\'t be listed',
+              'detail' => 'users couldn\'t be listed',
+              'errors' => $v->errors()
+          ];
+          $responseCode = 409;
+      } else {
+          $user = User::byAccessToken($request->access_token)->first();
+          if($user){
+              $result = [];
+              $users = User::with(['role'])->users()->get();
+              foreach ($users as $user) {
+                  $result_user = new UserNTResource($user);
+                  array_push($result, $result_user);
+              }
+          }else{
+              $result = [
+                  'code' => 'user not founded',
+                  'detail' => 'user not founded'
+              ];
+              $responseCode = 409;
+          }
+      }
+
+      return response()->json($result, $responseCode);
+  }
+  
   /** editar usuario */
   public function edit_user(Request $request)
   {
@@ -237,40 +273,4 @@ class UserController extends Controller
 
       return response()->json($result, $responseCode);
   } 
-
-  /** Lista de usuarios */
-  public function list_users(Request $request)
-  {
-      $responseCode = 200;
-
-      $v = Validator::make($request->all(), [
-          'access_token' => 'required|string|exists:users,access_token',
-      ]);
-      if ($v && $v->fails()) {
-          $result = [
-              'code' => 'users couldn\'t be listed',
-              'detail' => 'users couldn\'t be listed',
-              'errors' => $v->errors()
-          ];
-          $responseCode = 409;
-      } else {
-          $user = User::byAccessToken($request->access_token)->first();
-          if($user){
-              $result = [];
-              $users = User::with(['role'])->users()->get();
-              foreach ($users as $user) {
-                  $result_user = new UserNTResource($user);
-                  array_push($result, $result_user);
-              }
-          }else{
-              $result = [
-                  'code' => 'user not founded',
-                  'detail' => 'user not founded'
-              ];
-              $responseCode = 409;
-          }
-      }
-
-      return response()->json($result, $responseCode);
-  }
 }

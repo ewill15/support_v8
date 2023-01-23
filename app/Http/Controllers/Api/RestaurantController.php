@@ -131,7 +131,7 @@ class RestaurantController extends Controller
             ];
             $responseCode = 409;
         } else {
-            $user = User::byAccessToken($request->access_token)->admin()->get();
+            $user = User::byAccessToken($request->access_token)->admin()->first();
             if($user){
                 $restaurant_app = Restaurant::find($request->id);
                 $restaurant_app->delete();

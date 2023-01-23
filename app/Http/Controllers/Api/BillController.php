@@ -13,6 +13,41 @@ use Illuminate\Support\Facades\Validator;
 
 class BillController extends Controller
 {
+    /** Lista de bills */
+    public function list_bills(Request $request)
+    {
+        $responseCode = 200;
+
+        $v = Validator::make($request->all(), [
+            'access_token' => 'required|string|exists:users,access_token',
+        ]);
+        if ($v && $v->fails()) {
+            $result = [
+                'code' => 'bills couldn\'t be listed',
+                'detail' => 'bills couldn\'t be listed',
+                'errors' => $v->errors()
+            ];
+            $responseCode = 409;
+        } else {
+            $user = User::byAccessToken($request->access_token)->first();
+            if($user){
+                $result = [];
+                $users = Bill::with(['company','user'])->get();
+                foreach ($users as $user) {
+                    $result_user = new BillResource($user);
+                    array_push($result, $result_user);
+                }
+            }else{
+                $result = [
+                    'code' => 'user not founded',
+                    'detail' => 'user not founded'
+                ];
+                $responseCode = 409;
+            }
+        }
+
+        return response()->json($result, $responseCode);
+    }
     /** crear bill(factura) */
     public function set_bill(Request $request)
     {
@@ -128,41 +163,5 @@ class BillController extends Controller
         }
 
         return response()->json($result, $responseCode);
-    } 
-
-    /** Lista de bills */
-    public function list_bills(Request $request)
-    {
-        $responseCode = 200;
-
-        $v = Validator::make($request->all(), [
-            'access_token' => 'required|string|exists:users,access_token',
-        ]);
-        if ($v && $v->fails()) {
-            $result = [
-                'code' => 'bills couldn\'t be listed',
-                'detail' => 'bills couldn\'t be listed',
-                'errors' => $v->errors()
-            ];
-            $responseCode = 409;
-        } else {
-            $user = User::byAccessToken($request->access_token)->first();
-            if($user){
-                $result = [];
-                $users = Bill::with(['company','user'])->get();
-                foreach ($users as $user) {
-                    $result_user = new BillResource($user);
-                    array_push($result, $result_user);
-                }
-            }else{
-                $result = [
-                    'code' => 'user not founded',
-                    'detail' => 'user not founded'
-                ];
-                $responseCode = 409;
-            }
-        }
-
-        return response()->json($result, $responseCode);
-    }
+    }     
 }

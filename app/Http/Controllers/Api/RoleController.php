@@ -126,7 +126,7 @@ class RoleController extends Controller
             ];
             $responseCode = 409;
         } else {
-            $user = User::byAccessToken($request->access_token)->get();
+            $user = User::byAccessToken($request->access_token)->first();
             if($user){
                 $role_app = Role::find($request->id);
                 $role_app->delete();

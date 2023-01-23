@@ -128,7 +128,7 @@ class CompanyController extends Controller
             ];
             $responseCode = 409;
         } else {
-            $user = User::byAccessToken($request->access_token)->get();
+            $user = User::byAccessToken($request->access_token)->first();
             if($user){
                 $company_app = Company::find($request->id);
                 $company_app->delete();
