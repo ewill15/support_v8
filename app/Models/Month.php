@@ -18,4 +18,14 @@ class Month extends Model
         'name',
         'short_name'
     ];
+
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
+
+    public function months()
+    {
+        return $this->hasMany(Month::class);
+    }
 }
