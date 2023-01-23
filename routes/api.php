@@ -9,7 +9,7 @@ use App\Http\Controllers\Api\BillController;
 use App\Http\Controllers\Api\RegisterWebController;
 use App\Http\Controllers\Api\RestaurantController;
 use App\Http\Controllers\Api\DishController;
-
+use App\Http\Controllers\Api\ServiceController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -77,7 +77,13 @@ Route::group(['prefix' => 'v1'], function () {
 
     /** DISHES RESTAURANT */
     Route::get('list_dish',[DishController::class,'list_dishs']);
-    // Route::post('add_dish',[DishController::class,'set_dish']);
-    // Route::post('edit_dish',[DishController::class,'edit_dish']);
-    // Route::post('delete_dish',[DishController::class,'delete_dish']);
+    Route::post('add_dish',[DishController::class,'set_dish']);
+    Route::post('edit_dish',[DishController::class,'edit_dish']);
+    Route::post('delete_dish',[DishController::class,'delete_dish']);
+
+    /** SERVICES */
+    Route::get('list_service',[ServiceController::class,'list_services']);
+    Route::post('add_service',[ServiceController::class,'set_service']);
+    Route::post('edit_service',[ServiceController::class,'edit_service']);
+    Route::post('delete_service',[ServiceController::class,'delete_service']);
 });

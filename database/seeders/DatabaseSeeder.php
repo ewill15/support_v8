@@ -47,7 +47,10 @@ class DatabaseSeeder extends Seeder
             CompaniesSeeder::class,
             RegisterSeeder::class,
             RestaurantSeeder::class,
-            DishSeeder::class
+            DishSeeder::class,
+            MonthSeeder::class,
+            ServiceSeeder::class,
+            PaymentSeeder::class
         ];
         $this->call($seeders);
 
