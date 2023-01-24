@@ -22,6 +22,14 @@
             </p>
           </a>
         </li>
+        <li class="nav-item has-treeview menu-open">
+          <a href="{{ url('/admin/users') }}" class="nav-link {{($section == 'user')?'active':''}}">
+            <i class="nav-icon fas fa-users"></i>
+            <p>
+              Users
+            </p>
+          </a>
+        </li>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
