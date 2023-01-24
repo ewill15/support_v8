@@ -2,15 +2,22 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
+    protected $namespace = 'App\Http\Controllers';
+
     # GET
 
     public function registrationForm()
     {
-        return view('custom_auth.register');
+        return view('auth.register');
     }
 
     # POST
@@ -18,12 +25,11 @@ class AuthController extends Controller
     public function registerUser(Request $request)
     {
 
-        $validate = \Validator::make($request->all(), [
-            'nombre'    => 'required|max:255',
-            'apellido'  => 'required|max:255',
-            'usuario'   => 'required|max:20',
-            'email'     => 'required|email|unique:users|max:255',
-            'password'  => 'required|confirmed|max:20'
+        $validate = Validator::make($request->all(), [
+            'name_lastname'     => 'required|max:255',
+            'username'          => 'required|max:20',
+            'email'             => 'required|email|unique:users|max:255',
+            'password'          => 'required|max:20'
 
         ]);
 
@@ -34,12 +40,11 @@ class AuthController extends Controller
                 ->withErrors($validate);
         }
 
-        \App\User::create([
+        User::create([
             'password'   => Hash::make($request->password),
             'email'      => $request->email,
-            'nombre'     => $request->nombre,
-            'apellido'   => $request->apellido,
-            'usuario'    => $request->usuario
+            'name_lastname'     => $request->nname_lastname,
+            'username'    => $request->username
         ]);
 
         return redirect('/register')->with('success', 'Registro Exitoso');
@@ -49,7 +54,7 @@ class AuthController extends Controller
 
     public function loginForm()
     {
-        return view('custom_auth.login');
+        return view('auth.login');
     }
 
     # @POST
@@ -61,13 +66,15 @@ class AuthController extends Controller
             'password' => 'required',
         ]);
 
-        if (\Auth::attempt([
+       
+        if (Auth::attempt([
             'email' => $request->email,
             'password' => $request->password
-        ])) {
-            
-            return redirect('/admin/dashboard');
+        ])) { 
+                     
+            return redirect('admin/dashboard');
         }
+        
 
         return redirect('/login')->with('error', 'Email o contraseña incorrecta');
     }
@@ -76,8 +83,8 @@ class AuthController extends Controller
 
     public function logout(Request $request)
     {
-        if (\Auth::check()) {
-            \Auth::logout();
+        if (Auth::check()) {
+            Auth::logout();
             $request->session()->invalidate();
         }
         return  redirect('/login');

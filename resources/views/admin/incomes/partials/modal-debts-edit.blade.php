@@ -1,0 +1,42 @@
+<div class="modal fade" id="modal-debts-edit-{{@$item->id}}">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">{{ ucfirst(trans('common.edit-debts')) }}</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        {!! Form::model($item, [ 
+            'id'=>'form-product',
+            'route' => ['debts.update', $item], 
+            'method' => 'PUT', 
+            'enctype' => 'multipart/form-data', 
+            'class' => 'form-horizontal'
+            ]) 
+        !!}
+        <div class="modal-body">
+            @include('admin.incomes.partials.form_debts', ['errors' => $errors])
+            <div class="form-group row {{ $errors->has('detail') ? 'has-error' : ''}}">
+                {!! Form::label('detail', ucfirst(trans('common.edit_text')), ['class' => 'col-md-4 form-control-label text-md-right']) !!}
+                <div class="col-md-8">
+                    {!! Form::textarea('detail', null, ['class' => 'form-control', 'placeholder' => '...', 'required']) !!}
+                    {!! $errors->first('detail', '<p class="help-block">:message</p>') !!}
+                </div>
+            </div> 
+        </div>
+        <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-default" data-dismiss="modal">
+                {{ ucfirst(trans('common.cancel')) }}
+            </button>
+            <button type="summit" class="btn btn-info item-edit">
+                <i class="fas fa-trash-edit" aria-hidden="true"></i>
+                {{ ucfirst(trans('common.edit')) }}
+            </button>
+        </div>
+        {!! Form::close() !!}
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
