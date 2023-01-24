@@ -32,7 +32,7 @@ class RegisterWebController extends Controller
         $fields = $request->all();
         $fields['hash_password'] = bcrypt($request->password);
         $user = User::byAccessToken($request->access_token)->user()->first();
-        if($user){
+        if($user && !$request->user_id){
             $fields['user_id'] = $user->id;
         }
         $register_web = Register::create($fields);
