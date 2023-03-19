@@ -1,5 +1,5 @@
 @extends('layouts.admin.app')
-@section('title', 'Personal')
+@section('title', 'User')
 @section('content')
 
 <!-- ============================================================== -->
@@ -110,7 +110,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($personals as $item)
+                                @foreach($users as $item)
                                     <tr class="gradeX {{$item->deleted_at?'text-danger':''}}">
                                         <td>{{ @$item->id }}</td>
                                         <td>                                                    
@@ -178,15 +178,15 @@
                                 @endforeach
                                 </tbody>
                             </table>
-                            @include('admin.personals.partials.modal-delete')
-                            @include('admin.personals.partials.modal-recycle')
-                            @include('admin.personals.partials.modal-restore')
+                            @include('admin.users.partials.modal-delete')
+                            @include('admin.users.partials.modal-recycle')
+                            @include('admin.users.partials.modal-restore')
                             <div class="float-left">
                                 {{ $text_pagination }}
                             </div>
                             <div class="float-right">                                        
                                 <div class="btn-group">
-                                  {!! $personals->appends(request()->except('page'))->render() !!}
+                                  {!! $users->appends(request()->except('page'))->render() !!}
                                 </div>
                             </div>
                         </div>

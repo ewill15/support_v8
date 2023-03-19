@@ -169,7 +169,7 @@ class Helper extends Model
         return  $string_date;
     }
 
-    public static function messageCounterPagination($total, $page, $pagination,$lang){
+    public static function messageCounterPagination($total, $page, $pagination,$lang="en"){
         $initial = ($page == 0)? 1 : $page;
         $start = ($initial * $pagination) - ($pagination -1);
         $end = $initial * $pagination;
