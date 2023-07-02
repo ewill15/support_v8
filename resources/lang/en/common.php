@@ -29,6 +29,7 @@ return [
     'deletes'    => [
         'user'   => 'Do you want to delete this user?',
     ],
+    'password'  => 'password',
     'reset'     => 'reset password',
     'new'       => 'new',
     'search'    => 'search',
@@ -130,6 +131,7 @@ return [
     'saldo' => 'saldo',
     'range' => 'date range',
     
+    'personal_data' => 'personal data',
     'list_personals' => 'personal list',
     'personals'  => 'personal',
     'personal'  => 'personal',
@@ -278,6 +280,13 @@ return [
     'restore_payment'=> 'restore payment record',
     'modedit_payments' => 'modify payment record',
 
+
+    'list_users'=>'list of users',
+    'edit_user'=>'edit user',
+    'modify_record'=>'modify record',
+    'new_user'=>'new user',
+    'msg_update_pwd'=>'The password will be sent to the selected email',
+
     'origins'     => 'origins',
     'origin'      => 'origin',
     'list_origins'=> 'origin list',
@@ -326,17 +335,17 @@ return [
     'restore_currency'=> 'restore money type record',
     'modedit_currencies' => 'modify money type record',
 
-    'types'     => 'products type',
-    'type'      => 'product type',
-    'list_types'=> 'product type list',
-    'title_type' => 'new product record',
-    'new_types' => 'create new product type record',
-    'name_type' => 'product type naem',
-    'description_type' => 'product type description',
-    'state_type' => 'product type state',
-    'edit_types'=> 'edit product type record',
-    'restore_type'=> 'restore product type record',
-    'modedit_types' => 'modify product type record',
+    'types'     => 'types',
+    'type'      => 'type',
+    'list_types'=> ' type list',
+    'title_type' => 'new  record',
+    'new_types' => 'create new  type record',
+    'name_type' => ' type name',
+    'description_type' => ' type description',
+    'state_type' => ' type state',
+    'edit_types'=> 'edit  type record',
+    'restore_type'=> 'restore  type record',
+    'modedit_types' => 'modify  type record',
     
     'type_users'     => 'user types',
     'type_user'      => 'user type',

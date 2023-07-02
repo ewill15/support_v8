@@ -91,4 +91,13 @@ class User extends Authenticatable
     {
         return $query->where('id',$id);
     }
+
+    //MUTATOR
+    public function getImagePathAttribute()
+    {
+        if ($this->image)
+            return asset('img') .'/'.$this->folder_images.'/'.$this->image;
+        else
+            return asset('img') .'/no-image.png';
+    }
 }

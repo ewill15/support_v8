@@ -9,8 +9,13 @@ use App\Http\Controllers\Controller;
 
 class UsersController extends Controller
 {
+    public function __construct()
+    {
+        view()->share('section','user');
+    }
     public function index(Request $request)
     {
+        $lang = app()->getLocale();
         $users = User::users()->orderBy('id','ASC');
 
         $paginate = $request->pagination ? $request->pagination : 20;
@@ -19,7 +24,7 @@ class UsersController extends Controller
             $users = $users->where('first_name','LIKE','%'.$request->keyword.'%')
                 ->orWhere('email','LIKE','%'.$request->keyword.'%');
 
-        $text_pagination = Helper::messageCounterPagination($users->count(), $page,$paginate);
+        $text_pagination = Helper::messageCounterPagination($users->count(), $page,$paginate,$lang);
 
         $users = $users->paginate($paginate);
         view()->share('section','user');
@@ -71,9 +76,9 @@ class UsersController extends Controller
 
     public function edit($id)
     {
-        $items = User::find($id);
+        $user = User::find($id);
 
-        return view('admin.users.edit',compact('items'));
+        return view('admin.users.edit',compact('user'));
     }
 
     public function update(Request $request, $id)

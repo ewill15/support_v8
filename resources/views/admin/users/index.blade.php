@@ -1,5 +1,5 @@
 @extends('layouts.admin.app')
-@section('title', 'User')
+@section('title', ucfirst(trans('common.user')))
 @section('content')
 
 <!-- ============================================================== -->
@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
                     <div class="page-header">
-                        <h2 class="pageheader-title">{{ ucfirst(trans('common.personals')) }}</h2>
+                        <h2 class="pageheader-title">{{ ucfirst(trans('common.users')) }}</h2>
                         <div class="page-breadcrumb">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
@@ -20,7 +20,7 @@
                                         </a>
                                     </li>
                                     <li class="breadcrumb-item active">
-                                        {{ ucfirst(trans('common.list_personals')) }}
+                                        {{ ucfirst(trans('common.users')) }}
                                     </li>
                                 </ol>
                             </nav>
@@ -29,9 +29,9 @@
                 </div>
                 
                 <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
-                    @if(@$new)
+                    @if(auth()->user()->role->name=="admin")
                         <div class="card-body border-top">
-                            <a href="{{ url('admin/personals/create') }}" class="btn btn-outline-primary float-right">
+                            <a href="{{ url('admin/users/create') }}" class="btn btn-outline-primary float-right">
                                 <i class="fas fa-plus-circle"></i>
                                 {{ ucfirst(trans('common.create')) }}
                             </a>
@@ -56,7 +56,7 @@
                 <!-- Form searchs -->   
                     <div class="card">
                         {!! Form::open([
-                            'url' => 'admin/personals', 
+                            'url' => 'admin/users', 
                             'method' => 'GET', 
                             'enctype' => 'multipart/form-data', 
                             'class' => 'form-horizontal pt-3',
@@ -106,6 +106,7 @@
                                     <th>{{ ucfirst(trans('common.firstname')) }}</th>
                                     <th>{{ ucfirst(trans('common.user')) }}</th>
                                     <th>{{ ucfirst(trans('common.email')) }}</th>
+                                    <th>{{ ucfirst(trans('common.type')) }}</th>
                                     <th class="actions">{{ ucfirst(trans('common.actions')) }}</th>
                                 </tr>
                                 </thead>
@@ -116,29 +117,52 @@
                                         <td>                                                    
                                             <img src="{{ @$item->image_path }}" alt="" width="100px">
                                         </td>
-                                        <td>{{ @$item->name_lastname }}</td>
+                                        <td>{{ @$item->full_name }}</td>
                                         <td>{{ @$item->username }}</td>
                                         <td>{{ @$item->email }}</td>
+                                        <td>{{ @$item->role->name }}</td>
                                         <td>
                                             <div class="input-group-prepend">
                                                 <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
                                                   Action
                                                 </button>
                                                 <div class="dropdown-menu">
-                                                    @if ($item->deleted_at)
-                                                        @if(@$recycle)
-                                                            <a class="dropdown-item" href="#"
-                                                                data-action="restore"
-                                                                data-url="{{ asset('admin/personals/restore/'.@$item->id)}}"
-                                                                data-title-msg="{{ ucfirst(trans('common.restore_personal')) }}"
-                                                                data-btn-action="{{ ucwords(trans('common.restore')) }}">
-                                                                <i class="fas fa-trash-restore"></i> 
-                                                                {{ ucfirst(trans('common.restore')) }}
-                                                            </a>
-                                                        @endif    
+                                                    @if (auth()->user()->role->name=="admin")
+                                                        <a class="dropdown-item"href="{{ route( 'users.edit', $item->id) }}">
+                                                            <i class="fas fa-edit"></i> 
+                                                            {{ ucfirst(trans('common.edit')) }}
+                                                        </a>
+                                                        <a class="dropdown-item" href="#"
+                                                            data-action="restore"
+                                                            data-url="{{ asset('admin/users/restore/'.@$item->id)}}"
+                                                            data-title-msg="{{ ucfirst(trans('common.restore_user')) }}"
+                                                            data-btn-action="{{ ucwords(trans('common.restore')) }}">
+                                                            <i class="fas fa-trash-restore"></i> 
+                                                            {{ ucfirst(trans('common.restore')) }}
+                                                        </a>
+                                                        <a class="dropdown-item" href="#"
+                                                            data-action="recycle"
+                                                            data-name="{{$item->full_name}}"
+                                                            data-url='{{ asset('admin/users/soft/'.@$item->id)}}'
+                                                            data-title-msg="{{ ucfirst(trans('common.msgdelete_register')) }}" 
+                                                            data-text-msg="{{ ucfirst(trans('common.msgdelete')) }}"
+                                                            data-btn-action="{{ ucwords(trans('common.delete')) }}">
+                                                            <i class="fas fa-trash"></i> {{ ucfirst(trans('common.recycle')) }}
+                                                        </a>
+
+                                                        <div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" href="#"
+                                                            data-action="delete"
+                                                            data-name="{{$item->full_name}}" 
+                                                            data-url="{{ route('users.destroy', $item->id) }}" 
+                                                            data-title-msg="{{ ucfirst(trans('common.msgdelete_register')) }}" 
+                                                            data-text-msg="{{ ucfirst(trans('common.msgdelete')) }}"
+                                                            data-btn-action="{{ ucwords(trans('common.delete')) }}">
+                                                            <i class="fas fa-trash-alt"></i> {{ ucfirst(trans('common.delete')) }}
+                                                        </a>    
                                                     @else
-                                                        @if(@$edit)
-                                                            <a href="{{ url('admin/personals/' . @$item->id . '/edit') }}" class="dropdown-item">
+                                                        @if(auth()->user()->role->name!="invited")
+                                                            <a href="{{ url('admin/users/' . @$item->id . '/edit') }}" class="dropdown-item">
                                                                 <i class="fas fa-edit"></i> {{ ucfirst(trans('common.update')) }}
                                                             </a> 
                                                         @endif
@@ -147,28 +171,16 @@
                                                                 <i class="far fa-user-circle"></i> {{ ucfirst(trans('common.account')) }}
                                                             </a> 
                                                         @endif
-                                                        @if(@$recycle)
+                                                        @if(auth()->user()->role->name=="user")
                                                             <a class="dropdown-item" href="#"
                                                                 data-action="recycle"
-                                                                data-name="{{$item->name_lastname}}"
-                                                                data-url='{{ asset('admin/personals/soft/'.@$item->id)}}'
+                                                                data-name="{{$item->user_name}}"
+                                                                data-url='{{ asset('admin/users/soft/'.@$item->id)}}'
                                                                 data-title-msg="{{ ucfirst(trans('common.msgdelete_register')) }}" 
                                                                 data-text-msg="{{ ucfirst(trans('common.msgdelete')) }}"
                                                                 data-btn-action="{{ ucwords(trans('common.delete')) }}">
                                                                 <i class="fas fa-trash"></i> {{ ucfirst(trans('common.recycle')) }}
-                                                            </a>
-                                                        @endif
-                                                        @if(@$trash)
-                                                            <div class="dropdown-divider"></div>
-                                                            <a class="dropdown-item" href="#"
-                                                                data-action="delete"
-                                                                data-name="{{$item->name_lastname}}" 
-                                                                data-url="{{ route('personals.destroy', $item->id) }}" 
-                                                                data-title-msg="{{ ucfirst(trans('common.msgdelete_register')) }}" 
-                                                                data-text-msg="{{ ucfirst(trans('common.msgdelete')) }}"
-                                                                data-btn-action="{{ ucwords(trans('common.delete')) }}">
-                                                                <i class="fas fa-trash-alt"></i> {{ ucfirst(trans('common.delete')) }}
-                                                            </a>    
+                                                            </a>   
                                                         @endif 
                                                     @endif 
                                                 </div>

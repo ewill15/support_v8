@@ -1,7 +1,7 @@
 <div class="modal fade" id="modal-account-{{$item->id}}">
     {!! Form::model($item, [ 
         'id' => 'form-email',
-        'url'=>'admin/personals/change_email',
+        'url'=>'admin/users/change_email',
         'method' => 'POST',
         'enctype' => 'multipart/form-data', 
         'class' => 'form-horizontal',
@@ -10,7 +10,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Actualizar datos cuenta</h4>
+                    <h4 class="modal-title">{{ucfirst(trans('common.edit_user'))}}</h4>
                     <button type="button" class="close" data-dismiss="modal">
                         <span aria-hidden>x</span>
                     </button>
@@ -23,7 +23,9 @@
                             {!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => '...', 'required']) !!}
                         </div>
                     </div>
-                    <p class="text-primary">La contraseña será enviada al email seleccionado</p> 
+                    <p class="text-primary">
+                        {{ ucwords(trans('common.msg_update_pwd')) }}
+                    </p> 
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">

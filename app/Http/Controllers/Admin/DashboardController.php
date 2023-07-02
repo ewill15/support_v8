@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Helper;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class DashboardController extends Controller
 {
@@ -21,6 +22,8 @@ class DashboardController extends Controller
      */
     public function index()
     {   
-        return view('admin.dashboard');
+        $test = Helper::getToken();
+
+        return view('admin.dashboard', compact('test'));
     }
 }

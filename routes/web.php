@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UsersController;
 // use App\Http\Controllers\Admin\TypesController;
 // use App\Http\Controllers\Admin\BrandsController;
@@ -16,7 +17,6 @@ use App\Http\Controllers\Admin\UsersController;
 // use App\Http\Controllers\Admin\ProductsController;
 // use App\Http\Controllers\Admin\VouchersController;
 // use App\Http\Controllers\Admin\CompaniesController;
-// use App\Http\Controllers\Admin\DashboardController;
 // use App\Http\Controllers\Admin\GalleriesController;
 // use App\Http\Controllers\Admin\ProvidersController;
 // use App\Http\Controllers\Admin\SucursalsController;

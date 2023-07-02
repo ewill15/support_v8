@@ -30,6 +30,7 @@ return [
         'user'   => 'Confirma que desea eliminar el Usuario?',
         'image'  => 'Esta seguro eliminar imagen?',
     ],
+    'password'   => 'contraseña',
     'reset'      => 'cambiar password',
     'new'        => 'nuevo',
     'search'     => 'buscar',
@@ -289,6 +290,12 @@ return [
     'restore_payment'=> 'restaurar registro tipo de pago',
     'modedit_payments' => 'modificar registro',
 
+    'list_users'=>'lista de usuarios',
+    'edit_user'=>'editar usuario',
+    'modify_user'=>'modificar registro',
+    'new_user'=>'nuevo usuario',
+    'type'=>'tipo',
+    
     'origins'     => 'origen',
     'origin'      => 'origen',
     'list_origins'=> 'lista origen',
