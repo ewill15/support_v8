@@ -122,8 +122,8 @@
 
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
-          <img src="{{asset('img/no-image.png')}}" class="img-size-38 img-circle" alt="User Image">
-          {{ auth()->user()->name_lastname }}
+          <img src="{{auth()->user()->image_path}}" class="img-size-38 img-circle" alt="User Image">
+          {{ auth()->user()->username }}
           <i class="fas fa-angle-down right ml-3"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">

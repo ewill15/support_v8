@@ -2,7 +2,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
   <a href="#" class="brand-link">
-    <img src="{{asset('img/no-image.png')}}" alt="Logo" class="brand-image img-circle elevation-3"
+    <img src="{{auth()->user()->image_path}}" alt="Logo" class="brand-image img-circle elevation-3"
          style="opacity: .8">
     <span class="brand-text font-weight-light">{{env('APP_NAME')}}</span>
   </a>
