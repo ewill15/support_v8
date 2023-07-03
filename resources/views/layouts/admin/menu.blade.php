@@ -26,7 +26,15 @@
           <a href="{{ url('/admin/users') }}" class="nav-link {{($section == 'user')?'active':''}}">
             <i class="nav-icon fas fa-users"></i>
             <p>
-              Users
+              {{ucfirst(trans('common.users'))}}
+            </p>
+          </a>
+        </li>
+        <li class="nav-item has-treeview menu-open">
+          <a href="{{ url('/admin/registers') }}" class="nav-link {{($section == 'register')?'active':''}}">
+            <i class="nav-icon fas fa-globe"></i>
+            <p>
+              {{ucfirst(trans('common.web_registers'))}}
             </p>
           </a>
         </li>

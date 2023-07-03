@@ -12,7 +12,7 @@ class Register extends Model
     protected $table = 'register_web';
     protected $fillable = [
         'username',
-        'page',
+        'web_page',
         'type',
         'password',
         'hash_password',

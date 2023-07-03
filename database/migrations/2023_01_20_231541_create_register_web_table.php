@@ -16,7 +16,7 @@ class CreateRegisterWebTable extends Migration
         Schema::create('register_web', function (Blueprint $table) {
             $table->id();
             $table->string('type')->nullable();
-            $table->string('page')->nullable();
+            $table->string('web_page')->nullable();
             $table->string('username')->nullable();
             $table->string('password')->nullable();
             $table->string('old_password')->nullable();
