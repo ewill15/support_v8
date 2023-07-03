@@ -7,6 +7,7 @@ use App\Http\Controllers\AuthController;
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UsersController;
+use App\Http\Controllers\Admin\RegistersController;
 // use App\Http\Controllers\Admin\TypesController;
 // use App\Http\Controllers\Admin\BrandsController;
 // use App\Http\Controllers\Admin\BannersController;
@@ -56,6 +57,7 @@ Route::group(['middleware'=>['auth'], 'prefix' => 'admin'], function(){
 
     Route::get('dashboard', [DashboardController::class, 'index']);
     Route::resource('users', UsersController::class);
+    Route::resource('registers', RegistersController::class);
 //     Route::resource('personals', PersonalsController::class);
 //     Route::post('personals/soft/{id}',[PersonalsController::class, 'softdestroy']);
 //     Route::post('personals/restore/{id}',[PersonalsController::class, 'restore']);
