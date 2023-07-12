@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class UserSeeder extends Seeder
 {
@@ -14,35 +15,16 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([            
-            'first_name' => 'admin',
-            'last_name' => 'last admin',            
-            'email' => 'admin@admin.com',
+        // setting admin and inital values to game
+        DB::table('users')->insert([
+            'name' => 'Edwin Willy',
+            'last_name' => 'Arandia Zeballos',
+            'mobile' => '763-22029',
+            'email' => 'admin@gmail.com',
             'password' => bcrypt('admin123'),
-            'username' => 'admin',
-            'role_id' =>  1,
+            'role' => 'admin',
             'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s'),
-        ]);
-        DB::table('users')->insert([            
-            'first_name' => 'Edwin',
-            'last_name' => 'Arandia',            
-            'email' => 'ewarandia@gmail.com',
-            'password' => bcrypt('user'),
-            'username' => 'user',
-            'role_id' =>  2,
-            'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s'),
-        ]);
-        DB::table('users')->insert([            
-            'first_name' => 'invited',
-            'last_name' => 'User',            
-            'email' => 'invited@gmail.com',
-            'password' => bcrypt('invited'),
-            'username' => 'invited',
-            'role_id' =>  3,
-            'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
         ]);
     }
 }

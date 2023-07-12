@@ -18,14 +18,14 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'first_name',
+        'name',
         'last_name',
         'email',
+        'mobile',
+        'dob',        
         'password',
-        'username',
-        'image',
-        'role_id',
-        'access_token',
+        'role',
+        'image'
     ];
 
     /**
@@ -37,25 +37,6 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-    public function role()
-    {
-        return $this->belongsTo(Role::class,'role_id');
-    }
-
-    public function bills()
-    {
-        return $this->hasMany(Bill::class);
-    }
-
-    public function payments()
-    {
-        return $this->hasMany(Payment::class);
-    }
-
-    public function getFullNameAttribute()
-    {
-        return "{$this->first_name} {$this->last_name}";
-    }
 
     /**
      * The attributes that should be cast.
@@ -65,39 +46,21 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    // select users & invited
     public function scopeUsers($query)
     {
-        return $query->where('role_id','>',1);
+        return $query->where('role','<>','admin');
     }
 
-    // select  only users
-    public function scopeUser($query)
+    public function getFullNameAttribute()
     {
-        return $query->where('role_id','<=',2);
+        return "{$this->name} {$this->last_name}";
     }
-
-    public function scopeAdmin($query)
-    {
-        return $query->where('role_id',1);
-    }
-    
-    public function scopeByAccessToken($query, $access_token)
-    {
-        return $query->where('access_token',$access_token);
-    }
-
-    public function scopeById($query, $id)
-    {
-        return $query->where('id',$id);
-    }
-
     //MUTATOR
     public function getImagePathAttribute()
     {
         if ($this->image)
             return asset('img') .'/'.$this->folder_images.'/'.$this->image;
         else
-            return asset('img') .'/no-image.png';
+            return asset('img/no-image.png');
     }
 }

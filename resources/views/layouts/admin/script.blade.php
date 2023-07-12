@@ -32,8 +32,6 @@
 <script src="{!! asset('cms/dist/js/adminlte.js') !!}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{!! asset('cms/dist/js/pages/dashboard.js') !!}"></script>
-<!-- GOOGLE MAPS -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6FHl6tK3xqEDY1CT-M05cxM-m-RurQjM&callback=initMap&v=weekly&language=es&libraries=geometry&sensor=false" defer></script>
 <!-- Validation -->
 <script src="{!! asset('cms/dist/js/jquery-validation/jquery.validate.min.js') !!}"></script>
 <script src="{!! asset('cms/dist/js/jquery-validation/additional-methods.min.js') !!}"></script>

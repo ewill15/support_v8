@@ -16,22 +16,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
         $tables = [
             'password_resets',
             'migrations',            
-            'users', 
-            'roles',
-            'bills',
-            'companies',
-            'registers',
-            // 'banks',
-            // 'accounts',
-            // 'services',
-            // 'songs'
-        ];
-        $truncateTables = [
-            'questions','sections','registers'
+            'users',
+            'score_games',
+            'icountries',
+            'iusers',
+            'ifruits',
+            'ifoods',
+            'icolors',
         ];
         
         Schema::disableForeignKeyConstraints();
@@ -43,15 +37,6 @@ class DatabaseSeeder extends Seeder
 
         $seeders = [
             UserSeeder::class,
-            RoleSeeder::class,
-            BillSeeder::class,
-            CompaniesSeeder::class,
-            RegisterSeeder::class,
-            RestaurantSeeder::class,
-            DishSeeder::class,
-            MonthSeeder::class,
-            ServicesSeeder::class,
-            PaymentSeeder::class
         ];
         $this->call($seeders);
 

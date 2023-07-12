@@ -27,627 +27,7 @@ jQuery(function () {
             "show active"
         );
     }
-    // function to button previous
-    function btn_previous(
-        prv_tab,
-        prv_content_tab,
-        current_tab,
-        current_content_tab
-    ) {
-        $("#custom-tabs-three-" + current_tab + "-tab")
-            .addClass("disabled")
-            .removeClass("active")
-            .attr("aria-selected", "false");
-        $("#custom-tabs-three-" + current_content_tab + "-data").removeClass(
-            "show active"
-        );
-        $("#custom-tabs-three-" + prv_tab + "-tab")
-            .addClass("active ")
-            .removeClass("disabled")
-            .attr({ "data-toggle": "pill", "aria-selected": "true" });
-        $("#custom-tabs-three-" + prv_content_tab + "-data").addClass(
-            "show active"
-        );
-    }
 
-    // TAB NOMBRE /IMAGENES
-    $(".bnext-company-step1").on("click", function () {
-        $.validator.setDefaults({
-            submitHandler: function () {
-                btn_next("name-data", "name", "mision-data", "mision");
-            },
-        });
-        $("#form-company").validate({
-            rules: {
-                name: {
-                    required: true,
-                },
-                mission: {
-                    required: true,
-                },
-                vission: {
-                    required: true,
-                },
-                address: {
-                    required: true,
-                },
-                about_us: {
-                    required: true,
-                },
-                phone: {
-                    required: true,
-                },
-                cellphone: {
-                    required: true,
-                },
-                email: {
-                    required: true,
-                    email: true,
-                },
-            },
-            messages: {
-                name: {
-                    required: "Debe escribir nombre de la compañía",
-                },
-                mission: {
-                    required: "Debe escribir misión",
-                },
-                vission: {
-                    required: "Debe escribir visión",
-                },
-                address: {
-                    required: "Debe escribir una dirección",
-                },
-                about_us: {
-                    required: "Este campo no puede ser vacio",
-                },
-                phone: {
-                    required: "Debe escribir un número de teléfono",
-                },
-                cellphone: {
-                    required: "Debe escribir un número de celular",
-                },
-                email: {
-                    required:
-                        "Debe escribir una direccion de correo electrónico",
-                    email: "El correo electrónico es invalido",
-                },
-            },
-            errorElement: "span",
-            errorPlacement: function (error, element) {
-                error.addClass("invalid-feedback");
-                element.closest(".required-name").append(error);
-            },
-            highlight: function (element, errorClass, validClass) {
-                $(element).addClass("is-invalid");
-            },
-            unhighlight: function (element, errorClass, validClass) {
-                $(element).removeClass("is-invalid");
-            },
-        });
-    });
-
-    // TAB MISON /VISION
-    $(".bnext-company-step2").on("click", function () {
-        let validator = $("#form-company").validate();
-        if (validator.form()) {
-            btn_next("mision-data", "mision", "about-data", "about");
-        }
-    });
-    $(".bprev-company-step1").on("click", function () {
-        btn_previous("name-data", "name", "mision-data", "mision");
-    });
-    // TAB NOSOTROS
-    $(".bnext-company-step3").on("click", function () {
-        let validator = $("#form-company").validate();
-        if (validator.form()) {
-            btn_next("about-data", "about", "location-data", "location");
-        }
-    });
-    $(".bprev-company-step2").on("click", function () {
-        btn_previous("mision-data", "mision", "about-data", "about");
-    });
-    //  TAB UBICATION
-    $(".bnext-company-step4").on("click", function () {
-        let validator = $("#form-company").validate();
-        if (validator.form()) {
-            btn_next("location-data", "location", "account-data", "account");
-        }
-    });
-    $(".bprev-company-step3").on("click", function () {
-        btn_previous("about-data", "about", "location-data", "location");
-    });
-    // TAB ACCOUNT
-    $(".bprev-company-step4").on("click", function () {
-        btn_previous("location-data", "location", "account-data", "account");
-    });
-
-    // TAB Datos ingreso
-    $(".bnext-income-step1").on("click", function () {
-        $.validator.setDefaults({
-            submitHandler: function () {
-                btn_next("income-data", "income", "product-data", "product");
-            },
-        });
-        $("#form-income").validate({
-            rules: {
-                date: {
-                    required: true,
-                },
-                code_voucher: {
-                    required: true,
-                },
-                brand_id: {
-                    required: true,
-                },
-                prototype_id: {
-                    required: true,
-                },
-                quantity: {
-                    required: true,
-                    digits: true,
-                },
-                purchasePrice: {
-                    required: true,
-                    number: true,
-                },
-            },
-            messages: {
-                date: {
-                    required: "Se requiere la fecha",
-                },
-                code_voucher: {
-                    required: "Debe escribir el Nro. del comprobante",
-                },
-                brand_id: {
-                    required: "Debe elegir una marca",
-                },
-                prototype_id: {
-                    required: "Debe elegir un modelo",
-                },
-                quantity: {
-                    required: "Se requiere la cantidad",
-                    digits: "Debe escribir un numero válido",
-                },
-                purchasePrice: {
-                    required: "Debe escribir el precio de compra",
-                    number: "Debe escribir un numero válido",
-                },
-            },
-            errorElement: "span",
-            errorPlacement: function (error, element) {
-                error.addClass("invalid-feedback");
-                element.closest(".required-name").append(error);
-            },
-            highlight: function (element, errorClass, validClass) {
-                $(element).addClass("is-invalid");
-            },
-            unhighlight: function (element, errorClass, validClass) {
-                $(element).removeClass("is-invalid");
-            },
-        });
-    });
-    $(".bprev-income-step1").on("click", function () {
-        btn_previous("income-data", "income", "product-data", "product");
-    });
-    // ******************************************************
-    // income
-    // ******************************************************
-    $(".bnext-income-step2").on("click", function () {
-        btn_next("product-data", "product", "observation-data", "observation");
-    });
-    $(".bprev-income-step2").on("click", function () {
-        btn_previous(
-            "product-data",
-            "product",
-            "observation-data",
-            "observation"
-        );
-    });
-
-    // ******************************************************
-    // product
-    // ******************************************************
-    $(".bprev-product-step1").on("click", function () {
-        btn_previous("product-data", "product", "attribute-data", "attribute");
-    });
-    $(".bnext-product-step1").on("click", function () {
-        let validator = $("#form-product").validate();
-
-        $("#form-product").validate({
-            ignore: [],
-            rules: {
-                productName: {
-                    required: true,
-                },
-                description: {
-                    required: true,
-                },
-                size: {
-                    required: true,
-                    minlength: 4,
-                },
-                serial_control: {
-                    required: true,
-                },
-                category_id: {
-                    required: true,
-                },
-                subcategory_id: {
-                    required: true,
-                },
-                brand_id: {
-                    required: true,
-                },
-                prototype_id: {
-                    required: true,
-                },
-                origin_id: {
-                    required: true,
-                },
-                type_id: {
-                    required: true,
-                },
-            },
-            messages: {
-                productName: {
-                    required: "Debe escribir nombre de producto",
-                },
-                description: {
-                    required: "Debe escribir una descripcion",
-                },
-                size: {
-                    required: "Debe escribir número de Tamaño/Talla",
-                    minlength: "El tamaño debe tener 4 caracteres",
-                },
-                serial_control: {
-                    required: "Debe seleccionar una opcion",
-                },
-                category_id: {
-                    required: "Debe seleccionar una opción",
-                },
-                subcategory_id: {
-                    required: "Debe seleccionar una opción",
-                },
-                brand_id: {
-                    required: "Debe seleccionar una opción",
-                },
-                prototype_id: {
-                    required: "Debe seleccionar una opción",
-                },
-                origin_id: {
-                    required: "Debe seleccionar una opción",
-                },
-                type_id: {
-                    required: "Debe seleccionar una opción",
-                },
-            },
-            errorClass: "form-error",
-            errorElement: "span",
-            errorPlacement: function (error, element) {
-                error.addClass("invalid-feedback");
-                element.closest(".required-name").append(error);
-            },
-            highlight: function (element, errorClass, validClass) {
-                $(element).addClass("is-invalid");
-            },
-            unhighlight: function (element, errorClass, validClass) {
-                $(element).removeClass("is-invalid");
-            },
-        });
-
-        if (validator.form()) {
-            btn_next("product-data", "product", "attribute-data", "attribute");
-        }
-    });
-    // ******************************************************
-    // personal  form step-1
-    // ******************************************************
-    $(".bnext-personal-step1").on("click", function () {
-        $.validator.setDefaults({
-            submitHandler: function () {
-                btn_next("user-data", "user", "personal-data", "personal");
-            },
-        });
-        $("#form-personal").validate({
-            rules: {
-                name_lastname: {
-                    required: true,
-                    minlength: 3,
-                },
-                address: {
-                    required: true,
-                    minlength: 4,
-                },
-                mobile: {
-                    required: true,
-                    number: true,
-                    minlength: 8,
-                },
-                username: {
-                    required: true,
-                    minlength: 4,
-                },
-                email: {
-                    required: true,
-                    minlength: 4,
-                },
-                password: {
-                    required: true,
-                    minlength: 4,
-                },
-            },
-            messages: {
-                name_lastname: {
-                    required: "Debe escribir un nombre y apellido",
-                    minlength:
-                        "El nombre y apellido debe ser de al menos 3 letras",
-                },
-                mobile: {
-                    required: "Debe escribir nro. celular",
-                    number: "Debe escribir un numero válido",
-                    minlength: "El numero debe ser de al menos 8 dígitos",
-                },
-                address: {
-                    required: "Debe escribir una dirección",
-                    minlength: "La dirección debe ser de al menos 4 letras",
-                },
-                username: {
-                    required: "Debe escribir nombre de usuario",
-                    minlength:
-                        "El nombre de usuario debe ser de al menos 4 dígitos",
-                },
-                email: {
-                    required: "Debe escribir correo electónico",
-                    email: "El correo electrónico es invalido",
-                },
-                password: {
-                    required: "Debe escribir password",
-                    minlength: "El numero debe ser de al menos 6 dígitos",
-                },
-            },
-            errorClass: "form-error",
-            errorElement: "span",
-            errorPlacement: function (error, element) {
-                error.addClass("invalid-feedback");
-                element.closest(".required-name").append(error);
-            },
-            highlight: function (element, errorClass, validClass) {
-                $(element).addClass("is-invalid");
-            },
-            unhighlight: function (element, errorClass, validClass) {
-                $(element).removeClass("is-invalid");
-            },
-        });
-        $("input[name^='name_']").each(function () {
-            $(this).rules("add", {
-                required: true,
-                messages: {
-                    required: "Debe escribir un nombre y apellido",
-                    minlength:
-                        "El nombre y apellido debe ser de al menos 3 letras",
-                },
-            });
-        });
-    });
-
-    // personal form step-2
-    $(".bprev-personal-step2").on("click", function () {
-        btn_previous("user-data", "user", "personal-data", "personal");
-    });
-    // personal form step-3
-    $(".bprev-personal-step3").on("click", function () {
-        btn_previous(
-            "personal-data",
-            "personal",
-            "permission-data",
-            "permission"
-        );
-    });
-
-    $(".bnext-personal-step2").on("click", function () {
-        let validator = $("#form-personal").validate();
-        if (validator.form()) {
-            btn_next(
-                "personal-data",
-                "personal",
-                "permission-data",
-                "permission"
-            );
-        }
-    });
-
-    // provider form
-    $(".bprev-provider-step2").on("click", function () {
-        btn_previous("user-data", "user", "provider-data", "provider");
-    });
-    $(".bnext-provider").on("click", function () {
-        $.validator.setDefaults({
-            submitHandler: function () {
-                btn_next("user-data", "user", "provider-data", "provider");
-            },
-        });
-        $("#form-provider").validate({
-            rules: {
-                name_lastname: {
-                    required: true,
-                    minlength: 3,
-                },
-                mobile: {
-                    required: true,
-                    minlength: 8,
-                },
-                provider_name: {
-                    required: true,
-                },
-                address: {
-                    required: true,
-                },
-                detail: {
-                    required: true,
-                },
-            },
-            messages: {
-                name_lastname: {
-                    required: "Debe escribir un nombre y apellido",
-                },
-                mobile: {
-                    required: "Debe escribir nro. celular",
-                    minlength: "El numero debe ser de al menos 8 dígitos ",
-                },
-                provider_name: {
-                    required: "Debe escribir nombre de proveedor",
-                },
-                address: {
-                    required: "Debe escribir una dirección",
-                },
-                detail: {
-                    required: "Debe escribir el motivo de su modificacion",
-                },
-            },
-            errorElement: "span",
-            errorPlacement: function (error, element) {
-                error.addClass("invalid-feedback");
-                element.closest(".required-name").append(error);
-            },
-            highlight: function (element, errorClass, validClass) {
-                $(element).addClass("is-invalid");
-            },
-            unhighlight: function (element, errorClass, validClass) {
-                $(element).removeClass("is-invalid");
-            },
-        });
-    });
-    // client form
-    $(".bprev-client-step2").on("click", function () {
-        btn_previous("user-data", "user", "client-data", "client");
-    });
-    $(".bnext-client").on("click", function () {
-        $.validator.setDefaults({
-            submitHandler: function () {
-                btn_next("user-data", "user", "client-data", "client");
-            },
-        });
-        $("#form-client").validate({
-            rules: {
-                name_lastname: {
-                    required: true,
-                    minlength: 3,
-                },
-                mobile: {
-                    required: true,
-                    minlength: 8,
-                },
-                address: {
-                    required: true,
-                },
-                detail: {
-                    required: true,
-                },
-            },
-            messages: {
-                name_lastname: {
-                    required: "Debe escribir un nombre y apellido",
-                },
-                mobile: {
-                    required: "Debe escribir nro. celular",
-                    minlength: "El numero debe ser de al menos 8 dígitos ",
-                },
-                address: {
-                    required: "Debe escribir una dirección",
-                },
-                detail: {
-                    required: "Debe escribir el motivo de su modificacion",
-                },
-            },
-            errorElement: "span",
-            errorPlacement: function (error, element) {
-                error.addClass("invalid-feedback");
-                element.closest(".required-name").append(error);
-            },
-            highlight: function (element, errorClass, validClass) {
-                $(element).addClass("is-invalid");
-            },
-            unhighlight: function (element, errorClass, validClass) {
-                $(element).removeClass("is-invalid");
-            },
-        });
-    });
-
-    $(".bsave-company").on("click", function () {
-        $("#form-company").validate({
-            rules: {
-                name: {
-                    required: true,
-                    minlength: 3,
-                },
-                address: {
-                    required: true,
-                },
-                cellphone: {
-                    required: true,
-                    minlength: 8,
-                },
-                mission: {
-                    required: true,
-                    minlength: 8,
-                },
-                vission: {
-                    required: true,
-                    minlength: 8,
-                },
-                about_us: {
-                    required: true,
-                },
-                description: {
-                    required: true,
-                },
-            },
-            messages: {
-                name: {
-                    required: "Debe escribir nombre",
-                    minlength: 3,
-                },
-                address: {
-                    required: "Debe escribir direccion",
-                },
-                cellphone: {
-                    required: "Debe escribir numero de celular",
-                    minlength: "El numero debe ser mayor a 8 digitos",
-                },
-                mission: {
-                    required: "La mision no debe ser vacio",
-                    minlength: "El numero debe ser mayor a 8 digitos",
-                },
-                vission: {
-                    required: "La vision no debe ser vacio",
-                    minlength: "El numero debe ser mayor a 8 digitos",
-                },
-                about_us: {
-                    required: "El campo acerca de no debe ser vacio",
-                },
-                description: {
-                    required: "La descripcion no debe ser vacia",
-                },
-            },
-            errorElement: "span",
-            errorPlacement: function (error, element) {
-                error.addClass("invalid-feedback");
-                element.closest(".required-name").append(error);
-            },
-            highlight: function (element, errorClass, validClass) {
-                $(element).addClass("is-invalid");
-            },
-            unhighlight: function (element, errorClass, validClass) {
-                $(element).removeClass("is-invalid");
-            },
-        });
-
-        let validator = $("#form-company").validate();
-        if (validator.form()) {
-            $("#form-company").get(0).submit();
-        }
-    });
     // provider form button  send form
     // client form button  send form
     // personal form button  send form
@@ -746,25 +126,23 @@ jQuery(function () {
         },
     });
     //Date range picker incomes
-    $("#reservationdate").datetimepicker({
-        format: "YYYY-MM-DD",
+    $("#dob,#date,#date_start").datetimepicker({
+        format: "DD-MM-YYYY",
         locale: "es",
         minDate: moment().subtract(60, "days"),
         defaultDate: moment(),
     });
-    /// switch for incomes
+    /// switch for president
     $("input[data-bootstrap-switch]").each(function () {
         $(this).bootstrapSwitch("state", $(this).prop("checked"));
         $(this).on("switchChange.bootstrapSwitch", function () {
             let check = $(".bootstrap-switch-on");
             if (check.length > 0) {
-                //display warehouse option
-                $(".warehouse-option").fadeIn("slow");
-                $(".sucursal-option").fadeOut("fast");
+                //display president option
+                $("#manager").fadeIn();
             } else {
-                //display sucursal option
-                $(".sucursal-option").fadeIn("slow");
-                $(".warehouse-option").fadeOut("fast");
+                //hide president option
+                $("#manager").fadeOut();
             }
         });
     });
@@ -1036,78 +414,78 @@ jQuery(function () {
     /** ***********************************************************************************
      * dependat select for income
      *************************************************************************************** */
-    // BRAND
-    $("select[name=brand_id]").on("change", function () {
-        let brand_id = $(this).val();
-        let option = "";
-        let ajax_url = domain + "/admin/incomes/prototypes/brand";
+    // // BRAND
+    // $("select[name=brand_id]").on("change", function () {
+    //     let brand_id = $(this).val();
+    //     let option = "";
+    //     let ajax_url = domain + "/admin/incomes/prototypes/brand";
 
-        $("select#prototype_id").empty().attr("disabled", "disabled");
-        if (brand_id) {
-            $.ajax({
-                method: "POST",
-                url: ajax_url,
-                data: { brand: brand_id },
-            }).done(function (data) {
-                if (data.status) {
-                    for (const property in data.list) {
-                        option +=
-                            "<option value='" +
-                            property +
-                            "'>" +
-                            data.list[property] +
-                            "</option>";
-                    }
-                    if (option.length) {
-                        $("select#prototype_id").select2("destroy");
-                        $("select#prototype_id")
-                            .removeAttr("disabled")
-                            .html(option)
-                            .prepend(
-                                "<option value='' selected>Seleccionar...</option>"
-                            );
-                        $("select#prototype_id").select2();
-                    }
-                } else {
-                    // setTimeout(function () {
-                    //     $("#modal-account-" + user_id).modal("hide");
-                    // }, 5000);
-                }
-            });
-        } else {
-            $("#img-product").slideUp("5000");
-        }
-    });
-    // PROTOTYPE
-    $("select[name=prototype_id]").on("change", function () {
-        let brand_id = $("select#brand_id").find(":selected").val();
-        let prototype_id = $(this).val();
-        let ajax_url = domain + "/admin/incomes/brands/product";
+    //     $("select#prototype_id").empty().attr("disabled", "disabled");
+    //     if (brand_id) {
+    //         $.ajax({
+    //             method: "POST",
+    //             url: ajax_url,
+    //             data: { brand: brand_id },
+    //         }).done(function (data) {
+    //             if (data.status) {
+    //                 for (const property in data.list) {
+    //                     option +=
+    //                         "<option value='" +
+    //                         property +
+    //                         "'>" +
+    //                         data.list[property] +
+    //                         "</option>";
+    //                 }
+    //                 if (option.length) {
+    //                     $("select#prototype_id").select2("destroy");
+    //                     $("select#prototype_id")
+    //                         .removeAttr("disabled")
+    //                         .html(option)
+    //                         .prepend(
+    //                             "<option value='' selected>Seleccionar...</option>"
+    //                         );
+    //                     $("select#prototype_id").select2();
+    //                 }
+    //             } else {
+    //                 // setTimeout(function () {
+    //                 //     $("#modal-account-" + user_id).modal("hide");
+    //                 // }, 5000);
+    //             }
+    //         });
+    //     } else {
+    //         $("#img-product").slideUp("5000");
+    //     }
+    // });
+    // // PROTOTYPE
+    // $("select[name=prototype_id]").on("change", function () {
+    //     let brand_id = $("select#brand_id").find(":selected").val();
+    //     let prototype_id = $(this).val();
+    //     let ajax_url = domain + "/admin/incomes/brands/product";
 
-        $.ajax({
-            method: "POST",
-            url: ajax_url,
-            data: {
-                prototype: prototype_id,
-                brand: brand_id,
-            },
-        }).done(function (data) {
-            if (data.status) {
-                $("#img-product>img.img-product-thumb")
-                    .attr("src", data.image)
-                    .fadeIn("3000");
-                $("#img-product").slideDown("5000");
-                $("#img-product>#aproduct_id").val([data.product.id]);
-                $("#img-product>#aproduct").val([
-                    data.category,
-                    data.subcategory,
-                    data.product.productName,
-                ]);
-            } else {
-                $("#img-product").slideUp("5000");
-            }
-        });
-    });
+    //     $.ajax({
+    //         method: "POST",
+    //         url: ajax_url,
+    //         data: {
+    //             prototype: prototype_id,
+    //             brand: brand_id,
+    //         },
+    //     }).done(function (data) {
+    //         if (data.status) {
+    //             $("#img-product>img.img-product-thumb")
+    //                 .attr("src", data.image)
+    //                 .fadeIn("3000");
+    //             $("#img-product").slideDown("5000");
+    //             $("#img-product>#aproduct_id").val([data.product.id]);
+    //             $("#img-product>#aproduct").val([
+    //                 data.category,
+    //                 data.subcategory,
+    //                 data.product.productName,
+    //             ]);
+    //         } else {
+    //             $("#img-product").slideUp("5000");
+    //         }
+    //     });
+    // });
 
     /**********************************************************************************************
      *  MODALS
@@ -1151,7 +529,7 @@ jQuery(function () {
             $("#" + modal_action.modal_id + " .modal-body input[name=id]")
                 .empty()
                 .val(modal_action.input_hidden);
-        } else {
+        } else {  
             if (modal_action.custom_body) {
                 //content for body in modal
                 $("#" + modal_action.modal_id + " .modal-body")
@@ -1162,41 +540,69 @@ jQuery(function () {
                         modal_action.content_name +
                         "</strong>"
                     );
-            } else {
-                $("#" + modal_action.modal_id + " .modal-body .text-detail")
-                    .empty()
-                    .html(
-                        modal_action.modal_text +
-                            "<strong>" +
-                            modal_action.content_name
-                            ? modal_action.content_name
-                            : "" + "</strong>"
-                    );
+            } else {                
+                if(modal_action.participant){                    
+                    var texting = "Nombre: <strong>"+modal_action.participant+"</strong>";
+                    texting += "<span class='d-block'>Turno:<strong>"+modal_action.participant_turn+"</strong></span>";
+                    $("#" + modal_action.modal_id + " .modal-body .text-detail")
+                        .empty()
+                        .html(texting);
+                }else{
+                    const texting = modal_action.modal_text+"<strong>"+modal_action.content_name+"</strong>";
+                    $("#" + modal_action.modal_id + " .modal-body .text-detail")
+                        .empty()
+                        .html(texting);
+                }                
             }
         }
 
         $("#" + modal_action.modal_id + " button[type=submit]")
             .empty()
             .html(modal_action.icon_accept + modal_action.btn_accept);
+        $("#" + modal_action.modal_id + " .modal-footer button[type=button]")
+            .empty()
+            .html(modal_action.icon_cancel + modal_action.btn_cancel);
+            
+        if(!modal_action.url){
+            $("#" + modal_action.modal_id + " button[type=submit]").on("click",function(evt){
+                evt.preventDefault();
+                $("#" + modal_action.modal_id).modal("hide");    
+            });
+        }
 
         $("#" + modal_action.modal_id).modal("show");
     }
-    // delete
-    $("a[data-action=delete-debts]").on("click", function (event) {
-        event.preventDefault();
+    // next
+    $("a[data-action=next]").on("click", function (event) {
+        event.preventDefault();        
 
-        let modal_object = {
-            modal_id: "modal-debts-delete",
-            url: $(this).attr("data-url"), //url to send form
-            modal_title: $(this).attr("data-title-msg"), //title of modal
-            modal_text: $(this).attr("data-text-msg"), //text of modal
-            content_name: $(this).attr("data-name"), //name of register
-            custom_body: true,
-            btn_accept: $(this).attr("data-btn-action"), // text to send form
-            icon_accept: "<i class='fas fa-trash-alt' aria-hidden='true'></i>", //icon to accept btn
+        var id_date = $(this).attr("data-next-delivery").split("::");
+        var data = {
+            id: id_date[0],
+            date: id_date[1]
         };
-        // action_modal(modal_object,true,false,false);
-        action_modal(modal_object);
+        $.ajax({
+            method: "POST",
+            url: window.location.origin+'/admin/get_next_delivery',
+            data: data,
+        }).done(function (data) {
+            let modal_object = {
+                modal_id: "modalShow",
+                modal_title: $("a[data-action=next]").attr("data-title-msg"), //title of modal
+                modal_text: $("a[data-action=next]").attr("data-text-msg"), //text of modal
+                content_name: $("a[data-action=next]").attr("data-name"), //name of register
+                btn_accept: $("a[data-action=next]").attr("data-btn-action"), // text to send form
+                btn_cancel: $("a[data-action=next]").attr("data-btn-cancel"), // text to cancel form
+                icon_accept: "<i class='fas fa-trash-alt' aria-hidden='true'></i>", //icon to accept btn
+                icon_cancel: "<i class='fas fa-ban' aria-hidden='true'></i>", //icon to cancel btn
+                participant: JSON.parse(data).name,//participant name
+                participant_turn: JSON.parse(data).turn//participant turn
+            };
+            
+            action_modal(modal_object);
+        }) .fail(function(xhr, status, error) {
+            alert( error );
+          });
     });
     // delete
     $("a[data-action=delete]").on("click", function (event) {
@@ -1209,84 +615,12 @@ jQuery(function () {
             modal_text: $(this).attr("data-text-msg"), //text of modal
             content_name: $(this).attr("data-name"), //name of register
             btn_accept: $(this).attr("data-btn-action"), // text to send form
+            btn_cancel: $(this).attr("data-btn-cancel"), // text to send form
             icon_accept: "<i class='fas fa-trash-alt' aria-hidden='true'></i>", //icon to accept btn
+            icon_cancel: "<i class='fas fa-ban' aria-hidden='true'></i>", //icon to cancel btn
         };
+        console.log(JSON.stringify(modal_object));
         // action_modal(modal_object,true,false,false);
-        action_modal(modal_object);
-    });
-    // recycle
-    $("a[data-action=recycle]").on("click", function (event) {
-        event.preventDefault();
-
-        let modal_object = {
-            modal_id: "modalRecycle",
-            url: $(this).attr("data-url"), //url to send form
-            modal_title: $(this).attr("data-title-msg"), //title of modal
-            modal_text: $(this).attr("data-text-msg"), //text of modal
-            content_name: $(this).attr("data-name"), //name of register
-            btn_accept: $(this).attr("data-btn-action"), // text to send form
-            icon_accept: "<i class='fas fa-recycle' aria-hidden='true'></i>", //icon to accept btn
-        };
-
-        action_modal(modal_object);
-    });
-    //restore
-    $("a[data-action=restore]").on("click", function (event) {
-        event.preventDefault();
-
-        let modal_object = {
-            modal_id: "modalRestore",
-            url: $(this).attr("data-url"), //url to send form
-            modal_title: $(this).attr("data-title-msg"), //title of modal
-            content_name: $(this).attr("data-name"), //name of register
-            btn_accept: $(this).attr("data-btn-action"), // text to send form
-            icon_accept:
-                "<i class='fas fa-trash-restore' aria-hidden='true'></i>", //icon to accept btn
-        };
-
-        action_modal(modal_object);
-    });
-    //delete image gallery
-    $("a[data-action=delete_gallery]").on("click", function (event) {
-        event.preventDefault();
-
-        let modal_object = {
-            modal_id: "modalDeleteGallery",
-            url: $(this).attr("data-url"), //url to send form
-            modal_title: $(this).attr("data-title-msg"), //title of modal
-            modal_text: $(this).attr("data-text-msg"), //text of modal
-            content_name: $(this).attr("data-name"), //name of register
-            btn_accept: $(this).attr("data-btn-action"), // text to send form
-            icon_accept:
-                "<i class='fas fa-trash-restore' aria-hidden='true'></i>", //icon to accept btn
-            input_hidden: $(this).attr("data-image-id"),
-        };
-
-        action_modal(modal_object);
-    });
-
-    //edit image gallery
-    $("a[data-action=edit_gallery]").on("click", function (event) {
-        event.preventDefault();
-
-        let modal_object = {
-            modal_id: "modalEditGallery",
-            url: $(this).attr("data-url"), //url to send form
-            modal_title: $(this).attr("data-title-msg"), //title of modal
-            modal_text: $(this).attr("data-text-msg"), //text of modal
-            content_name: $(this).attr("data-name"), //name of register
-            btn_accept: $(this).attr("data-btn-action"), // text to send form
-            icon_accept:
-                "<i class='fas fa-trash-restore' aria-hidden='true'></i>", //icon to accept btn
-            input_hidden: $(this).attr("data-image-id"),
-            state: true,
-            status: {
-                id: $(this).attr("data-state-id"),
-                visible: $(this).attr("data-state-visible"),
-                hidden: $(this).attr("data-state-hidden"),
-            },
-        };
-
         action_modal(modal_object);
     });
 });

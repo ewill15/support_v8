@@ -203,6 +203,11 @@ table#product input._filterText {
     width: 38px;
 }
 
+/*input read only*/
+.only-read{
+    background-color: transparent;
+    border: none;
+}
 
 /* RESPONSIVE */
 @media (max-width: 768px){

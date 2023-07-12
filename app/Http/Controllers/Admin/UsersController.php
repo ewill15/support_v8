@@ -2,33 +2,43 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helper;
 use App\Models\User;
-use App\Models\Helper;
+use App\Mail\PasanakuMail;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 
 class UsersController extends Controller
 {
     public function __construct()
     {
-        view()->share('section','user');
+        view()->share('section','users');
     }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    
     public function index(Request $request)
     {
         $lang = app()->getLocale();
-        $users = User::users()->orderBy('id','ASC');
-
+        $users = User::users()->orderBy('last_name', 'ASC');
+        
         $paginate = $request->pagination ? $request->pagination : 20;
         $page = (int)$request->page;
-        if($request->keyword != '')
-            $users = $users->where('first_name','LIKE','%'.$request->keyword.'%')
-                ->orWhere('email','LIKE','%'.$request->keyword.'%');
+        if ($request->keyword != '')
+            $users = $users->where('name', 'LIKE', '%' . $request->keyword . '%')
+                ->orWhere('cellphone', 'LIKE', $request->keyword . '%');
 
-        $text_pagination = Helper::messageCounterPagination($users->count(), $page,$paginate,$lang);
+        $text_pagination = Helper::messageCounterPagination($users->count(), $page, $paginate, $lang);
 
         $users = $users->paginate($paginate);
-        view()->share('section','user');
-        return view('admin.users.index', compact('users', 'paginate','text_pagination'));
+
+        return view('admin.users.index', compact('users', 'paginate', 'text_pagination'));
     }
 
     public function create()
@@ -36,90 +46,137 @@ class UsersController extends Controller
         return view('admin.users.create');
     }
 
-    public function show(){/* show */}
-
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
-        $v= Validator::make($request->all(),[
-            'username' => 'required|string',
-            'name' => 'required|string',
-            'last_name' => 'required|string',
-            'email' => 'required|unique:users,email',
-            'password' => 'required|string|min:6'
+        $v = Validator::make($request->all(), [
+            'name' => 'required|string|min:3',
+            'last_name' => 'string',            
+            'mobile' => 'required|string|min:8',
+            'email'=>'required|email',
+            'password' => 'min:8',
         ]);
-        if($v && $v->fails()){
+        if ($v && $v->fails()) {
             return redirect()->back()->withInput()->withErrors($v->errors());
         }
 
         $fields = $request->all();
-
-        if(isset($fields['password']) and strlen($fields['password'])>1 ){
-            $fields['password'] = bcrypt($fields['password']);
-        }else{
-            $fields['password'] = null;
-        }
         
+        if($request->dob)
+            $fields['dob'] = Helper::date_database($request->dob);
+
+        $fields['password'] = bcrypt($request->password);
+        
+        // dd($fields);
+        // OPTION 1::   
+        // Mail::to()->send(new PasanakuMail($admin,$pasanaku));
+        // OPTION 2:: 
+        // Mail::send('emails.pasanaku', ['admin' => $admin->full_name, 'pasanaku' => $pasanaku], function ($m) use ($pasanaku) {
+        //     $m->from('info@pasanaku.com', 'ukanasap');
+        //     $m->to('ewarandia@gmail.com', $pasanaku->username)->subject('Nuevo Pasanaku creado');
+        // });
         $user = User::create($fields);
 
-        if ($user)
-        {
-            Session::flash('flash_message', 'Se ha creado un nuevo usuario');
+        if ($user) {
+            Session::flash('flash_message', Helper::contentFlashMessage('create')['success']);
             Session::flash('flash_message_type', 'success');
-        }
-        else
-        {
-            Session::flash('flash_message', 'Hubo un error al crear usuario');
+        } else {
+            Session::flash('flash_message', Helper::contentFlashMessage('create')['error']);
             Session::flash('flash_message_type', 'danger');
         }
+
         return redirect('admin/users');
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function edit($id)
     {
         $user = User::find($id);
+        $guarantees = User::orderBy('last_name', 'Asc')
+        ->users()
+        ->get()
+        ->pluck('full_name', 'id');
 
-        return view('admin.users.edit',compact('user'));
+        return view('admin.users.edit', compact('user','guarantees'));
     }
 
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function update(Request $request, $id)
-    {        
-        $items = User::find($id);
+    {
+        $user = User::find($id);
         $fields = $request->all();
-        
-        $v= Validator::make($request->all(),[
-            'name' => 'required|string',
-            'last_name' => 'required|string',
-            'username' => 'required',
-            'email'=> 'required'
+
+        $v = Validator::make($request->all(), [
+            'name' => 'required|string|min:3',
+            'last_name' => 'string',            
+            'mobile' => 'required|string|min:8',
+            'email'=>'required|email',
+            'password' => 'min:8',
         ]);
-        if($v && $v->fails()){
+        if ($v && $v->fails()) {
             return redirect()->back()->withInput()->withErrors($v->errors());
         }
-        $items->update($fields);
+        if(isset($request->email))
+            unset($fields['email']);
+                
+        $user = $user->update($fields);
 
-        Session::flash('flash_message', 'Se ha actualizado el usuario');
-        Session::flash('flash_message_type', 'success');
-
-        return redirect('admin/users');
-    }
-
-    public function destroy($id)
-    {
-        $items = User::findOrFail($id);
-        if ($items) {
-            $items->delete();
-
-            Session::flash('flash_message', '¡Usuario Eliminado!');
+        if ($user) {
+            Session::flash('flash_message', Helper::contentFlashMessage('update')['success']);
             Session::flash('flash_message_type', 'success');
         } else {
-            Session::flash('flash_message', 'usuario no pudo ser eliminado.');
-            Session::flash('flash_message_type', 'warning');
+            Session::flash('flash_message', Helper::contentFlashMessage('update')['error']);
+            Session::flash('flash_message_type', 'danger');
         }
+
         return redirect('admin/users');
     }
 
-    public function export() 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Request $request, $id)
     {
-        return Excel::download(new UserExport, 'users.xlsx');
+        $user = User::findOrFail($id);
+
+        if ($user) {
+            $user->delete(); //delete phisically   
+            Session::flash('flash_message', Helper::contentFlashMessage('delete')['success']);
+            Session::flash('flash_message_type', 'success');
+        } else {
+            Session::flash('flash_message', Helper::contentFlashMessage('delete')['error']);
+            Session::flash('flash_message_type', 'danger');
+        }
+        return redirect('admin/users');
     }
 }

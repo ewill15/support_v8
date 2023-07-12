@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -26,11 +25,11 @@ class AuthController extends Controller
     {
 
         $validate = Validator::make($request->all(), [
-            'name_lastname'     => 'required|max:255',
+            'first_name'     => 'required|max:255',
+            'last_name'     => 'required|max:255',
             'username'          => 'required|max:20',
             'email'             => 'required|email|unique:users|max:255',
             'password'          => 'required|max:20'
-
         ]);
 
         if ($validate->fails()) {
@@ -43,7 +42,8 @@ class AuthController extends Controller
         User::create([
             'password'   => Hash::make($request->password),
             'email'      => $request->email,
-            'name_lastname'     => $request->nname_lastname,
+            'first_name'     => $request->first_name,
+            'last_name'     => $request->last_name,
             'username'    => $request->username
         ]);
 
@@ -65,13 +65,11 @@ class AuthController extends Controller
             'email' => 'required|email',
             'password' => 'required',
         ]);
-
-       
+      
         if (Auth::attempt([
             'email' => $request->email,
             'password' => $request->password
-        ])) { 
-                     
+        ])) {     
             return redirect('admin/dashboard');
         }
         
@@ -90,3 +88,4 @@ class AuthController extends Controller
         return  redirect('/login');
     }
 }
+

@@ -1,5 +1,5 @@
 @extends('layouts.admin.app')
-@section('title', ucfirst(trans('common.user')))
+@section('title', ucfirst(trans('common.users')) )
 @section('content')
 <!-- ============================================================== -->
     <!-- pageheader -->
@@ -9,23 +9,21 @@
             <div class="row">
                 <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
                     <div class="page-header">
-                        <h2 class="pageheader-title">{{ucfirst(trans('common.user'))}}</h2>
+                        <h2 class="pageheader-title">{{ ucfirst(trans('common.users')) }}</h2>
                         <div class="page-breadcrumb">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item">
                                         <a href="{{ url('/admin/dashboard') }}" class="breadcrumb-link">
-                                            {{ucfirst(trans('common.home'))}}
+                                            {{ ucfirst(trans('common.home')) }}
                                         </a>
                                     </li>
                                     <li class="breadcrumb-item">
                                         <a href="{{ url('/admin/users') }}" class="breadcrumb-link">
-                                            {{ucfirst(trans('common.user'))}}
+                                            {{ ucfirst(trans('common.list_users')) }}
                                         </a>
                                     </li>
-                                    <li class="breadcrumb-item active" aria-current="page">
-                                        {{ucfirst(trans('common.edit_user'))}}
-                                    </li>
+                                    <li class="breadcrumb-item active" aria-current="page">{{ ucfirst(trans('common.edit_user')) }}</li>
                                 </ol>
                             </nav>
                         </div>
@@ -47,10 +45,10 @@
                     @include('admin.partials.messages')
                     @include('admin.partials.errors', ['errors' => $errors])
                     <div class="card">
-                        <h5 class="card-header">{{ucfirst(trans('common.edit_user'))}}</h5>
+                        <h5 class="card-header">{{ ucfirst(trans('common.update_record')) }}</h5>
                         <div class="card-body">
                             {!! Form::model($user, [
-                                'id'=>'form-personal', 
+                                'id'=>'form-user', 
                                 'route' => ['users.update', $user], 
                                 'method' => 'PUT', 
                                 'enctype' => 'multipart/form-data',
@@ -59,6 +57,7 @@
                             !!}
                             @include('admin.users.partials.form', ['errors' => $errors])
                             @include('admin.partials.buttons', ['label' => ucfirst(trans('common.update'))])
+                            {{-- @include('admin.users.partials.modal-edit') --}}
                             {!! Form::close() !!}
                         </div>
                     </div>
