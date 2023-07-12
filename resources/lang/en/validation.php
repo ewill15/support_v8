@@ -220,6 +220,7 @@ return [
         'area'                  => 'area',
         'author'                => 'author',
         'lyrics'                => 'lyrics',
+        'food'                  => 'food',
     ],
 
 ];

@@ -88,6 +88,17 @@
             </p>
           </a>
         </li>
+
+        <!--------- Menu quarentine  -------------------> 
+        <li class="nav-item has-treeview">
+          <a href="{{ url('/admin/quarentines') }}" class="nav-link {{($section == 'quarentines')?'active':''}}">
+            <i class="fas fa-utensils"></i>
+            <p>
+              {{ ucfirst(trans('common.quarentines')) }}
+              <span class="right badge badge-warning">check</span>
+            </p>
+          </a>
+        </li>
         
 
       </ul>

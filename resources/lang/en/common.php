@@ -29,6 +29,7 @@ return [
         'user'   => 'Do you want to delete this user?',
         'image'  => 'Do you want to delete this image?',
     ],
+    'date'=>'date',
     'ok'     => 'ok',
     'reset'     => 'reset password',
     'new'       => 'new',
@@ -88,6 +89,8 @@ return [
     'songs'=>'songs',
     'author'=>'author',
     'title'=>'title',
-    
 
+    'quarentine'=>'quarentine',
+    'quarentines'=>'quarentines',
+    'food'=>'food',
 ];
