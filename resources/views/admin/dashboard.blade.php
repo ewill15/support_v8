@@ -17,6 +17,7 @@
             </div>
             <!-- /.info-box -->
           </div>
+        {{--           
           <!-- /.col -->
           <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box mb-3">
@@ -35,7 +36,7 @@
             <!-- /.info-box -->
           </div>
           <!-- /.col -->
-      
+       
           <!-- fix for small devices only -->
           <div class="clearfix hidden-md-up"></div>
       
@@ -91,5 +92,6 @@
             <!-- /.info-box -->
           </div>
           <!-- /.col -->
+        --}}
     </div>
 @endsection

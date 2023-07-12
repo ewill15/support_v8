@@ -71,33 +71,4 @@ return [
     'data'=>'data',
     'new_user'=>'new user',
     'msgdelete'=>'Do you want to delete ',
-
-    'colors'=>'colors',
-    'short_name'=>'short name',
-    'new_color'=>'new color',
-
-    'countries'=>'countries',
-    'capital'=>'capital',
-    'region'=>'region',
-    'languages'=>'languages',
-    'subregion'=>'sub region',
-    'timezone'=>'time zone',
-    'continent'=>'continent',
-
-    'foods'=>'foods',
-
-    'fruits'=>'fruits',
-    'family'=>'family',
-    'genus'=>'genus',
-    'order'=>'order',
-    'carbohydrates'=>'carbohydates',
-    'protein'=>'protein',
-    'fat'=>'fat',
-    'calories'=>'calories',
-    'sugar'=>'sugar',
-
-    'gender'=>'gender',
-    'gusers'=>'gusers',
-
-    
 ];

@@ -68,34 +68,4 @@ return [
     'data'=>'dato',
     'new_user'=>'nuevo usuario',
     'msgdelete'=>'Deseas eliminar',
-
-    'colors'=>'colores',
-    'short_name'=>'nombre corto',
-    'new_color'=>'nuevo color',
-
-    'countries'=>'paises',
-    'capital'=>'capital',
-    'region'=>'region',
-    'languages'=>'lenguajes',
-    'subregion'=>'sub region',
-    'timezone'=>'zona horaria',
-    'continent'=>'continente',
-
-    'foods'=>'comidas',
-
-    'fruits'=>'frutas',
-    'family'=>'familia',
-    'genus'=>'género',
-    'order'=>'orden',
-    'carbohydrates'=>'carbohidratos',
-    'protein'=>'proteina',
-    'fat'=>'grasa',
-    'calories'=>'calorias',
-    'sugar'=>'azucar',
-
-    'gender'=>'genero',
-    'gusers'=>'ramdom users',
-
-    
-
 ];

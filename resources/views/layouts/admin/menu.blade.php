@@ -38,50 +38,7 @@
           </a>
         </li>
 
-        <li class="nav-item has-treeview">
-          <a href="{{ url('/admin/colors') }}" class="nav-link {{($section == 'colors')?'active':''}}">
-            <i class="fas fa-palette mr-2"></i>
-            <p>
-              {{ ucfirst(trans('common.colors')) }}
-            </p>
-          </a>
-        </li>
 
-        <li class="nav-item has-treeview">
-          <a href="{{ url('/admin/countries') }}" class="nav-link {{($section == 'countries')?'active':''}}">
-            <i class="fas fa-globe mr-2"></i>
-            <p>
-              {{ ucfirst(trans('common.countries')) }}
-            </p>
-          </a>
-        </li>
-        
-        <li class="nav-item has-treeview">
-          <a href="{{ url('/admin/foods') }}" class="nav-link {{($section == 'foods')?'active':''}}">
-            <i class="fas fa-hamburger mr-2"></i>
-            <p>
-              {{ ucfirst(trans('common.foods')) }}
-            </p>
-          </a>
-        </li>
-
-        <li class="nav-item has-treeview">
-          <a href="{{ url('/admin/fruits') }}" class="nav-link {{($section == 'fruits')?'active':''}}">
-            <i class="fas fa-lemon mr-2"></i>
-            <p>
-              {{ ucfirst(trans('common.fruits')) }}
-            </p>
-          </a>
-        </li>
-
-        <li class="nav-item has-treeview">
-          <a href="{{ url('/admin/gusers') }}" class="nav-link {{($section == 'foods')?'active':''}}">
-            <i class="fas fa-users"></i>
-            <p>
-              {{ ucfirst(trans('common.gusers')) }}
-            </p>
-          </a>
-        </li>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
