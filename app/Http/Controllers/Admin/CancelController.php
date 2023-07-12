@@ -31,9 +31,9 @@ class CancelController extends Controller
         if($request->keyword != '')
             $cancel = $cancel->where('name','LIKE','%'.$request->keyword.'%');
 
-        $text_pagination = Helper::messageCounterPagination($cancel->count(), $page,$paginate,$lang);
+        $text_pagination = Helper::messageCounterPagination($cancels->count(), $page,$paginate,$lang);
 
-        $cancel = $cancel->paginate($paginate);
+        $cancels = $cancels->paginate($paginate);
 
         return view('admin.cancels.index', compact('cancels', 'paginate','text_pagination'));
     }
@@ -42,7 +42,7 @@ class CancelController extends Controller
     {
         $list_services = Service::orderBy('name','asc')->pluck('name','id');
 
-        return view('admin.cancelss.create',compact('list_services'));
+        return view('admin.cancels.create',compact('list_services'));
     }
 
     public function show(){/* show */}
