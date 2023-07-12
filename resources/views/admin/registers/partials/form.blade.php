@@ -1,80 +1,78 @@
-<legend>
-    <div class="row">
-        <div class="col-lg-12">
-            <fieldset>
-                <div class="card card-primary card-outline card-tabs">
-                    <div class="card-header p-0 pt-1 border-bottom-0">
-                      <ul class="nav nav-tabs" id="custom-tabs-three-tab" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="custom-tabs-three-user-data-tab" data-toggle="pill" href="#custom-tabs-three-user-data" role="tab" aria-controls="custom-tabs-three-user-data" aria-selected="true">
-                                {{ ucfirst(trans('common.personal_data')) }}
-                            </a>
-                        </li>
-                      </ul>                  
-                    </div>
-                    <div class="card-body">
-                        <div class="tab-content" id="custom-tabs-three-tabContent">
-                            {{-- DATOS PERSONALES  --}}
-                            <div class="tab-pane fade show active" id="custom-tabs-three-user-data" role="tabpanel" aria-labelledby="custom-tabs-three-user-data-tab">
-                                <div class="form-group row {{ $errors->has('first_name') ? 'has-error' : ''}}">
-                                    <label for="name_lastname" class="col-md-4 form-control-label text-md-right">
-                                        <span class="text-danger">*</span>
-                                        {{ ucfirst(trans('common.firstname')) }}
-                                    </label>    
-                                    <div class="col-md-8 required-name">
-                                        {!! Form::text('first_name', null, ['class' => 'form-control', 'placeholder' => '...']) !!}
-                                        {!! $errors->first('first_name', '<p class="help-block">:message</p>') !!}
-                                    </div>
-                                </div>
-                                <div class="form-group row {{ $errors->has('last_name') ? 'has-error' : ''}}">
-                                    <label for="name_lastname" class="col-md-4 form-control-label text-md-right">
-                                        <span class="text-danger">*</span>
-                                        {{ ucfirst(trans('common.lastname')) }}
-                                    </label>    
-                                    <div class="col-md-8 required-name">
-                                        {!! Form::text('last_name', null, ['class' => 'form-control', 'placeholder' => '...']) !!}
-                                        {!! $errors->first('last_name', '<p class="help-block">:message</p>') !!}
-                                    </div>
-                                </div>                     
-                                <div class="form-group row {{ $errors->has('email') ? 'has-error' : ''}}">
-                                    <label for="username" class="col-md-4 form-control-label text-md-right">
-                                        <span class="text-danger">*</span>
-                                        {{ ucfirst(trans('common.email')) }} 
-                                    </label>    
-                                    <div class="col-md-8 required-name">
-                                        {!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => '...', 'required']) !!}
-                                        {!! $errors->first('email', '<p class="help-block">:message</p>') !!}
-                                    </div>
-                                </div>
-
-                                @if (!isset($user))
-                                    <div class="form-group row {{ $errors->has('password') ? 'has-error' : ''}}">
-                                        <label for="password" class="col-md-4 form-control-label text-md-right">
-                                            <span class="text-danger">*</span>
-                                            {{ ucfirst(trans('common.password')) }}
-                                        </label>    
-                                        <div class="col-md-8 required-name">
-                                            {!! Form::password('password', ['class' => 'form-control', 'placeholder' => '...', 'required']) !!}
-                                            {!! $errors->first('password', '<p class="help-block">:message</p>') !!}
-                                        </div>
-                                    </div>    
-                                @endif
-
-                                <div class="form-group row {{ $errors->has('username') ? 'has-error' : ''}}">
-                                    <label for="username" class="col-md-4 form-control-label text-md-right">                                        
-                                        {{ ucfirst(trans('common.username')) }}
-                                    </label>    
-                                    <div class="col-md-8 required-name">
-                                        {!! Form::text('username', null, ['class' => 'form-control', 'placeholder' => '...']) !!}
-                                        {!! $errors->first('username', '<p class="help-block">:message</p>') !!}
-                                    </div>
-                                </div> 
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.card -->
-                  </div>    
-            </fieldset>
-        </div>
+<div class="row">
+    <div class="col-lg-12 mb-20">
+        <p>{!! ucfirst(trans('common.required')) !!}</p>
     </div>
-</legend>
+    <div class="col-lg-10">
+        <fieldset>
+            <div class="form-group row {{ $errors->has('type') ? 'has-error' : ''}}">
+                <label for="type" class="col-md-4 form-control-label text-right">
+                    <span class="text-danger">*</span>
+                    {{ ucfirst(trans('validation.attributes.type')).':' }}
+                </label>    
+                <div class="col-md-7">
+                    {!! Form::text('type', null, ['class' => 'form-control', 'placeholder'=>"Cuenta", "required"]) !!}
+                    {!! $errors->first('type', '<p class="help-block">:message</p>') !!}
+                </div>
+            </div>
+            <div class="form-group row {{ $errors->has('page') ? 'has-error' : ''}}">
+                <label for="page" class="col-md-4 form-control-label text-right">
+                    <span class="text-danger">*</span>
+                    {{ ucfirst(trans('validation.attributes.page')).':' }}
+                </label>
+                <div class="col-md-7">
+                    {!! Form::text('page', null, ['class' => 'form-control', 'placeholder'=>"URL", "required"]) !!}
+                    {!! $errors->first('page', '<p class="help-block">:message</p>') !!}
+                </div>
+            </div>
+            <div class="form-group row {{ $errors->has('username') ? 'has-error' : ''}}">
+                <label for="username" class="col-md-4 form-control-label text-right">
+                    <span class="text-danger">*</span>
+                    {{ ucfirst(trans('validation.attributes.username')).':' }}
+                </label>
+                <div class="col-md-7">
+                    {!! Form::text('username', null, ['class' => 'form-control', 'placeholder'=>"Nombre de usuario","required"]) !!}
+                    {!! $errors->first('username', '<p class="help-block">:message</p>') !!}
+                </div>
+            </div>
+            <div class="form-group row {{ $errors->has('password') ? 'has-error' : ''}}">
+                <label for="password" class="col-md-4 form-control-label text-right">
+                    <span class="text-danger">*</span>
+                    {{ ucfirst(trans('validation.attributes.password')).':' }}
+                </label>
+                <div class="col-md-7">
+                    {!! Form::text('password', null, ['class' => 'form-control','required', 'placeholder'=>"password"]) !!}
+                    {!! $errors->first('password', '<p class="help-block">:message</p>') !!}
+                </div>
+            </div>
+            <div class="form-group row {{ $errors->has('status') ? 'has-error' : ''}}">
+                <label for="last_name" class="col-md-4 form-control-label text-right">
+                    <span class="text-danger">*</span>
+                    {{ ucfirst(trans('validation.attributes.last_name')).':' }}
+                </label>
+                <div class="col-md-7">
+                    {!! Form::text('last_name', null, ['class' => 'form-control', 'placeholder'=>"Apellido", "required"]) !!}
+                    {!! $errors->first('last_name', '<p class="help-block">:message</p>') !!}
+                </div>
+            </div>
+            <div class="form-group row {{ $errors->has('date') ? 'has-error' : ''}}">
+                <label for="date" class="col-md-4 form-control-label text-right">
+                    {{ ucfirst(trans('validation.attributes.date')).':' }}
+                </label>    
+                <div class="col-md-7">
+                    {!! Form::text('date', isset($register)?$register->registerDate():null, ['class' => 'form-control', "required"]) !!}
+                    {!! $errors->first('date', '<p class="help-block">:message</p>') !!}
+                </div>
+            </div>
+            <div class="form-group row {{ $errors->has('description') ? 'has-error' : ''}}">
+                <label for="email" class="col-md-4 form-control-label text-right">
+                    <span class="text-danger">*</span>
+                    {{ ucfirst(trans('validation.attributes.description')).':' }}
+                </label>
+                <div class="col-md-7">
+                    {!! Form::text('description', null, ['class' => 'form-control', 'placeholder'=>"description"]) !!}
+                    {!! $errors->first('description', '<p class="help-block">:message</p>') !!}
+                </div>
+            </div>                     
+        </fieldset>
+    </div>
+</div>

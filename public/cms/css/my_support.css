@@ -1,0 +1,8 @@
+.breadcrumb > li:not(:last-child):after,
+.ibox-title h5 small::before {
+    content: "/";
+    margin: 0 5px;
+}
+.date:read-only{
+    background-color: #fff;
+}

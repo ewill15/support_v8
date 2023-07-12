@@ -149,14 +149,6 @@ return [
     */
 
     'attributes' => [
-        'required_field'              => [
-            'email'      =>  'correo electrónico es requerido', 
-            'password'   =>  'contraseña es requerida'
-        ],
-        'message_field'  => [
-            'email'      =>  'ingrese su correo electrónico', 
-            'password'   =>  'ingrese su contraseña'
-        ],
         'address'               => 'dirección',
         'age'                   => 'edad',
         'body'                  => 'contenido',
@@ -199,22 +191,22 @@ return [
         'save'                  => 'guardar',
         'create'                => 'crear',
         'edit'                  => 'editar',
-        'required'              => 'campos obligatorios',
-        'solicitude_number'     => 'numero solicitud',
-        'comunity'              => 'comunidad',
-        'date'                  => 'fecha',
-        'estatus'               => 'estado',
-        'update'                => 'actualizar',
-        'mision'                => 'mision',
-        'vision'                => 'vision',
-        'dni_number'            => 'Nro. doc. de identidad',
-        'type'                  => 'tipo',
-        'detail_del'            => 'motivo eliminacion',
-        'name_lastname'         => 'nombre y apellido',
-        'mobile'                => 'nro. celular',
-        'provider_name'         => 'nombre proveedor',
-        'client_name'         => 'nombre cliente para factura',
-        'detail'                => 'motivo',
-        
+        'responsable'           => 'responsable',
+        'motherboard'           => 'tarjeta Madre',
+        'processor'             => 'procesador',
+        'ip'                    => 'direccion IP',
+        'operative_system'      => 'sistema operativo',
+        'mail_address'          => 'Correo Electrónico',
+        'office_package'        => 'Paquete Ofimática',
+        'other'                 => 'otros',
+        'word'                  => 'palabra',
+        'meaning'               => 'significado',
+        'example'               => 'ejemplo',
+        'pronuntiation'         => 'pronunciación',
+        'machine'               => 'equipo',
+        'question'              => 'pregunta',
+        'answer'                => 'respuesta',
+        'section'               => 'sección',
+        'page'                  => 'pagina/URL',
     ],
 ];

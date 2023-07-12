@@ -1,60 +1,46 @@
-@extends('layouts.admin.app')
+@extends('layouts.cms.app')
 @section('title', ucfirst(trans('common.companies')))
 @section('content')
-<!-- ============================================================== -->
-    <!-- pageheader -->
-    <!-- ============================================================== -->
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
-                    <div class="page-header">
-                        <h2 class="pageheader-title">{{ ucfirst(trans('common.companies')) }}</h2>
-                        <div class="page-breadcrumb">
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}" class="breadcrumb-link">{{ ucfirst(trans('common.home')) }}</a></li>
-                                    <li class="breadcrumb-item"><a href="{{ url('/admin/companies') }}" class="breadcrumb-link">{{ ucfirst(trans('common.list_companies')) }}</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">{{ ucfirst(trans('common.edit_companies')) }}</li>
-                                </ol>
-                            </nav>
-                        </div>
-                    </div>
+    <div class="row  border-bottom white-bg dashboard-header">  
+        @include('admin.partials.messages')
+        @include('admin.partials.errors', ['errors' => $errors])
+        <div class="col-lg-10">
+            <h2>{{ucfirst(trans('common.companies'))}}</h2>
+            <ol class="breadcrumb">
+                <li>
+                    <a href="{{url('admin/home')}}">{{ucfirst(trans('common.home'))}}</a>
+                </li>
+                <li>
+                    <a href="{{url('admin/companies')}}">{{ucfirst(trans('common.companies'))}}</a>
+                </li>
+                <li class="active">
+                    <strong>{{ucfirst(trans('common.edit'))}}</strong>
+                </li>
+            </ol>
+        </div>
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>
+                        {{ucfirst(trans('common.update'))}} 
+                        <small>
+                        {{ucfirst(trans('common.edit'))}}
+                        </small>
+                        
+                    </h5>
                 </div>
-                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
-                </div>
-            </div>
-        </div><!-- /.container-fluid -->
-      </section>
-    <!-- ============================================================== -->
-    <!-- end pageheader -->
-    <!-- ============================================================== -->
-
-    <section class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                    @include('admin.partials.messages')
-                    @include('admin.partials.errors', ['errors' => $errors])
-                    <div class="card">
-                        <h5 class="card-header"> {{ ucfirst(trans('common.modregister')) }}</h5>
-                        <div class="card-body">
-                            {!! Form::model($company, [ 
-                                'id' => 'form-company', 
-                                'route' => ['companies.update', $company], 
-                                'method' => 'PUT', 
-                                'enctype' => 'multipart/form-data', 
-                                'class' => 'form-horizontal'
-                                ]) 
-                            !!}
-                            @include('admin.companies.partials.form', ['errors' => $errors])
-                            @include('admin.companies.partials.modal-edit')
-                         {!! Form::close() !!}
-                        </div>
-                    </div>
+                <div class="ibox-content" id="app">
+                    {!! Form::model($company, [
+                    'method' => 'PATCH',
+                    'url'    => ['admin/users', $company->id],
+                    'class'  => 'form-horizontal',
+                    'files'  => true
+                    ]) !!}
+                    @include('admin.companies.partials.form', ['errors' => $errors])
+                    @include('admin.partials.buttons', ['label' => 'save'])
+                    {!! Form::close() !!}
                 </div>
             </div>
         </div>
-    </section>
-    
+    </div>
 @endsection

@@ -1,12 +1,6 @@
 <div class="form-group row">
-    <div class="col-md-4"></div>
-    <div class="col-md-8">
-        <h6 class="help-block">Su ubicación en el mapa es importante, mueva el marker a su dirección</h6>
-    </div>
-    <div class="col-md-4"></div>
-    <div class="col-md-8">
-        <div id="mapa" style="height: 400px;width:600px"></div>
-    </div>    
+    <h4 class="help-block">Su ubicación en el mapa es importante, mueva el marker a su dirección</h4>
+    <div id="mapa" style="height: 400px;"></div>    
 </div>
 
 <div class="form-group row">

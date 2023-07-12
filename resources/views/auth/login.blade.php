@@ -1,63 +1,49 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html>
 
-@section('content')
+<head>
 
-<div class="limiter">
-    <div class="container-login100">
-        <div class="wrap-login100">
-            <form method="POST" class="login100-form validate-form" autocomplete="off" action="{{ route('login') }}">
-                @csrf
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-                <span class="login100-form-title p-b-43">
-                    Inicie sesión
-                </span>
-                <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-                    <input id="email" type="email" class="input100 @error('email') is-invalid @enderror" name="email" required autofocus>
-                    {{-- <input id="email" type="email" class="input100 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus> --}}
-                    <span class="focus-input100"></span>
-                    <span class="label-input100">{{ __('Dirección E-Mail') }}</span>
-                    @error('email')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-                <div class="wrap-input100 validate-input" data-validate="Password is required">
-                    <input id="password" type="password" class="input100 @error('password') is-invalid @enderror" name="password" required>
-                    {{-- <input id="password" type="password" class="input100 @error('password') is-invalid @enderror" name="password" required autocomplete="current-password"> --}}
-                    <span class="focus-input100"></span>
-                    <span class="label-input100">{{ __('Password') }}</span>
-                    @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                </div>
-                <div class="flex-sb-m w-full p-t-3 p-b-32">
-                    <div class="contact100-form-checkbox">
-                        <input class="input-checkbox100" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                            <label class="label-checkbox100" for="remember">
-                                {{ __('Remember Me') }}
-                            </label>
-                    </div>
+    <title>MPC | Login</title>
 
-                    <div>
-                        @if (Route::has('password.request'))
-                            <a class="txt1" href="{{ route('password.request') }}">
-                                {{ __('Recuperar tu Password?') }}
-                            </a>
-                        @endif
-                    </div>
-                </div>
-                <div class="container-login100-form-btn">
-                    <button type="submit" class="login100-form-btn">
-                        {{ __('Login') }}
-                    </button>
-                </div>
-            </form>
-            <div class="login100-more" style="background-image: url('../style_login/images/bg-01.jpg');">
+    <link href="{!! asset('cms/css/bootstrap.min.css') !!}" rel="stylesheet">
+    <link href="{!! asset('cms/font-awesome/css/font-awesome.css') !!}" rel="stylesheet">
+
+    <link href="{!! asset('cms/css/animate.css') !!}" rel="stylesheet">
+    <link href="{!! asset('cms/css/style.css') !!}" rel="stylesheet">
+
+    <link href="{!! asset('cms/css/base_style.css') !!}" rel="stylesheet">
+
+</head>
+
+<body class="gray-bg">
+
+    <div class="middle-box text-center loginscreen animated fadeInDown">
+        <div>
+            <div>
+                <h1 class="logo-name">MPC</h1>
             </div>
+
+            <form class="m-t" role="form" method="POST" action="{{ route('login') }}" autocomplete="off">
+                {{ csrf_field() }}
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Username" name="email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Password" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary block full-width m-b">{{ucfirst(trans('common.login'))}}</button>
+            </form>
         </div>
     </div>
-</div>
-@endsection
+
+    <!-- Mainly scripts -->
+    <script src="{!! asset('cms/js/jquery-3.1.1.min.js') !!}"></script>
+    <script src="{!! asset('cms/js/popper.min.js') !!}"></script>
+    <script src="{!! asset('cms/js/bootstrap.js') !!}"></script>
+
+</body>
+
+</html>
