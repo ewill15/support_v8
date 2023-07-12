@@ -175,7 +175,7 @@ return [
         'excerpt'               => 'excerpt',
         'first_name'            => 'first_name',
         'name'                  => 'name',
-        'last_name'             => 'last_name',
+        'last_name'             => 'last name',
         'gender'                => 'gender',
         'hour'                  => 'hour',        
         'message'               => 'message',
@@ -223,6 +223,8 @@ return [
         'food'                  => 'food',
         'control_code'          => 'control code',
         'invoice_number'        => 'invoice number',
+        'number_account'        => 'account number',
+        'bank'                  => 'bank',
     ],
 
 ];

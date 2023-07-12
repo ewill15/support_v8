@@ -96,4 +96,9 @@ return [
     'quarentine'=>'quarentine',
     'quarentines'=>'quarentines',
     'food'=>'food',
+
+    'account'=>'account',
+    'accounts'=>'accounts',
+
+    'payment'=>'payment',
 ];

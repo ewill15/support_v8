@@ -73,7 +73,7 @@
           <a href="{{ url('/admin/cancels') }}" class="nav-link {{($section == 'cancels')?'active':''}}">
             <i class="fas fa-ban"></i>
             <p>
-              {{ ucfirst(trans('common.cancels')) }}
+              {{ ucfirst(trans('common.payment')) }}
               <span class="right badge badge-danger">Incomplete</span>
             </p>
           </a>
@@ -110,7 +110,28 @@
             </p>
           </a>
         </li>
-        
+
+        <!--------- Menu accounts  -------------------> 
+        <li class="nav-item has-treeview">
+          <a href="{{ url('/admin/accounts') }}" class="nav-link {{($section == 'accounts')?'active':''}}">
+            <i class="fas fa-file-invoice"></i>
+            <p>
+              {{ ucfirst(trans('common.accounts')) }}
+              <span class="right badge badge-warning">check</span>
+            </p>
+          </a>
+        </li>
+
+        {{-- <!--------- Menu web-accounts  -------------------> 
+        <li class="nav-item has-treeview">
+          <a href="{{ url('/admin/webs') }}" class="nav-link {{($section == 'webs')?'active':''}}">
+            <i class="fas fa-network-wired"></i>
+            <p>
+              {{ ucfirst(trans('common.webs')) }}
+              <span class="right badge badge-danger">incomplete</span>
+            </p>
+          </a>
+        </li> --}}
 
       </ul>
     </nav>
