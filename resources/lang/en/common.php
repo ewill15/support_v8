@@ -81,4 +81,7 @@ return [
     'company'=>'company',
     'companies'=>'companies',
 
+    'service'=>'service',
+    'services'=>'services',
+
 ];

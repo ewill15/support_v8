@@ -58,6 +58,16 @@
           </a>
         </li>
 
+        <!--------- Menu services  -------------------> 
+        <li class="nav-item has-treeview">
+          <a href="{{ url('/admin/services') }}" class="nav-link {{($section == 'services')?'active':''}}">
+            <i class="fas fa-cogs"></i>
+            <p>
+              {{ ucfirst(trans('common.services')) }}
+            </p>
+          </a>
+        </li>
+
 
       </ul>
     </nav>
