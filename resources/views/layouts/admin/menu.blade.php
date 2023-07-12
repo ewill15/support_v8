@@ -122,16 +122,16 @@
           </a>
         </li>
 
-        {{-- <!--------- Menu web-accounts  -------------------> 
+        <!--------- Menu web-accounts  -------------------> 
         <li class="nav-item has-treeview">
-          <a href="{{ url('/admin/webs') }}" class="nav-link {{($section == 'webs')?'active':''}}">
+          <a href="{{ url('/admin/webs') }}" class="nav-link badge-danger {{($section == 'webs')?'active':''}}">
             <i class="fas fa-network-wired"></i>
             <p>
               {{ ucfirst(trans('common.webs')) }}
               <span class="right badge badge-danger">incomplete</span>
             </p>
           </a>
-        </li> --}}
+        </li>
 
       </ul>
     </nav>
