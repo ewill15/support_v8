@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\CancelController;
 use App\Http\Controllers\Admin\SongController;
 use App\Http\Controllers\Admin\QuarentineController;
+use App\Http\Controllers\Admin\BillController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,4 +42,5 @@ Route::group(['middleware'=>['auth'], 'prefix' => 'admin'], function(){
     Route::resource('cancels', CancelController::class);
     Route::resource('songs', SongController::class);
     Route::resource('quarentines', QuarentineController::class);
+    Route::resource('bills', BillController::class);
 });

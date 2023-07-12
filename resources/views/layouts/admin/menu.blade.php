@@ -99,6 +99,17 @@
             </p>
           </a>
         </li>
+
+        <!--------- Menu bill  -------------------> 
+        <li class="nav-item has-treeview">
+          <a href="{{ url('/admin/bills') }}" class="nav-link {{($section == 'bills')?'active':''}}">
+            <i class="fas fa-file-invoice-dollar"></i>
+            <p>
+              {{ ucfirst(trans('common.bills')) }}
+              <span class="right badge badge-warning">check</span>
+            </p>
+          </a>
+        </li>
         
 
       </ul>

@@ -221,6 +221,8 @@ return [
         'author'                => 'author',
         'lyrics'                => 'lyrics',
         'food'                  => 'food',
+        'control_code'          => 'control code',
+        'invoice_number'        => 'invoice number',
     ],
 
 ];

@@ -85,6 +85,9 @@ return [
     'service'=>'service',
     'services'=>'services',
 
+    'bill'=>'bill',
+    'bills'=>'bills',
+
     'song'=>'song',
     'songs'=>'songs',
     'author'=>'author',
