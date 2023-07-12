@@ -3,7 +3,14 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Database\Seeders\BillSeeder;
+use Database\Seeders\UserSeeder;
+use Database\Seeders\BanksSeeder;
+use Database\Seeders\SongsSeeder;
 use Illuminate\Support\Facades\DB;
+use Database\Seeders\AccountsSeeder;
+use Database\Seeders\ServicesSeeder;
+use Database\Seeders\CompaniesSeeder;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Artisan;
 
@@ -17,28 +24,31 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $tables = [
+            'migrations',
             'password_resets',
-            'migrations',            
-            'users',
-            'score_games',
-            'icountries',
-            'iusers',
-            'ifruits',
-            'ifoods',
-            'icolors',
+            'users', 
+            'bills',
+            'companies',
+            'banks',
+            'accounts',
+            'services',
+            'songs'
         ];
         
         Schema::disableForeignKeyConstraints();
-        
-        $this->truncateTables($tables);
-        // $this->dropTables($tables);        
+
+        //$this->truncateTables($tables);
+        $this->dropTables($tables);        
         
         Artisan::call('migrate:fresh');
 
-        $seeders = [
-            UserSeeder::class,
-        ];
-        $this->call($seeders);
+        $this->call(UserSeeder::class);
+        $this->call(BillSeeder::class);
+        $this->call(CompaniesSeeder::class);
+        $this->call(BanksSeeder::class);
+        $this->call(AccountsSeeder::class);
+        $this->call(ServicesSeeder::class);
+        $this->call(SongsSeeder::class);
 
         Schema::enableForeignKeyConstraints();
     }
