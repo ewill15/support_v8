@@ -216,6 +216,8 @@ return [
         'provider_name'         => 'provider name',
         'detail'                => 'detail',
         'observation'           => 'observation',
+        'nit'                   => 'nit',
+        'area'                  => 'area',
     ],
 
 ];

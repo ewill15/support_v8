@@ -78,4 +78,7 @@ return [
     'city'=>'city',
     'phone'=>'phone',
 
+    'company'=>'company',
+    'companies'=>'companies',
+
 ];

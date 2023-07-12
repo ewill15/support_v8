@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\BankController;
+use App\Http\Controllers\Admin\CompanyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,5 +32,6 @@ Route::group(['middleware'=>['auth'], 'prefix' => 'admin'], function(){
     Route::get('dashboard', [DashboardController::class, 'index']);
     Route::resource('users', UsersController::class);
     Route::resource('banks', BankController::class);
+    Route::resource('companies',CompanyController::class);
     
 });

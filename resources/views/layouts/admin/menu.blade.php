@@ -48,6 +48,16 @@
           </a>
         </li>
 
+        <!--------- Menu companies  -------------------> 
+        <li class="nav-item has-treeview">
+          <a href="{{ url('/admin/companies') }}" class="nav-link {{($section == 'companies')?'active':''}}">
+            <i class="fas fa-building"></i>
+            <p>
+              {{ ucfirst(trans('common.companies')) }}
+            </p>
+          </a>
+        </li>
+
 
       </ul>
     </nav>

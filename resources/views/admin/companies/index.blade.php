@@ -1,8 +1,7 @@
 @extends('layouts.admin.app')
-@section('title', ucfirst(trans('common.banks')))
+@section('title', ucfirst(trans('common.companies')))
 @section('content')
-
-    <!-- ============================================================== -->
+        <!-- ============================================================== -->
     <!-- pageheader -->
     <!-- ============================================================== -->
     <section class="content-header">
@@ -10,7 +9,7 @@
             <div class="row">
                 <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
                     <div class="page-header">
-                        <h2 class="pageheader-title">{{ ucfirst(trans('common.banks')) }}</h2>
+                        <h2 class="pageheader-title">{{ ucfirst(trans('common.companies')) }}</h2>
                         <div class="page-breadcrumb">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
@@ -20,7 +19,7 @@
                                         </a>
                                     </li>
                                     <li class="breadcrumb-item active">
-                                        {{ ucfirst(trans('common.banks')) }}
+                                        {{ ucfirst(trans('common.companies')) }}
                                     </li>
                                 </ol>
                             </nav>
@@ -30,7 +29,7 @@
                 
                 <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
                     <div class="card-body border-top">
-                        <a href="{{ url('admin/banks/create') }}" class="btn btn-outline-primary float-right">
+                        <a href="{{ url('admin/companies/create') }}" class="btn btn-outline-primary float-right">
                             <i class="fas fa-plus-circle"></i>
                             {{ ucfirst(trans('common.create')) }}
                         </a>
@@ -54,7 +53,7 @@
                 <!-- Form searchs -->   
                     <div class="card">
                         {!! Form::open([
-                            'url' => 'admin/banks', 
+                            'url' => 'admin/companies', 
                             'method' => 'GET', 
                             'enctype' => 'multipart/form-data', 
                             'class' => 'form-horizontal pt-3',
@@ -91,32 +90,32 @@
                                 <tr>
                                     <th class="actions">ID</th>
                                     <th>{{ ucfirst(trans('common.name')) }}</th>
-                                    <th>{{ ucfirst(trans('common.city')) }}</th>
-                                    <th>{{ ucfirst(trans('common.phone')) }}</th>
+                                    <th>{{ ucfirst(trans('common.address')) }}</th>
+                                    <th>{{ ucfirst(trans('common.nit')) }}</th>
                                     <th class="actions">{{ ucfirst(trans('common.actions')) }}</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($banks as $item)
+                                @foreach($companies as $item)
                                     <tr class="gradeX">
                                         <td>{{ @$item->id }}</td>
                                         <td>{{ @$item->name }}</td>
-                                        <td>{{ @$item->city }}</td>
-                                        <td>{{ @$item->phone }}</td>
+                                        <td>{{ @$item->address }}</td>
+                                        <td>{{ @$item->nit }}</td>
                                         <td>
                                             <div class="input-group-prepend">
                                                 <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
                                                     {{ ucfirst(trans('common.actions')) }}
                                                 </button>
                                                 <div class="dropdown-menu">
-                                                        <a href="{{ url('admin/banks/' . @$item->id . '/edit') }}" class="dropdown-item">
+                                                        <a href="{{ url('admin/companies/' . @$item->id . '/edit') }}" class="dropdown-item">
                                                             <i class="fas fa-edit"></i> {{ ucfirst(trans('common.update')) }}
                                                         </a>
                                                         <div class="dropdown-divider"></div>
                                                         <a class="dropdown-item" href="#"
                                                             data-action="delete"
                                                             data-name="{{$item->name}}" 
-                                                            data-url="{{ route('banks.destroy', $item->id) }}" 
+                                                            data-url="{{ route('companies.destroy', $item->id) }}" 
                                                             data-title-msg="{{ ucfirst(trans('common.delete')) }}" 
                                                             data-text-msg="{{ ucfirst(trans('common.msgdelete')) }}"
                                                             data-btn-action="{{ ucwords(trans('common.delete')) }}"
@@ -131,13 +130,13 @@
                                 @endforeach
                                 </tbody>
                             </table>
-                            @include('admin.banks.partials.modal-delete')
+                            @include('admin.companies.partials.modal-delete')
                             <div class="float-left">
                                 {{ $text_pagination }}
                             </div>
                             <div class="float-right">                                        
                                 <div class="btn-group">
-                                  {!! $banks->appends(request()->except('page'))->links() !!}
+                                  {!! $companies->appends(request()->except('page'))->links() !!}
                                 </div>
                             </div>
                         </div>

@@ -215,7 +215,9 @@ return [
         'provider_name'         => 'nombre proveedor',
         'client_name'           => 'nombre cliente para factura',
         'detail'                => 'motivo',
-        'observation'           => 'observacion',
+        'observation'           => 'observation',
+        'nit'                   => 'nit',
+        'area'                  => 'area',
         
     ],
 ];
