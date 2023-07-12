@@ -78,6 +78,16 @@
             </p>
           </a>
         </li>
+
+        <!--------- Menu songs  -------------------> 
+        <li class="nav-item has-treeview">
+          <a href="{{ url('/admin/songs') }}" class="nav-link {{($section == 'songs')?'active':''}}">
+            <i class="fas fa-music"></i>
+            <p>
+              {{ ucfirst(trans('common.songs')) }}
+            </p>
+          </a>
+        </li>
         
 
       </ul>

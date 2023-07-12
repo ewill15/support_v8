@@ -84,4 +84,10 @@ return [
     'service'=>'service',
     'services'=>'services',
 
+    'song'=>'song',
+    'songs'=>'songs',
+    'author'=>'author',
+    'title'=>'title',
+    
+
 ];

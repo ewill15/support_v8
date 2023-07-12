@@ -218,6 +218,8 @@ return [
         'observation'           => 'observation',
         'nit'                   => 'nit',
         'area'                  => 'area',
+        'author'                => 'author',
+        'lyrics'                => 'lyrics',
     ],
 
 ];

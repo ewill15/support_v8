@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\BankController;
 use App\Http\Controllers\Admin\CompanyController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\CancelController;
+use App\Http\Controllers\Admin\SongController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,8 +35,8 @@ Route::group(['middleware'=>['auth'], 'prefix' => 'admin'], function(){
     Route::get('dashboard', [DashboardController::class, 'index']);
     Route::resource('users', UsersController::class);
     Route::resource('banks', BankController::class);
-    Route::resource('companies',CompanyController::class);
-    Route::resource('services',ServiceController::class);
-    Route::resource('cancels',CancelController::class);
-    
+    Route::resource('companies', CompanyController::class);
+    Route::resource('services', ServiceController::class);
+    Route::resource('cancels', CancelController::class);
+    Route::resource('songs', SongController::class);
 });
