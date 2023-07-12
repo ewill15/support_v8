@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Helper;
+use App\Models\Cancel;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 
 class CancelController extends Controller
 {
@@ -20,7 +24,7 @@ class CancelController extends Controller
     public function index(Request $request)
     {
         $lang = app()->getLocale();
-        $cancel = Cancel::orderBy('id','ASC');
+        $cancels = Cancel::orderBy('id','ASC');
 
         $paginate = $request->pagination ? $request->pagination : 20;
         $page = (int)$request->page;
@@ -31,14 +35,14 @@ class CancelController extends Controller
 
         $cancel = $cancel->paginate($paginate);
 
-        return view('admin.services.index', compact('services', 'paginate','text_pagination'));
+        return view('admin.cancels.index', compact('cancels', 'paginate','text_pagination'));
     }
 
     public function create()
     {
         $list_services = Service::orderBy('name','asc')->pluck('name','id');
 
-        return view('admin.services.create',compact('list_services'));
+        return view('admin.cancelss.create',compact('list_services'));
     }
 
     public function show(){/* show */}
@@ -66,7 +70,7 @@ class CancelController extends Controller
             Session::flash('flash_message', Helper::contentFlashMessage('create')['error']);
             Session::flash('flash_message_type', 'danger');
         }
-        return redirect('admin/cancel');
+        return redirect('admin/cancels');
     }
 
     public function edit($id)
@@ -74,7 +78,7 @@ class CancelController extends Controller
         $cancel = Cancel::find($id);
         $list_services = Service::orderBy('name','asc')->pluck('name','id');
 
-        return view('admin.services.edit',compact('cancel','list_services'));
+        return view('admin.cancels.edit',compact('cancel','list_services'));
     }
 
     public function update(Request $request, $id)
@@ -101,14 +105,14 @@ class CancelController extends Controller
             Session::flash('flash_message_type', 'danger');
         }
 
-        return redirect('admin/cancel');
+        return redirect('admin/cancels');
     }
 
     public function destroy($id)
     {
-        $items = Cancel::findOrFail($id);
-        if ($user) {
-            $user->delete(); //delete phisically   
+        $cancels = Cancel::findOrFail($id);
+        if ($cancels) {
+            $cancels->delete(); //delete phisically   
             Session::flash('flash_message', Helper::contentFlashMessage('delete')['success']);
             Session::flash('flash_message_type', 'success');
         } else {
@@ -116,6 +120,6 @@ class CancelController extends Controller
             Session::flash('flash_message_type', 'danger');
         }
     
-        return redirect('admin/cancel');
+        return redirect('admin/cancels');
     }
 }
