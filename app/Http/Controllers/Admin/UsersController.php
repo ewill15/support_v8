@@ -177,6 +177,7 @@ class UsersController extends Controller
             Session::flash('flash_message', Helper::contentFlashMessage('delete')['error']);
             Session::flash('flash_message_type', 'danger');
         }
+        
         return redirect('admin/users');
     }
 }
