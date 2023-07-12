@@ -68,4 +68,10 @@ return [
     'data'=>'dato',
     'new_user'=>'nuevo usuario',
     'msgdelete'=>'Deseas eliminar',
+    'update_data'=>'actualizar datos ',
+
+    'bank'=>'banco',
+    'banks'=>'bancos',
+    'city'=>'ciudad',
+    'phone'=>'teléfono',
 ];

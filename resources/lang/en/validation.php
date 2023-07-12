@@ -215,6 +215,7 @@ return [
         'mobile'                => 'mobile',
         'provider_name'         => 'provider name',
         'detail'                => 'detail',
+        'observation'           => 'observation',
     ],
 
 ];

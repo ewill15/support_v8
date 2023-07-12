@@ -213,8 +213,9 @@ return [
         'name_lastname'         => 'nombre y apellido',
         'mobile'                => 'nro. celular',
         'provider_name'         => 'nombre proveedor',
-        'client_name'         => 'nombre cliente para factura',
+        'client_name'           => 'nombre cliente para factura',
         'detail'                => 'motivo',
+        'observation'           => 'observacion',
         
     ],
 ];

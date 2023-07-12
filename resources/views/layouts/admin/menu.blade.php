@@ -28,12 +28,22 @@
             </p>
           </a>
         </li>
-        <!--------- Menu personal, provider and client  -------------------> 
+        <!--------- Menu user  -------------------> 
         <li class="nav-item has-treeview">
           <a href="{{ url('/admin/users') }}" class="nav-link {{($section == 'users')?'active':''}}">
             <i class="fas fa-users mr-2"></i>
             <p>
               {{ ucfirst(trans('common.users')) }}
+            </p>
+          </a>
+        </li>
+
+        <!--------- Menu banks  -------------------> 
+        <li class="nav-item has-treeview">
+          <a href="{{ url('/admin/banks') }}" class="nav-link {{($section == 'banks')?'active':''}}">
+            <i class="fas fa-piggy-bank mr-2"></i>
+            <p>
+              {{ ucfirst(trans('common.banks')) }}
             </p>
           </a>
         </li>

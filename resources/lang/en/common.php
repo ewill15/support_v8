@@ -71,4 +71,11 @@ return [
     'data'=>'data',
     'new_user'=>'new user',
     'msgdelete'=>'Do you want to delete ',
+    'update_data'=>'update data ',
+
+    'bank'=>'bank',
+    'banks'=>'banks',
+    'city'=>'city',
+    'phone'=>'phone',
+
 ];
