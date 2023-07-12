@@ -68,6 +68,17 @@
           </a>
         </li>
 
+        <!--------- Menu cancels  -------------------> 
+        <li class="nav-item has-treeview">
+          <a href="{{ url('/admin/cancels') }}" class="nav-link {{($section == 'cancels')?'active':''}}">
+            <i class="fas fa-ban"></i>
+            <p>
+              {{ ucfirst(trans('common.cancels')) }}
+              <span class="right badge badge-danger">Incomplete</span>
+            </p>
+          </a>
+        </li>
+        
 
       </ul>
     </nav>
