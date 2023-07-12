@@ -51,7 +51,7 @@
                         <h5 class="card-header">{{ ucfirst(trans('common.new_user')) }}</h5>
                         <div class="card-body">
                             {!! Form::open([
-                                'id'=>'form-Usuario',
+                                'id'=>'form-user',
                                 'route' => 'users.store', 
                                 'method' => 'POST', 
                                 'enctype' => 'multipart/form-data', 
