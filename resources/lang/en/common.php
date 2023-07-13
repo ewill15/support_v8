@@ -116,4 +116,14 @@ return [
     'office_package'=>'office package',
     'other'=>'other',
 
+    'dictionary'=>'dictionary',
+    'dictionaries'=>'dictionaries',
+    'word'=>'word',
+    'pronuntation'=>'pronuntation',
+    'meaning'=>'meaning',
+    'example'=>'example',
+    'language'=>'language',
+    
+
+
 ];

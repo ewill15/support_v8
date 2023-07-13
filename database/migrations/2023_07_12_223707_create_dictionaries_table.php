@@ -13,7 +13,7 @@ class CreateDictionariesTable extends Migration
      */
     public function up()
     {
-        Schema::create('languages',function(){
+        Schema::create('languages',function(Blueprint $table){
             $table->id();
             $table->string('name');
             $table->timestamps();
@@ -25,7 +25,7 @@ class CreateDictionariesTable extends Migration
             $table->string('pronuntiation')->nullable();
             $table->text('meaning')->nullable();
             $table->longText('example')->nullable();
-            $table->enum('lang_id')->nullable();
+            $table->integer('lang_id')->nullable();
             $table->timestamps();
         });
     }

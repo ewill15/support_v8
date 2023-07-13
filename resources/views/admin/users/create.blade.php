@@ -48,7 +48,7 @@
                     @include('admin.partials.messages')
                     @include('admin.partials.errors', ['errors' => $errors])
                     <div class="card">
-                        <h5 class="card-header">{{ ucfirst(trans('common.new_user')) }}</h5>
+                        <h5 class="card-header">{{ ucfirst(trans('common.new')) }}</h5>
                         <div class="card-body">
                             {!! Form::open([
                                 'id'=>'form-user',

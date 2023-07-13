@@ -51,7 +51,7 @@
         <!--------- Menu companies  -------------------> 
         <li class="nav-item has-treeview">
           <a href="{{ url('/admin/companies') }}" class="nav-link {{($section == 'companies')?'active':''}}">
-            <i class="fas fa-building"></i>
+            <i class="fas fa-building mr-2"></i>
             <p>
               {{ ucfirst(trans('common.companies')) }}
             </p>
@@ -61,7 +61,7 @@
         <!--------- Menu services  -------------------> 
         <li class="nav-item has-treeview">
           <a href="{{ url('/admin/services') }}" class="nav-link {{($section == 'services')?'active':''}}">
-            <i class="fas fa-cogs"></i>
+            <i class="fas fa-cogs mr-2"></i>
             <p>
               {{ ucfirst(trans('common.services')) }}
             </p>
@@ -71,7 +71,7 @@
         <!--------- Menu cancels  -------------------> 
         <li class="nav-item has-treeview">
           <a href="{{ url('/admin/cancels') }}" class="nav-link {{($section == 'cancels')?'active':''}}">
-            <i class="fas fa-ban"></i>
+            <i class="fas fa-ban mr-2"></i>
             <p>
               {{ ucfirst(trans('common.payment')) }}
               <span class="right badge badge-danger">Incomplete</span>
@@ -82,7 +82,7 @@
         <!--------- Menu songs  -------------------> 
         <li class="nav-item has-treeview">
           <a href="{{ url('/admin/songs') }}" class="nav-link {{($section == 'songs')?'active':''}}">
-            <i class="fas fa-music"></i>
+            <i class="fas fa-music mr-2"></i>
             <p>
               {{ ucfirst(trans('common.songs')) }}
             </p>
@@ -92,7 +92,7 @@
         <!--------- Menu quarentine  -------------------> 
         <li class="nav-item has-treeview">
           <a href="{{ url('/admin/quarentines') }}" class="nav-link {{($section == 'quarentines')?'active':''}}">
-            <i class="fas fa-utensils"></i>
+            <i class="fas fa-utensils mr-2"></i>
             <p>
               {{ ucfirst(trans('common.quarentines')) }}
               <span class="right badge badge-warning">check</span>
@@ -103,7 +103,7 @@
         <!--------- Menu bill  -------------------> 
         <li class="nav-item has-treeview">
           <a href="{{ url('/admin/bills') }}" class="nav-link {{($section == 'bills')?'active':''}}">
-            <i class="fas fa-file-invoice-dollar"></i>
+            <i class="fas fa-file-invoice-dollar mr-2"></i>
             <p>
               {{ ucfirst(trans('common.bills')) }}
               <span class="right badge badge-warning">check</span>
@@ -114,7 +114,7 @@
         <!--------- Menu accounts  -------------------> 
         <li class="nav-item has-treeview">
           <a href="{{ url('/admin/accounts') }}" class="nav-link {{($section == 'accounts')?'active':''}}">
-            <i class="fas fa-file-invoice"></i>
+            <i class="fas fa-file-invoice mr-2"></i>
             <p>
               {{ ucfirst(trans('common.accounts')) }}
               <span class="right badge badge-warning">check</span>
@@ -125,7 +125,7 @@
         <!--------- Menu web-accounts  -------------------> 
         <li class="nav-item has-treeview">
           <a href="{{ url('/admin/webs') }}" class="nav-link badge-danger {{($section == 'webs')?'active':''}}">
-            <i class="fas fa-network-wired"></i>
+            <i class="fas fa-network-wired mr-2"></i>
             <p>
               {{ ucfirst(trans('common.webs')) }}
               <span class="right badge badge-danger">incomplete</span>
@@ -136,9 +136,19 @@
         <!--------- Menu machines  -------------------> 
         <li class="nav-item has-treeview">
           <a href="{{ url('/admin/machines') }}" class="nav-link {{($section == 'machines')?'active':''}}">
-            <i class="fas fa-desktop"></i>
+            <i class="fas fa-desktop mr-2"></i>
             <p>
               {{ ucfirst(trans('common.machines')) }}
+            </p>
+          </a>
+        </li>
+
+        <!--------- Menu dictionaries  -------------------> 
+        <li class="nav-item has-treeview">
+          <a href="{{ url('/admin/dictionaries') }}" class="nav-link {{($section == 'dictionaries')?'active':''}}">
+            <i class="fas fa-book mr-2"></i>
+            <p>
+              {{ ucfirst(trans('common.dictionaries')) }}
             </p>
           </a>
         </li>

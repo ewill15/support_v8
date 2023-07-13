@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\QuarentineController;
 use App\Http\Controllers\Admin\BillController;
 use App\Http\Controllers\Admin\AccountController;
 use App\Http\Controllers\Admin\MachineController;
+use App\Http\Controllers\Admin\DictionaryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,4 +48,6 @@ Route::group(['middleware'=>['auth'], 'prefix' => 'admin'], function(){
     Route::resource('bills', BillController::class);
     Route::resource('accounts', AccountController::class);
     Route::resource('machines', MachineController::class);
+    Route::resource('dictionaries', DictionaryController::class);
+    
 });
