@@ -90,7 +90,7 @@
                                 <tr>
                                     <th class="actions">ID</th>
                                     <th>{{ ucfirst(trans('common.name')) }}</th>
-                                    <th>{{ ucfirst(trans('common.number')) }}</th>
+                                    <th>{{ ucfirst(trans('common.account_number')) }}</th>
                                     <th>{{ ucfirst(trans('common.bank')) }}</th>
                                     <th class="actions">{{ ucfirst(trans('common.actions')) }}</th>
                                 </tr>

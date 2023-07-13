@@ -100,6 +100,7 @@ return [
 
     'account'=>'account',
     'accounts'=>'accounts',
+    'account_number'=>'account number',
 
     'payment'=>'payment',
 

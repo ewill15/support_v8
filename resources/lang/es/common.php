@@ -95,6 +95,7 @@ return [
 
     'account'=>'cuenta',
     'accounts'=>'cuentas',
+    'account_number'=>'numero de cuenta',
 
     'payment'=>'pago',
 
