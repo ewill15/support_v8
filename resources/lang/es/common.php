@@ -74,4 +74,53 @@ return [
     'banks'=>'bancos',
     'city'=>'ciudad',
     'phone'=>'teléfono',
+
+    'company'=>'compañia',
+    'companies'=>'compañias',
+
+    'service'=>'servicio',
+    'services'=>'servicios',
+
+    'bill'=>'cuenta',
+    'bills'=>'cuentass',
+
+    'song'=>'cancion',
+    'songs'=>'canciones',
+    'author'=>'autor',
+    'title'=>'titulo',
+
+    'quarentine'=>'cuarentena',
+    'quarentines'=>'cuarentenas',
+    'food'=>'comida',
+
+    'account'=>'cuenta',
+    'accounts'=>'cuentas',
+
+    'payment'=>'pago',
+
+    'web'=>'registro web',
+    'webs'=>'registros web',
+    'type'=>'tipo',
+    'page'=>'pagina',
+
+    'machine'=>'maquina',
+    'machines'=>'maquinas',
+    'IP'=>'IP',
+    'os'=>'sistema operativo',
+    'owner'=>'propietario',
+    'motherboard'=>'tarjeta madre',
+    'processor'=>'procesador',
+    'operative_system'=>'sistema operativo',
+    'mail_address'=>'direccion de email',
+    'office_package'=>'paquete ofimatico',
+    'other'=>'otros',
+
+    'dictionary'=>'diccionario',
+    'dictionaries'=>'diccionarios',
+    'word'=>'palabra',
+    'pronuntation'=>'pronunciacion',
+    'meaning'=>'significado',
+    'example'=>'ejemplo',
+    'language'=>'idioma',
+    'languages'=>'idomas',
 ];
