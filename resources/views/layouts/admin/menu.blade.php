@@ -104,8 +104,7 @@
           <a href="{{ url('/admin/bills') }}" class="nav-link {{($section == 'bills')?'active':''}}">
             <i class="fas fa-file-invoice-dollar mr-2"></i>
             <p>
-              {{ ucfirst(trans('common.bills')) }}
-              <span class="right badge badge-warning">check</span>
+              {{ ucfirst(trans('common.bills')) }}              
             </p>
           </a>
         </li>
