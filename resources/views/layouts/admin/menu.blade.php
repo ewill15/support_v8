@@ -95,7 +95,6 @@
             <i class="fas fa-utensils mr-2"></i>
             <p>
               {{ ucfirst(trans('common.quarentines')) }}
-              <span class="right badge badge-warning">check</span>
             </p>
           </a>
         </li>

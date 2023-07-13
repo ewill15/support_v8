@@ -91,14 +91,16 @@
                                 <tr>
                                     <th>{{ ucfirst(trans('common.date')) }}</th>
                                     <th>{{ ucfirst(trans('common.food')) }}</th>
+                                    <th>{{ ucfirst(trans('common.type')) }}</th>
                                     <th class="actions">{{ ucfirst(trans('common.actions')) }}</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($quarentines as $item)
                                     <tr class="gradeX">
-                                        <td>{{ @$item->date }}</td>
+                                        <td class="w-150p">{{ @$item->formatted_date }}</td>
                                         <td>{{ @$item->food }}</td>
+                                        <td>{{ @$item->type }}</td>
                                         <td>
                                             <div class="input-group-prepend">
                                                 <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">

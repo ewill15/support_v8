@@ -8,13 +8,17 @@
     <div class="col-lg-10">
         <fieldset>
             <div class="form-group row {{ $errors->has('date') ? 'has-error' : ''}}">
-                <label for="date" class="col-md-4 form-control-label text-right">
-                    <span class="text-danger">*</span>
-                    {{ ucfirst(trans('validation.attributes.date')).':' }}
+                <label for="date" class="col-md-4 form-control-label text-md-right">
+                    {{ ucfirst(trans('validation.attributes.date')) }}
                 </label>    
-                <div class="col-md-7">
-                    {!! Form::text('date', null, ['class' => 'form-control', "required"]) !!}
-                    {!! $errors->first('date', '<p class="help-block">:message</p>') !!}
+                <div class="col-md-4 required-name">
+                    <div class="input-group date" id="date" data-target-input="nearest">
+                        {!! Form::text('date', null, ['class' => 'form-control datetimepicker-input', 'data-target' => '#date']) !!}
+                        {!! $errors->first('date', '<p class="help-block">:message</p>') !!}
+                        <div class="input-group-append" data-target="#date" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="form-group row {{ $errors->has('food') ? 'has-error' : ''}}">
@@ -33,7 +37,7 @@
                     {{ ucfirst(trans('validation.attributes.type')).':' }}
                 </label>
                 <div class="col-md-7">
-                    {!! Form::select('type', ['breakfast'=>'Breakfast','lunch'=>'Lunch','dinner'=>'Dinner'],null, ['class' => 'form-control', "required"]) !!}
+                    {!! Form::select('type', ['breakfast'=>'Breakfast','lunch'=>'Lunch', 'dinner'=>'Dinner','dessert'=>'Dessert'],null, ['class' => 'form-control', "required"]) !!}
                     {!! $errors->first('type', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>

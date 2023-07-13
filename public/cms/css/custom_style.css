@@ -163,6 +163,9 @@ table#product input._filterText {
 .w-15{
     width: 15% !important;
 }
+.w-150p{
+    width: 150px;
+}
 
 /* image for thumb product in register */
 .img-product-thumb{

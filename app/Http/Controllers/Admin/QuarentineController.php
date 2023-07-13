@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Helper;
+use Carbon\Carbon;
 use App\Models\Quarentine;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -56,9 +57,10 @@ class QuarentineController extends Controller
         }
 
         $fields = $request->all();
+        $fields['date'] = Carbon::parse($request->date)->format('Y-m-d');
         
         $quarentine = Quarentine::create($fields);
-
+        
         if ($quarentine) {
             Session::flash('flash_message', Helper::contentFlashMessage('create')['success']);
             Session::flash('flash_message_type', 'success');
@@ -72,7 +74,8 @@ class QuarentineController extends Controller
     public function edit($id)
     {
         $quarentine = Quarentine::find($id);
-
+        $quarentine->date = Carbon::parse()->format('d-m-Y');
+        
         return view('admin.quarentines.edit',compact('quarentine'));
     }
  
@@ -88,6 +91,9 @@ class QuarentineController extends Controller
         if($v && $v->fails()){
             return redirect()->back()->withInput()->withErrors($v->errors());
         }
+        
+        $fields['date'] = Carbon::parse($request->date)->format('Y-m-d');
+
         $quarentine = $quarentine->update($fields);
 
         if ($quarentine) {

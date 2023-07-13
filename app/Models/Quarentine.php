@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Quarentine extends Model
 {
@@ -14,4 +15,9 @@ class Quarentine extends Model
         'food',
         'type'
     ];
+
+    public function getFormattedDateAttribute()
+    {
+        return Carbon::parse($this->date)->format('d-M-Y');
+    }
 }

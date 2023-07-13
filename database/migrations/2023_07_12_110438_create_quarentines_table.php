@@ -17,7 +17,7 @@ class CreateQuarentinesTable extends Migration
             $table->id();
             $table->date('date')->nullable();
             $table->string('food')->nullable();
-            $table->enum('type', ['lunch', 'dinner','dessert']);
+            $table->enum('type', ['breakfast','lunch', 'dinner','dessert']);
             $table->timestamps();
         });
     }
