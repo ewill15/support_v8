@@ -114,7 +114,7 @@
                                                         <div class="dropdown-divider"></div>
                                                         <a class="dropdown-item" href="#"
                                                             data-action="delete"
-                                                            data-name="{{@$item->number}} in {{@$item->bank->name}}" 
+                                                            data-name="{{@$item->number}} / {{@$item->bank->name}}" 
                                                             data-url="{{ route('accounts.destroy', @$item->id) }}" 
                                                             data-title-msg="{{ ucfirst(trans('common.delete')) }}" 
                                                             data-text-msg="{{ ucfirst(trans('common.msgdelete')) }}"
