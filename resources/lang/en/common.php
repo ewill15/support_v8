@@ -101,4 +101,19 @@ return [
     'accounts'=>'accounts',
 
     'payment'=>'payment',
+
+    'webs'=>'webs account ',
+
+    'machine'=>'machine',
+    'machines'=>'machines',
+    'IP'=>'IP',
+    'os'=>'operative system',
+    'owner'=>'owner',
+    'motherboard'=>'motherboard',
+    'processor'=>'processor',
+    'operative_system'=>'operative system',
+    'mail_address'=>'mail address',
+    'office_package'=>'office package',
+    'other'=>'other',
+
 ];

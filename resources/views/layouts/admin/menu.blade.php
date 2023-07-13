@@ -133,6 +133,16 @@
           </a>
         </li>
 
+        <!--------- Menu machines  -------------------> 
+        <li class="nav-item has-treeview">
+          <a href="{{ url('/admin/machines') }}" class="nav-link {{($section == 'machines')?'active':''}}">
+            <i class="fas fa-desktop"></i>
+            <p>
+              {{ ucfirst(trans('common.machines')) }}
+            </p>
+          </a>
+        </li>
+
       </ul>
     </nav>
     <!-- /.sidebar-menu -->

@@ -1,5 +1,5 @@
 @extends('layouts.admin.app')
-@section('title', ucfirst(trans('common.users')))
+@section('title', ucfirst(trans('common.machines')))
 @section('content')
 
     <!-- ============================================================== -->
@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
                     <div class="page-header">
-                        <h2 class="pageheader-title">{{ ucfirst(trans('common.users')) }}</h2>
+                        <h2 class="pageheader-title">{{ ucfirst(trans('common.machines')) }}</h2>
                         <div class="page-breadcrumb">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
@@ -20,7 +20,7 @@
                                         </a>
                                     </li>
                                     <li class="breadcrumb-item active">
-                                        {{ ucfirst(trans('common.users')) }}
+                                        {{ ucfirst(trans('common.machines')) }}
                                     </li>
                                 </ol>
                             </nav>
@@ -30,7 +30,7 @@
                 
                 <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
                     <div class="card-body border-top">
-                        <a href="{{ url('admin/users/create') }}" class="btn btn-outline-primary float-right">
+                        <a href="{{ url('admin/machines/create') }}" class="btn btn-outline-primary float-right">
                             <i class="fas fa-plus-circle"></i>
                             {{ ucfirst(trans('common.create')) }}
                         </a>
@@ -54,7 +54,7 @@
                 <!-- Form searchs -->   
                     <div class="card">
                         {!! Form::open([
-                            'url' => 'admin/users', 
+                            'url' => 'admin/machines', 
                             'method' => 'GET', 
                             'enctype' => 'multipart/form-data', 
                             'class' => 'form-horizontal pt-3',
@@ -90,33 +90,33 @@
                                 <thead>
                                 <tr>
                                     <th class="actions">ID</th>
-                                    <th>{{ ucfirst(trans('common.firstname')) }}</th>
-                                    <th>{{ ucfirst(trans('common.lastname')) }}</th>
-                                    <th>{{ ucfirst(trans('common.cellphone')) }}</th>
+                                    <th>{{ ucfirst(trans('common.IP')) }}</th>
+                                    <th>{{ ucfirst(trans('common.os')) }}</th>
+                                    <th>{{ ucfirst(trans('common.owner')) }}</th>
                                     <th class="actions">{{ ucfirst(trans('common.actions')) }}</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($users as $item)
+                                @foreach($machines as $item)
                                     <tr class="gradeX">
                                         <td>{{ @$item->id }}</td>
-                                        <td>{{ @$item->name }}</td>
-                                        <td>{{ @$item->last_name }}</td>
-                                        <td>{{ @$item->mobile }}</td>
+                                        <td>{{ @$item->ip }}</td>
+                                        <td>{{ @$item->operative_system }}</td>
+                                        <td>{{ @$item->owner }}</td>
                                         <td>
                                             <div class="input-group-prepend">
                                                 <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
                                                     {{ ucfirst(trans('common.actions')) }}
                                                 </button>
                                                 <div class="dropdown-menu">
-                                                        <a href="{{ url('admin/users/' . @$item->id . '/edit') }}" class="dropdown-item">
+                                                        <a href="{{ url('admin/machines/' . @$item->id . '/edit') }}" class="dropdown-item">
                                                             <i class="fas fa-edit"></i> {{ ucfirst(trans('common.update')) }}
                                                         </a>
                                                         <div class="dropdown-divider"></div>
                                                         <a class="dropdown-item" href="#"
                                                             data-action="delete"
-                                                            data-name="{{$item->full_name}}" 
-                                                            data-url="{{ route('users.destroy', $item->id) }}" 
+                                                            data-name="{{$item->ip}}" 
+                                                            data-url="{{ route('machines.destroy', $item->id) }}" 
                                                             data-title-msg="{{ ucfirst(trans('common.delete')) }}" 
                                                             data-text-msg="{{ ucfirst(trans('common.msgdelete')) }}"
                                                             data-btn-action="{{ ucwords(trans('common.delete')) }}"
@@ -131,13 +131,13 @@
                                 @endforeach
                                 </tbody>
                             </table>
-                            @include('admin.users.partials.modal-delete')
+                            @include('admin.machines.partials.modal-delete')
                             <div class="float-left">
                                 {{ $text_pagination }}
                             </div>
                             <div class="float-right">                                        
                                 <div class="btn-group">
-                                  {!! $users->appends(request()->except('page'))->links() !!}
+                                  {!! $machines->appends(request()->except('page'))->links() !!}
                                 </div>
                             </div>
                         </div>

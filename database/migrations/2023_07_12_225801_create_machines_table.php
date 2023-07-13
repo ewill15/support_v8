@@ -17,7 +17,7 @@ class CreateMachinesTable extends Migration
             $table->id();
             $table->string('motherboard')->nullable();
             $table->string('processor')->nullable();
-            $table->string('IP')->nullable();
+            $table->string('ip')->nullable();
             $table->string('operative_system')->nullable();
             $table->string('mail_address')->nullable();
             $table->string('office_package')->nullable();

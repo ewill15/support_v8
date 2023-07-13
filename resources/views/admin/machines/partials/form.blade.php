@@ -15,69 +15,85 @@
                     <div class="card-body">
                       <div class="tab-content" id="custom-tabs-three-tabContent">
                           {{-- DATOS PERSONALES  --}}
-
                             <div class="form-group row {{ $errors->has('name') ? 'has-error' : ''}}">
-                                <label for="name" class="col-md-4 form-control-label text-md-right">
-                                    <span class="text-danger">*</span>
-                                    {{ ucfirst(trans('common.firstname')) }}
+                                <label for="name" class="col-md-4 form-control-label text-md-right">                                    
+                                    {{ ucfirst(trans('common.motherboard')) }}
                                 </label>    
                                 <div class="col-md-4 required-name">
-                                    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => ucfirst(trans('common.firstname'))]) !!}
+                                    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => '...']) !!}
                                     {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
                                 </div>
                             </div>                                  
-                            <div class="form-group row {{ $errors->has('last_name') ? 'has-error' : ''}}">
-                                <label for="last_name" class="col-md-4 form-control-label text-md-right">
+                            <div class="form-group row {{ $errors->has('processor') ? 'has-error' : ''}}">
+                                <label for="processor" class="col-md-4 form-control-label text-md-right">
                                     <span class="text-danger">*</span>
-                                    {{ ucfirst(trans('common.lastname')) }}
+                                    {{ ucfirst(trans('common.processor')) }}
                                 </label>    
                                 <div class="col-md-4 required-name">
-                                    {!! Form::text('last_name', null, ['class' => 'form-control', 'placeholder' => ucfirst(trans('common.lastname'))]) !!}
-                                    {!! $errors->first('lastname', '<p class="help-block">:message</p>') !!}
+                                    {!! Form::text('processor', null, ['class' => 'form-control', 'placeholder' => '...']) !!}
+                                    {!! $errors->first('processor', '<p class="help-block">:message</p>') !!}
                                 </div>
-                            </div>                                                      
-                            <div class="form-group row {{ $errors->has('mobile') ? 'has-error' : ''}}">
-                                <label for="mobile" class="col-md-4 form-control-label text-md-right">
+                            </div>          
+
+                            <div class="form-group row {{ $errors->has('ip') ? 'has-error' : ''}}">
+                                <label for="ip" class="col-md-4 form-control-label text-md-right">
                                     <span class="text-danger">*</span>
-                                    {{ ucfirst(trans('common.mobile')) }}
+                                    {{ ucfirst(trans('common.IP')) }}
                                 </label>    
                                 <div class="col-md-4 required-name">
-                                    {!! Form::number('mobile', null, ['class' => 'form-control', 'placeholder' => '...']) !!}
-                                    {!! $errors->first('mobile', '<p class="help-block">:message</p>') !!}
+                                    {!! Form::text('ip', null, ['class' => 'form-control', 'placeholder' => '...']) !!}
+                                    {!! $errors->first('ip', '<p class="help-block">:message</p>') !!}
                                 </div>
                             </div>
-                            <div class="form-group row {{ $errors->has('email') ? 'has-error' : ''}}">
-                                <label for="email" class="col-md-4 form-control-label text-md-right">
-                                    {{ ucfirst(trans('common.email')) }}
+                            <div class="form-group row {{ $errors->has('operative_system') ? 'has-error' : ''}}">
+                                <label for="operative_system" class="col-md-4 form-control-label text-md-right">
+                                    <span class="text-danger">*</span>
+                                    {{ ucfirst(trans('common.operative_system')) }}
                                 </label>
                                 <div class="col-md-4">
-                                    {!! Form::text('email', null, ['class' => 'form-control', 'placeholder' => '...']) !!}
-                                    {!! $errors->first('email', '<p class="help-block">:message</p>') !!}
+                                    {!! Form::text('operative_system', null, ['class' => 'form-control', 'placeholder' => '...']) !!}
+                                    {!! $errors->first('operative_system', '<p class="help-block">:message</p>') !!}
                                 </div>
                             </div>
-                            <div class="form-group row {{ $errors->has('password') ? 'has-error' : ''}}">
-                                <label for="password" class="col-md-4 form-control-label text-md-right">
-                                    {{ ucfirst(trans('common.password')) }}
+
+                            <div class="form-group row {{ $errors->has('mail_address') ? 'has-error' : ''}}">
+                                <label for="mail_address" class="col-md-4 form-control-label text-md-right">
+                                    {{ ucfirst(trans('common.mail_address')) }}
                                 </label>
                                 <div class="col-md-4">
-                                    {!! Form::password('password', ['class' => 'form-control', 'placeholder' => '...']) !!}
-                                    {!! $errors->first('password', '<p class="help-block">:message</p>') !!}
+                                    {!! Form::text('mail_address', null, ['class' => 'form-control', 'placeholder' => '...']) !!}
+                                    {!! $errors->first('mail_address', '<p class="help-block">:message</p>') !!}
                                 </div>
                             </div>
-                            <div class="form-group row {{ $errors->has('dob') ? 'has-error' : ''}}">
-                                <label for="dob" class="col-md-4 form-control-label text-md-right">
-                                    {{ ucfirst(trans('common.dob')) }}
-                                </label>    
-                                <div class="col-md-4 required-name">
-                                    <div class="input-group date" id="dob" data-target-input="nearest">
-                                        {!! Form::text('dob', null, ['class' => 'form-control datetimepicker-input', 'data-target' => '#dob']) !!}
-                                        {!! $errors->first('date', '<p class="help-block">:message</p>') !!}
-                                        <div class="input-group-append" data-target="#dob" data-toggle="datetimepicker">
-                                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                        </div>
-                                    </div>
+                            <div class="form-group row {{ $errors->has('office_package') ? 'has-error' : ''}}">
+                                <label for="office_package" class="col-md-4 form-control-label text-md-right">
+                                    {{ ucfirst(trans('common.office_package')) }}
+                                </label>
+                                <div class="col-md-4">
+                                    {!! Form::text('office_package', null, ['class' => 'form-control', 'placeholder' => '...']) !!}
+                                    {!! $errors->first('office_package', '<p class="help-block">:message</p>') !!}
                                 </div>
                             </div>
+                            <div class="form-group row {{ $errors->has('owner') ? 'has-error' : ''}}">
+                                <label for="owner" class="col-md-4 form-control-label text-md-right">
+                                    <span class="text-danger">*</span>
+                                    {{ ucfirst(trans('common.owner')) }}
+                                </label>
+                                <div class="col-md-4">
+                                    {!! Form::text('owner', null, ['class' => 'form-control', 'placeholder' => '...']) !!}
+                                    {!! $errors->first('owner', '<p class="help-block">:message</p>') !!}
+                                </div>
+                            </div>
+                            <div class="form-group row {{ $errors->has('other') ? 'has-error' : ''}}">
+                                <label for="other" class="col-md-4 form-control-label text-md-right">
+                                    {{ ucfirst(trans('common.other')) }}
+                                </label>
+                                <div class="col-md-4">
+                                    {!! Form::textarea('other', null, ['class' => 'form-control', 'placeholder' => '...']) !!}
+                                    {!! $errors->first('other', '<p class="help-block">:message</p>') !!}
+                                </div>
+                            </div>
+                            
                       </div>
                     </div>
                     <!-- /.card -->
