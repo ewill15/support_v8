@@ -16,7 +16,8 @@ class Machine extends Model
         'operative_system',
         'mail_address',
         'office_package',
-        'other'
+        'other',
+        'owner'
     ];
     
 }

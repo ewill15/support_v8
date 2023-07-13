@@ -22,6 +22,7 @@ class CreateMachinesTable extends Migration
             $table->string('mail_address')->nullable();
             $table->string('office_package')->nullable();
             $table->text('other')->nullable();
+            $table->string('owner')->nullable();
             $table->timestamps();
         });
     }
