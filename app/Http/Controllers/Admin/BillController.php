@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Helper;
+use Carbon\Carbon;
 use App\Models\Bill;
 use App\Models\Company;
 use Illuminate\Http\Request;
@@ -58,7 +59,7 @@ class BillController extends Controller
             'date'=>'required',
             'description'=>'required',
             'price'=>'required|numeric',
-            'company_id'=>'required|exists:company,id',
+            'company_id'=>'required|exists:companies,id',
             'user_id'=>'required|exists:users,id'
         ]);
         if($v && $v->fails()){
@@ -66,7 +67,8 @@ class BillController extends Controller
         }
 
         $fields = $request->all();
-        
+        $fields['user_id'] = Auth::id();
+
         $bill = Bill::create($fields);
 
         if ($bill) {
@@ -82,6 +84,7 @@ class BillController extends Controller
     public function edit($id)
     {
         $bill = Bill::find($id);
+        $bill->date = Carbon::parse($bill->date)->format('d-m-Y');
         $companies = Company::orderBy('name', 'ASC')->pluck('name', 'id');
 
         return view('admin.bills.edit',compact('bill','companies'));
@@ -93,8 +96,7 @@ class BillController extends Controller
         $fields = $request->all();
         
         $v= Validator::make($request->all(),[
-            'company_id'=>'required|exists:company,id',
-            'user_id'=>'required|exists:users,id'
+            'company_id'=>'required|exists:companies,id',
         ]);
 
         if($v && $v->fails()){

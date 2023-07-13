@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Bill extends Model
 {
@@ -27,5 +28,10 @@ class Bill extends Model
     public function user()
     {
         return $this->belongsTo(User::class,'user_id');
+    }
+
+    public function getFormattedDateAttribute()
+    {
+        return Carbon::parse($this->date)->format('d-M-Y');
     }
 }

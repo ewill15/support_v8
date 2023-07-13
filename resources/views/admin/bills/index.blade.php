@@ -98,7 +98,7 @@
                                 <tbody>
                                 @foreach($bills as $item)
                                     <tr class="gradeX">
-                                        <td>{{ @$item->date }}</td>
+                                        <td class="w-150p">{{ @$item->formatted_date }}</td>
                                         <td>{{ @$item->company->name }}</td>
                                         <td>{{ @$item->description }}</td>
                                         <td>{{ @$item->price }}</td>

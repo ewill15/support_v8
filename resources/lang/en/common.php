@@ -87,6 +87,7 @@ return [
 
     'bill'=>'bill',
     'bills'=>'bills',
+    'price'=>'price',
 
     'song'=>'song',
     'songs'=>'songs',
@@ -125,7 +126,7 @@ return [
     'pronuntation'=>'pronuntation',
     'meaning'=>'meaning',
     'example'=>'example',
-    
+
     'language'=>'language',
     'languages'=>'languages',
 ];
