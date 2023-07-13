@@ -153,6 +153,16 @@
           </a>
         </li>
 
+        <!--------- Menu languages  -------------------> 
+        <li class="nav-item has-treeview">
+          <a href="{{ url('/admin/languages') }}" class="nav-link {{($section == 'languages')?'active':''}}">
+            <i class="fas fa-language mr-2"></i>
+            <p>
+              {{ ucfirst(trans('common.languages')) }}
+            </p>
+          </a>
+        </li>
+
       </ul>
     </nav>
     <!-- /.sidebar-menu -->

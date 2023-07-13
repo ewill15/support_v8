@@ -123,6 +123,10 @@ return [
     'meaning'=>'meaning',
     'example'=>'example',
     'language'=>'language',
+
+    'language'=>'language',
+    'languages'=>'languages',
+    
     
 
 
