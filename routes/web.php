@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\AccountController;
 use App\Http\Controllers\Admin\MachineController;
 use App\Http\Controllers\Admin\DictionaryController;
 use App\Http\Controllers\Admin\LanguageController;
+use App\Http\Controllers\Admin\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,5 +52,5 @@ Route::group(['middleware'=>['auth'], 'prefix' => 'admin'], function(){
     Route::resource('machines', MachineController::class);
     Route::resource('dictionaries', DictionaryController::class);
     Route::resource('languages', LanguageController::class);
-    
+    Route::resource('webs', RegisterController::class);
 });

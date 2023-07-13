@@ -128,7 +128,7 @@
             <i class="fas fa-network-wired mr-2"></i>
             <p>
               {{ ucfirst(trans('common.webs')) }}
-              <span class="right badge badge-danger">incomplete</span>
+              <span class="right badge badge-warning">check</span>
             </p>
           </a>
         </li>

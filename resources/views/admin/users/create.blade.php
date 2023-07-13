@@ -24,7 +24,7 @@
                                         </a>
                                     </li>
                                     <li class="breadcrumb-item active" aria-current="page">
-                                        {{ ucfirst(trans('common.new_user')) }}
+                                        {{ ucfirst(trans('common.new')) }}
                                     </li>
                                 </ol>
                             </nav>
@@ -48,7 +48,7 @@
                     @include('admin.partials.messages')
                     @include('admin.partials.errors', ['errors' => $errors])
                     <div class="card">
-                        <h5 class="card-header">{{ ucfirst(trans('common.new')) }}</h5>
+                        <h5 class="card-header">{{ ucfirst(trans('common.user')) }}</h5>
                         <div class="card-body">
                             {!! Form::open([
                                 'id'=>'form-user',

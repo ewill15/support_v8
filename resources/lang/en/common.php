@@ -102,7 +102,10 @@ return [
 
     'payment'=>'payment',
 
+    'web'=>'web account ',
     'webs'=>'webs account ',
+    'type'=>'type',
+    'page'=>'page',
 
     'machine'=>'machine',
     'machines'=>'machines',
@@ -126,7 +129,7 @@ return [
 
     'language'=>'language',
     'languages'=>'languages',
-    
+
     
 
 

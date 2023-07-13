@@ -20,10 +20,12 @@
                                     </li>
                                     <li class="breadcrumb-item">
                                         <a href="{{ url('/admin/users') }}" class="breadcrumb-link">
-                                            {{ ucfirst(trans('common.list_users')) }}
+                                            {{ ucfirst(trans('common.users')) }}
                                         </a>
                                     </li>
-                                    <li class="breadcrumb-item active" aria-current="page">{{ ucfirst(trans('common.edit_user')) }}</li>
+                                    <li class="breadcrumb-item active" aria-current="page">
+                                        {{ ucfirst(trans('common.edit')) }}
+                                    </li>
                                 </ol>
                             </nav>
                         </div>

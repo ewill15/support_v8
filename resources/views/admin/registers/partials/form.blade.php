@@ -14,45 +14,35 @@
                     </div>
                     <div class="card-body">
                       <div class="tab-content" id="custom-tabs-three-tabContent">
-                          {{-- DATOS PERSONALES  --}}
-
-                            <div class="form-group row {{ $errors->has('name') ? 'has-error' : ''}}">
-                                <label for="name" class="col-md-4 form-control-label text-md-right">
+                          {{-- DATOS PERSONALES  --}}                          
+                            <div class="form-group row {{ $errors->has('type') ? 'has-error' : ''}}">
+                                <label for="type" class="col-md-4 form-control-label text-md-right">
                                     <span class="text-danger">*</span>
-                                    {{ ucfirst(trans('common.firstname')) }}
+                                    {{ ucfirst(trans('common.type')) }}
                                 </label>    
                                 <div class="col-md-4 required-name">
-                                    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => ucfirst(trans('common.firstname'))]) !!}
-                                    {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
+                                    {!! Form::text('type', null, ['class' => 'form-control', 'placeholder' => '...']) !!}
+                                    {!! $errors->first('type', '<p class="help-block">:message</p>') !!}
                                 </div>
                             </div>                                  
-                            <div class="form-group row {{ $errors->has('last_name') ? 'has-error' : ''}}">
-                                <label for="last_name" class="col-md-4 form-control-label text-md-right">
+                            <div class="form-group row {{ $errors->has('page') ? 'has-error' : ''}}">
+                                <label for="page" class="col-md-4 form-control-label text-md-right">
                                     <span class="text-danger">*</span>
-                                    {{ ucfirst(trans('common.lastname')) }}
+                                    {{ ucfirst(trans('common.page')).' or URL' }}
                                 </label>    
                                 <div class="col-md-4 required-name">
-                                    {!! Form::text('last_name', null, ['class' => 'form-control', 'placeholder' => ucfirst(trans('common.lastname'))]) !!}
-                                    {!! $errors->first('lastname', '<p class="help-block">:message</p>') !!}
+                                    {!! Form::text('page', null, ['class' => 'form-control', 'placeholder' => '...']) !!}
+                                    {!! $errors->first('page', '<p class="help-block">:message</p>') !!}
                                 </div>
                             </div>                                                      
-                            <div class="form-group row {{ $errors->has('mobile') ? 'has-error' : ''}}">
-                                <label for="mobile" class="col-md-4 form-control-label text-md-right">
+                           <div class="form-group row {{ $errors->has('username') ? 'has-error' : ''}}">
+                                <label for="username" class="col-md-4 form-control-label text-md-right">
                                     <span class="text-danger">*</span>
-                                    {{ ucfirst(trans('common.mobile')) }}
+                                    {{ ucfirst(trans('common.username')) }}
                                 </label>    
                                 <div class="col-md-4 required-name">
-                                    {!! Form::number('mobile', null, ['class' => 'form-control', 'placeholder' => '...']) !!}
-                                    {!! $errors->first('mobile', '<p class="help-block">:message</p>') !!}
-                                </div>
-                            </div>
-                            <div class="form-group row {{ $errors->has('email') ? 'has-error' : ''}}">
-                                <label for="email" class="col-md-4 form-control-label text-md-right">
-                                    {{ ucfirst(trans('common.email')) }}
-                                </label>
-                                <div class="col-md-4">
-                                    {!! Form::text('email', null, ['class' => 'form-control', 'placeholder' => '...']) !!}
-                                    {!! $errors->first('email', '<p class="help-block">:message</p>') !!}
+                                    {!! Form::text('username', null, ['class' => 'form-control', 'placeholder' => '...']) !!}
+                                    {!! $errors->first('username', '<p class="help-block">:message</p>') !!}
                                 </div>
                             </div>
                             <div class="form-group row {{ $errors->has('password') ? 'has-error' : ''}}">
@@ -64,18 +54,14 @@
                                     {!! $errors->first('password', '<p class="help-block">:message</p>') !!}
                                 </div>
                             </div>
-                            <div class="form-group row {{ $errors->has('dob') ? 'has-error' : ''}}">
-                                <label for="dob" class="col-md-4 form-control-label text-md-right">
-                                    {{ ucfirst(trans('common.dob')) }}
-                                </label>    
-                                <div class="col-md-4 required-name">
-                                    <div class="input-group date" id="dob" data-target-input="nearest">
-                                        {!! Form::text('dob', null, ['class' => 'form-control datetimepicker-input', 'data-target' => '#dob']) !!}
-                                        {!! $errors->first('date', '<p class="help-block">:message</p>') !!}
-                                        <div class="input-group-append" data-target="#dob" data-toggle="datetimepicker">
-                                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                        </div>
-                                    </div>
+                            
+                             <div class="form-group row {{ $errors->has('description') ? 'has-error' : ''}}">
+                                <label for="description" class="col-md-4 form-control-label text-md-right">
+                                    {{ ucfirst(trans('common.description')) }}
+                                </label>
+                                <div class="col-md-4">
+                                    {!! Form::textarea('description', null, ['class' => 'form-control', 'placeholder' => '...']) !!}
+                                    {!! $errors->first('description', '<p class="help-block">:message</p>') !!}
                                 </div>
                             </div>
                       </div>
