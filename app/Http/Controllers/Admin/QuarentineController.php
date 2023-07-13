@@ -74,8 +74,8 @@ class QuarentineController extends Controller
     public function edit($id)
     {
         $quarentine = Quarentine::find($id);
-        $quarentine->date = Carbon::parse()->format('d-m-Y');
-        
+        $quarentine->date = Carbon::parse($quarentine->date)->format('d-m-Y');
+
         return view('admin.quarentines.edit',compact('quarentine'));
     }
  
