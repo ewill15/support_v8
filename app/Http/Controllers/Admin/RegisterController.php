@@ -31,12 +31,13 @@ class RegisterController extends Controller
         $page = (int)$request->page;
         if ($request->keyword != '')
             $registers = $registers->where('username', 'LIKE', '%' . $request->keyword . '%')
+                ->orWhere('page', 'LIKE', $request->keyword . '%')
                 ->orWhere('type', 'LIKE', $request->keyword . '%');
 
         $text_pagination = Helper::messageCounterPagination($registers->count(), $page, $paginate, $lang);
-
+        
         $registers = $registers->paginate($paginate);
-
+        
         return view('admin.registers.index', compact('registers', 'paginate', 'text_pagination'));
     }
 
@@ -121,7 +122,6 @@ class RegisterController extends Controller
             'type'=>'required',
             'page'=>'required',
             'username'=>'required',
-            'password'=>'required|min:8',
         ]);
         if ($v && $v->fails()) {
             return redirect()->back()->withInput()->withErrors($v->errors());
@@ -190,10 +190,7 @@ class RegisterController extends Controller
     {
         $register = Register::find($id);
 
-        $result = [
-            "user"=>$register->username,
-            "password"=>$register->password
-        ];
+        $result = $register;
 
         return view('admin.registers.data', compact('result'));
     }

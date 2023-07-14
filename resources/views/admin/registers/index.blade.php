@@ -70,7 +70,7 @@
                         
                         <div class="w-50 float-right">
                             <div class="align-self-center p-2 bd-highlight">
-                                {!! Form::text('search', null, ['class' => 'form-control form-control-sm', 'placeholder' => ucfirst(trans('common.search')).'...']) !!}
+                                {!! Form::text('keyword', null, ['class' => 'form-control form-control-sm', 'placeholder' => ucfirst(trans('common.search')).'...']) !!}
                             </div>
                             <div class="align-self-center p-2-bd-highlight">
                                 <button type="submit" class="btn btn-primary btn-sm">
