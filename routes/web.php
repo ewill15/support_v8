@@ -53,4 +53,7 @@ Route::group(['middleware'=>['auth'], 'prefix' => 'admin'], function(){
     Route::resource('dictionaries', DictionaryController::class);
     Route::resource('languages', LanguageController::class);
     Route::resource('webs', RegisterController::class);
+
+    Route::post('hash_pwd/{id}', [RegisterController::class, 'hashPassword']);
+    Route::get('webs/{id}/d-data', [RegisterController::class, 'displayData']);
 });

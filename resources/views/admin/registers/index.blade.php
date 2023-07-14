@@ -54,7 +54,7 @@
                 <!-- Form searchs -->   
                     <div class="card">
                         {!! Form::open([
-                            'url' => 'admin/registers', 
+                            'url' => 'admin/webs', 
                             'method' => 'GET', 
                             'enctype' => 'multipart/form-data', 
                             'class' => 'form-horizontal pt-3',
@@ -91,7 +91,9 @@
                                 <tr>
                                     <th class="actions">ID</th>
                                     <th>{{ ucfirst(trans('common.type')) }}</th>
+                                    <th>{{ ucfirst(trans('common.page')) }}</th>
                                     <th>{{ ucfirst(trans('common.username')) }}</th>
+                                    <th>{{ ucfirst(trans('common.password')) }}</th>
                                     <th>{{ ucfirst(trans('common.description')) }}</th>
                                     <th class="actions">{{ ucfirst(trans('common.actions')) }}</th>
                                 </tr>
@@ -101,16 +103,25 @@
                                     <tr class="gradeX">
                                         <td>{{ @$item->id }}</td>
                                         <td>{{ @$item->type }}</td>
+                                        <td>{{ @$item->page }}</td>
                                         <td>{{ @$item->username }}</td>
+                                        <td>{{ @$item->hash_password }}</td>
                                         <td>{{ @$item->description }}</td>
                                         <td>
                                             <div class="input-group-prepend">
-                                                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                                                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" >
                                                     {{ ucfirst(trans('common.actions')) }}
                                                 </button>
                                                 <div class="dropdown-menu">
+                                                        <a id="hash" href="{{ url('admin/hash_pwd/'.$item->id) }}" class="dropdown-item">
+                                                            <i class="fas fa-lock"></i>
+                                                            {{ ucfirst(trans('common.hashing')) }}
+                                                        </a>
                                                         <a href="{{ url('admin/webs/' . @$item->id . '/edit') }}" class="dropdown-item">
                                                             <i class="fas fa-edit"></i> {{ ucfirst(trans('common.update')) }}
+                                                        </a>
+                                                        <a href="{{ url('admin/webs/' . @$item->id . '/d-data') }}" class="dropdown-item">
+                                                            <i class="far fa-newspaper"></i> {{ ucfirst(trans('common.display_data')) }}
                                                         </a>
                                                         <div class="dropdown-divider"></div>
                                                         <a class="dropdown-item" href="#"
@@ -132,6 +143,7 @@
                                 </tbody>
                             </table>
                             @include('admin.registers.partials.modal-delete')
+                            @include('admin.partials.modal-info')
                             <div class="float-left">
                                 {{ $text_pagination }}
                             </div>

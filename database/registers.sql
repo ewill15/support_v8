@@ -1,191 +1,206 @@
-insert into registers(type,username,password,date,description,created_at) values ('samsung','ewill_za@hotmail.com','luciana07','2021-04-10','',CURDATE()),
-('AFP','6210230@','Bvp172154','2021-04-10','',CURDATE()),
-('INTEL XDK','ewill0405@hotmail.com','xdk-ewaz1*','2021-04-10','',CURDATE()),
-('gmail','soporte.azweb@gmail.com','soportewebaz5060*','2021-04-10','',CURDATE()),
-('gmail','edwinarandia84@gmail.com','nata2160*?','2021-04-10','',CURDATE()),
-('gmail','jhanettgit@gmail.com','gtHbjna5060*?','2021-04-10','',CURDATE()),
-('gmail','ewarandia@gmail.com','GglMl5060*','2021-04-10','',CURDATE()),
-('gmail','marjenzeballos@gmail.com','31102012','2021-04-10','',CURDATE()),
-('gmail','e.arandia.sic@gmail.com','Smrtncd2018*  yqwpnvfylksaxhjx','2021-04-10','',CURDATE()),
-('hotmail','edarandia@@hotmail.com','sk-NM2160*','2021-04-10','',CURDATE()),
-('hotmail','ewill_za@@hotmail.com','luciana07 frstNc0307*','2021-04-10','',CURDATE()),
-('hotmail','edwin_arandia84@@hotmail.com','ale1790*','2021-04-10','',CURDATE()),
-('netflix','nlarandiaz@gmail.com','31102012af','2021-04-10','',CURDATE()),
-('facebook','edarandia@@hotmail.com','ezaw1790','2021-04-10','',CURDATE()),
-('facebook','juansolares06@@hotmail.com','e1d9w8i4n','2021-04-10','',CURDATE()),
-('pinterest','edarandia@@hotmail.com','Prt*5060?','2021-04-10','',CURDATE()),
-('yahoo-ES','ewarandia@yahoo.es','aYhMl5060*','2021-04-10','',CURDATE()),
-('yahoo-AR','edarandia@yahoo.com.ar','aYhMl5060*2','2021-04-10','',CURDATE()),
-('twitter','ewill0405@edarandia','b:AMQ!4?<b3R.h8','2021-04-10','',CURDATE()),
-('dropbox','edarandia@@hotmail.com','drpBx5060*','2021-04-10','',CURDATE()),
-('pou','ewill_za@hotmail.com','e1d9w8i4n','2021-04-10','level 38',CURDATE()),
-('pou','edarandia@hotmail.com','38hix5 ','2021-04-10','level 30',CURDATE()),
-('pou','ewarandia@gmail.com','38h43p ','2021-04-10','level 46',CURDATE()),
-('github','edarandia@yahoo.com.ar','PrTvWkuPcL1','2021-04-10','',CURDATE()),
-('github','earandia ewarandia@gmail.com@username email','nxtU_Dwb17','2021-04-10','',CURDATE()),
-('github','jhanettgit jhansis-0506@gmail.com username','gtHbjna5060*? control123!','2021-04-10','',CURDATE()),
-('github','ewill15@edarandia','PRTvWkuPcL1','2021-04-10','',CURDATE()),
-('gitguardian','edarandia@hotmail.com ','','2021-04-10','',CURDATE()),
-('gitlab','jhanettgit@gmail.com','gtlbWz0506* gtlb0506*','2021-04-10','',CURDATE()),
-('gitlab','ewarandia@gmail.com','gtLbXntps2160*','2021-04-10','',CURDATE()),
-('gitlab','edwinarandia84@e_arandia','mBqcd2#KZ!uqWzL','2021-04-10','',CURDATE()),
-('bitbucket','ewarandia@gmail.com','bbcktNM2160*','2021-04-10','',CURDATE()),
-('bitbucket','e.arandia.sic@gmail.com','btBckt2018*?','2021-04-10','',CURDATE()),
-('bitbucket','jobs.smartincode@gmail.com','.asdfasdf.','2021-04-10','',CURDATE()),
-('bitbucket','jhanettgit@gmail.com','gtrKrkn0506*','2021-04-10','',CURDATE()),
-('mega.co.nz','edarandia@@hotmail.com','nEVCNA.p5pNpTmk','2021-04-10','',CURDATE()),
-('snapchat','ewill_za@@hotmail.com','PRTvWkuPcL','2021-04-10','',CURDATE()),
-('teamviewer','edarandia@@hotmail.com','e1d9w8i4n','2021-04-10','',CURDATE()),
-('teamviewer','e.arandia.sic@gmail.com','teamsic2018*','2021-04-10','',CURDATE()),
-('line','ewill_za@@hotmail.com','luciana07','2021-04-10','',CURDATE()),
-('skype','edarandia@@hotmail.com','sk-NM2160*','2021-04-10','',CURDATE()),
-('edx','ewill_za@@hotmail.com','ezaw1790*','2021-04-10','',CURDATE()),
-('airdroid','edarandia@@hotmail.com','ea2160x15*','2021-04-10','',CURDATE()),
-('duolingo','edwinarandia84@gmail.com','ezaw1790*?','2021-04-10','',CURDATE()),
-('anti-theft.eset.com','edarandia@@hotmail.com','natita2160*','2021-04-10','',CURDATE()),
-('phanton windows account','ewill@hotmail.com','','2021-04-10','',CURDATE()),
-('bo.acciontrabajo.com','edarandia@hotmail.com','Ccntrb2160*','2021-04-10','',CURDATE()),
-('comunidaddephp.org','xxxxx@xxxxxxx','xxxxxxxxxx','2021-04-10','',CURDATE()),
-('opina america latina.com','ewarandia@yahoo.es','e1d9w8i4n','2021-04-10','',CURDATE()),
-('capacitateparaelempleo.org','ewarandia@gmail.com','e1d9w8i4n','2021-04-10','',CURDATE()),
-('mismarcadores.com','edarandia@hotmail.com','e1d9w8i4n - mMrcdrs5060*','2021-04-10','',CURDATE()),
-('www.itraptor.com','ewarandia@gmail.com','e1d9w8i4n','2021-04-10','',CURDATE()),
-('chevening.tal.net','edarandia@hotmail.com','nm2160*?','2021-04-10','',CURDATE()),
-('my.paragon-software.com','edarandia@hotmail.com','nata2160A','2021-04-10','',CURDATE()),
-('my.avast.com','edarandia@hotmail.com','e1d9w8i4n','2021-04-10','',CURDATE()),
-('codigofacilito.com','','enm2160*','2021-04-10','',CURDATE()),
-('www.sans.org','','Eaz%1790**','2021-04-10','',CURDATE()),
-('ticapacitacion.com/aula','','nata2160*?','2021-04-10','',CURDATE()),
-('chrome remote desktop -home','@','','2021-04-10','',CURDATE()),
-('chrome remote desktop','@','','2021-04-10','',CURDATE()),
-('my-knox','@','','2021-04-10','',CURDATE()),
-('laptop -ma','edwin@','ezaw2160','2021-04-10','',CURDATE()),
-('cinecenter ','ewarandia@gmail.com','Cncntr5060*','2021-04-10','',CURDATE()),
-('analistaforense.org.pe/moodle/login','@earandia','Ea2160*?','2021-04-10','',CURDATE()),
-('analistaforense.org.pe/moodle/login','edarandia@yahoo.com.ar','sdm2160*?','2021-04-10','',CURDATE()),
-('codecademy.net','ewarandia@gmail.com','cdCdm5060*?','2021-04-10','',CURDATE()),
-('universia.es','ewarandia@gmail.com','nata2160*','2021-04-10','',CURDATE()),
-('outsourcely.com','ewarandia@gmail.com','PRTvWkuPcL','2021-04-10','',CURDATE()),
-('infojobs.net','ewarandia@gmail.com','nata2160*','2021-04-10','',CURDATE()),
-('signin.techsmith.com','ewarandia@gmail.com','cmts2160*','2021-04-10','',CURDATE()),
-('buscojobs.com.bo','ewarandia@gmail.com','bj-2160*','2021-04-10','',CURDATE()),
-('buscojobs.com.bo::opcionempleo.com.bo','edarandia@hotmail.com','opcmpl-2160*::7168','2021-04-10','',CURDATE()),
-('tiptopjob.com','ewarandia@gmail.com','KLHDV4','2021-04-10','',CURDATE()),
-('computrabajo.com.bo','edarandia@hotmail.com','cptr-2160*','2021-04-10','',CURDATE()),
-('datacamp.com','ewarandia@gmail.com','ewza2160*?','2021-04-10','',CURDATE()),
-('transifex.com','ewillAZ@ewarandia','tfx2160*','2021-04-10','',CURDATE()),
-('https://es.coursera.org/learn/python-machine-learning','edarandia@hotmail.com','nata2160*','2021-04-10','',CURDATE()),
-('booking.com','ewarandia@gmail.com','bkg2017*','2021-04-10','',CURDATE()),
-('bitnami.com','ewarandia@gmail.com','btnmwapp2017*','2021-04-10','',CURDATE()),
-('ebisa','ewarandia@','bncBs5060*','2021-05-13','',CURDATE()),
-('unitoken','@','8460','2021-10-11','',CURDATE()),
-('uninet','1676657@','Jean5060*','2022-05-07','',CURDATE()),
-('prodemnet','ewillza@','prdmNt5060*','2021-10-04','',CURDATE()),
-('next_u','ewarandia@gmail.com','NxtWeb2160$','2021-10-04','',CURDATE()),
-('workana','ewarandia@gmail.com','Wrkn5060*','2021-10-04','',CURDATE()),
-('https://www.academiaeset.com/default/std/myevents/17791','ewarandia@gmail.com','stPthn2160*','2021-10-04','',CURDATE()),
-('bo.profdir.com','edarandia@hotmail.com','prfdr-2160*','2021-10-04','',CURDATE()),
-('linkedin','edarandia@hotmail.com','lKdn17*','2021-10-04','',CURDATE()),
-('https://www.freelancer.com.jm/signup','freewy@edarandia','Frlnc2160*','2021-10-04','',CURDATE()),
-('postman','edarandia||ewillOjob@hotmail.com','pstmn10mids* ','2021-10-04','',CURDATE()),
-('postman','ewarandia || ewill5060@gmail.com','pstmn5060*P2','2021-10-04','',CURDATE()),
-('vimeo','edarandia@hotmail.com','Vimo2160*?','2021-10-04','',CURDATE()),
-('paypal','ewarandia@gmail.com','pPinet3317','2021-10-04','',CURDATE()),
-('elevate.boa.bo','ewarandia@gmail.com','LvtBoa2017*','2021-10-04','',CURDATE()),
-('trabajopolis.bo','ewarandia@gmail.com','Trbjpls2017*','2021-10-04','',CURDATE()),
-('flores.com.bo','ewarandia@gmail.com','Flrs2160*','2021-10-04','',CURDATE()),
-('trackR','ewarandia@gmail.com','TrckR2160*','2021-10-04','',CURDATE()),
-('000webhost.com','ewarandia@gmail.com','Wbhst2160*','2021-10-04','',CURDATE()),
-('000webhost [database]','support@ewill [user]','Dbwlweb2160*','2021-10-04','',CURDATE()),
-('tecnoempleo.com','ewarandia@gmail.com','tcnMpl18','2021-10-04','',CURDATE()),
-('bancoUnion_trabajaConNosotros','ewarandia@gmail.com','BCOUN2188ZA','2021-10-04','',CURDATE()),
-('bancoSol','ewarandia@ewill [user]','bcoSl2160ZA','2021-10-04','',CURDATE()),
-('marvel.com','ewarandia@ewill0405 [user]','mrvlNxtu17*','2021-10-04','',CURDATE()),
-('udemy.com','ewarandia@gmail.com','udemy_nm2160*','2021-10-04','',CURDATE()),
-('panini.com','ewarandia@gmail.com','PnnWc2160','2021-10-04','',CURDATE()),
-('panini.com','edarandia@hotmail.com','fifaPanini2160*','2021-10-04','',CURDATE()),
-('heroku.com','ewarandia@gmail.com','Hrkwb506020*','2021-10-04','',CURDATE()),
-('bolivarTV','ewarandia@gmail.com','Blvtv2160*','2021-10-04','',CURDATE()),
-('jala','EdwinArandia@','mtAt072018b','2021-10-04','',CURDATE()),
-('office365','edwin.arandia@fundacion-jala.com','PRTvWkuPcL1','2021-10-04','',CURDATE()),
-('byethost','ewarandia@gmail.com','jobFl2160*','2021-10-04','',CURDATE()),
-('http://hireahero.org','ewarandia@gmail.com','','2021-10-04','',CURDATE()),
-('gitraken','ewarandia@gmail.com','gtKrkXntps2160*','2021-10-04','',CURDATE()),
-('grammarly','e.arandia.sic@gmail.com','Grmmrl1619','2021-10-04','',CURDATE()),
-('woocommerce.com','edwooc@','smrtCd2018*','2021-10-04','',CURDATE()),
-('stripe','ewarandia@gmail.com','StrpXnthps5060*','2021-10-04','',CURDATE()),
-('','edwinarandia84@gmail.com','StrpXhntps_25060*','2021-10-04','',CURDATE()),
-('plaid','ewarandia@gmail.com','pldXnthps5060*','2021-10-04','',CURDATE()),
-('trello -trabajo','ewarandia@gmail.com','trllXnthps5060*','2021-10-04','',CURDATE()),
-('trello -personal','edarandia@hotmail.com','trllWn5060*?','2021-10-04','',CURDATE()),
-('smtp2go','ewarandia@gmail.com','smtp2Go2019*','2021-10-04','',CURDATE()),
-('mitigo','ewarandia@gmail.com','pln2019*Tigo165','2021-10-04','',CURDATE()),
-('spotify','edwinarandia84@gmail.com','Sptf201960*','2021-10-04','',CURDATE()),
-('eldeber','ewarandia@gmail.com','Pmrt$2015','2021-10-04','',CURDATE()),
-('clarin.com','ewarandia@gmail.com','cLrn5060*','2021-10-04','',CURDATE()),
-('scrimba.com','ewarandia@gmail.com','scrMb5060*','2021-10-04','',CURDATE()),
-('https://auth.services.adobe.com/en_US/index.html','ewarandia@gmail.com','adobFCM5060*','2021-10-04','',CURDATE()),
-('https://auth.services.adobe.com/en_US/index.html','edarandia@hotmail.com','adobFCM5060*','2021-10-04','',CURDATE()),
-('','ewarandia@gmail.com','tmcsX5060_','2021-10-04','',CURDATE()),
-('mario kart WEB','ewarandia  ewill0405@gmail.com','nntnMrKrt2160*','2021-10-04','',CURDATE()),
-('freeletics','ewarandia@gmail.com','Frltcs5060*','2021-10-04','',CURDATE()),
-('freeletics?','@','cldWys5060*','2021-10-04','',CURDATE()),
-('stripe.com','ewarandia@gmail.com','StrpXnthps5060*','2021-10-04','',CURDATE()),
-('braintree','ewill0405 ewarandia@gmail.com','brnTr5060*','2021-10-04','',CURDATE()),
-('torre.co','ewarandia@gmail.com','trr-Jan5060*','2021-10-04','',CURDATE()),
-('monaca.mobi','ewarandia@gmail.com','mncDEV5060*','2021-10-04','',CURDATE()),
-('hostinger.com','ewarandia@','Hstngr5060*','2021-10-04','',CURDATE()),
-('hostinger.com -FTP','u710150705@','ftpControl123','2021-10-04','',CURDATE()),
-('swagger','ewarandia@gmail.com','SwggrHb5*','2021-10-04','',CURDATE()),
-('hostinger VPS','hostinger VPS1@','HstngrVPS56*','2021-11-14','',CURDATE()),
-('SSH SERVER','root@','HstngrVPS56*','2021-11-15','',CURDATE()),
-('UNKNOW-1','---------------------------@------------------','Hstngdo5060?','2021-10-04','',CURDATE()),
-('UNKNOW-2','---------------------------@------------------','Dgtlcn5060*','2021-10-04','',CURDATE()),
-('virtual-salud.com','ewarandia@gmail.com','vrtlSld5060*','2021-10-04','',CURDATE()),
-('virtal-salud.com','ewarandia@gmail.com','Q#i4J/5oiACX','2021-10-04','',CURDATE()),
-('dev.virtal-salud.com','@','FZg8s9m]','2021-10-04','',CURDATE()),
-('buzondelcorreo.com','@','bzndlcrrWb*','2021-10-04','',CURDATE()),
-('mtest.com','mtest.com@admin','Jwbs5060*','2022-04-02','',CURDATE()),
-('http://www.ejwebsys.com/','edarandia@hotmail.com','pplIphn5060*','2021-10-04','',CURDATE()),
-('ejwebsis.com   FTP','u333362986@185.212.71.179','FtpJan5060*','2022-04-07','',CURDATE()),
-('instagram','ewarandia@gmail.com','Nstgrm5060*','2021-10-04','',CURDATE()),
-('soyfreelancer.com','edarandia@hotmail.com@ewill0405','syFrlncr5060*','2021-10-04','',CURDATE()),
-('azwebsys.tk','ewarandia@gmail.com','azwebsys5060*','2021-10-04','',CURDATE()),
-('','@','cnMrktCp5060*','2021-10-04','',CURDATE()),
-('educa.mastech.academy','ewarandia@gmail.com','pthn5060*','2021-10-04','',CURDATE()),
-('https://sailorforevermoon.wixsite.com/','ewarandia@gmail.com','slmn5060*? ','2021-10-04','',CURDATE()),
-('','@','Slrmnhd5060*','2021-10-11','',CURDATE()),
-('appcenter','edarandia@hotmail.com','ppCntr5060*','2021-10-04','',CURDATE()),
-('twilio.com','ewarandia@gmail.com','Twleazjan5060*','2021-10-04','',CURDATE()),
-('figma.com','ewarandia@gmail.com','Fgm5060jan*AZ','2021-10-04','',CURDATE()),
-('nic','vaferojas@hotmail.com','vfrrdar62432230','2021-10-04','',CURDATE()),
-('banahosting.com','valeria@kairos.com.bo','bichin2201','2021-10-04','',CURDATE()),
-('','soporte@kairos.com.bo','sprtKrs!5060Za','2021-10-04','',CURDATE()),
-('proxybot.io','ewarandia@gmail.com','prxBt5060*','2021-10-04','',CURDATE()),
-('zyngapoker.com','ewarandia@gmail.com','pkr5060','2021-10-04','',CURDATE()),
-('mpx.xanthops.com','ewarandia@gmail.com','tskMngr2160*','2021-10-04','',CURDATE()),
-('sailormoon','ewarandia@gmail.com','Slrmnhd5060*','2021-10-04','',CURDATE()),
-('linux -xanthops','edwin@','edwin','2021-10-04','',CURDATE()),
-('linux - xanthops','@','edwin123','2021-10-04','',CURDATE()),
-('talently','ewarandia@gmail.com','Tlnt5060*','2021-10-04','',CURDATE()),
-('academia.g-talent.net','ewarandia@gmail.com','gTlnt5060*','2021-10-04','',CURDATE()),
-('talently.zulipchat.com','ewarandia@gmail.com','zlp5060*','2021-10-04','',CURDATE()),
-('helloSign','ewarandia@gmail.com','hllSgn5060*','2021-10-04','',CURDATE()),
-('chamvear.com','ewarandia  ewill0405@gmail.com','chmvr5060*','2021-10-04','',CURDATE()),
-('anyDesk -PA','216145876@','ndsk5060*','2021-10-04','',CURDATE()),
-('anyDesk -Me','@','ndskM5060*','2022-07-16','',CURDATE()),
-('remote desktop chrome','ewarandia@gmail.com','506084','2021-10-04','',CURDATE()),
-('trello -freelance','ewill_za@hotmail.com','Frlnc5060*','2021-10-04','',CURDATE()),
-('crece CRE','76322029@','rpbj9109','2021-10-04','',CURDATE()),
-('pusher','ewarandia@gmail.com','pshr5060*','2021-10-04','',CURDATE()),
-('zoom','edarandia@hotmail.com','Mtng5060*','2021-10-24','',CURDATE()),
-('twitter','ewill0405 ewarandia@gmail.com','Twttr5060*','2021-10-25','',CURDATE()),
-('twitter?','@','e1d9w8i4n','2021-10-04','',CURDATE()),
-('eldeber.com','edarandia@hotmail.com','eldeber5060*','2021-11-03','',CURDATE()),
-('pat github -xanthops','ewill15@','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','2021-11-18','',CURDATE()),
-('ngrok.com','ewarandia@gmail.com','ngRk5060*W','2022-03-21','',CURDATE()),
-('lavanguardia.com','edarandia@hotmail.com','Lvngrd5060*','2022-04-13','',CURDATE()),
-('universitarios.usfx.bo','6210230@ewarandiaGMAIL.COM','NvrstrvScr5060*','2022-06-05','',CURDATE()),
-('tincode','ewarandia@gmail.com','Tncd5060*','2022-06-20','',CURDATE()),
-('ultramsg.com','edarandia@hotmail.com','ltrMsg5060*','2022-07-21','',CURDATE()),
-('duolingo','ewarandia@gmail.com','dlngTl5060*','2022-07-28','',CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('phone','samsung','samsung','ewill_za@hotmail.com','luciana07','2021-10-04','',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('afp','AFP','AFP','6210230@','Bvp1721*','2021-10-04','SINCE::02/06/2023',false,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('afp','Gestora Publica','Gestora Publica','ewarandia@gmail.com','GstrPblc5060*','2023-06-16','',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('programing','INTEL XDK','INTEL XDK','ewill0405@hotmail.com','xdk-ewaz1*','2021-10-04','DEPRECATED PROGRAM UNINSTALLED',false,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('mail','gmail','gmail','soporte.azweb@gmail.com','soportewebaz5060*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('mail','gmail','gmail','edwinarandia84@gmail.com','nata2160*?','2021-10-04','phone',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('mail','gmail','gmail','jhanettgit@gmail.com','gtHbjna5060*?','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('mail','gmail','gmail','ewarandia@gmail.com','GglMl5060*','2021-10-04','PLAY_STORE :: GOOGLE_CONSOLE',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('mail','gmail','gmail','marjenzeballos@gmail.com','31102012','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('mail','gmail','gmail','e.arandia.sic@gmail.com','Smrtncd2018*  ','2021-10-04','PWD_TO_SEND_MAIL::yqwpnvfylksaxhjx',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('mail','hotmail','hotmail','edarandia@@hotmail.com','sk-NM2160*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('mail','hotmail','hotmail','ewill_za@@hotmail.com','frstNc0307*','2021-10-04','OLD_PWD::luciana07',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('mail','hotmail','hotmail','edwin_arandia84@@hotmail.com','ale1790*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('movies','netflix','netflix','nlarandiaz@gmail.com','31102012af','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('social network','facebook','facebook','edarandia@@hotmail.com','zFbk5060*','2021-10-04','OLD_PWD::ezaw1790',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('social network','facebook','facebook','juansolares06@@hotmail.com','e1d9w8i4n','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('pictures','pinterest','pinterest','edarandia@@hotmail.com','Prt*5060?','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('mail','yahoo-ES','yahoo-ES','ewarandia@yahoo.es','aYhMl5060*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('mail','yahoo-AR','yahoo-AR','edarandia@yahoo.com.ar','aYhMl5060*2','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('social network','twitter','twitter','ewill0405@edarandia','b:AMQ!4?<b3R.h8','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('docs','dropbox','dropbox','edarandia@@hotmail.com','drpBx5060*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('game','pou','pou','ewill_za@level 38','e1d9w8i4n','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('game','pou','pou','edarandia@level 30','38hix5 ','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('game','pou','pou','ewarandia@level 46','38h43p ','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('repository','github','github','edarandia@yahoo.com.ar','PrTvWkuPcL1','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('repository','github','github','ewarandia@gmail.com','nxtU_Dwb17','2021-10-04','username::earandia',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('repository','github','github','jhanettgit@gmail.com','check','2021-10-04','username::jhansis-0506 PWD::gtHbjna5060* OR control123!',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('repository','github','github','ewill15@edarandia','PRTvWkuPcL1','2021-12-08','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',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('repository','gitguardian','gitguardian','edarandia@hotmail.com ','0','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('repository','gitlab','gitlab','jhanettgit@gmail.com','check','2021-10-04','gtlbWz0506* ::gtlb0506*',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('repository','gitlab','gitlab','ewarandia@gmail.com','nwPss5060*','2022-11-14','OLD_PWD::gtLbXntps2160* DATE::04/10/2021',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('repository','gitlab','gitlab','edwinarandia84@e_arandia','mBqcd2#KZ!uqWzL','2021-10-04','personal account | glpat-3g7orAu_pBKQ47yGU_TM',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('repository','bitbucket','bitbucket','ewarandia@gmail.com','bbcktNM2160*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('repository','bitbucket','bitbucket','e.arandia.sic@gmail.com','btBckt2018*?','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('repository','bitbucket','bitbucket','jobs.smartincode@gmail.com','.asdfasdf.','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('repository','bitbucket','bitbucket','jhanettgit@gmail.com','gtrKrkn0506*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('docs','mega.co.nz','mega.co.nz','edarandia@@hotmail.com','nEVCNA.p5pNpTmk','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('chat','snapchat','snapchat','ewill_za@@hotmail.com','PRTvWkuPcL','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('remote control','teamviewer','teamviewer','edarandia@@hotmail.com','e1d9w8i4n','2021-10-04','banned account',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('remote control','teamviewer','teamviewer','e.arandia.sic@gmail.com','teamsic2018*','2021-10-04','unknow status',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('chat','line','line','ewill_za@@hotmail.com','luciana07','2021-10-04','not used',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('chat','skype','skype','edarandia@@hotmail.com','sk-NM2160*','2021-10-04','not used',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('online courses','edx','edx','ewill_za@@hotmail.com','ezaw1790*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('phone control','airdroid','airdroid','edarandia@@hotmail.com','ea2160x15*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('learning','duolingo','duolingo','edwinarandia84@gmail.com','ezaw1790*?','2021-10-04','IT',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('antivirus','anti-theft.eset.com','anti-theft.eset.com','edarandia@@hotmail.com','natita2160*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','phanton windows account','phanton windows account','ewill@hotmail.com','0','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('job','bo.acciontrabajo.com','bo.acciontrabajo.com','edarandia@hotmail.com','Ccntrb2160*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','comunidaddephp.org','comunidaddephp.org','xxxxx@xxxxxxx','xxxxxxxxxx','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('job','opina america latina.com','opina america latina.com','ewarandia@yahoo.es','e1d9w8i4n','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('job','capacitateparaelempleo.org','capacitateparaelempleo.org','ewarandia@gmail.com','e1d9w8i4n','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('games result','mismarcadores.com','mismarcadores.com','edarandia@hotmail.com','e1d9w8i4n - mMrcdrs5060*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('job','www.itraptor.com','www.itraptor.com','ewarandia@gmail.com','e1d9w8i4n','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('job','chevening.tal.net','chevening.tal.net','edarandia@hotmail.com','nm2160*?','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('antivirus','my.paragon-software.com','my.paragon-software.com','edarandia@hotmail.com','nata2160A','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('antivirus','my.avast.com','my.avast.com','edarandia@hotmail.com','e1d9w8i4n','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('learning','codigofacilito.com','codigofacilito.com','edarandia@hotmail.com','enm2160*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','www.sans.org','www.sans.org','ewarandia@yahoo.es','Eaz%1790**','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','ticapacitacion.com/aula','ticapacitacion.com/aula','ewarandia@gmail.com','nata2160*?','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('browser','chrome remote desktop -home','chrome remote desktop -home','@','506084','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('browser','chrome remote desktop','chrome remote desktop','@','216015','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('phone control','my-knox','my-knox','@','21600405','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('personal','laptop -ma','laptop -ma','edwin@','ezaw2160','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('entertaiment','cinecenter ','cinecenter ','ewarandia@gmail.com','Cncntr5060*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('learning','analistaforense.org.pe/moodle/login','analistaforense.org.pe/moodle/login','@earandia','Ea2160*?','2021-10-04','0',false,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('learning','analistaforense.org.pe/moodle/login','analistaforense.org.pe/moodle/login','edarandia@yahoo.com.ar','sdm2160*?','2021-10-04','0',false,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('learning','codecademy.net','codecademy.net','ewarandia@gmail.com','cdCdm5060*?','2021-10-04','0',false,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('learning','universia.es','universia.es','ewarandia@gmail.com','nata2160*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','outsourcely.com','outsourcely.com','ewarandia@gmail.com','PRTvWkuPcL','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('job','infojobs.net','infojobs.net','ewarandia@gmail.com','nata2160*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','signin.techsmith.com','signin.techsmith.com','ewarandia@gmail.com','cmts2160*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('job','buscojobs.com.bo','buscojobs.com.bo','ewarandia@gmail.com','bj-2160*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('job','buscojobs.com.bo::opcionempleo.com.bo','buscojobs.com.bo::opcionempleo.com.bo','edarandia@hotmail.com','opcmpl-2160*::7168','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('job','tiptopjob.com','tiptopjob.com','ewarandia@gmail.com','KLHDV4','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('job','computrabajo.com.bo','computrabajo.com.bo','edarandia@hotmail.com','cptr-2160*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','datacamp.com','datacamp.com','ewarandia@gmail.com','ewza2160*?','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','transifex.com','transifex.com','ewillAZ@ewarandia','tfx2160*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','https://es.coursera.org/learn/python-machine-learning','https://es.coursera.org/learn/python-machine-learning','edarandia@hotmail.com','nata2160*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('booking online','booking.com','booking.com','ewarandia@gmail.com','bkg2017*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('programing','bitnami.com','bitnami.com','ewarandia@gmail.com','btnmwapp2017*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('bank','ebisa','ebisa','ewarandia (421759-401-0)@','ebcBs5060*','2023-06-01','13/05/2021 :: 01/12/2022',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('bank','unitoken','unitoken','@','8460','2021-10-11','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('bank','uninet','uninet','1676657  (10000014720143)@','pwdPls3190*','2022-10-02','05/07/2022 :: 09/05/2022',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('bank','prodemnet','prodemnet','ewillza@','eprdmCrd5060*','2023-04-06','eprdmCrd5060* OLD_PWD::prdmNt5060*  DATE::4/10/2021',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('learning','next_u','next_u','ewarandia@gmail.com','NxtWeb2160$','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('remote job','workana','workana','ewarandia@gmail.com','Wrkn5060*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','https://www.academiaeset.com/default/std/myevents/17791','https://www.academiaeset.com/default/std/myevents/17791','ewarandia@gmail.com','stPthn2160*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('job','bo.profdir.com','bo.profdir.com','edarandia@hotmail.com','prfdr-2160*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('social network','linkedin','linkedin','edarandia@hotmail.com','lKdn17*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('job','https://www.freelancer.com.jm/signup','https://www.freelancer.com.jm/signup','edarandia@hotmail.com','Frlnc2160*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('api','postman','postman','edarandia@hotmail.com','+C-cE#$8P/U@6_E','2021-10-04','personal account ::ewillOjob',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('api','postman','postman','ewarandia@gmail.com','pstmn5060*P2','2021-10-04','Job account :: ewilll5060',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('video online','vimeo','vimeo','edarandia@hotmail.com','Vimo2160*?','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('cash online','paypal','paypal','ewarandia@gmail.com','pPinet3317','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('airplane','elevate.boa.bo','elevate.boa.bo','ewarandia@gmail.com','LvtBoa2017*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('job','trabajopolis.bo','trabajopolis.bo','ewarandia@gmail.com','Trbjpls2017*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','flores.com.bo','flores.com.bo','ewarandia@gmail.com','Flrs2160*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('tracking','trackR','trackR','ewarandia@gmail.com','TrckR2160*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('web','000webhost.com','000webhost.com','ewarandia@gmail.com','Wbhst2160*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('web','000webhost [database]','000webhost [database]','support@ewill [user]','Dbwlweb2160*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('job','tecnoempleo.com','tecnoempleo.com','ewarandia@gmail.com','tcnMpl18','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('bank','bancoUnion_trabajaConNosotros','bancoUnion_trabajaConNosotros','ewarandia@gmail.com','BCOUN2188ZA','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('bank','bancoSol','bancoSol','ewarandia@ewill [user]','bcoSl2160ZA','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('api','marvel.com','marvel.com','ewarandia@ewill0405 [user]','mrvlNxtu17*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('online courses','udemy.com','udemy.com','ewarandia@gmail.com','udemy_nm2160*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','panini.com','panini.com','ewarandia@gmail.com','PnnQt5060','2021-10-04','OLD_PWD:: PnnWc2160 OLD_DATE::4/10/2021',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','panini.com','panini.com','edarandia@hotmail.com','fifaPanini2160*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('web','heroku.com','heroku.com','ewarandia@gmail.com','Hrkwb506020*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','bolivarTV','bolivarTV','ewarandia@gmail.com','Blvtv2160*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('job','jala','jala','EdwinArandia@','mtAt072018b','2021-10-04','deprecated',false,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('office online','office365','office365','edwin.arandia@fundacion-jala.com','PRTvWkuPcL1','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('web','byethost','byethost','ewarandia@gmail.com','jobFl2160*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','http://hireahero.org','http://hireahero.org','ewarandia@gmail.com','0','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('repository','gitraken','gitraken','ewarandia@gmail.com','gtKrkXntps2160*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','grammarly','grammarly','e.arandia.sic@gmail.com','Grmmrl1619','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','woocommerce.com','woocommerce.com','edwooc@','smrtCd2018*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('payment','stripe','stripe','ewarandia@gmail.com','StrpXnthps5060*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('payment','stripe.com','stripe.com','edwinarandia84@gmail.com','StrpXhntps_25060*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('payment','plaid','plaid','ewarandia@gmail.com','pldXnthps5060*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('card job','trello -trabajo','trello -trabajo','ewarandia@gmail.com','trllXnthps5060*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('card job','trello -personal','trello -personal','edarandia@hotmail.com','trllWn5060*?','2021-10-04','freelance',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('programing','smtp2go','smtp2go','ewarandia@gmail.com','smtp2Go2019*','2021-10-04','CREAR CUENTA',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('personal','mitigo','mitigo','ewarandia@gmail.com','pln2019*Tigo165','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('music','spotify','spotify','edwinarandia84@gmail.com','Sptf201960*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('news','eldeber','eldeber','ewarandia@gmail.com','Pmrt$2015','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('news','clarin.com','clarin.com','ewarandia@gmail.com','cLrn5060*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','scrimba.com','scrimba.com','ewarandia@gmail.com','scrMb5060*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','https://auth.services.adobe.com/en_US/index.html','https://auth.services.adobe.com/en_US/index.html','ewarandia@gmail.com','adobFCM5060*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','https://auth.services.adobe.com/en_US/index.html','https://auth.services.adobe.com/en_US/index.html','edarandia@hotmail.com','adobFCM5060*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','https://auth.services.adobe.com/en_US/index.html','https://auth.services.adobe.com/en_US/index.html','ewarandia@gmail.com','tmcsX5060_','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('game','mario kart WEB','mario kart WEB','ewarandia @gmail.com','nntnMrKrt2160*','2021-10-04','ewill0405',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','freeletics','freeletics','ewarandia@gmail.com','Frltcs5060*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','freeletics','freeletics','ewarandia@gmail.com','cldWys5060*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('payment','stripe.com','stripe.com','ewarandia@gmail.com','StrpXnthps5060*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('payment','braintree','braintree','ewarandia@gmail.com','brnTr5060*','2021-10-04','ewill0405',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('job','torre.co','torre.co','ewarandia@gmail.com','trr-Jan5060*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('job','monaca.mobi','monaca.mobi','ewarandia@gmail.com','mncDEV5060*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('web','hostinger.com','hostinger.com','ewarandia@','Hstngr5060*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('web','hostinger.com -FTP','hostinger.com -FTP','u710150705@','ftpControl123','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('api job','swagger','swagger','ewarandia@gmail.com','SwggrHb5*','2021-10-04','1',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('web','hostinger VPS','hostinger VPS','hostinger VPS1@','HstngrVPS56*','2021-11-14','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','SSH SERVER','SSH SERVER','root@','HstngrVPS56*','2021-11-15','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','unknown','unknown','unknown@unknown','Hstngdo5060?','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','unknown','unknown','unknown@unknown','Dgtlcn5060*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('web','virtual-salud.com','virtual-salud.com','ewarandia@gmail.com','vrtlSld5060*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('web','virtal-salud.com','virtal-salud.com','ewarandia@gmail.com','Q#i4J/5oiACX','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('web','dev.virtal-salud.com','dev.virtal-salud.com','@','FZg8s9m]','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('we','buzondelcorreo.com','buzondelcorreo.com','@','bzndlcrrWb*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('web','mtest.com','mtest.com','mtest.com@admin','Jwbs5060*','2022-04-02','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('web','http://www.ejwebsys.com/','http://www.ejwebsys.com/','edarandia@hotmail.com','pplIphn5060*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('we','ejwebsis.com   FTP','ejwebsis.com   FTP','u333362986@185.212.71.179','FtpJan5060*','2022-04-07','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('social network','instagram','instagram','ewarandia@gmail.com','Nstgrm5060*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('job','soyfreelancer.com','soyfreelancer.com','edarandia@hotmail.com@ewill0405','syFrlncr5060*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('w','azwebsys.tk','azwebsys.tk','ewarandia@gmail.com','azwebsys5060*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('w','azwebsys.tk','azwebsys.tk','ewarandia@gmail.com','cnMrktCp5060*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('learning','educa.mastech.academy','educa.mastech.academy','ewarandia@gmail.com','pthn5060*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','https://sailorforevermoon.wixsite.com/','https://sailorforevermoon.wixsite.com/','ewarandia@gmail.com','slmn5060*? ','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','https://sailorforevermoon.wixsite.com/','https://sailorforevermoon.wixsite.com/','ewarandia@gmail.com','Slrmnhd5060*','2021-10-11','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('job','appcenter','appcenter','edarandia@hotmail.com','ppCntr5060*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('job','twilio.com','twilio.com','ewarandia@gmail.com','Twljean20506084*','2022-09-07','OLD_PWD::Twleazjan5060*  OLD_DATE::04/10/2021',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('design online','figma.com','figma.com','ewarandia@gmail.com','Fgm5060jan*AZ','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('job','nic','nic','vaferojas@hotmail.com','vfrrdar62432230','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('job','banahosting.com','banahosting.com','valeria@kairos.com.bo','bichin2201','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('job','banahosting.com','banahosting.com','soporte@kairos.com.bo','sprtKrs!5060Za','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','proxybot.io','proxybot.io','ewarandia@gmail.com','prxBt5060*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('game online','zyngapoker.com','zyngapoker.com','ewarandia@gmail.com','pkr5060','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('job','mpx.xanthops.com','mpx.xanthops.com','ewarandia@gmail.com','admin123','2023-03-06','OLD_PWD::tskMngr2160* OLD_DATE::4/10/2021',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','sailormoon','sailormoon','ewarandia@gmail.com','Slrmnhd5060*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('job','linux -xanthops','linux -xanthops','edwin@','edwin','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('job','linux keyringpair - xanthops','linux keyringpair - xanthops','@','edwin123','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('job','talently','talently','ewarandia@gmail.com','Tlnt5060*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','academia.g-talent.net','academia.g-talent.net','ewarandia@gmail.com','gTlnt5060*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('job','talently.zulipchat.com','talently.zulipchat.com','ewarandia@gmail.com','zlp5060*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('job','helloSign','helloSign','ewarandia@gmail.com','hllSgn5060*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('job','chamvear.com','chamvear.com','ewarandia@gmail.com','chmvr5060*','2021-10-04','ewill0405',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','anyDesk -PA','anyDesk -PA','216145876@','ndsk5060*','2021-10-04','WIN_7',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','anyDesk -Me','anyDesk -Me','@','ndskM5060*','2022-07-16','WIN 7',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('control remote','remote desktop chrome','remote desktop chrome','ewarandia@gmail.com','506084','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('card job','trello -freelance','trello -freelance','ewill_za@hotmail.com','Frlnc5060*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('learning','crece CRE','crece CRE','76322029@','rpbj9109','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','pusher','pusher','ewarandia@gmail.com','pshr5060*','2021-10-04','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','zoom','zoom','edarandia@hotmail.com','Mtng5060*','2021-10-24','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','twitter','twitter','ewarandia@gmail.com','Twttr5060*','2021-10-25','ewill0405 OLD_PWD::e1d9w8i4n',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('news','eldeber.com','eldeber.com','edarandia@hotmail.com','eldeber5060*','2021-11-3','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('repository','pat github -xanthops','pat github -xanthops','ewill15@','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','2021-11-18','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','ngrok.com','ngrok.com','ewarandia@gmail.com','ngRk5060*W','2022-03-21','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('news','lavanguardia.com','lavanguardia.com','edarandia@hotmail.com','Lvngrd5060*','2022-04-13','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('learning','universitarios.usfx.bo','universitarios.usfx.bo','6210230@','NvrstrvScr5060*','2022-06-05','ewarandiaGMAIL.COM',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','tincode','tincode','ewarandia@gmail.com','Tncd5060*','2022-06-20','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','ultramsg.com','ultramsg.com','edarandia@','ltrMsg5060*','2022-07-21','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('learning','duolingo','duolingo','ewarandia@gmail.com','dlngTl5060*','2022-07-28','IT-PT-RS-FR-GE',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','emailJS(react)','emailJS(react)','ewarandia@gmail.com','mlJS182091*','2022-09-22','max 200 mails monthly',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('music','spotify','spotify','e.arandia.sic@gmail.com','9cPK7PGBjJtX%r2','2022-10-03','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','instagram','instagram','e.arandia.sic@gmail.com','Nstgrm5060*','2022-10-03','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','https://elalbumdelasestrellas.com','https://elalbumdelasestrellas.com','ewarandia@gmail.com','rdn5060**?','2022-11-08','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','creative-tim.com','creative-tim.com','edarandia@hotmail.com','myqxd36v*3c2J*L','2022-12-15','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','https://campus.open-bootcamp.com/login','https://campus.open-bootcamp.com/login','ewarandia@gmail.com','Obtcmp5060*','2023-01-26','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('job','upwork','upwork','ewarandia@gmail.com','Pwrk5060*','2023-03-24','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','app soli','app soli','76322029@','5060','2023-05-14','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','alvochat.com','alvochat.com','edarandia@hotmail.com','lvCht5060*','2023-05-16','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('web','vappweb FTP','vappweb FTP','@','ftpVppWb5060*','2023-05-16','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('web','vappweb SSH','vappweb SSH','82.180.138.29:65002@u307432604','sshVppWb5060*','2023-05-16','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('web','vappweb ADMIN','vappweb ADMIN','@','admin123Wb','2023-05-16','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('ia','https://chat.openai.com/','https://chat.openai.com/','@','chtGpt5060*','2023-05-24','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('unknown','strava.com','strava.com','edarandia@hotmail.com','Strv5060*','2023-06-06','0',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('learning','programacionymas.com','programacionymas.com','ewarandia@gmail.com','prgMr5060*','2023-07-04','0',true,CURDATE());

@@ -11,13 +11,15 @@ class Register extends Model
 
     protected $fillable = [
         'type',
+        'url',
         'page',
         'username',
         'password',
         'hash_password',
         'status',
         'date',
-        'description'
+        'description',
+        'last_use'
     ];
     
 }

@@ -15,14 +15,15 @@ class CreateRegistersTable extends Migration
     {
         Schema::create('registers', function (Blueprint $table) {
             $table->id();
-            $table->string('type')->nullable();
-            $table->string('page')->nullable();
-            $table->string('username')->nullable();
-            $table->string('password')->nullable();
-            $table->string('hash_password')->nullable();
+            $table->text('type')->nullable();
+            $table->text('url')->nullable();
+            $table->text('page')->nullable();
+            $table->text('username')->nullable();
+            $table->text('password')->nullable();
+            $table->text('hash_password')->nullable();
             $table->boolean('status')->default(true);
             $table->date('date')->nullable();
-            $table->text('description')->nullable();  
+            $table->text('description')->nullable(); 
             $table->timestamps();
         });
     }

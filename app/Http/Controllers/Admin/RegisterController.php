@@ -25,12 +25,12 @@ class RegisterController extends Controller
     public function index(Request $request)
     {
         $lang = app()->getLocale();
-        $registers = Register::orderBy('type', 'ASC');
+        $registers = Register::orderBy('status','DESC')->orderBy('type', 'ASC');
         
         $paginate = $request->pagination ? $request->pagination : 20;
         $page = (int)$request->page;
         if ($request->keyword != '')
-            $registers = $registers->where('registername', 'LIKE', '%' . $request->keyword . '%')
+            $registers = $registers->where('username', 'LIKE', '%' . $request->keyword . '%')
                 ->orWhere('type', 'LIKE', $request->keyword . '%');
 
         $text_pagination = Helper::messageCounterPagination($registers->count(), $page, $paginate, $lang);
@@ -78,7 +78,7 @@ class RegisterController extends Controller
             Session::flash('flash_message_type', 'danger');
         }
 
-        return redirect('admin/registers');
+        return redirect('admin/webs');
     }
 
     /**
@@ -139,7 +139,7 @@ class RegisterController extends Controller
             Session::flash('flash_message_type', 'danger');
         }
 
-        return redirect('admin/registers');
+        return redirect('admin/webs');
     }
 
     /**
@@ -161,6 +161,40 @@ class RegisterController extends Controller
             Session::flash('flash_message_type', 'danger');
         }
         
-        return redirect('admin/registers');
+        return redirect('admin/webs');
+    }
+
+    public function hashPassword($id)
+    {
+        $register = Register::find($id);
+
+        $register['hash_password'] = bcrypt($register->password);
+        $action = $register->save();
+
+        if ($action) {
+            $result = [
+                "msg" => Helper::contentFlashMessage('update')['success'],
+                "status" => true
+            ];
+        } else {
+            $result = [
+                "msg" => Helper::contentFlashMessage('update')['error'],
+                "status" => false
+            ];
+        }
+
+        return response()->json($result);
+    }
+
+    public function displayData($id)
+    {
+        $register = Register::find($id);
+
+        $result = [
+            "user"=>$register->username,
+            "password"=>$register->password
+        ];
+
+        return view('admin.registers.data', compact('result'));
     }
 }
