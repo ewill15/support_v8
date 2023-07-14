@@ -29,8 +29,8 @@ class DictionaryController extends Controller
         
         $paginate = $request->pagination ? $request->pagination : 20;
         $page = (int)$request->page;
-        if ($request->keyword != '')
-            $dictionaries = $dictionaries->where('word', 'LIKE', '%' . $request->keyword . '%');
+        if ($request->search != '')
+            $dictionaries = $dictionaries->where('word', 'LIKE', '%' . $request->search . '%');
 
         $text_pagination = Helper::messageCounterPagination($dictionaries->count(), $page, $paginate, $lang);
 

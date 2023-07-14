@@ -29,8 +29,8 @@ class LanguageController extends Controller
         $paginate = $request->pagination ? $request->pagination : 20;
         $page = (int)$request->page;
 
-        if ($request->keyword != '')
-            $languages = $languages->where('name', 'LIKE', '%' . $request->keyword . '%');
+        if ($request->search != '')
+            $languages = $languages->where('name', 'LIKE', '%' . $request->search . '%');
 
         $text_pagination = Helper::messageCounterPagination($languages->count(), $page, $paginate, $lang);
 

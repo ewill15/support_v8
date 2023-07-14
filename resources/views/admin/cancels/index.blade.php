@@ -29,16 +29,25 @@
                 <div class="ibox-content">
                     <div class="table-responsive">
                         <form  id="paginate" action="{{ url('admin/cancels') }}">
-                            <div class="form-group">
-                                <span id="date-label-to" class="date-label">{{ucfirst(trans('common.display'))}}</span>
-                                    {!! Form::select('pagination',['10'=>'10','20'=>'20','50'=>'50','100'=>'100','500'=>'500'],$paginate,['class'=>'display']) !!}
-                                <span id="date-label-to" class="date-label">{{ucfirst(trans('common.records'))}} </span>
+                            <div class="card d-flex flex-row justify-content-around p-5">
+                                <div class="flex-grow-1">
+                                    <span id="date-label-to" class="date-label col-md-4 form-control-label">{{ ucfirst(trans('common.display')) }}</span>
+                                    {!! Form::select('pagination',['10'=>'10','20'=>'20','50'=>'50','100'=>'100','500'=>'500'],$paginate,['class'=>'display custom-select custom-select-sm col-md-4 form-control-sm']) !!}
+                                    <span id="date-label-to" class="date-label col-md-4 form-control-label"> {{ ucfirst(trans('common.records')) }}</span>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <div class="d-flex flex-row">
+                                        <div class="flex-grow-1"> 
+                                            {!! Form::text('keyword', null, ['class' => 'form-control form-control-sm', 'placeholder' => ucfirst(trans('common.search')).'...']) !!}
+                                        </div>                                
+                                        <div class="flex-grow-1"> 
+                                            <button type="submit" class="btn btn-primary btn-sm">
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        </div>                                    
+                                    </div>
+                                </div>
                             </div>
-                            <input type="text" class="pull-right" name="keyword">
-                            <button type="submit" class="btn btn-primary btn-xs pull-right">
-                                <i class="fa fa-search"></i>
-                                {{ucfirst(trans('common.search'))}}
-                            </button>
                         </form>
                         <table class="table table-striped table-bordered table-hover">
                             <thead>

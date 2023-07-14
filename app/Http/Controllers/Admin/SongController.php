@@ -28,8 +28,8 @@ class SongController extends Controller
 
         $paginate = $request->pagination ? $request->pagination : 20;
         $page = (int)$request->page;
-        if($request->keyword != '')
-            $songs = $songs->where('name','LIKE','%'.$request->keyword.'%');
+        if($request->search != '')
+            $songs = $songs->where('name','LIKE','%'.$request->search.'%');
 
         $text_pagination = Helper::messageCounterPagination($songs->count(), $page,$paginate,$lang);
 

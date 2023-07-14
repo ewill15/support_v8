@@ -31,9 +31,9 @@ class BillController extends Controller
         $paginate = $request->pagination ? $request->pagination : 20;
         $page = (int)$request->page;
 
-        if($request->keyword != '')
-            $bills = $bills->where('invoice_number','LIKE','%'.$request->keyword.'%')
-                ->orWhere('description','LIKE','%'.$request->keyword.'%');
+        if($request->search != '')
+            $bills = $bills->where('invoice_number','LIKE','%'.$request->search.'%')
+                ->orWhere('description','LIKE','%'.$request->search.'%');
 
         $text_pagination = Helper::messageCounterPagination($bills->count(), $page,$paginate, $lang);
 

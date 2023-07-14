@@ -60,24 +60,25 @@
                             'class' => 'form-horizontal pt-3',
                             'autocomplete'=>'off'
                         ]) !!}
-                        <div class="w-50 float-left">
-                            <div class="align-self-center p-2 db-highlight">
+                        <div class="card d-flex flex-row justify-content-around p-5">
+                            <div class="flex-grow-1">
                                 <span id="date-label-to" class="date-label col-md-4 form-control-label">{{ ucfirst(trans('common.display')) }}</span>
                                 {!! Form::select('pagination',['10'=>'10','20'=>'20','50'=>'50','100'=>'100','500'=>'500'],$paginate,['class'=>'display custom-select custom-select-sm col-md-4 form-control-sm']) !!}
                                 <span id="date-label-to" class="date-label col-md-4 form-control-label"> {{ ucfirst(trans('common.records')) }}</span>
                             </div>
-                        </div>  
-                        
-                        <div class="w-50 float-right">
-                            <div class="align-self-center p-2 bd-highlight">
-                                {!! Form::text('search', null, ['class' => 'form-control form-control-sm', 'placeholder' => ucfirst(trans('common.search')).'...']) !!}
+                            <div class="flex-grow-1">
+                                <div class="d-flex flex-row">
+                                    <div class="flex-grow-1"> 
+                                        {!! Form::text('keyword', null, ['class' => 'form-control form-control-sm', 'placeholder' => ucfirst(trans('common.search')).'...']) !!}
+                                    </div>                                
+                                    <div class="flex-grow-1"> 
+                                        <button type="submit" class="btn btn-primary btn-sm">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                    </div>                                    
+                                </div>
                             </div>
-                            <div class="align-self-center p-2-bd-highlight">
-                                <button type="submit" class="btn btn-primary btn-sm">
-                                    <i class="fas fa-search"></i>
-                                </button>
-                            </div>
-                        </div>    
+                        </div>
                         {!! Form::close() !!}
                     </div> 
                 <!-- End form searchs --> 

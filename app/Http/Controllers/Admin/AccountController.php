@@ -30,9 +30,9 @@ class AccountController extends Controller
         $paginate = $request->pagination ? $request->pagination : 20;
         $page = (int)$request->page;
 
-        if($request->keyword != '')
-            $accounts = $accounts->where('name','LIKE','%'.$request->keyword.'%')
-                ->orWhere('last_name','LIKE','%'.$request->keyword.'%');
+        if($request->search != '')
+            $accounts = $accounts->where('name','LIKE','%'.$request->search.'%')
+                ->orWhere('last_name','LIKE','%'.$request->search.'%');
 
         $text_pagination = Helper::messageCounterPagination($accounts->count(), $page,$paginate,$lang);
 

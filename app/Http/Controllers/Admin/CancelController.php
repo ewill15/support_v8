@@ -28,8 +28,8 @@ class CancelController extends Controller
 
         $paginate = $request->pagination ? $request->pagination : 20;
         $page = (int)$request->page;
-        if($request->keyword != '')
-            $cancel = $cancel->where('name','LIKE','%'.$request->keyword.'%');
+        if($request->search != '')
+            $cancel = $cancel->where('name','LIKE','%'.$request->search.'%');
 
         $text_pagination = Helper::messageCounterPagination($cancels->count(), $page,$paginate,$lang);
 

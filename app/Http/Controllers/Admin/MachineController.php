@@ -28,9 +28,9 @@ class MachineController extends Controller
         
         $paginate = $request->pagination ? $request->pagination : 20;
         $page = (int)$request->page;
-        if ($request->keyword != '')
-            $machines = $machines->where('owner', 'LIKE', '%' . $request->keyword . '%')
-                ->orWhere('processor', 'LIKE', $request->keyword . '%');
+        if ($request->search != '')
+            $machines = $machines->where('owner', 'LIKE', '%' . $request->search . '%')
+                ->orWhere('processor', 'LIKE', $request->search . '%');
 
         $text_pagination = Helper::messageCounterPagination($machines->count(), $page, $paginate, $lang);
 

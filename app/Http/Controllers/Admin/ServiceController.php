@@ -28,8 +28,8 @@ class ServiceController extends Controller
 
         $paginate = $request->pagination ? $request->pagination : 20;
         $page = (int)$request->page;
-        if($request->keyword != '')
-            $services = $services->where('name','LIKE','%'.$request->keyword.'%');
+        if($request->search != '')
+            $services = $services->where('name','LIKE','%'.$request->search.'%');
 
         $text_pagination = Helper::messageCounterPagination($services->count(), $page,$paginate,$lang);
 

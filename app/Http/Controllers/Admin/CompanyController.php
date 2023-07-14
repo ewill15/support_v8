@@ -28,9 +28,9 @@ class CompanyController extends Controller
 
         $paginate = $request->pagination ? $request->pagination : 20;
         $page = (int)$request->page;
-        if($request->keyword != '')
-            $companies = $companies->where('name','LIKE','%'.$request->keyword.'%')
-                ->orWhere('area','LIKE','%'.$request->keyword.'%');
+        if($request->search != '')
+            $companies = $companies->where('name','LIKE','%'.$request->search.'%')
+                ->orWhere('area','LIKE','%'.$request->search.'%');
 
         $text_pagination = Helper::messageCounterPagination($companies->count(), $page,$paginate,$lang);
 

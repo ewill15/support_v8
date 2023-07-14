@@ -30,9 +30,9 @@ class UsersController extends Controller
         
         $paginate = $request->pagination ? $request->pagination : 20;
         $page = (int)$request->page;
-        if ($request->keyword != '')
-            $users = $users->where('name', 'LIKE', '%' . $request->keyword . '%')
-                ->orWhere('cellphone', 'LIKE', $request->keyword . '%');
+        if ($request->search != '')
+            $users = $users->where('name', 'LIKE', '%' . $request->search . '%')
+                ->orWhere('cellphone', 'LIKE', $request->search . '%');
 
         $text_pagination = Helper::messageCounterPagination($users->count(), $page, $paginate, $lang);
 

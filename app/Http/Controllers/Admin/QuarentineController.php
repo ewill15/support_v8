@@ -29,8 +29,8 @@ class QuarentineController extends Controller
 
         $paginate = $request->pagination ? $request->pagination : 20;
         $page = (int)$request->page;
-        if($request->keyword != '')
-            $quarentines = $quarentines->where('food','LIKE','%'.$request->keyword.'%');
+        if($request->search != '')
+            $quarentines = $quarentines->where('food','LIKE','%'.$request->search.'%');
 
         $text_pagination = Helper::messageCounterPagination($quarentines->count(), $page,$paginate,$lang);
 

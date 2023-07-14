@@ -29,9 +29,9 @@ class BankController extends Controller
         $paginate = $request->pagination ? $request->pagination : 20;
         $page = (int)$request->page;
 
-        if($request->keyword != '')
-            $banks = $banks->where('name','LIKE','%'.$request->keyword.'%')
-                ->orWhere('city','LIKE','%'.$request->keyword.'%');
+        if($request->search != '')
+            $banks = $banks->where('name','LIKE','%'.$request->search.'%')
+                ->orWhere('city','LIKE','%'.$request->search.'%');
 
         $text_pagination = Helper::messageCounterPagination($banks->count(), $page,$paginate,$lang);
 

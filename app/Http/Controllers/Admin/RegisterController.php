@@ -29,10 +29,10 @@ class RegisterController extends Controller
         
         $paginate = $request->pagination ? $request->pagination : 20;
         $page = (int)$request->page;
-        if ($request->keyword != '')
-            $registers = $registers->where('username', 'LIKE', '%' . $request->keyword . '%')
-                ->orWhere('page', 'LIKE', $request->keyword . '%')
-                ->orWhere('type', 'LIKE', $request->keyword . '%');
+        if ($request->search != '')
+            $registers = $registers->where('username', 'LIKE', '%' . $request->search . '%')
+                ->orWhere('page', 'LIKE', $request->search . '%')
+                ->orWhere('type', 'LIKE', $request->search . '%');
 
         $text_pagination = Helper::messageCounterPagination($registers->count(), $page, $paginate, $lang);
         
