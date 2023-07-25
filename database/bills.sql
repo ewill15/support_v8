@@ -1,4 +1,33 @@
--- JANUARY TO JULY
+-- 2022
+insert into bills(`invoice_number`,`control_code`,`date`,`description`,`price`,`company_id`,`created_at`,`updated_at`) values (7574,'*','2022-10-19','pecho a laplancha 22  + cuartopollo 24',0,1,NOW(),NOW());
+insert into bills(`invoice_number`,`control_code`,`date`,`description`,`price`,`company_id`,`created_at`,`updated_at`) values (24884,'*','2022-08-17','papas crispi 13 + tostadas deli pan 11  +  gelatina kriss 1000gr 18',0,1,NOW(),NOW());
+insert into bills(`invoice_number`,`control_code`,`date`,`description`,`price`,`company_id`,`created_at`,`updated_at`) values (7966,'*','2022-07-21','tripack galletas hogar 26.5  +  frutall manzana 9.8  +  salvado mabel 26.9',0,1,NOW(),NOW());
+insert into bills(`invoice_number`,`control_code`,`date`,`description`,`price`,`company_id`,`created_at`,`updated_at`) values (42777,'*','2022-09-26','tostada dulce 7.5    +  rosquita mabel 8.5',0,1,NOW(),NOW());
+insert into bills(`invoice_number`,`control_code`,`date`,`description`,`price`,`company_id`,`created_at`,`updated_at`) values (108466,'*','2022-10-14','antigrip[al compuesto x9  10.17',0,1,NOW(),NOW());
+insert into bills(`invoice_number`,`control_code`,`date`,`description`,`price`,`company_id`,`created_at`,`updated_at`) values (28432,'*','2022-09-02','fideo de arroz x2 20.50 +  pasta multigrano x2 25  +  pasta de quinua y arroz x3 14.9',0,1,NOW(),NOW());
+insert into bills(`invoice_number`,`control_code`,`date`,`description`,`price`,`company_id`,`created_at`,`updated_at`) values (34480,'*','2022-09-03','pasta lenteja arroz x3 18.3 + arroz integral 15.20',0,1,NOW(),NOW());
+insert into bills(`invoice_number`,`control_code`,`date`,`description`,`price`,`company_id`,`created_at`,`updated_at`) values (54339,'*','2022-09-23','te frutos rojos 11.7',0,1,NOW(),NOW());
+insert into bills(`invoice_number`,`control_code`,`date`,`description`,`price`,`company_id`,`created_at`,`updated_at`) values (38780,'*','2022-10-07','arroz integral x2 15.2',0,1,NOW(),NOW());
+insert into bills(`invoice_number`,`control_code`,`date`,`description`,`price`,`company_id`,`created_at`,`updated_at`) values (34414,'*','2022-09-22','miel de abejas 49 +  nachos 9.3  +  tripack frutall 10.5  +  frute manzanax3  10.5  +  frute frutos rojos 11.9  +  semillavena  princesa  20  +  chiavena princesa  16.5',0,1,NOW(),NOW());
+insert into bills(`invoice_number`,`control_code`,`date`,`description`,`price`,`company_id`,`created_at`,`updated_at`) values (25486,'*','2022-10-17','antigripina plus x10  8 +  tosalcos sobres x2  6.40',0,1,NOW(),NOW());
+insert into bills(`invoice_number`,`control_code`,`date`,`description`,`price`,`company_id`,`created_at`,`updated_at`) values (9156,'*','2022-07-26','leche evaporada 8.5 + leche condensada 11  +  dulce de leche 28',0,1,NOW(),NOW());
+insert into bills(`invoice_number`,`control_code`,`date`,`description`,`price`,`company_id`,`created_at`,`updated_at`) values (70560,'*','2022-10-24','novotears frasco 98.5  + pastillas de miel y propoleo x2  10',0,1,NOW(),NOW());
+insert into bills(`invoice_number`,`control_code`,`date`,`description`,`price`,`company_id`,`created_at`,`updated_at`) values (58184,'*','2022-10-25','pan yema 0.154 grs 2.76  + pan de avena 0.102gr  1.84+queso criollo 19.27',0,1,NOW(),NOW());
+insert into bills(`invoice_number`,`control_code`,`date`,`description`,`price`,`company_id`,`created_at`,`updated_at`) values (36627,'*','2022-10-27','nacho conito queso 12.5 + snack dr pick 12.5 + miel dde abeja 49',0,1,NOW(),NOW());
+insert into bills(`invoice_number`,`control_code`,`date`,`description`,`price`,`company_id`,`created_at`,`updated_at`) values (22776,'*','2022-10-24','propoleo x20ml 17.5',0,1,NOW(),NOW());
+insert into bills(`invoice_number`,`control_code`,`date`,`description`,`price`,`company_id`,`created_at`,`updated_at`) values (71987,'*','2022-10-29','bolsas de pastillas de miel y propoleo x2 10',0,1,NOW(),NOW());
+insert into bills(`invoice_number`,`control_code`,`date`,`description`,`price`,`company_id`,`created_at`,`updated_at`) values (54468,'*','2022-10-23','pan francesito 7.96 + queso criollo 15.4',0,1,NOW(),NOW());
+insert into bills(`invoice_number`,`control_code`,`date`,`description`,`price`,`company_id`,`created_at`,`updated_at`) values (71782,'*','2022-28-10','bolsas de pastillas de miel y propoleo 5',0,1,NOW(),NOW());
+insert into bills(`invoice_number`,`control_code`,`date`,`description`,`price`,`company_id`,`created_at`,`updated_at`) values (11473,'*','2022-08-26','leche soya sabor vainilla x4 23.2  + leche de soya sabor chirimoya x2 11.6',0,1,NOW(),NOW());
+insert into bills(`invoice_number`,`control_code`,`date`,`description`,`price`,`company_id`,`created_at`,`updated_at`) values (2943,'*','2022-09-17','zapatillas adidas 750',0,1,NOW(),NOW());
+insert into bills(`invoice_number`,`control_code`,`date`,`description`,`price`,`company_id`,`created_at`,`updated_at`) values (43182,'*','2022-09-04','PACK COCA COLA 25.5 + YOGURT BEBIBLE PIL 14  + queso criollo 21.1',0,1,NOW(),NOW());
+insert into bills(`invoice_number`,`control_code`,`date`,`description`,`price`,`company_id`,`created_at`,`updated_at`) values (52902,'*','2022-12-10','valpakine x160 1008 descto 70.56',0,1,NOW(),NOW());
+insert into bills(`invoice_number`,`control_code`,`date`,`description`,`price`,`company_id`,`created_at`,`updated_at`) values (68374,'*','2022-11-21','pan arabe x2 11.6 + atun van camps 13',0,1,NOW(),NOW());
+insert into bills(`invoice_number`,`control_code`,`date`,`description`,`price`,`company_id`,`created_at`,`updated_at`) values (2167,'*','2021-11-20','sundown 50fps 69',0,1,NOW(),NOW());
+insert into bills(`invoice_number`,`control_code`,`date`,`description`,`price`,`company_id`,`created_at`,`updated_at`) values (47143,'*','2022-11-03','miel de abejas 49',0,1,NOW(),NOW());
+
+
+-- JANUARY TO JULY 2023
 insert into bills(`invoice_number`,`control_code`,`date`,`description`,`price`,`company_id`,`created_at`,`updated_at`) values (3746,'10-D9-76-C0-58','2023-07-09','chiken tenders 25',25,1,NOW(),NOW());
 insert into bills(`invoice_number`,`control_code`,`date`,`description`,`price`,`company_id`,`created_at`,`updated_at`) values (6058,'68-5C-B7-51-C4','2023-07-07','tableta chocolate sabores x3 33 + grageas bolsa x3 8 + chocolate 100gr 22',79,1,NOW(),NOW());
 insert into bills(`invoice_number`,`control_code`,`date`,`description`,`price`,`company_id`,`created_at`,`updated_at`) values (6059,'35-1C-7D-33','2023-07-07','bomba de marsmellow',18,1,NOW(),NOW());
