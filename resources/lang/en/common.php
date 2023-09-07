@@ -130,4 +130,6 @@ return [
 
     'language'=>'language',
     'languages'=>'languages',
+
+    'datas'=>'datas',
 ];

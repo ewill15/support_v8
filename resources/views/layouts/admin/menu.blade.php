@@ -74,7 +74,7 @@
             <i class="fas fa-ban mr-2"></i>
             <p>
               {{ ucfirst(trans('common.payment')) }}
-              <span class="right badge badge-danger">Incomplete</span>
+              <span class="right badge badge-warning">check</span>
             </p>
           </a>
         </li>

@@ -7,7 +7,7 @@
                       <ul class="nav nav-tabs" id="custom-tabs-three-tab" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="custom-tabs-three-user-data-tab" data-toggle="pill" href="#custom-tabs-three-user-data" role="tab" aria-controls="custom-tabs-three-user-data" aria-selected="true">
-                                {{ ucfirst(trans('validation.attributes.datas')) }}
+                                {{ ucfirst(trans('validation.common.datas')) }}
                             </a>
                         </li>
                       </ul>                  

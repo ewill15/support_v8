@@ -124,4 +124,6 @@ return [
     'example'=>'ejemplo',
     'language'=>'idioma',
     'languages'=>'idomas',
+
+    'datas'=>'datos',
 ];
