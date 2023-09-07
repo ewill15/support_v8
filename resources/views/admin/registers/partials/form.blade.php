@@ -21,7 +21,7 @@
                                     {{ ucfirst(trans('common.type')) }}
                                 </label>    
                                 <div class="col-md-4 required-name">
-                                    {!! Form::text('type', null, ['class' => 'form-control', 'placeholder' => '...']) !!}
+                                    {!! Form::select('type', $type,null, ['class' => 'form-control', 'placeholder' => '...']) !!}
                                     {!! $errors->first('type', '<p class="help-block">:message</p>') !!}
                                 </div>
                             </div>                                  

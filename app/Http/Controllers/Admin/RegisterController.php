@@ -29,10 +29,10 @@ class RegisterController extends Controller
         
         $paginate = $request->pagination ? $request->pagination : 20;
         $page = (int)$request->page;
-        if ($request->search != '')
-            $registers = $registers->where('username', 'LIKE', '%' . $request->search . '%')
-                ->orWhere('page', 'LIKE', $request->search . '%')
-                ->orWhere('type', 'LIKE', $request->search . '%');
+        if ($request->keyword != '')
+            $registers = $registers->where('username', 'LIKE', '%' . $request->keyword . '%')
+                ->orWhere('page', 'LIKE', $request->keyword . '%')
+                ->orWhere('type', 'LIKE', $request->keyword . '%');
 
         $text_pagination = Helper::messageCounterPagination($registers->count(), $page, $paginate, $lang);
         
@@ -43,7 +43,26 @@ class RegisterController extends Controller
 
     public function create()
     {
-        return view('admin.registers.create');
+        $type = [
+            'api'=>'api',
+            'bank'=>'bank',
+            'email'=>'email',
+            'entertaiment'=>'entertaiment',
+            'games'=>'games',
+            'job'=>'job',
+            'learning'=>'learning',
+            'manage projects'=>'manage projects',
+            'music'=>'music',
+            'news'=>'news',
+            'office'=>'office',            
+            'pc'=>'pc',
+            'repository'=>'repository',
+            'social networks'=>'social networks',
+            'travel'=>'travel',
+            'web payment'=>'web payment',
+            'otros'=>'otros',
+        ];
+        return view('admin.registers.create',compact('type'));
     }
 
     /**
@@ -102,8 +121,27 @@ class RegisterController extends Controller
     public function edit($id)
     {
         $register = Register::find($id);
+        $type = [
+            'api'=>'api',
+            'bank'=>'bank',
+            'email'=>'email',
+            'entertaiment'=>'entertaiment',
+            'games'=>'games',
+            'job'=>'job',
+            'learning'=>'learning',
+            'manage projects'=>'manage projects',
+            'music'=>'music',
+            'news'=>'news',
+            'office'=>'office',            
+            'pc'=>'pc',
+            'repository'=>'repository',
+            'social networks'=>'social networks',
+            'travel'=>'travel',
+            'web payment'=>'web payment',
+            'otros'=>'otros',
+        ];
 
-        return view('admin.registers.edit', compact('register'));
+        return view('admin.registers.edit', compact('register','type'));
     }
 
     /**
