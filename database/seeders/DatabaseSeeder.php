@@ -33,7 +33,8 @@ class DatabaseSeeder extends Seeder
             'accounts',
             'services',
             'songs',
-            'registers'
+            'registers',
+            'languages'
         ];
         
         Schema::disableForeignKeyConstraints();
@@ -51,6 +52,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ServicesSeeder::class);
         $this->call(SongsSeeder::class);
         $this->call(RegisterSeeder::class);
+        $this->call(LanguageSeeder::class);
 
         Schema::enableForeignKeyConstraints();
     }
