@@ -225,6 +225,9 @@ return [
         'invoice_number'        => 'invoice number',
         'number_account'        => 'account number',
         'bank'                  => 'bank',
+        'service'               => 'service',
+        'month'                 => 'month',
+        'amount'                => 'amount',
     ],
 
 ];

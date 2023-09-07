@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Helper;
 use App\Models\Cancel;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
@@ -24,7 +25,7 @@ class CancelController extends Controller
     public function index(Request $request)
     {
         $lang = app()->getLocale();
-        $cancels = Cancel::orderBy('id','ASC');
+        $cancels = Cancel::orderBy('month','DESC')->orderBy('year','DESC');
 
         $paginate = $request->pagination ? $request->pagination : 20;
         $page = (int)$request->page;
@@ -41,8 +42,22 @@ class CancelController extends Controller
     public function create()
     {
         $list_services = Service::orderBy('name','asc')->pluck('name','id');
-
-        return view('admin.cancels.create',compact('list_services'));
+        $months = [
+            '1'=>'January',
+            '2'=>'February',
+            '3'=>'March',
+            '4'=>'April',
+            '5'=>'May',
+            '6'=>'Jun',
+            '7'=>'July',
+            '8'=>'August',
+            '9'=>'September',
+            '10'=>'October',
+            '11'=>'november',
+            '12'=>'December',
+        ];
+        
+        return view('admin.cancels.create',compact('list_services','months'));
     }
 
     public function show(){/* show */}

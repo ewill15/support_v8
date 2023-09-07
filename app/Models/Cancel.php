@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Cancel extends Model
 {
@@ -17,6 +18,12 @@ class Cancel extends Model
     ];
 
     public function service(){
-        return $this->belongsTo(Language::class);
+        return $this->belongsTo(Service::class);
+    }
+
+    public function getPeriodAttribute(){
+        $date = $this->year.'-'.$this->month.'-10';
+        
+        return Carbon::createFromFormat('Y-m-d', $date)->format('M - Y');
     }
 }

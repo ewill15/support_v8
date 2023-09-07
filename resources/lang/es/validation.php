@@ -218,6 +218,9 @@ return [
         'observation'           => 'observation',
         'nit'                   => 'nit',
         'area'                  => 'area',
+        'service'               => 'servicio',
+        'month'                 => 'mes',
+        'amount'                => 'monto',
         
     ],
 ];
