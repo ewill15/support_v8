@@ -20,8 +20,10 @@ class CreateBillsTable extends Migration
             $table->date('date')->nullable();
             $table->text('description')->nullable();
             $table->decimal('price',5,2)->default(0);
-            $table->integer('company_id')->unsigned()->default(1);
-            $table->integer('user_id')->unsigned()->default(1);
+            $table->foreignId('company_id')
+            ->constrained('companies');  
+            $table->foreignId('user_id')
+            ->constrained('users');  
             $table->timestamps();
         });
     }

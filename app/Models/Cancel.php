@@ -10,9 +10,13 @@ class Cancel extends Model
     use HasFactory;
 
     protected $fillable = [
-        'service',
-        'mount',
+        'service_id',
+        'month',
         'ammount',
         'year'
     ];
+
+    public function service(){
+        return $this->belongsTo(Language::class);
+    }
 }

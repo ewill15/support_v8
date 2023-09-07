@@ -42,20 +42,6 @@ class AccountsSeeder extends Seeder
             'updated_at' => date('Y-m-d H:i:s')
         ]);
         DB::table('accounts')->insert([
-            'name' => 'Lucy Elizabeth',
-            'last_name' => 'Romero Ortega',
-            'mobile' => '728-83356',
-            'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s')
-        ]);
-        DB::table('accounts')->insert([
-            'name' => 'Shirley Nidya',
-            'last_name' => 'Arandia Zeballos',
-            'mobile' => '760-59166',
-            'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s')
-        ]);
-        DB::table('accounts')->insert([
             'name' => 'Nancy Lilian',
             'last_name' => 'Arandia Zeballos',
             'mobile' => '785-70863',

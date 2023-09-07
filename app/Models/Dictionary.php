@@ -14,10 +14,10 @@ class Dictionary extends Model
         'pronuntiation',
         'meaning',
         'example',
-        'lang_id'
+        'language_id'
     ];
 
     public function language(){
-        return $this->belongsTo(Language::class,'lang_id');
+        return $this->belongsTo(Language::class,'language_id');
     }
 }

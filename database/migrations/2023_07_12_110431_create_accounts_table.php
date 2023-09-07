@@ -19,7 +19,8 @@ class CreateAccountsTable extends Migration
             $table->string('last_name');
             $table->string('mobile')->nullable();
             $table->string('number')->nullable();
-            $table->bigInteger('bank_id')->unsigned()->nullable();
+            $table->foreignId('bank_id')
+            ->constrained('banks');  
             $table->timestamps();
         });
     }

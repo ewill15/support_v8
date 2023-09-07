@@ -14,8 +14,9 @@ class CreateCancelsTable extends Migration
     public function up()
     {
         Schema::create('cancels', function (Blueprint $table) {
-            $table->id();
-            $table->bigInteger('service');
+            $table->id();            
+            $table->foreignId('service_id')
+            ->constrained('services');  
             $table->unsignedTinyInteger('month');
             $table->decimal('ammount',5,2);
             $table->string('year',4);

@@ -25,7 +25,8 @@ class CreateDictionariesTable extends Migration
             $table->string('pronuntiation')->nullable();
             $table->text('meaning')->nullable();
             $table->longText('example')->nullable();
-            $table->integer('lang_id')->nullable();
+            $table->foreignId('language_id')
+            ->constrained('languages');  
             $table->timestamps();
         });
     }
