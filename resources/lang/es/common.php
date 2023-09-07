@@ -59,8 +59,7 @@ return [
     'banners'=>'banners',
     'currencies'=>'monedas',
     'name_currency'=>'nombre moneda',
-    'image_gallery'=>'agregar imagen',
-    'account'=>'cuenta',    
+    'image_gallery'=>'agregar imagen',    
     'delete_image' => 'eliminar imagen',
     'list_users'=> 'lista de usuarios',
     'password'=>'password',
@@ -93,8 +92,8 @@ return [
     'quarentines'=>'cuarentenas',
     'food'=>'comida',
 
-    'account'=>'cuenta',
-    'accounts'=>'cuentas',
+    'account'=>'cuenta de banco',
+    'accounts'=>'cuentas de banco',
     'account_number'=>'numero de cuenta',
 
     'payment'=>'pago',
@@ -126,4 +125,8 @@ return [
     'languages'=>'idomas',
 
     'datas'=>'datos',
+    'cancels'=>'pagos',
+    'list'=>'lista',
+    'period'=>'periodo',
+    'amount'=>'monto (Bs.)',
 ];

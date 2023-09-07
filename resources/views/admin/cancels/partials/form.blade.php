@@ -7,7 +7,7 @@
                       <ul class="nav nav-tabs" id="custom-tabs-three-tab" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="custom-tabs-three-user-data-tab" data-toggle="pill" href="#custom-tabs-three-user-data" role="tab" aria-controls="custom-tabs-three-user-data" aria-selected="true">
-                                {{ ucfirst(trans('validation.common.datas')) }}
+                                {{ ucfirst(trans('common.datas')) }}
                             </a>
                         </li>
                       </ul>                  
@@ -21,8 +21,8 @@
                                     {{ ucfirst(trans('validation.attributes.service')) }}
                                 </label>
                                 <div class="col-md-3">
-                                    {!! Form::select('name', $list_services,null, ['class' => 'form-control', "required"]) !!}
-                                    {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
+                                    {!! Form::select('service_id', $list_services,null, ['class' => 'form-control', "required"]) !!}
+                                    {!! $errors->first('service_id', '<p class="help-block">:message</p>') !!}
                                 </div>
                             </div>
                             <div class="form-group row {{ $errors->has('year') ? 'has-error' : ''}}">

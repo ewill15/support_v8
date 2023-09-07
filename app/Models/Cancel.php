@@ -13,7 +13,7 @@ class Cancel extends Model
     protected $fillable = [
         'service_id',
         'month',
-        'ammount',
+        'amount',
         'year'
     ];
 

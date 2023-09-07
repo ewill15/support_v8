@@ -18,7 +18,7 @@ class CreateCancelsTable extends Migration
             $table->foreignId('service_id')
             ->constrained('services');  
             $table->unsignedTinyInteger('month');
-            $table->decimal('ammount',5,2);
+            $table->decimal('amount',5,2);
             $table->string('year',4);
             $table->timestamps();
         });

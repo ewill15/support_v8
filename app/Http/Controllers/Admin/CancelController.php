@@ -65,9 +65,9 @@ class CancelController extends Controller
     public function store(Request $request)
     {
         $v= Validator::make($request->all(),[
-            'service'=>'required|exists:services,id',
+            'service_id'=>'required|exists:services,id',
             'month'=>'required',
-            'ammount'=>'required',
+            'amount'=>'required',
             'year'=>'required'
         ]);
         if($v && $v->fails()){
@@ -92,8 +92,22 @@ class CancelController extends Controller
     {
         $cancel = Cancel::find($id);
         $list_services = Service::orderBy('name','asc')->pluck('name','id');
+        $months = [
+            '1'=>'January',
+            '2'=>'February',
+            '3'=>'March',
+            '4'=>'April',
+            '5'=>'May',
+            '6'=>'Jun',
+            '7'=>'July',
+            '8'=>'August',
+            '9'=>'September',
+            '10'=>'October',
+            '11'=>'november',
+            '12'=>'December',
+        ];
 
-        return view('admin.cancels.edit',compact('cancel','list_services'));
+        return view('admin.cancels.edit',compact('cancel','list_services','months'));
     }
 
     public function update(Request $request, $id)
@@ -102,9 +116,9 @@ class CancelController extends Controller
         $fields = $request->all();
         
         $v= Validator::make($request->all(),[
-            'service'=>'required|exists:services,id',
+            'service_id'=>'required|exists:services,id',
             'month'=>'required',
-            'ammount'=>'required',
+            'amount'=>'required',
             'year'=>'required'
         ]);
         if($v && $v->fails()){

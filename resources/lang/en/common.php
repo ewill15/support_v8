@@ -63,7 +63,6 @@ return [
     'currencies'=>'currencies',
     'name_currency'=>'currency name',
     'image_gallery'=>'add image',
-    'account'=>'account',
     'cellphone'=>'mobile',
     'delete_image' => 'delete image',
     'list_users'=> 'list of users',
@@ -98,8 +97,8 @@ return [
     'quarentines'=>'quarentines',
     'food'=>'food',
 
-    'account'=>'account',
-    'accounts'=>'accounts',
+    'account'=>'bank account',
+    'accounts'=>'bank accounts',
     'account_number'=>'account number',
 
     'payment'=>'payment',
@@ -132,4 +131,8 @@ return [
     'languages'=>'languages',
 
     'datas'=>'datas',
+    'cancels'=>'payments',
+    'list'=>'list',
+    'period'=>'period',
+    'amount'=>'amount (Bs.)',
 ];
