@@ -114,7 +114,6 @@
             <i class="fas fa-file-invoice mr-2"></i>
             <p>
               {{ ucfirst(trans('common.accounts')) }}
-              <span class="right badge badge-warning">check</span>
             </p>
           </a>
         </li>
