@@ -93,7 +93,7 @@ class LanguageController extends Controller
      */
     public function edit($id)
     {
-        $dictionary = Language::find($id);
+        $language = Language::find($id);
 
         return view('admin.languages.edit', compact('language'));
     }
