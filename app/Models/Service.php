@@ -12,4 +12,8 @@ class Service extends Model
     protected $fillable = [
         'name'
     ];
+    
+    public function cancels(){
+        return $this->hasMany(Cancel::class);
+    }
 }

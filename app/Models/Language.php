@@ -13,5 +13,9 @@ class Language extends Model
         'name'
     ];
 
+    public function dictionaries(){
+        return $this->hasMany(Language::class);
+    }
+
     
 }
