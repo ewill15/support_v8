@@ -9,26 +9,18 @@
             <div class="row">
                 <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
                     <div class="page-header">
-                        <h2 class="pageheader-title">{{ ucfirst(trans('common.users')) }}</h2>
-                        <div class="page-breadcrumb">
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item">
-                                        <a href="{{ url('/admin/dashboard') }}" class="breadcrumb-link">
-                                            {{ ucfirst(trans('common.home')) }}
-                                        </a>
-                                    </li>
-                                    <li class="breadcrumb-item">
-                                        <a href="{{ url('/admin/users') }}" class="breadcrumb-link">
-                                            {{ ucfirst(trans('common.users')) }}
-                                        </a>
-                                    </li>
-                                    <li class="breadcrumb-item active" aria-current="page">
-                                        {{ ucfirst(trans('common.new')) }}
-                                    </li>
-                                </ol>
-                            </nav>
-                        </div>
+                        @include('admin.partials.breadcrumb',[
+                            'title'=>ucfirst(trans('common.users')),
+                            'breadcrumbs'=>[
+                                'text'=>[
+                                    ucfirst(trans('common.users'))
+                                ],
+                                'url'=>[
+                                    url('/admin/users')
+                                ]
+                            ],
+                            'final'=>ucfirst(trans('common.new'))
+                        ])
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">

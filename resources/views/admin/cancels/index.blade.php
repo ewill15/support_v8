@@ -11,11 +11,16 @@
                 <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
                     <div class="page-header">
                         @include('admin.partials.breadcrumb',[
-                            'action'=>'simple',
-                            'title'=>ucfirst(trans('common.cancels')), 
-                            'breadcrumb_text'=>ucfirst(trans('common.cancels')),
-                            'breadcrumb_url'=>url('admin/cancels'),
-                            'item_breadcrumb'=>ucfirst(trans('common.list'))
+                            'title'=>ucfirst(trans('common.cancels')),
+                            'breadcrumbs'=>[
+                                'text'=>[
+                                    ucfirst(trans('common.cancels'))
+                                ],
+                                'url'=>[
+                                    url('/admin/cancels')
+                                ]
+                            ],
+                            'final'=>ucfirst(trans('common.list'))
                         ])
                     </div>
                 </div>
