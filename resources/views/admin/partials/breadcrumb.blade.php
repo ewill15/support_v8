@@ -1,5 +1,3 @@
-
-
 <h2 class="pageheader-title">{{$title}}</h2>
 <div class="page-breadcrumb">
     <nav aria-label="breadcrumb">
