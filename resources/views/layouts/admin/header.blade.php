@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta name="domain" content="{{App::make('url')->to('/')}}">
+  <link rel="icon" type="image/png" href="{!! asset('/logo.ico') !!}"/>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{!! asset('cms/plugins/fontawesome-free/css/all.min.css') !!}">
   <!-- Ionicons -->
