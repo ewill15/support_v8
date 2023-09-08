@@ -1,4 +1,4 @@
-<legend>
+<legend>    
     <div class="row">
         <div class="col-lg-12">
             <fieldset>
@@ -21,9 +21,9 @@
                                     <span class="text-danger">*</span>
                                     {{ ucfirst(trans('common.firstname')) }}
                                 </label>    
-                                <div class="col-md-4 required-name">
-                                    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => ucfirst(trans('common.firstname'))]) !!}
-                                    {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
+                                <div class="col-md-4">
+                                    {!! Form::text('first_name', null, ['class' => 'form-control', 'placeholder' => ucfirst(trans('common.firstname'))]) !!}
+                                    {!! $errors->first('first_name', '<p class="help-block">:message</p>') !!}
                                 </div>
                             </div>                                  
                             <div class="form-group row {{ $errors->has('last_name') ? 'has-error' : ''}}">
@@ -31,19 +31,18 @@
                                     <span class="text-danger">*</span>
                                     {{ ucfirst(trans('common.lastname')) }}
                                 </label>    
-                                <div class="col-md-4 required-name">
+                                <div class="col-md-4">
                                     {!! Form::text('last_name', null, ['class' => 'form-control', 'placeholder' => ucfirst(trans('common.lastname'))]) !!}
                                     {!! $errors->first('lastname', '<p class="help-block">:message</p>') !!}
                                 </div>
                             </div>                                                      
-                            <div class="form-group row {{ $errors->has('mobile') ? 'has-error' : ''}}">
-                                <label for="mobile" class="col-md-4 form-control-label text-md-right">
-                                    <span class="text-danger">*</span>
-                                    {{ ucfirst(trans('common.mobile')) }}
+                            <div class="form-group row {{ $errors->has('username') ? 'has-error' : ''}}">
+                                <label for="username" class="col-md-4 form-control-label text-md-right">
+                                    {{ ucfirst(trans('common.username')) }}
                                 </label>    
-                                <div class="col-md-4 required-name">
-                                    {!! Form::number('mobile', null, ['class' => 'form-control', 'placeholder' => '...']) !!}
-                                    {!! $errors->first('mobile', '<p class="help-block">:message</p>') !!}
+                                <div class="col-md-4">
+                                    {!! Form::text('username', null, ['class' => 'form-control', 'placeholder' => '...']) !!}
+                                    {!! $errors->first('username', '<p class="help-block">:message</p>') !!}
                                 </div>
                             </div>
                             <div class="form-group row {{ $errors->has('email') ? 'has-error' : ''}}">
@@ -55,20 +54,23 @@
                                     {!! $errors->first('email', '<p class="help-block">:message</p>') !!}
                                 </div>
                             </div>
-                            <div class="form-group row {{ $errors->has('password') ? 'has-error' : ''}}">
-                                <label for="password" class="col-md-4 form-control-label text-md-right">
-                                    {{ ucfirst(trans('common.password')) }}
-                                </label>
-                                <div class="col-md-4">
-                                    {!! Form::password('password', ['class' => 'form-control', 'placeholder' => '...']) !!}
-                                    {!! $errors->first('password', '<p class="help-block">:message</p>') !!}
-                                </div>
-                            </div>
+                            @if (!isset($user->password))
+                                <div class="form-group row {{ $errors->has('password') ? 'has-error' : ''}}">
+                                    <label for="password" class="col-md-4 form-control-label text-md-right">
+                                        {{ ucfirst(trans('common.password')) }}
+                                    </label>
+                                    <div class="col-md-4">
+                                        {!! Form::password('password', ['class' => 'form-control', 'placeholder' => '...']) !!}
+                                        {!! $errors->first('password', '<p class="help-block">:message</p>') !!}
+                                    </div>
+                                </div>    
+                            @endif
+                            
                             <div class="form-group row {{ $errors->has('dob') ? 'has-error' : ''}}">
                                 <label for="dob" class="col-md-4 form-control-label text-md-right">
                                     {{ ucfirst(trans('common.dob')) }}
                                 </label>    
-                                <div class="col-md-4 required-name">
+                                <div class="col-md-4">
                                     <div class="input-group date" id="dob" data-target-input="nearest">
                                         {!! Form::text('dob', null, ['class' => 'form-control datetimepicker-input', 'data-target' => '#dob']) !!}
                                         {!! $errors->first('date', '<p class="help-block">:message</p>') !!}
@@ -78,6 +80,7 @@
                                     </div>
                                 </div>
                             </div>
+                            
                       </div>
                     </div>
                     <!-- /.card -->

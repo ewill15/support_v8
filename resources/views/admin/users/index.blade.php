@@ -90,7 +90,7 @@
                                     <th class="actions">ID</th>
                                     <th>{{ ucfirst(trans('common.firstname')) }}</th>
                                     <th>{{ ucfirst(trans('common.lastname')) }}</th>
-                                    <th>{{ ucfirst(trans('common.cellphone')) }}</th>
+                                    <th>{{ ucfirst(trans('common.username')) }}</th>
                                     <th class="actions">{{ ucfirst(trans('common.actions')) }}</th>
                                 </tr>
                                 </thead>
@@ -98,9 +98,9 @@
                                 @foreach($users as $item)
                                     <tr class="gradeX">
                                         <td>{{ @$item->id }}</td>
-                                        <td>{{ @$item->name }}</td>
+                                        <td>{{ @$item->first_name }}</td>
                                         <td>{{ @$item->last_name }}</td>
-                                        <td>{{ @$item->mobile }}</td>
+                                        <td>{{ @$item->username }}</td>
                                         <td>
                                             <div class="input-group-prepend">
                                                 <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">

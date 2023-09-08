@@ -55,9 +55,8 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         $v = Validator::make($request->all(), [
-            'name' => 'required|string|min:3',
-            'last_name' => 'string',            
-            'mobile' => 'required|string|min:8',
+            'firs_name' => 'required|string|min:3',
+            'last_name' => 'string',
             'email'=>'required|email',
             'password' => 'min:8',
         ]);
@@ -71,7 +70,7 @@ class UsersController extends Controller
             $fields['dob'] = Helper::date_database($request->dob);
 
         $fields['password'] = bcrypt($request->password);
-        
+        $fields['username'] = $request->username?$request->username:explode(" ", $request->first_name)[0];
         // dd($fields);
         // OPTION 1::   
         // Mail::to()->send(new PasanakuMail($admin,$pasanaku));
@@ -134,18 +133,19 @@ class UsersController extends Controller
         $fields = $request->all();
 
         $v = Validator::make($request->all(), [
-            'name' => 'required|string|min:3',
-            'last_name' => 'string',            
-            'mobile' => 'required|string|min:8',
+            'first_name' => 'required|string|min:3',
+            'last_name' => 'string',
             'email'=>'required|email',
-            'password' => 'min:8',
         ]);
         if ($v && $v->fails()) {
             return redirect()->back()->withInput()->withErrors($v->errors());
         }
         if(isset($request->email))
             unset($fields['email']);
-                
+
+        if(!$request->username)
+            $fields['username'] = explode(" ", $request->first_name)[0];
+
         $user = $user->update($fields);
 
         if ($user) {

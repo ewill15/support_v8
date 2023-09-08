@@ -39,7 +39,7 @@
                     @include('admin.partials.messages')
                     @include('admin.partials.errors', ['errors' => $errors])
                     <div class="card">
-                        <h5 class="card-header">{{ ucfirst(trans('common.update_data')) }}</h5>
+                        <h5 class="card-header">{{ ucfirst(trans('common.update_data')) }}</h5>                        
                         <div class="card-body">
                             {!! Form::model($user, [
                                 'id'=>'form-user', 
