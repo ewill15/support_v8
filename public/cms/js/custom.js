@@ -80,10 +80,17 @@ jQuery(function () {
         },
     });
     //Date range picker incomes
-    $("#dob,#date,#date_start").datetimepicker({
+    $("#date,#date_start").datetimepicker({
         format: "DD-MM-YYYY",
         locale: "es",
         minDate: moment().subtract(60, "days"),
+        defaultDate: moment(),
+    });
+    //Date range picker incomes
+    $("#dob").datetimepicker({
+        format: "DD-MM-YYYY",
+        locale: "es",
+        maxDate: moment().add(760, "days"),
         defaultDate: moment(),
     });
     //function to preview before to upload image
