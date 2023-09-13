@@ -225,8 +225,7 @@ jQuery(function () {
      **********************************************************************************************/
     $("a#hash").on("click", function (evt) {
         evt.preventDefault();
-        let url = $("a#hash").attr('href');
-
+        let url = $(this).attr('href');
         $.ajax({
             method: "POST",
             url: url
@@ -242,6 +241,7 @@ jQuery(function () {
 
             setTimeout(function () {
                 $("#modalInfo").modal("hide");
+                location.reload();
             }, 3000);
         });
     });

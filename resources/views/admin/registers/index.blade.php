@@ -103,8 +103,10 @@
                                         <td>{{ @$item->type }}</td>
                                         <td>{{ @$item->page }}</td>
                                         <td>{{ @$item->username }}</td>
-                                        <td>{{ @$item->hash_password }}</td>
-                                        <td>{{ @$item->description }}</td>
+                                        <td>
+                                            {{ @$item->hash_password }}
+                                        </td>
+                                        <td>{{ @$item->description?@$item->description:'' }}</td>
                                         <td>
                                             <div class="input-group-prepend">
                                                 <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" >

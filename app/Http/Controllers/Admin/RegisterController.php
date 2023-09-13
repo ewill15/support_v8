@@ -202,7 +202,7 @@ class RegisterController extends Controller
         return redirect('admin/webs');
     }
 
-    public function hashPassword($id)
+    public function hashPassword(Request $request,$id)
     {
         $register = Register::find($id);
 
