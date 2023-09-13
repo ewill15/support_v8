@@ -136,4 +136,7 @@ return [
     'list'=>'list',
     'period'=>'period',
     'amount'=>'amount (Bs.)',
+
+    'hashing'=>'hash',
+    'display_data'=>'display data'
 ];

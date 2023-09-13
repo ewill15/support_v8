@@ -130,4 +130,7 @@ return [
     'list'=>'lista',
     'period'=>'periodo',
     'amount'=>'monto (Bs.)',
+
+    'hashing'=>'hash',
+    'display_data'=>'mostrar datos'
 ];
