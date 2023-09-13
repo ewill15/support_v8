@@ -42,7 +42,18 @@ class BankController extends Controller
 
     public function create()
     {
-        return view('admin.banks.create');
+        $cities = [
+            'Sucre'=>'Sucre',
+            'La Paz'=>'La Paz',
+            'Santa Cruz'=>'Santa Cruz',
+            'Cochabamba'=>'Cochabamba',
+            'Oruro'=>'Oruro',
+            'Potosi'=>'Potosi',
+            'Tarija'=>'Tarija',
+            'Beni'=>'Beni',
+            'Pando'=>'Pando'
+        ];
+        return view('admin.banks.create', compact('cities'));
     }
 
     public function show(){/* show */}
@@ -75,8 +86,19 @@ class BankController extends Controller
     public function edit($id)
     {
         $bank = Bank::find($id);
+        $cities = [
+            'Sucre'=>'Sucre',
+            'La Paz'=>'La Paz',
+            'Santa Cruz'=>'Santa Cruz',
+            'Cochabamba'=>'Cochabamba',
+            'Oruro'=>'Oruro',
+            'Potosi'=>'Potosi',
+            'Tarija'=>'Tarija',
+            'Beni'=>'Beni',
+            'Pando'=>'Pando'
+        ];
 
-        return view('admin.banks.edit',compact('bank'));
+        return view('admin.banks.edit',compact('bank','cities'));
     }
 
     public function update(Request $request, $id)

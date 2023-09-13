@@ -22,7 +22,7 @@
                     {{ ucfirst(trans('validation.attributes.city')).':' }}
                 </label>
                 <div class="col-md-7">
-                    {!! Form::text('city', null, ['class' => 'form-control']) !!}
+                    {!! Form::select('city', $cities,null, ['class' => 'form-control select2']) !!}
                     {!! $errors->first('city', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>
