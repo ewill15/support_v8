@@ -1,10 +1,4 @@
-<div class="row">
-    <div class="col-lg-12 mb-20">
-        <p>Campos con  (
-            <span class="text-danger">*</span>
-            ) son obligatorios
-        </p>
-    </div>
+<div class="row">    
     <div class="col-lg-10">
         <fieldset>
             <div class="form-group row {{ $errors->has('name') ? 'has-error' : ''}}">

@@ -73,6 +73,7 @@ return [
     'banks'=>'bancos',
     'city'=>'ciudad',
     'phone'=>'teléfono',
+    'nit'=>'nit',
 
     'company'=>'compañia',
     'companies'=>'compañias',

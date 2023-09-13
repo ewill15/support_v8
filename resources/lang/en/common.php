@@ -77,6 +77,7 @@ return [
     'banks'=>'banks',
     'city'=>'city',
     'phone'=>'phone',
+    'nit'=>'nit',
 
     'company'=>'company',
     'companies'=>'companies',
