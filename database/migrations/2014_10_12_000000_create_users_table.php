@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('username')->nullable();
             $table->string('image')->nullable();
             $table->string('user_role')->nullable();
+            $table->string('access_token')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
