@@ -232,4 +232,19 @@ class RegisterController extends Controller
 
         return view('admin.registers.data', compact('result'));
     }
+
+    public function changePassword(Request $request,$id){
+        $register = Register::find($id);
+
+        $register->count_password = $register->count_password+1;
+        $register->password = $request->new_password;
+        $register->hash_password = bcrypt($register->password);
+
+        $register->save();
+
+        return response()->json([
+            "status"=>true,
+            "msg" => Helper::contentFlashMessage('update')['success']
+        ]);
+    }
 }
