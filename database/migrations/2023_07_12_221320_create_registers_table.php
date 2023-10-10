@@ -21,6 +21,7 @@ class CreateRegistersTable extends Migration
             $table->text('username')->nullable();
             $table->text('password')->nullable();
             $table->text('hash_password')->nullable();
+            $table->tinyInteger('count_password')->default(0)->comment('count pwd change');
             $table->boolean('status')->default(true);
             $table->date('date')->nullable();
             $table->text('description')->nullable(); 
