@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Register extends Model
 {
@@ -16,10 +17,20 @@ class Register extends Model
         'username',
         'password',
         'hash_password',
+        'count_password',
         'status',
         'date',
         'description',
         'last_use'
     ];
+
+    public function getFormattedDateAttribute()
+    {
+        return Carbon::parse($this->updatedAt)->format('d-M-Y');
+    }
+
+    public function getCounterPasswordAttribute(){
+        return $this->count_password?$this->count_password:'NO';
+    }
     
 }

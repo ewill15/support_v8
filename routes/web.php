@@ -56,4 +56,7 @@ Route::group(['middleware'=>['auth'], 'prefix' => 'admin'], function(){
 
     Route::post('hash_pwd/{id}', [RegisterController::class, 'hashPassword']);
     Route::get('webs/{id}/d-data', [RegisterController::class, 'displayData']);
+
+    Route::get('webs/{id}/edit-password', [RegisterController::class,'frm_new_password']);
+    Route::post('webs/{id}/edit-password', [RegisterController::class,'new_password']);
 });

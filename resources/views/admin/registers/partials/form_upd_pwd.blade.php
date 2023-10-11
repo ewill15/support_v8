@@ -14,34 +14,23 @@
                     </div>
                     <div class="card-body">
                       <div class="tab-content" id="custom-tabs-three-tabContent">
-                          {{-- DATOS PERSONALES  --}}                          
-                            <div class="form-group row {{ $errors->has('type') ? 'has-error' : ''}}">
-                                <label for="type" class="col-md-4 form-control-label text-md-right">
+                          {{-- DATOS PERSONALES  --}}    
+                            <div class="form-group row">
+                                <label for="page" class="col-md-4 form-control-label text-md-right">
                                     <span class="text-danger">*</span>
                                     {{ ucfirst(trans('common.type')) }}
                                 </label>    
-                                <div class="col-md-4 required-name">
-                                    {!! Form::select('type', $type,null, ['class' => 'form-control']) !!}
-                                    {!! $errors->first('type', '<p class="help-block">:message</p>') !!}
+                                <div class="col-md-4">
+                                    {!! Form::text('type', null, ['class' => 'form-control','readonly'=>'readonly']) !!}
                                 </div>
-                            </div>                                  
-                            <div class="form-group row {{ $errors->has('page') ? 'has-error' : ''}}">
-                                <label for="page" class="col-md-4 form-control-label text-md-right">
-                                    <span class="text-danger">*</span>
-                                    {{ ucfirst(trans('common.page')).' or URL' }}
-                                </label>    
-                                <div class="col-md-4 required-name">
-                                    {!! Form::text('page', null, ['class' => 'form-control']) !!}
-                                    {!! $errors->first('page', '<p class="help-block">:message</p>') !!}
-                                </div>
-                            </div>                                                      
-                           <div class="form-group row {{ $errors->has('username') ? 'has-error' : ''}}">
+                            </div>                         
+                            <div class="form-group row {{ $errors->has('username') ? 'has-error' : ''}}">
                                 <label for="username" class="col-md-4 form-control-label text-md-right">
                                     <span class="text-danger">*</span>
                                     {{ ucfirst(trans('common.username')) }}
                                 </label>    
-                                <div class="col-md-4 required-name">
-                                    {!! Form::text('username', null, ['class' => 'form-control']) !!}
+                                <div class="col-md-4">
+                                    {!! Form::text('username', null, ['class' => 'form-control','readonly'=>'readonly']) !!}
                                     {!! $errors->first('username', '<p class="help-block">:message</p>') !!}
                                 </div>
                             </div>
@@ -54,14 +43,12 @@
                                     {!! $errors->first('password', '<p class="help-block">:message</p>') !!}
                                 </div>
                             </div>
-                            
-                             <div class="form-group row {{ $errors->has('description') ? 'has-error' : ''}}">
-                                <label for="description" class="col-md-4 form-control-label text-md-right">
-                                    {{ ucfirst(trans('common.description')) }}
+                            <div class="form-group row">
+                                <label for="password" class="col-md-4 form-control-label text-md-right">
+                                    {{ ucfirst(trans('common.confirm_password')) }}
                                 </label>
                                 <div class="col-md-4">
-                                    {!! Form::textarea('description', null, ['class' => 'form-control']) !!}
-                                    {!! $errors->first('description', '<p class="help-block">:message</p>') !!}
+                                    {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
                                 </div>
                             </div>
                       </div>

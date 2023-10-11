@@ -164,9 +164,7 @@ class RegisterController extends Controller
         if ($v && $v->fails()) {
             return redirect()->back()->withInput()->withErrors($v->errors());
         }
-        if(isset($request->password))
-            $fields['hash_password'] = bcrypt($request->password);
-                
+
         $register = $register->update($fields);
 
         if ($register) {
@@ -233,18 +231,59 @@ class RegisterController extends Controller
         return view('admin.registers.data', compact('result'));
     }
 
-    public function changePassword(Request $request,$id){
+    public function frm_new_password(Request $request,$id)
+    {
         $register = Register::find($id);
+        $type = [
+            'api'=>'api',
+            'bank'=>'bank',
+            'email'=>'email',
+            'entertaiment'=>'entertaiment',
+            'games'=>'games',
+            'job'=>'job',
+            'learning'=>'learning',
+            'manage projects'=>'manage projects',
+            'music'=>'music',
+            'news'=>'news',
+            'office'=>'office',            
+            'pc'=>'pc',
+            'repository'=>'repository',
+            'social networks'=>'social networks',
+            'travel'=>'travel',
+            'web payment'=>'web payment',
+            'otros'=>'otros',
+        ];
 
-        $register->count_password = $register->count_password+1;
-        $register->password = $request->new_password;
-        $register->hash_password = bcrypt($register->password);
+        return view('admin.registers.upd_pwd', compact('register','type'));
+    }
 
-        $register->save();
-
-        return response()->json([
-            "status"=>true,
-            "msg" => Helper::contentFlashMessage('update')['success']
+    public function new_password(Request $request, $id)
+    {
+        $register = Register::find($id);
+        $fields = $request->all();
+        
+        $v = Validator::make($request->all(), [
+            'password' => 'required|confirmed|min:8',
+            'password_confirmation' => 'required'
         ]);
+        if ($v && $v->fails()) {
+            return redirect()->back()->withInput()->withErrors($v->errors());
+        }
+
+        $fields['password'] = $request->password;
+        $fields['hash_password'] = bcrypt($request->password);        
+        $fields['count_password'] = $register->count_password+1; 
+        $fields['date'] = Carbon::now();
+        $register = $register->update($fields);
+
+        if ($register) {
+            Session::flash('flash_message', Helper::contentFlashMessage('update')['success']);
+            Session::flash('flash_message_type', 'success');
+        } else {
+            Session::flash('flash_message', Helper::contentFlashMessage('update')['error']);
+            Session::flash('flash_message_type', 'danger');
+        }
+
+        return redirect('admin/webs');
     }
 }

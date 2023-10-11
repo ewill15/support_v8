@@ -132,5 +132,10 @@ return [
     'amount'=>'monto (Bs.)',
 
     'hashing'=>'hash',
-    'display_data'=>'mostrar datos'
+    'display_data'=>'mostrar datos',
+
+    'date_change'=>'ultimo cambio',
+    'change'=>'modificado?',
+    'confirm_password'=>'confirmar password',
+    'new_pwd'=>'nuevo password',
 ];

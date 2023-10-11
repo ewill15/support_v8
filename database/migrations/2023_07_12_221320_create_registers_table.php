@@ -22,9 +22,9 @@ class CreateRegistersTable extends Migration
             $table->text('password')->nullable();
             $table->text('hash_password')->nullable();
             $table->tinyInteger('count_password')->default(0)->comment('count pwd change');
-            $table->boolean('status')->default(true);
-            $table->date('date')->nullable();
-            $table->text('description')->nullable(); 
+            $table->boolean('status')->default(true)->comment('true: in use  false: not in use');
+            $table->date('date')->nullable()->comment('date last change');
+            $table->text('description')->nullable()->comment('description use username & password'); 
             $table->timestamps();
         });
     }

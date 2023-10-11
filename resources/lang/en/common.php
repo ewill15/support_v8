@@ -138,5 +138,10 @@ return [
     'amount'=>'amount (Bs.)',
 
     'hashing'=>'hash',
-    'display_data'=>'display data'
+    'display_data'=>'display data',
+
+    'date_change'=>'date change',
+    'change'=>'change?',
+    'confirm_password'=>'confirm password',
+    'new_pwd'=>'new password',
 ];

@@ -58,25 +58,27 @@
                         <div class="table-responsive"> 
                             <table class="table table-register table-striped table-bordered table-hover">                                        
                                 <thead>
-                                <tr>
-                                    <th class="actions">ID</th>
-                                    <th>{{ ucfirst(trans('common.type')) }}</th>
-                                    <th>{{ ucfirst(trans('common.page')) }}</th>
-                                    <th>{{ ucfirst(trans('common.username')) }}</th>
-                                    <th>{{ ucfirst(trans('common.password')) }}</th>
-                                    <th>{{ ucfirst(trans('common.description')) }}</th>
-                                    <th class="actions">{{ ucfirst(trans('common.actions')) }}</th>
-                                </tr>
+                                    <tr class="text-center">
+                                        <th class="actions">ID</th>
+                                        <th>{{ ucfirst(trans('common.type')) }}</th>
+                                        <th>{{ ucfirst(trans('common.page')) }}</th>
+                                        <th>{{ ucfirst(trans('common.username')) }}</th>
+                                        <th>{{ ucfirst(trans('common.change')) }}</th>
+                                        <th>{{ ucfirst(trans('common.date_change')) }}</th>
+                                        <th>{{ ucfirst(trans('common.description')) }}</th>
+                                        <th class="actions">{{ ucfirst(trans('common.actions')) }}</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($registers as $item)
-                                    <tr class="gradeX">
+                                    <tr class="gradeX text-center">
                                         <td>{{ @$item->id }}</td>
                                         <td>{{ @$item->type }}</td>
                                         <td>{{ @$item->page }}</td>
                                         <td>{{ @$item->username }}</td>
+                                        <td>{{ @$item->counter_password }}</td>
                                         <td>
-                                            {{ @$item->hash_password }}
+                                            {{ @$item->formatted_date }}
                                         </td>
                                         <td>{{ @$item->description?@$item->description:'' }}</td>
                                         <td>
@@ -91,6 +93,9 @@
                                                         </a>
                                                         <a href="{{ url('admin/webs/' . @$item->id . '/edit') }}" class="dropdown-item">
                                                             <i class="fas fa-edit"></i> {{ ucfirst(trans('common.update')) }}
+                                                        </a>
+                                                        <a href="{{ url('admin/webs/' . @$item->id . '/edit-password') }}" class="dropdown-item">
+                                                            <i class="fas fa-key"></i> {{ ucfirst(trans('common.new_pwd')) }}
                                                         </a>
                                                         <a href="{{ url('admin/webs/' . @$item->id . '/d-data') }}" class="dropdown-item">
                                                             <i class="far fa-newspaper"></i> {{ ucfirst(trans('common.display_data')) }}
