@@ -20,7 +20,7 @@
                                     <span class="text-danger">*</span>
                                     {{ ucfirst(trans('common.type')) }}
                                 </label>    
-                                <div class="col-md-4 required-name">
+                                <div class="col-md-4">
                                     {!! Form::select('type', $type,null, ['class' => 'form-control']) !!}
                                     {!! $errors->first('type', '<p class="help-block">:message</p>') !!}
                                 </div>
@@ -30,7 +30,7 @@
                                     <span class="text-danger">*</span>
                                     {{ ucfirst(trans('common.page')).' or URL' }}
                                 </label>    
-                                <div class="col-md-4 required-name">
+                                <div class="col-md-4">
                                     {!! Form::text('page', null, ['class' => 'form-control']) !!}
                                     {!! $errors->first('page', '<p class="help-block">:message</p>') !!}
                                 </div>
@@ -40,11 +40,12 @@
                                     <span class="text-danger">*</span>
                                     {{ ucfirst(trans('common.username')) }}
                                 </label>    
-                                <div class="col-md-4 required-name">
+                                <div class="col-md-4">
                                     {!! Form::text('username', null, ['class' => 'form-control']) !!}
                                     {!! $errors->first('username', '<p class="help-block">:message</p>') !!}
                                 </div>
                             </div>
+                            @if (!Request::is('*/edit'))
                             <div class="form-group row {{ $errors->has('password') ? 'has-error' : ''}}">
                                 <label for="password" class="col-md-4 form-control-label text-md-right">
                                     {{ ucfirst(trans('common.password')) }}
@@ -53,7 +54,9 @@
                                     {!! Form::password('password', ['class' => 'form-control']) !!}
                                     {!! $errors->first('password', '<p class="help-block">:message</p>') !!}
                                 </div>
-                            </div>
+                            </div>    
+                            @endif
+                            
                             
                              <div class="form-group row {{ $errors->has('description') ? 'has-error' : ''}}">
                                 <label for="description" class="col-md-4 form-control-label text-md-right">
