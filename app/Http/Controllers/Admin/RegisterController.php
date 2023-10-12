@@ -46,6 +46,7 @@ class RegisterController extends Controller
         $type = [
             'api'=>'api',
             'bank'=>'bank',
+            'development'=>'development',
             'email'=>'email',
             'entertaiment'=>'entertaiment',
             'games'=>'games',
@@ -75,7 +76,7 @@ class RegisterController extends Controller
     {
         $v = Validator::make($request->all(), [
             'type'=>'required',
-            'page'=>'required',
+            'url'=>'required',
             'username'=>'required',
             'password'=>'required|min:8',
         ]);
@@ -124,6 +125,7 @@ class RegisterController extends Controller
         $type = [
             'api'=>'api',
             'bank'=>'bank',
+            'development'=>'development',
             'email'=>'email',
             'entertaiment'=>'entertaiment',
             'games'=>'games',
@@ -158,7 +160,7 @@ class RegisterController extends Controller
 
         $v = Validator::make($request->all(), [
             'type'=>'required',
-            'page'=>'required',
+            'url'=>'required',
             'username'=>'required',
         ]);
         if ($v && $v->fails()) {
@@ -237,6 +239,7 @@ class RegisterController extends Controller
         $type = [
             'api'=>'api',
             'bank'=>'bank',
+            'development'=>'development',
             'email'=>'email',
             'entertaiment'=>'entertaiment',
             'games'=>'games',

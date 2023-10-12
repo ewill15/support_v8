@@ -25,14 +25,14 @@
                                     {!! $errors->first('type', '<p class="help-block">:message</p>') !!}
                                 </div>
                             </div>                                  
-                            <div class="form-group row {{ $errors->has('page') ? 'has-error' : ''}}">
-                                <label for="page" class="col-md-4 form-control-label text-md-right">
+                            <div class="form-group row {{ $errors->has('url') ? 'has-error' : ''}}">
+                                <label for="url" class="col-md-4 form-control-label text-md-right">
                                     <span class="text-danger">*</span>
-                                    {{ ucfirst(trans('common.page')).' or URL' }}
+                                    {{ ucfirst(trans('common.url')).' or URL' }}
                                 </label>    
                                 <div class="col-md-4">
-                                    {!! Form::text('page', null, ['class' => 'form-control']) !!}
-                                    {!! $errors->first('page', '<p class="help-block">:message</p>') !!}
+                                    {!! Form::text('url', null, ['class' => 'form-control']) !!}
+                                    {!! $errors->first('url', '<p class="help-block">:message</p>') !!}
                                 </div>
                             </div>                                                      
                            <div class="form-group row {{ $errors->has('username') ? 'has-error' : ''}}">
