@@ -21,7 +21,8 @@
                                     {{ ucfirst(trans('common.type')) }}
                                 </label>    
                                 <div class="col-md-4">
-                                    {!! Form::select('type', $type,null, ['class' => 'form-control']) !!}
+                                    {{-- {!! Form::select('type', $type,null, ['class' => 'form-control']) !!} --}}
+                                    {!! Form::select('type', $type, null,['class' => 'form-control select2 col-md-10','name'=>'user_id[]', 'autocomplete' => 'off', 'aria-describedby' => 'users']) !!}
                                     {!! $errors->first('type', '<p class="help-block">:message</p>') !!}
                                 </div>
                             </div>       
