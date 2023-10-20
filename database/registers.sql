@@ -80,7 +80,7 @@ INSERT INTO registers(type,url,page,username,password,date,description,status,cr
 INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('programing','bitnami.com','bitnami.com','ewarandia@gmail.com','btnmwapp2017*','2021-10-04','0',true,CURDATE());
 INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('bank','ebisa','ebisa','ewarandia (421759-401-0)@','ebcBs5060*','2023-06-01','13/05/2021 :: 01/12/2022',true,CURDATE());
 INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('bank','unitoken','unitoken','@','8460','2021-10-11','0',true,CURDATE());
-INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('bank','uninet','uninet','1676657  (10000014720143)@','pwdPls3190*','2022-10-02','05/07/2022 :: 09/05/2022',true,CURDATE());
+INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('bank','uninet','uninet','1676657  (10000014720143)@','$WKsp7FvzybZBMA','2022-10-02','05/07/2022 :: 09/05/2022',true,CURDATE());
 INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('bank','prodemnet','prodemnet','ewillza@','eprdmCrd5060*','2023-04-06','eprdmCrd5060* OLD_PWD::prdmNt5060*  DATE::4/10/2021',true,CURDATE());
 INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('learning','next_u','next_u','ewarandia@gmail.com','NxtWeb2160$','2021-10-04','0',true,CURDATE());
 INSERT INTO registers(type,url,page,username,password,date,description,status,created_at) values ('remote job','workana','workana','ewarandia@gmail.com','Wrkn5060*','2021-10-04','0',true,CURDATE());
