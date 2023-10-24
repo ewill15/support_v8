@@ -218,7 +218,6 @@ class RegisterController extends Controller
         $fields = $request->all();
 
         $v = Validator::make($request->all(), [
-            'type'=>'required',
             'url'=>'required',
             'username'=>'required',
         ]);
