@@ -52,4 +52,12 @@ insert into bills(`invoice_number`,`control_code`,`date`,`description`,`price`,`
 insert into bills(`invoice_number`,`control_code`,`date`,`description`,`price`,`company_id`,`user_id`,`created_at`,`updated_at`) values (129780,'','2023-08-05','ades manzana  10 + cerelac 5 cereales 59.5',69.5,1,1,NOW(),NOW());
 insert into bills(`invoice_number`,`control_code`,`date`,`description`,`price`,`company_id`,`user_id`,`created_at`,`updated_at`) values (123041,'','2023-08-04','margarina regia 10.5 + mermelada frutilla 19.90 + toalla humeda huggies 19.5',47.9,1,1,NOW(),NOW());
 insert into bills(`invoice_number`,`control_code`,`date`,`description`,`price`,`company_id`,`user_id`,`created_at`,`updated_at`) values (144432,'','2023-08-03','spaguetti x3 25 + pasta bio 18.3',93.3,1,1,NOW(),NOW());
+--september & october
+insert into bills(`invoice_number`,`control_code`,`date`,`description`,`price`,`company_id`,`created_at`,`updated_at`) values (61549,'','2023-09-24','shampoo tio nacho 415ml 40.8',40.8,1,NOW(),NOW());							
+insert into bills(`invoice_number`,`control_code`,`date`,`description`,`price`,`company_id`,`created_at`,`updated_at`) values (3943,'','2023-09-24','porcion helado de leche 5',5,1,NOW(),NOW());							
+insert into bills(`invoice_number`,`control_code`,`date`,`description`,`price`,`company_id`,`created_at`,`updated_at`) values (183720,'','2023-10-07','spaguetti bio x 26 + spaguetti bio x3 75 + spaguetti codito x2 36.6 + pasta bio arroz x2 29.8  + fideo de arroz x2 43',210,1,NOW(),NOW());							
+insert into bills(`invoice_number`,`control_code`,`date`,`description`,`price`,`company_id`,`created_at`,`updated_at`) values (118292,'','2023-10-07','aceite oliva fragata x2 212',212,1,NOW(),NOW());							
+insert into bills(`invoice_number`,`control_code`,`date`,`description`,`price`,`company_id`,`created_at`,`updated_at`) values (168858,'','2023-10-14','pepsi black ',10,1,NOW(),NOW());							
+insert into bills(`invoice_number`,`control_code`,`date`,`description`,`price`,`company_id`,`created_at`,`updated_at`) values (1084,'78-FA-4F-31','2023-10-27','canasta surtida grande x2 118',118,1,NOW(),NOW());
+						
 
