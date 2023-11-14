@@ -1,15 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\v1;
 
 use App\Helper;
 use App\Models\User;
-use App\Models\Pasanaku;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\UserResource;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Resources\PasanakuResource;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller

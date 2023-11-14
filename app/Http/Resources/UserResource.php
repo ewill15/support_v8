@@ -24,6 +24,7 @@ class UserResource extends JsonResource
             'cellphone'=>$this->cellphone,
             'role'=>$this->role,
             'dob'=>Carbon::parse($this->dob)->format('d-m'),
+            'access_token'=>$this->access_token,
             'created_at' => Carbon::parse($this->created_at)->format('d-m-Y'),
             'updated_at' => Carbon::parse($this->updated_at)->format('d-m-Y')
         ];
