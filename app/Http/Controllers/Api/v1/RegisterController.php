@@ -167,7 +167,7 @@ class RegisterController extends Controller
         return response()->json($result, $responseCode);
     }
 
-    /** Editar registros web */
+    /** Eliminer registros web */
     public function remove_web_register(Request $request)
     {
         $responseCode = 200;
