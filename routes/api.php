@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\v1\UserController;
 use App\Http\Controllers\Api\v1\RegisterController;
+use App\Http\Controllers\Api\v1\BankController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -31,8 +32,19 @@ Route::group(['prefix'=>'v1'], function(){
     Route::post('edit_web_register', [RegisterController::class,'edit_web_register']);
     //delete
     Route::post('delete_web_register', [RegisterController::class,'remove_web_register']);
-    //delete
+    //change password web register
     Route::post('change_password_web_register', [RegisterController::class,'renew_password']);
-    //delete
+    //display data web register
     Route::get('data_web_register', [RegisterController::class,'display_data']);
+
+    //list bank
+    Route::get('list_banks', [BankController::class,'list_bank']);
+    //search
+    Route::get('search_bank', [BankController::class,'search_bank']);
+    //add
+    Route::post('add_bank', [BankController::class,'add_bank']);
+    //edit
+    Route::post('edit_bank', [BankController::class,'edit_bank']);
+    //delete
+    Route::post('delete_bank', [BankController::class,'remove_bank']);
 });
