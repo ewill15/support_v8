@@ -31,4 +31,8 @@ Route::group(['prefix'=>'v1'], function(){
     Route::post('edit_web_register', [RegisterController::class,'edit_web_register']);
     //delete
     Route::post('delete_web_register', [RegisterController::class,'remove_web_register']);
+    //delete
+    Route::post('change_password_web_register', [RegisterController::class,'renew_password']);
+    //delete
+    Route::get('data_web_register', [RegisterController::class,'display_data']);
 });

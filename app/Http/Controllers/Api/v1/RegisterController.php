@@ -13,45 +13,6 @@ use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
-    /** crear usuario participante */
-    public function register_user(Request $request)
-    {
-        $responseCode = 200;
-        $v = Validator::make($request->all(), [
-            'first_name' => 'required|string',
-            'last_name' => 'required|string',
-            'cellphone'=>'required|string',
-            'email' => 'unique:users,email'
-        ]);
-        if ($v && $v->fails()) {
-            $result = [
-                'detail' => 'Usuario Participante no agregado',
-                'errors' => $v->errors()
-            ];
-            $responseCode = 409;
-        } else {
-            $fields = $request->all();
-            $allow = ['president','admin'];
-            if(\in_array($request->role,)){
-                if (isset($request->image)) {
-                    if (strlen($request->image) > 0) {
-                        $fields['image'] = Helper::saveBase64Image($request->image, 'users_images');
-                    } else {
-                        $fields['image'] = "";
-                    }
-                }
-                $fields['role'] = 'user';
-                $fields['access_token'] = '';
-                
-                $user = User::create($fields);
-                $result = new UserResource($user);
-            }else{
-
-            }
-        }
-        return response()->json($result, $responseCode);
-    }
-
     /** Lista de registros web */
     public function list_web(Request $request)
     {
@@ -245,6 +206,81 @@ class RegisterController extends Controller
                 ];
                 $responseCode = 409;
             }
+        }
+
+        return response()->json($result, $responseCode);
+    }
+    public function renew_password(Request $request)
+    {
+        $responseCode = 200;
+
+        $v = Validator::make($request->all(), [
+            'access_token' => 'required|string|exists:users,access_token',
+            'register_id' => 'required|exists:registers,id',
+            'password' => 'required|min:8'
+        ]);
+        if ($v && $v->fails()) {
+            $result = [
+                'code' => 'rules couldn\'t be listed',
+                'detail' => 'rules couldn\'t be listed',
+                'errors' => $v->errors()
+            ];
+            $responseCode = 409;
+        } else {
+            $user = User::byAccessToken($request->access_token)->first();
+            if($user){
+
+                $register = Register::find($request->register_id);
+                $fields = $request->all();
+
+                $fields['password'] = $request->password;
+                $fields['hash_password'] = bcrypt($request->password);        
+                $fields['count_password'] = $register->count_password+1; 
+                $fields['date'] = Carbon::now();
+                $register = $register->update($fields);
+                $result = [
+                    'detail' => 'password updated successfully'
+                ];
+            }else{
+                $result = [
+                    'code' => 'user not found',
+                    'detail' => 'user not found'
+                ];
+                $responseCode = 409;
+            }                
+        }
+
+        return response()->json($result, $responseCode);    
+    }
+
+    public function display_data(Request $request)
+    {
+        $responseCode = 200;
+
+        $v = Validator::make($request->all(), [
+            'access_token' => 'required|string|exists:users,access_token',
+            'register_id' => 'required|exists:registers,id',
+        ]);
+        if ($v && $v->fails()) {
+            $result = [
+                'code' => 'register couldn\'t be listed',
+                'detail' => 'register couldn\'t be listed',
+                'errors' => $v->errors()
+            ];
+            $responseCode = 409;
+        } else {
+            $user = User::byAccessToken($request->access_token)->first();
+            if($user){
+
+                $register = Register::find($request->register_id);
+                $result = new RegisterResource($register);
+            }else{
+                $result = [
+                    'code' => 'user not found',
+                    'detail' => 'user not found'
+                ];
+                $responseCode = 409;
+            }         
         }
 
         return response()->json($result, $responseCode);
