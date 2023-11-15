@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\v1\UserController;
 use App\Http\Controllers\Api\v1\RegisterController;
 use App\Http\Controllers\Api\v1\BankController;
+use App\Http\Controllers\Api\v1\CompanyController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -47,4 +48,14 @@ Route::group(['prefix'=>'v1'], function(){
     Route::post('edit_bank', [BankController::class,'edit_bank']);
     //delete
     Route::post('delete_bank', [BankController::class,'remove_bank']);
+    //list company
+    Route::get('list_companies', [CompanyController::class,'list_companies']);
+    //search
+    Route::get('search_company', [CompanyController::class,'search_company']);
+    //add
+    Route::post('add_company', [CompanyController::class,'add_company']);
+    //edit
+    Route::post('edit_company', [CompanyController::class,'edit_company']);
+    //delete
+    Route::post('delete_company', [CompanyController::class,'remove_company']);
 });
