@@ -138,4 +138,5 @@ return [
     'change'=>'modificado?',
     'confirm_password'=>'confirmar password',
     'new_pwd'=>'nuevo password',
+    'database'=>'base de datos',
 ];

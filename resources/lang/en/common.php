@@ -144,4 +144,5 @@ return [
     'change'=>'change?',
     'confirm_password'=>'confirm password',
     'new_pwd'=>'new password',
+    'database'=>'database',
 ];
