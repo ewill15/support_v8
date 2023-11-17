@@ -2,10 +2,11 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\v1\UserController;
-use App\Http\Controllers\Api\v1\RegisterController;
 use App\Http\Controllers\Api\v1\BankController;
+use App\Http\Controllers\Api\v1\UserController;
 use App\Http\Controllers\Api\v1\CompanyController;
+use App\Http\Controllers\Api\v1\MachineController;
+use App\Http\Controllers\Api\v1\RegisterController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -58,4 +59,16 @@ Route::group(['prefix'=>'v1'], function(){
     Route::post('edit_company', [CompanyController::class,'edit_company']);
     //delete
     Route::post('delete_company', [CompanyController::class,'remove_company']);
+
+    //Machine
+    //list
+    Route::get('list_machines', [MachineController::class,'list_machines']);
+    //search
+    Route::get('search_machine', [MachineController::class,'search_machine']);
+    //add
+    Route::post('add_machine', [MachineController::class,'add_machine']);
+    //edit
+    Route::post('edit_machine', [MachineController::class,'edit_machine']);
+    //delete
+    Route::post('delete_machine', [MachineController::class,'remove_machine']);
 });

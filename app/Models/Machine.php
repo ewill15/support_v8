@@ -12,7 +12,7 @@ class Machine extends Model
     protected $fillable = [
         'motherboard',
         'processor',
-        'IP',
+        'ip',
         'operative_system',
         'mail_address',
         'office_package',
