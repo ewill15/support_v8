@@ -26,7 +26,7 @@ class Register extends Model
 
     public function getFormattedDateAttribute()
     {
-        return Carbon::parse($this->updatedAt)->format('d-M-Y');
+        return $this->updated_at?Carbon::parse($this->updated_at)->format('d-M-Y'):Carbon::parse($this->created_at)->format('d-M-Y');
     }
 
     public function getCounterPasswordAttribute(){
