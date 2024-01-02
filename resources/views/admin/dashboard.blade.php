@@ -28,10 +28,10 @@
           <span class="info-box-text">{{ ucfirst(trans('common.database')) }}</span>
           <span class="info-box-number">
             <a class="btn btn-block btn-outline-success" href="/admin/export" target="_blank" rel="noopener noreferrer">
-              {{ ucfirst(trans('common.full')) }}
+              {{ ucfirst(trans('common.database')) }}
             </a>
             <a class="disabled btn btn-block btn-outline-success" href="/admin/export-table?table_name=users" target="_blank" rel="noopener noreferrer">
-              user Table
+              {{ ucwords(trans('common.user_table')) }}
             </a>
           </span>
         </div>

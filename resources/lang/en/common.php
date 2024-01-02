@@ -145,4 +145,5 @@ return [
     'confirm_password'=>'confirm password',
     'new_pwd'=>'new password',
     'database'=>'database',
+    'user_table'=>'user table',
 ];
