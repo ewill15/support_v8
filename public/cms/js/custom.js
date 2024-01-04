@@ -178,7 +178,7 @@ jQuery(function () {
                         .empty()
                         .html(texting);
                 }else{
-                    const texting = modal_action.modal_text+"<strong>"+modal_action.content_name+"</strong>";
+                    const texting = modal_action.modal_text+" <strong>"+modal_action.content_name+"</strong>";
                     $("#" + modal_action.modal_id + " .modal-body .text-detail")
                         .empty()
                         .html(texting);

@@ -85,9 +85,9 @@
                                                     <div class="dropdown-divider"></div>
                                                     <a class="dropdown-item" href="#"
                                                         data-action="delete"
-                                                        data-name="ciclo {{$item->id}}" 
+                                                        data-name="{{$item->service->name}}/{{ @$item->period }}" 
                                                         data-url="{{ route('cancels.destroy', $item->id) }}" 
-                                                        data-title-msg="{{ ucfirst(trans('common.msgdelete_register')) }}" 
+                                                        data-title-msg="{{ ucfirst(trans('common.delete')) }}" 
                                                         data-text-msg="{{ ucfirst(trans('common.msgdelete')) }}"
                                                         data-btn-action="{{ ucwords(trans('common.delete')) }}"
                                                         data-btn-cancel="{{ ucfirst(trans('common.cancel')) }}">

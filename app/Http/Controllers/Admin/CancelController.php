@@ -109,6 +109,7 @@ class CancelController extends Controller
     {
         $cancel = Cancel::find($id);
         $list_services = Service::orderBy('name','asc')->pluck('name','id');
+        $lang = strtolower(app()->getLocale());
         if($lang == 'en')
             $months = [
                 '1'=>'January',
