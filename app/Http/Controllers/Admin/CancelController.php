@@ -42,20 +42,37 @@ class CancelController extends Controller
     public function create()
     {
         $list_services = Service::orderBy('name','asc')->pluck('name','id');
-        $months = [
-            '1'=>'January',
-            '2'=>'February',
-            '3'=>'March',
-            '4'=>'April',
-            '5'=>'May',
-            '6'=>'Jun',
-            '7'=>'July',
-            '8'=>'August',
-            '9'=>'September',
-            '10'=>'October',
-            '11'=>'november',
-            '12'=>'December',
-        ];
+        $lang = strtolower(app()->getLocale());
+        if($lang == 'en')
+            $months = [
+                '1'=>'January',
+                '2'=>'February',
+                '3'=>'March',
+                '4'=>'April',
+                '5'=>'May',
+                '6'=>'June',
+                '7'=>'July',
+                '8'=>'August',
+                '9'=>'September',
+                '10'=>'October',
+                '11'=>'November',
+                '12'=>'December',
+            ];
+        else
+            $months = [
+                '1'=>'Enero',
+                '2'=>'Febrero',
+                '3'=>'Marzo',
+                '4'=>'Abril',
+                '5'=>'Mayo',
+                '6'=>'Junio',
+                '7'=>'Julio',
+                '8'=>'Augusto',
+                '9'=>'Septiembre',
+                '10'=>'Octubre',
+                '11'=>'Noviembre',
+                '12'=>'Dicembre',
+            ];
         
         return view('admin.cancels.create',compact('list_services','months'));
     }
@@ -92,20 +109,36 @@ class CancelController extends Controller
     {
         $cancel = Cancel::find($id);
         $list_services = Service::orderBy('name','asc')->pluck('name','id');
-        $months = [
-            '1'=>'January',
-            '2'=>'February',
-            '3'=>'March',
-            '4'=>'April',
-            '5'=>'May',
-            '6'=>'Jun',
-            '7'=>'July',
-            '8'=>'August',
-            '9'=>'September',
-            '10'=>'October',
-            '11'=>'november',
-            '12'=>'December',
-        ];
+        if($lang == 'en')
+            $months = [
+                '1'=>'January',
+                '2'=>'February',
+                '3'=>'March',
+                '4'=>'April',
+                '5'=>'May',
+                '6'=>'June',
+                '7'=>'July',
+                '8'=>'August',
+                '9'=>'September',
+                '10'=>'October',
+                '11'=>'November',
+                '12'=>'December',
+            ];
+        else
+            $months = [
+                '1'=>'Enero',
+                '2'=>'Febrero',
+                '3'=>'Marzo',
+                '4'=>'Abril',
+                '5'=>'Mayo',
+                '6'=>'Junio',
+                '7'=>'Julio',
+                '8'=>'Augusto',
+                '9'=>'Septiembre',
+                '10'=>'Octubre',
+                '11'=>'Noviembre',
+                '12'=>'Dicembre',
+            ];
 
         return view('admin.cancels.edit',compact('cancel','list_services','months'));
     }
