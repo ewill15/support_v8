@@ -120,11 +120,10 @@
 
         <!--------- Menu web-accounts  -------------------> 
         <li class="nav-item has-treeview">
-          <a href="{{ url('/admin/webs') }}" class="nav-link badge-danger {{($section == 'webs')?'active':''}}">
+          <a href="{{ url('/admin/webs') }}" class="nav-link {{($section == 'webs')?'active':''}}">
             <i class="fas fa-network-wired mr-2"></i>
             <p>
               {{ ucfirst(trans('common.webs')) }}
-              <span class="right badge badge-warning">check</span>
             </p>
           </a>
         </li>
