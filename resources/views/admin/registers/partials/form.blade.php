@@ -22,7 +22,7 @@
                                 </label>    
                                 <div class="col-md-4">
                                     {{-- {!! Form::select('type', $type,null, ['class' => 'form-control']) !!} --}}
-                                    {!! Form::select('type', $type, null,['class' => 'form-control select2 col-md-10','name'=>'user_id[]', 'autocomplete' => 'off', 'aria-describedby' => 'users']) !!}
+                                    {!! Form::select('type', $type, null,['class' => 'form-control select2 col-md-10', 'autocomplete' => 'off', 'aria-describedby' => 'users']) !!}
                                     {!! $errors->first('type', '<p class="help-block">:message</p>') !!}
                                 </div>
                             </div>       
@@ -59,6 +59,7 @@
                             @if (!Request::is('*/edit'))
                             <div class="form-group row {{ $errors->has('password') ? 'has-error' : ''}}">
                                 <label for="password" class="col-md-4 form-control-label text-md-right">
+                                    <span class="text-danger">*</span>
                                     {{ ucfirst(trans('common.password')) }}
                                 </label>
                                 <div class="col-md-4">
