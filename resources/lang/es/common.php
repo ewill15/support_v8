@@ -82,7 +82,7 @@ return [
     'services'=>'servicios',
 
     'bill'=>'cuenta',
-    'bills'=>'cuentass',
+    'bills'=>'cuentas',
 
     'song'=>'cancion',
     'songs'=>'canciones',
