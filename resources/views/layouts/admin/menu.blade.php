@@ -78,6 +78,15 @@
           </a>
         </li>
 
+        <!--------- Menu credits  -------------------> 
+        <li class="nav-item has-treeview">
+          <a href="{{ url('/admin/credits') }}" class="nav-link {{($section == 'credits')?'active':''}}">
+            <i class="fas fa-shopping-basket"></i>
+            <p>
+              {{ ucfirst(trans('common.credits')) }}
+            </p>
+          </a>
+        </li>
         <!--------- Menu songs  -------------------> 
         <li class="nav-item has-treeview">
           <a href="{{ url('/admin/songs') }}" class="nav-link {{($section == 'songs')?'active':''}}">

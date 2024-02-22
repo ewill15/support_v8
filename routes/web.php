@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\DictionaryController;
 use App\Http\Controllers\Admin\LanguageController;
 use App\Http\Controllers\Admin\RegisterController;
 use App\Http\Controllers\Admin\BackupController;
+use App\Http\Controllers\Admin\CreditController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,4 +64,6 @@ Route::group(['middleware'=>['auth'], 'prefix' => 'admin'], function(){
 
     Route::get('export', [BackupController::class,'export']);
     Route::get('export-table', [BackupController::class,'export_table']);
+
+    Route::resource('credits', CreditController::class);
 });
