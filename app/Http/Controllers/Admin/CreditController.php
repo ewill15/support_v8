@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Helper;
+use App\Models\User;
+use App\Models\Credit;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 
 class CreditController extends Controller
 {
@@ -53,8 +58,8 @@ class CreditController extends Controller
             'reason'=>'required',
             'total'=>'required',
             'init'=>'required',
-            'monthly fee'=>'required',
-            'months to pay'=>'required'
+            'monthly_fee'=>'required',
+            'months_to_pay'=>'required'
         ]);
 
         if($v && $v->fails()){
@@ -95,8 +100,8 @@ class CreditController extends Controller
             'reason'=>'required',
             'total'=>'required',
             'init'=>'required',
-            'monthly fee'=>'required',
-            'months to pay'=>'required'
+            'monthly_fee'=>'required',
+            'months_to_pay'=>'required'
         ]);
         if($v && $v->fails()){
             return redirect()->back()->withInput()->withErrors($v->errors());
