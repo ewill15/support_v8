@@ -18,8 +18,8 @@ class CreateCreditsTable extends Migration
             $table->text('reason');
             $table->decimal('total',6,2);
             $table->mediumInteger('init');
-            $table->decimal('monthly fee',5,2);
-            $table->tinyInteger('months to pay');
+            $table->decimal('monthly_fee',5,2);
+            $table->tinyInteger('months_to_pay');
             $table->timestamps();
         });
 
