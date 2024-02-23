@@ -140,4 +140,11 @@ return [
     'new_pwd'=>'nuevo password',
     'database'=>'base de datos',
     'user_table'=>'tabla usuarios',
+
+    'credit'=>'credito',
+    'credits'=>'creditos',
+    'reason'=>'razon',
+    'total'=>'total',
+    'monthly_fee'=>'cuota mensual',
+    'months_to_pay'=>'meses a pagar',
 ];

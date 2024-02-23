@@ -146,4 +146,11 @@ return [
     'new_pwd'=>'new password',
     'database'=>'database',
     'user_table'=>'user table',
+
+    'credit'=>'credit',
+    'credits'=>'credits',
+    'reason'=>'reason',
+    'total'=>'total',
+    'monthly_fee'=>'monthly fee',
+    'months_to_pay'=>'months to pay',
 ];

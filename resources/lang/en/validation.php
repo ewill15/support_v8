@@ -228,6 +228,10 @@ return [
         'service'               => 'service',
         'month'                 => 'month',
         'amount'                => 'amount',
+        'reason'                => 'reason',
+        'total'                 => 'total',
+        'init'                  => 'init',
+        'monthly_fee'           => 'monthly fee',
+        'months_to_pay'         => 'months to pay',
     ],
-
 ];

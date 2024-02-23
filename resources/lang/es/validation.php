@@ -220,7 +220,11 @@ return [
         'area'                  => 'area',
         'service'               => 'servicio',
         'month'                 => 'mes',
-        'amount'                => 'monto',
+        'reason'                => 'razon',
+        'total'                 => 'total',
+        'init'                  => 'monto inicial',
+        'monthly_fee'           => 'cuota mensual',
+        'months_to_pay'         => 'meses a pagar',
         
     ],
 ];
