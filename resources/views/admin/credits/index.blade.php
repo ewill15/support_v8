@@ -63,7 +63,7 @@
                                     <th>{{ ucfirst(trans('common.reason')) }}</th>
                                     <th>{{ ucfirst(trans('common.total')) }}</th>
                                     <th>{{ ucfirst(trans('common.monthly_fee')) }}</th>
-                                    <th>{{ ucfirst(trans('common.monthls_to_pay')) }}</th>
+                                    <th>{{ ucfirst(trans('common.months_to_pay')) }}</th>
                                     <th class="actions">{{ ucfirst(trans('common.actions')) }}</th>
                                 </tr>
                                 </thead>
