@@ -7,7 +7,6 @@
     </div>
     <div class="col-lg-10">
         <fieldset>
-        'months_to_pay'
             <div class="form-group row {{ $errors->has('reason') ? 'has-error' : ''}}">
                 <label for="reason" class="col-md-4 form-control-label text-right">
                     <span class="text-danger">*</span>
@@ -23,7 +22,7 @@
                     {{ ucfirst(trans('validation.attributes.total')).':' }}
                 </label>
                 <div class="col-md-7">
-                    {!! Form::number('total', $cities,null, ['class' => 'form-control select2','step'=>0.1]) !!}
+                    {!! Form::number('total', null, ['class' => 'form-control','step'=>0.1]) !!}
                     {!! $errors->first('total', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>
@@ -45,14 +44,14 @@
                     {!! $errors->first('monthly_fee', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>
-            <div class="form-group row {{ $errors->has('month_to_pay') ? 'has-error' : ''}}">
-                <label for="month_to_pay" class="col-md-4 form-control-label text-right">
+            <div class="form-group row {{ $errors->has('months_to_pay') ? 'has-error' : ''}}">
+                <label for="months_to_pay" class="col-md-4 form-control-label text-right">
                     <span class="text-danger">*</span>
-                    {{ ucfirst(trans('validation.attributes.month_to_pay')).':' }}
+                    {{ ucfirst(trans('validation.attributes.months_to_pay')).':' }}
                 </label>
                 <div class="col-md-7">
-                    {!! Form::number('month_to_pay', null, ['class' => 'form-control','step'=>1 ,'min'=>1]) !!}
-                    {!! $errors->first('month_to_pay', '<p class="help-block">:message</p>') !!}
+                    {!! Form::number('months_to_pay', null, ['class' => 'form-control','step'=>1 ,'min'=>1]) !!}
+                    {!! $errors->first('months_to_pay', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>
         </fieldset>
