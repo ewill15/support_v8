@@ -59,9 +59,9 @@
                             <table class="table table-register table-striped table-bordered table-hover">                                        
                                 <thead>
                                 <tr>
-                                    <th class="actions">ID</th>
+                                    <th>{{ ucfirst(trans('common.language')) }}</th>
                                     <th>{{ ucfirst(trans('common.word')) }}</th>
-                                    <th>{{ ucfirst(trans('common.pronuntation')) }}</th>
+                                    <th>{{ ucfirst(trans('common.pronuntiation')) }}</th>
                                     <th>{{ ucfirst(trans('common.meaning')) }}</th>
                                     <th class="actions">{{ ucfirst(trans('common.actions')) }}</th>
                                 </tr>
@@ -69,9 +69,9 @@
                                 <tbody>
                                 @foreach($dictionaries as $item)
                                     <tr class="gradeX">
-                                        <td>{{ @$item->id }}</td>
+                                        <td>{{ @$item->language->name }}</td>
                                         <td>{{ @$item->word }}</td>
-                                        <td>{{ @$item->pronuntation }}</td>
+                                        <td>{{ @$item->pronuntiation }}</td>
                                         <td>{{ @$item->meaning }}</td>
                                         <td>
                                             <div class="input-group-prepend">

@@ -25,7 +25,7 @@ class RegisterController extends Controller
     public function index(Request $request)
     {
         $lang = app()->getLocale();
-        $registers = Register::orderBy('status','DESC')->orderBy('type', 'ASC');
+        $registers = Register::orderBy('updated_at','DESC')->orderBy('status','DESC')->orderBy('type', 'ASC');
         
         $paginate = $request->pagination ? $request->pagination : 20;
         $page = (int)$request->page;

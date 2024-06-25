@@ -119,7 +119,7 @@ return [
     'dictionary'=>'diccionario',
     'dictionaries'=>'diccionarios',
     'word'=>'palabra',
-    'pronuntation'=>'pronunciacion',
+    'pronuntiation'=>'pronunciacion',
     'meaning'=>'significado',
     'example'=>'ejemplo',
     'language'=>'idioma',

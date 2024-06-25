@@ -124,7 +124,7 @@ return [
     'dictionary'=>'dictionary',
     'dictionaries'=>'dictionaries',
     'word'=>'word',
-    'pronuntation'=>'pronuntation',
+    'pronuntiation'=>'pronuntiation',
     'meaning'=>'meaning',
     'example'=>'example',
 

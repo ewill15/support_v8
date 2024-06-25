@@ -15,52 +15,52 @@
                     <div class="card-body">
                       <div class="tab-content" id="custom-tabs-three-tabContent">
                           {{-- DATOS PERSONALES  --}}
-                            <div class="form-group row {{ $errors->has('name') ? 'has-error' : ''}}">
-                                <label for="name" class="col-md-4 form-control-label text-md-right">
+                            <div class="form-group row {{ $errors->has('word') ? 'has-error' : ''}}">
+                                <label for="word" class="col-md-4 form-control-label text-md-right">
                                     <span class="text-danger">*</span>
                                     {{ ucfirst(trans('common.word')) }}
                                 </label>    
-                                <div class="col-md-4 required-name">
-                                    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => '...']) !!}
-                                    {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
+                                <div class="col-md-4">
+                                    {!! Form::text('word', null, ['class' => 'form-control', 'placeholder' => '...']) !!}
+                                    {!! $errors->first('word', '<p class="help-block">:message</p>') !!}
                                 </div>
                             </div>                                  
-                            <div class="form-group row {{ $errors->has('last_name') ? 'has-error' : ''}}">
-                                <label for="last_name" class="col-md-4 form-control-label text-md-right">
+                            <div class="form-group row {{ $errors->has('pronuntiation') ? 'has-error' : ''}}">
+                                <label for="pronuntiation" class="col-md-4 form-control-label text-md-right">
                                     <span class="text-danger">*</span>
-                                    {{ ucfirst(trans('common.pronuntation')) }}
+                                    {{ ucfirst(trans('common.pronuntiation')) }}
                                 </label>    
-                                <div class="col-md-4 required-name">
-                                    {!! Form::text('last_name', null, ['class' => 'form-control', 'placeholder' => '...']) !!}
+                                <div class="col-md-4">
+                                    {!! Form::text('pronuntiation', null, ['class' => 'form-control', 'placeholder' => '...']) !!}
                                     {!! $errors->first('lastname', '<p class="help-block">:message</p>') !!}
                                 </div>
                             </div>                                                      
-                            <div class="form-group row {{ $errors->has('mobile') ? 'has-error' : ''}}">
-                                <label for="mobile" class="col-md-4 form-control-label text-md-right">
+                            <div class="form-group row {{ $errors->has('meaning') ? 'has-error' : ''}}">
+                                <label for="meaning" class="col-md-4 form-control-label text-md-right">
                                     <span class="text-danger">*</span>
                                     {{ ucfirst(trans('common.meaning')) }}
                                 </label>    
-                                <div class="col-md-4 required-name">
-                                    {!! Form::number('mobile', null, ['class' => 'form-control', 'placeholder' => '...']) !!}
-                                    {!! $errors->first('mobile', '<p class="help-block">:message</p>') !!}
+                                <div class="col-md-4">
+                                    {!! Form::text('meaning', null, ['class' => 'form-control', 'placeholder' => '...']) !!}
+                                    {!! $errors->first('meaning', '<p class="help-block">:message</p>') !!}
                                 </div>
                             </div>
-                            <div class="form-group row {{ $errors->has('email') ? 'has-error' : ''}}">
-                                <label for="email" class="col-md-4 form-control-label text-md-right">
+                            <div class="form-group row {{ $errors->has('example') ? 'has-error' : ''}}">
+                                <label for="example" class="col-md-4 form-control-label text-md-right">
                                     {{ ucfirst(trans('common.example')) }}
                                 </label>
                                 <div class="col-md-4">
-                                    {!! Form::text('email', null, ['class' => 'form-control', 'placeholder' => '...']) !!}
-                                    {!! $errors->first('email', '<p class="help-block">:message</p>') !!}
+                                    {!! Form::text('example', null, ['class' => 'form-control', 'placeholder' => '...']) !!}
+                                    {!! $errors->first('example', '<p class="help-block">:message</p>') !!}
                                 </div>
                             </div>
-                            <div class="form-group row {{ $errors->has('lang_id') ? 'has-error' : ''}}">
-                                <label for="lang_id" class="col-md-4 form-control-label text-md-right">
+                            <div class="form-group row {{ $errors->has('language_id') ? 'has-error' : ''}}">
+                                <label for="language_id" class="col-md-4 form-control-label text-md-right">
                                     {{ ucfirst(trans('common.language')) }}
                                 </label>
                                 <div class="col-md-4">
-                                    {!! Form::select('lang_id', $list_langs,null, ['class' => 'form-control']) !!}
-                                    {!! $errors->first('lang_id', '<p class="help-block">:message</p>') !!}
+                                    {!! Form::select('language_id', $list_langs,null, ['class' => 'form-control']) !!}
+                                    {!! $errors->first('language_id', '<p class="help-block">:message</p>') !!}
                                 </div>
                             </div>
                       </div>

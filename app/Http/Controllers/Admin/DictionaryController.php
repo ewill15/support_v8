@@ -59,7 +59,7 @@ class DictionaryController extends Controller
             'word'=>'required|min:3',
             'pronuntiation'=>'required|min:3',
             'meaning'=>'required',
-            'lang_id'=>'required|exists:languages,id'
+            'language_id'=>'required|exists:languages,id'
         ]);
         if ($v && $v->fails()) {
             return redirect()->back()->withInput()->withErrors($v->errors());
@@ -122,7 +122,7 @@ class DictionaryController extends Controller
             'word'=>'required|min:3',
             'pronuntiation'=>'required|min:3',
             'meaning'=>'required',
-            'lang_id'=>'required|exists:languages,id'
+            'language_id'=>'required|exists:languages,id'
         ]);
         if ($v && $v->fails()) {
             return redirect()->back()->withInput()->withErrors($v->errors());
