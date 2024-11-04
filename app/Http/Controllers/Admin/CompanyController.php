@@ -124,4 +124,22 @@ class CompanyController extends Controller
     {
     return Excel::download(new CompaniesExport, 'companies.xlsx');
     }
+
+    public function new_company(Request $request)
+    {
+        $lang = app()->getLocale();
+        $companies = Company::orderBy('id','ASC')->edtCompanies();
+
+        $paginate = $request->pagination ? $request->pagination : 20;
+        $page = (int)$request->page;
+        if($request->search != '')
+            $companies = $companies->where('name','LIKE','%'.$request->search.'%')
+                ->orWhere('area','LIKE','%'.$request->search.'%');
+
+        $text_pagination = Helper::messageCounterPagination($companies->count(), $page,$paginate,$lang);
+
+        $companies = $companies->paginate($paginate);
+
+        return view('admin.companies.new_companies', compact('companies', 'paginate','text_pagination'));
+    }
 }

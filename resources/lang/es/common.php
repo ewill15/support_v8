@@ -197,5 +197,7 @@ return [
 
     'permissions'=>'roles & permisos',
     'role'=>'role',
-    'read'=>'leer'
+    'read'=>'leer',
+
+    'new_companies'=>'compañias(NUEVA)'
 ];

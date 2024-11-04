@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Rule;
 use App\Models\User;
+use App\Models\Company;
 use App\Models\Penalty;
 use App\Models\Pasanaku;
 use App\Models\Notification;
@@ -24,6 +25,7 @@ class DashboardController extends Controller
     public function index()
     {   
         $register['users'] = count(User::users()->get());
+        $register['new_company'] = count(Company::edtCompanies()->get());
 
         return view('admin.dashboard',compact('register'));
     }

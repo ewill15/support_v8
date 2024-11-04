@@ -22,4 +22,9 @@ class Company extends Model
     {
         return $this->hasMany(Bill::class);
     }
+
+    public function scopeEdtCompanies($query)
+    {
+        return $query->whereNull('address')->whereNull('nit');
+    }
 }

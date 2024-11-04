@@ -69,4 +69,7 @@ Route::group(['middleware'=>['auth'], 'prefix' => 'admin'], function(){
     Route::resource('credits', CreditController::class);
 
     Route::resource('pasanakus', PasanakusController::class);
+
+    //Route::get('autocomplete', [BillController::class,'autocomplete'])->name('autocomplete');
+    Route::get('company/new_record', [CompanyController::class,'new_company']);
 });

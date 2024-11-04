@@ -1,6 +1,7 @@
 @extends('layouts.admin.app')
 @section('content')    
   <div class="row p-5">
+
     <div class="col-12 col-sm-6 col-md-3">
       <div class="info-box">
         <span class="info-box-icon bg-success elevation-1">
@@ -39,6 +40,27 @@
       </div>
       <!-- /.info-box -->
     </div>
+
+    <div class="col-12 col-sm-6 col-md-3">
+      <div class="info-box">
+        <span class="info-box-icon bg-success elevation-1">
+          <i class="fas fa-building"></i>
+        </span>
+
+        <div class="info-box-content">
+          <span class="info-box-text">{{ ucfirst(trans('common.new_companies')) }}</span>
+          <span class="info-box-number">
+          <a href="/admin/company/new_record">
+            {{$register['new_company']}}
+          </a>            
+          </span>
+        </div>
+        <!-- /.info-box-content -->
+      </div>
+      <!-- /.info-box -->
+    </div>
+
+
   </div>
 </div>
 @endsection

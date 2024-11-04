@@ -204,5 +204,7 @@ return [
 
     'permissions'=>'roles & permissions',
     'role'=>'role',
-    'read'=>'read'
+    'read'=>'read',
+
+    'new_companies'=>'company(NEW)'
 ];
