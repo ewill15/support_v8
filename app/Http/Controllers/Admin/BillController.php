@@ -8,6 +8,7 @@ use App\Models\Bill;
 use App\Models\Company;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 
@@ -53,14 +54,14 @@ class BillController extends Controller
 
     public function store(Request $request)
     {
+        
         $v= Validator::make($request->all(),[
             'invoice_number'=>'required',
             'control_code'=>'required',
             'date'=>'required',
             'description'=>'required',
             'price'=>'required|numeric',
-            'company_id'=>'required|exists:companies,id',
-            'user_id'=>'required|exists:users,id'
+            'company_name'=>'required',             
         ]);
         if($v && $v->fails()){
             return redirect()->back()->withInput()->withErrors($v->errors());
@@ -68,7 +69,10 @@ class BillController extends Controller
 
         $fields = $request->all();
         $fields['user_id'] = Auth::id();
-
+        $tmp = Company::where('name',$request->company_name)->first();
+        $company_id = $tmp ? $tmp->id : Company::create(['name'=>$request->company_name])->id;        
+        $fields['company_id'] = $company_id;
+        dd($fields);
         $bill = Bill::create($fields);
 
         if ($bill) {
@@ -135,5 +139,24 @@ class BillController extends Controller
     public function export() 
     {
         return Excel::download(new BillsExport, 'bills.xlsx');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function autocomplete(Request $request)
+    {   
+        $data = $request->all();
+
+        $query = $data['query'];
+
+        
+        $filter_data = Company::select('name')
+                        ->where('name', 'LIKE', '%'.$query.'%')
+                        ->get();
+
+        return response()->json($filter_data);
     }
 }

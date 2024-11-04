@@ -57,7 +57,7 @@
                     {{ ucfirst(trans('validation.attributes.price')).':' }}
                 </label>
                 <div class="col-md-7">
-                    {!! Form::number('price', null, ['class' => 'form-control','required', "placeholder"=>"0","required","min"=>0]) !!}
+                    {!! Form::number('price', null, ['class' => 'form-control',"placeholder"=>"0","required","min"=>0]) !!}
                     {!! $errors->first('price', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>
@@ -67,11 +67,32 @@
                     <span class="text-danger">*</span>
                     {{ ucfirst(trans('validation.attributes.company')).':' }}
                 </label>
-                <div class="col-md-7">
-                
-                    {!! Form::select('company_id', @$companies, null, ['class' => 'form-control','required' => 'required']) !!}
+                <div class="col-md-7">                    
+                    {!! Form::text('company_name', null, ['class' => 'typeahead form-control','required']) !!}
+                    {{-- {!! Form::select('company_id', @$companies, null, ['class' => 'form-control','required' => 'required']) !!} --}}
                 </div>
             </div>
         </fieldset>
     </div>
 </div>
+<!-- 123-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js" ></script>
+<script>
+    var path = "{{ route('autocomplete') }}";
+    
+    $('input.typeahead').typeahead({
+
+        source: function(query, process){
+
+            return $.get(path, {query:query}, function(data){
+
+                return process(data);
+
+            });
+
+        }
+
+    });
+</script>
