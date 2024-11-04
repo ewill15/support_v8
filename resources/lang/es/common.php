@@ -147,4 +147,55 @@ return [
     'total'=>'total',
     'monthly_fee'=>'cuota mensual',
     'months_to_pay'=>'meses a pagar',
+
+
+    'pasanaku_id'=>'pasanaku id',
+    'pasanakus'=>'pasanakus',
+    'penalty_pasanakus'=>'multas de pasanakus',
+    'pasanaku'=>'pasanaku',
+    'datestart'=>'fecha inicio',
+    'dateend'=>'fecha fin',
+    'datenext'=>'prox. entrega',
+    'participant'=>'participantes',
+    'amount'=>'monto por participante',
+    'penalty'=>'multa',
+    'add_participant'=>'agregar participante',
+    'rules'=>'reglas',
+    'notifications'=>'notificaciones',
+    'sended'=>'enviado',
+    'type'=>'tipo',
+    'penalties'=>'multas',
+    'amount_penalty'=>'monto de multa',
+
+    'add_legend'=>'agregar leyenda',
+    'icon'=>'icono',
+    'short_name'=>'abreviatura',
+    'legends'=>'leyendas',
+    'status'=>'estado',
+
+    'next_delivery'=>'proxima entrega',
+
+    'delivered_date'=>'fechas de entrega',
+
+    'fee_pasanaku'=>'cuota pasanaku',
+
+    'view_fee_pasanaku'=>'lista pagos cuota pasanaku',
+
+    'registered_date'=>'fecha de entrega',
+    'round'=>'ronda',
+    'fee_type'=>'cuota',
+    'pasanaku_finished'=>'pasanaku finalizado',
+
+    'final_event'=>'evento final',
+    'pay'=>'pagar',
+    'fee'=>'cuota',
+    'view_fee_event'=>'ver',
+
+    'fee_pasanaku'=>'cuota adelantada',
+
+    'histories'=>'historial',
+
+    'permissions'=>'roles & permisos',
+    'role'=>'role',
+    'read'=>'leer'
 ];

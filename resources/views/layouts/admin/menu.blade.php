@@ -167,6 +167,16 @@
           </a>
         </li>
 
+        <!--------- Pasanaku  -------------------> 
+        <li class="nav-item has-treeview">
+          <a href="{{ url('/admin/pasanakus') }}" class="nav-link {{($section == 'pasanakus')?'active':''}}">
+            <i class="fas fa-money-bill-alt mr-2"></i>
+            <p>
+              Pasanakus
+            </p>
+          </a>
+        </li>
+
       </ul>
     </nav>
     <!-- /.sidebar-menu -->

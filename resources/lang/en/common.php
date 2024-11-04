@@ -153,4 +153,56 @@ return [
     'total'=>'total',
     'monthly_fee'=>'monthly fee',
     'months_to_pay'=>'months to pay',
+
+
+    'pasanakus'=>'pasanakus',
+    'penalty_pasanakus'=>'penalty pasanakus',
+    'pasanaku'=>'pasanaku',
+    'datestart'=>'date start',
+    'dateend'=>'dated end',
+    'datenext'=>'next delivery',
+    'participant'=>'participants',
+    'amount'=>'amount by participant',
+    'penalty'=>'penalty',
+    'add_participant'=>'add participant',
+
+    'pasanaku_id'=>'pasanaku id',
+    'rules'=>'rules',
+    'notifications'=>'notifications',
+    'sended'=>'sended',
+    'type'=>'type',
+    'penalties'=>'penalties',
+    'amount_penalty'=>'penalty amount',
+
+    'add_legend'=>' add legend',
+    'icon'=>'icon',
+    'short_name'=>'short name',
+    'legends'=>'legends',
+    'status'=>'status',
+
+    'next_delivery'=>'next delivery',
+
+    'delivered_date'=>'delivered date',
+
+    'fee_pasanaku'=>'fee pasanaku',
+
+    'view_fee_pasanaku'=>'list fee pasanaku',
+
+    'registered_date'=>'registered date',
+    'round'=>'round',
+    'fee_type'=>'fee type',
+    'pasanaku_finished'=>'pasanaku finished',
+
+    'final_event'=>'Final Event',
+    'pay'=>'pay',
+    'fee'=>'fee',
+    'view_fee_event'=>'View',
+
+    'fee_forward'=>'fee forward',
+
+    'histories'=>'history',
+
+    'permissions'=>'roles & permissions',
+    'role'=>'role',
+    'read'=>'read'
 ];

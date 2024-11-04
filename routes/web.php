@@ -19,6 +19,7 @@ use App\Http\Controllers\Admin\LanguageController;
 use App\Http\Controllers\Admin\RegisterController;
 use App\Http\Controllers\Admin\BackupController;
 use App\Http\Controllers\Admin\CreditController;
+use App\Http\Controllers\Admin\PasanakusController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,4 +67,6 @@ Route::group(['middleware'=>['auth'], 'prefix' => 'admin'], function(){
     Route::get('export-table', [BackupController::class,'export_table']);
 
     Route::resource('credits', CreditController::class);
+
+    Route::resource('pasanakus', PasanakusController::class);
 });

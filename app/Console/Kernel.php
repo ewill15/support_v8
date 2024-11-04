@@ -27,6 +27,12 @@ class Kernel extends ConsoleKernel
         // $schedule->command('next_delivery:pasanaku')->cron('0 1 * * *');
         //0 => sunday 1=>monday 2=>tuesday 3=>wednesday 4=>thursday 5=>friday 6=>saturday
         $schedule->command('support:update_hash')->everyMinute();//dailyAt('10:05'); // every monday
+        // $schedule->command('next_delivery:pasanaku')->cron('0 1 * * *');
+        //0 => sunday 1=>monday 2=>tuesday 3=>wednesday 4=>thursday 5=>friday 6=>saturday
+        // $schedule->command('pasanaku:next_delivery')->everyMinute();//weeklyOn(1, '9:55'); // every monday at 9:30
+        // $schedule->command('pasanaku:update_status')->everyMinute();//weeklyOn(1, '9:55'); // every monday at 9:30
+        // $schedule->command('pasanaku:next_event')->everyMinute();//weeklyOn(1, '9:55'); // every monday at 9:30
+        $schedule->command('pasanaku:automatic_advance')->everyMinute();//weeklyOn(1, '9:55'); // every monday at 9:30
     }
 
     /**
