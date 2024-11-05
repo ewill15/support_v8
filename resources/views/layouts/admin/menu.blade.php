@@ -1,7 +1,7 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
-  <a href="index3.html" class="brand-link">
+  <a href="#" class="brand-link">
     <img src="{{asset('img/no-image.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
          style="opacity: .8">
     <span class="block m-t-xs font-bold mt-2 text-center">
@@ -168,13 +168,94 @@
         </li>
 
         <!--------- Pasanaku  -------------------> 
+
         <li class="nav-item has-treeview">
-          <a href="{{ url('/admin/pasanakus') }}" class="nav-link {{($section == 'pasanakus')?'active':''}}">
-            <i class="fas fa-money-bill-alt mr-2"></i>
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-table"></i>
             <p>
-              Pasanakus
+              Pasanaku
+              <i class="fas fa-angle-left right"></i>
             </p>
           </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item pl-3">
+              <a href="{{ url('/admin/pasanakus') }}" class="nav-link {{($section == 'pasanakus')?'active':''}}">
+                <i class="fas fa-money-bill-alt mr-2"></i>
+                <p>
+                  Pasanakus
+                </p>
+              </a>
+            </li>
+            <li class="nav-item pl-3">
+              <a href="{{ url('/admin/penalties') }}" class="nav-link {{($section == 'penalties')?'active':''}}">
+                <i class="fas fa-exclamation-triangle mr-2"></i>
+                <p>
+                  Multas
+                </p>
+              </a>
+            </li>
+            <li class="nav-item pl-3">
+              <a href="{{ url('/admin/rules') }}" class="nav-link {{($section == 'rules')?'active':''}}">
+                <i class="fas fa-bars mr-2"></i>
+                <p>
+                  Reglas
+                </p>
+              </a>
+            </li>
+            <li class="nav-item pl-3">
+              <a href="{{ url('/admin/history') }}" class="nav-link {{($section == 'history')?'active':''}}">
+                <i class="fa fa-history mr-2"></i>
+                <p>
+                  History
+                </p>
+              </a>
+            </li>
+
+        @if ( auth()->user()->role == 'admin' )
+          <li class="nav-item pl-3">
+            <a href="{{ url('/admin/legends') }}" class="nav-link {{($section == 'legends')?'active':''}}">
+              <i class="fas fa-list mr-2"></i>
+              <p>
+                Leyendas
+              </p>
+            </a>
+          </li>
+          <li class="nav-item pl-3">
+            <a href="{{ url('/admin/final-events') }}" class="nav-link {{($section == 'events')?'active':''}}">
+              <i class="fas fa-award mr-2"></i>
+              <p>
+                Eventos Finales
+              </p>
+            </a>
+          </li>
+          <li class="nav-item pl-3">
+            <a href="{{ url('/admin/notifications') }}" class="nav-link {{($section == 'notifications')?'active':''}}">
+              <i class="fas fa-bell mr-2"></i>
+              <p>
+                Notificaciones
+              </p>
+            </a>
+          </li>
+          <li class="nav-item pl-3">
+            <a href="{{ url('/admin/export') }}" class="nav-link">
+              <i class="fas fa-file mr-2"></i>
+              <p>
+                Backup
+              </p>
+            </a>
+          </li> 
+          
+          <li class="nav-item pl-3">
+            <a href="{{ url('/admin/permissions') }}" class="nav-link">
+              <i class="fas fa-user-tag mr-2"></i>
+              <p>
+                Roles y Permisos
+              </p>
+            </a>
+          </li> 
+        @endif   
+
+          </ul>
         </li>
 
       </ul>
