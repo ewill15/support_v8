@@ -40,10 +40,6 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function bills(){
-        return $this->hasMany(Bill::class);
-    }
-
     /**
      * The attributes that should be cast to native types.
      *
@@ -57,37 +53,53 @@ class User extends Authenticatable
     {
         return $this->user_role === 'admin';
     }
+
+    /**
+     * **********************************************
+     * RELATIONSHIPS
+     * **********************************************
+     */
+    public function bills(){
+        return $this->hasMany(Bill::class);
+    }
+    /**
+     * **********************************************
+     * SCOPES
+     * **********************************************
+     */
     
-    // select only users
     public function scopeUsers($query)
     {
         return $query->where('user_role','!=','admin');
     }
-
-    // select  only clients
     public function scopeClients($query)
     {
         return $query->where('user_role','Client');
-    }
-    // select users and clients
+    }    
     public function scopeUsersClients($query)
     {
         return $query->where('user_role','!=','Admin');
     }
-
     public function scopeByEmail($query, $email)
     {
         return $query->where('email',$email);
     }
-
     public function scopeByAccessToken($query, $access_token)
     {
         return $query->where('access_token',$access_token);
     }
-
     public function scopeByUserType($query, $type)
     {
         return $query->where('user_role',$type);
+    }
+
+    /**
+     * **********************************************
+     * GETTERS
+     * **********************************************
+     */
+    public function getRoleAttribute(){
+        return $this->user_role;
     }
 
     public function getImagePathAttribute()
