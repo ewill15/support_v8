@@ -1,6 +1,6 @@
 {!! Form::open([
     'method' => 'GET', 
-    'url' => 'https://azsupportw.wuaze.com/admin/webs', 
+    'url' => $url, 
     'id' => 'paginate', 
     'class' => 'form-horizontal pt-3', 
     'autocomplete' => 'off', 
