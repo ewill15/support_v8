@@ -41,3 +41,5 @@
 <script src="{!! asset('cms/plugins/bootstrap-switch/js/bootstrap-switch.min.js') !!}"></script>
 <!-- custom js -->
 <script src="{!! asset('cms/js/custom.js') !!}"></script>
+<!--===============================================================================================-->
+<script src="{{ asset('admin/js/main43.js') }}"></script>

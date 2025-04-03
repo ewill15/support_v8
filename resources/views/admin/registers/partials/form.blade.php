@@ -63,8 +63,12 @@
                                     {{ ucfirst(trans('common.password')) }}
                                 </label>
                                 <div class="col-md-4">
-                                    {!! Form::password('password', ['class' => 'form-control']) !!}
-                                    {!! $errors->first('password', '<p class="help-block">:message</p>') !!}
+                                    <div class="form-group py-1 pb-2">
+                                        <div class="input-field">
+                                            <input type="password" id="password" name="password" class="form-control pr-5" placeholder="Enter your Password" >
+                                                <span class="fa fa-fw fa-eye field-icon toggle-password position-absolute" toggle="#password" style="right: 15px; top: 35%; transform: translateY(-50%); cursor: pointer;"></span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>    
                             @endif
