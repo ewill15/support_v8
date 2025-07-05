@@ -61,18 +61,17 @@ class BillController extends Controller
             'date'=>'required',
             'description'=>'required',
             'price'=>'required|numeric',
-            'company_name'=>'required',             
+            'company_id'=>'required',             
         ]);
         if($v && $v->fails()){
             return redirect()->back()->withInput()->withErrors($v->errors());
         }
 
         $fields = $request->all();
-        $fields['user_id'] = Auth::id();
-        $tmp = Company::where('name',$request->company_name)->first();
-        $company_id = $tmp ? $tmp->id : Company::create(['name'=>$request->company_name])->id;        
-        $fields['company_id'] = $company_id;
-        dd($fields);
+        $fields['user_id'] = Auth::id();       
+        $fields['company_id'] = $request->company_id;
+        $fields['date'] = Carbon::parse($request->date)->format('Y-m-d');
+        // dd($fields);
         $bill = Bill::create($fields);
 
         if ($bill) {
