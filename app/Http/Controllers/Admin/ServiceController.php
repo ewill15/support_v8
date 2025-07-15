@@ -24,7 +24,7 @@ class ServiceController extends Controller
      public function index(Request $request)
      {
         $lang = app()->getLocale();
-        $services = Service::orderBy('id','ASC');
+        $services = Service::orderBy('id','DESC');
 
         $paginate = $request->pagination ? $request->pagination : 20;
         $page = (int)$request->page;
