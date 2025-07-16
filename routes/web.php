@@ -20,6 +20,7 @@ use App\Http\Controllers\Admin\RegisterController;
 use App\Http\Controllers\Admin\BackupController;
 use App\Http\Controllers\Admin\CreditController;
 use App\Http\Controllers\Admin\PasanakusController;
+use App\Http\Controllers\Admin\SaleClotheController;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,4 +73,6 @@ Route::group(['middleware'=>['auth'], 'prefix' => 'admin'], function(){
 
     Route::get('autocomplete', [BillController::class,'autocomplete'])->name('autocomplete');
     Route::get('company/new_record', [CompanyController::class,'new_company']);
+
+    Route::resource('clothes', SaleClotheController::class);
 });

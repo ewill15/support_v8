@@ -206,5 +206,8 @@ return [
     'role'=>'role',
     'read'=>'read',
 
-    'new_companies'=>'company(NEW)'
+    'new_companies'=>'company(NEW)',
+
+    'bill'=>'bill',
+    'bills'=>'bills',
 ];

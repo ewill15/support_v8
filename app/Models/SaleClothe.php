@@ -8,4 +8,39 @@ use Illuminate\Database\Eloquent\Model;
 class SaleClothe extends Model
 {
     use HasFactory;
+
+    
+    protected $fillable = [
+        'description',
+        'price',
+        'type',
+        'pay_type'
+    ];
+
+    
+    /**
+     * **********************************************
+     * RELATIONSHIPS
+     * **********************************************
+     */
+    /**
+     * **********************************************
+     * SCOPES
+     * **********************************************
+     */
+    
+
+    /**
+     * **********************************************
+     * GETTERS
+     * **********************************************
+     */
+    public function getIncomeAttribute()
+    {
+        return $this->type?'Ingreso':'Gasto';
+    }
+    public function getPaymentAttribute()
+    {
+        return $this->pay_type?'Efectivo':'QR';
+    }
 }

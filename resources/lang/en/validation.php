@@ -233,5 +233,6 @@ return [
         'init'                  => 'init',
         'monthly_fee'           => 'monthly fee',
         'months_to_pay'         => 'months to pay',
+        'pay_type'              => 'pay type',
     ],
 ];

@@ -58,6 +58,16 @@
           </a>
         </li>
 
+        <!--------- Menu clothes  -------------------> 
+        <li class="nav-item has-treeview">
+          <a href="{{ url('/admin/clothes') }}" class="nav-link {{($section == 'sale_clothes')?'active':''}}">
+            <i class="fas fa-piggy-bank mr-2"></i>
+            <p>
+              {{ ucfirst(trans('common.clothes')) }}
+            </p>
+          </a>
+        </li>
+
         <!--------- Menu services  -------------------> 
         <li class="nav-item has-treeview">
           <a href="{{ url('/admin/services') }}" class="nav-link {{($section == 'services')?'active':''}}">
