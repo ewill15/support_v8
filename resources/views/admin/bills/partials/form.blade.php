@@ -23,7 +23,6 @@
             </div>
             <div class="form-group row {{ $errors->has('control_code') ? 'has-error' : ''}}">
                 <label for="control_code" class="col-md-4 form-control-label text-right">
-                    <span class="text-danger">*</span>
                     {{ ucfirst(trans('validation.attributes.control_code')).':' }}
                 </label>
                 <div class="col-md-7">
@@ -57,7 +56,7 @@
                     {{ ucfirst(trans('validation.attributes.price')).':' }}
                 </label>
                 <div class="col-md-7">
-                    {!! Form::number('price', null, ['class' => 'form-control',"placeholder"=>"0","required","min"=>0]) !!}
+                    {!! Form::number('price', null, ['class' => 'form-control',"placeholder"=>"0","required","min"=>0,"step"=>0.1]) !!}
                     {!! $errors->first('price', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>
@@ -68,8 +67,7 @@
                     {{ ucfirst(trans('validation.attributes.company')).':' }}
                 </label>
                 <div class="col-md-7">                    
-                    {!! Form::text('company_name', null, ['class' => 'typeahead form-control','required']) !!}
-                    {{-- {!! Form::select('company_id', @$companies, null, ['class' => 'form-control','required' => 'required']) !!} --}}
+                    {!! Form::select('company_id', @$companies, null, ['class' => 'form-control','required' => 'required']) !!}
                 </div>
             </div>
         </fieldset>
