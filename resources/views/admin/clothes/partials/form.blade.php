@@ -7,13 +7,27 @@
     </div>
     <div class="col-lg-10">
         <fieldset>
+            <div class="form-group row {{ $errors->has('date_sale') ? 'has-error' : ''}}">
+                <label for="date_sale" class="col-md-4 form-control-label text-md-right">
+                    {{ ucfirst(trans('validation.attributes.date')) }}
+                </label>    
+                <div class="col-md-4 required-name">
+                    <div class="input-group date" id="date_sale" data-target-input="nearest">
+                        {!! Form::text('date_sale', null, ['class' => 'form-control datetimepicker-input', 'data-target' => '#date_sale']) !!}
+                        {!! $errors->first('date_sale', '<p class="help-block">:message</p>') !!}
+                        <div class="input-group-append" data-target="#date_sale" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="form-group row {{ $errors->has('description') ? 'has-error' : ''}}">
                 <label for="description" class="col-md-4 form-control-label text-right">
                     <span class="text-danger">*</span>
                     {{ ucfirst(trans('validation.attributes.description')).':' }}
                 </label>
                 <div class="col-md-7">
-                    {!! Form::textarea('description', null, ['class' => 'form-control','required', 'placeholder'=>"Description...","required"]) !!}
+                    {!! Form::text('description', null, ['class' => 'form-control','required', 'placeholder'=>"","required"]) !!}
                     {!! $errors->first('description', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>

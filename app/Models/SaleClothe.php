@@ -11,6 +11,7 @@ class SaleClothe extends Model
 
     
     protected $fillable = [
+        'date_sale',
         'description',
         'price',
         'type',
@@ -28,7 +29,6 @@ class SaleClothe extends Model
      * SCOPES
      * **********************************************
      */
-    
 
     /**
      * **********************************************
@@ -43,4 +43,5 @@ class SaleClothe extends Model
     {
         return $this->pay_type?'Efectivo':'QR';
     }
+    
 }

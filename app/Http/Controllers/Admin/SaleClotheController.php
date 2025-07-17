@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Helper;
+use Carbon\Carbon;
 use App\Models\SaleClothe;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -62,6 +63,7 @@ class SaleClotheController extends Controller
         }
 
         $fields = $request->all();
+        $fields['date_sale'] = Carbon::parse($request->day_sale)->format('Y-m-d');
         $clothe = SaleClothe::create($fields);
 
         if ($clothe) {
@@ -124,7 +126,7 @@ class SaleClotheController extends Controller
         if ($v && $v->fails()) {
             return redirect()->back()->withInput()->withErrors($v->errors());
         }
-
+        $fields['date_sale'] = Carbon::parse($request->day_sale)->format('Y-m-d');
         $clothe = $clothe->update($fields);
 
         if ($clothe) {
@@ -158,5 +160,32 @@ class SaleClotheController extends Controller
         }
         
         return redirect('admin/clothes');
+    }
+
+    /**
+     * pay_type >> 1=Efectivo 0=QR
+     * type >> 1=Ingreso 0=Gasto
+     */
+    public function sumTotal(Request $request,$date)
+    {
+        $partial = SaleClothe::whereDate('date', '=', Carbon::parse($request->date)->toDateString());
+
+        if($request->type)
+            $partial = $partial->where('type','1');
+        else
+            $partial = $partial->where('type','0');
+
+
+        if($request->pay_type)
+            $partial = $partial->where('pay_type','1');
+        else
+            $partial = $partial->where('pay_type','0');
+
+        $partial = $partial->get();
+        
+        if($partial)
+            $total = 'Error';
+        else
+            $total = $partial->sum('price');
     }
 }
