@@ -13,6 +13,7 @@ class SaleClothe extends Model
     protected $fillable = [
         'date_sale',
         'description',
+        'quantity',
         'price',
         'type',
         'pay_type'

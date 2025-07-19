@@ -80,16 +80,10 @@ jQuery(function () {
         },
     });
     //Date range picker incomes
-    $("#date,#date_start").datetimepicker({
+    $("#date_sale").datetimepicker({
         format: "DD-MM-YYYY",
         locale: "es",
-        minDate: moment().subtract(60, "days"),
-        defaultDate: moment(),
-    });
-    //Date range picker incomes
-    $("#dob").datetimepicker({
-        format: "DD-MM-YYYY",
-        locale: "es",
+        minDate: moment().subtract(1, "days"),
         maxDate: moment().add(760, "days"),
         defaultDate: moment(),
     });

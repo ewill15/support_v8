@@ -226,5 +226,6 @@ return [
         'monthly_fee'           => 'cuota mensual',
         'months_to_pay'         => 'meses a pagar',
         'pay_type'              => 'tipo de pago',
+        'quantity'              => 'cantidad',
     ],
 ];

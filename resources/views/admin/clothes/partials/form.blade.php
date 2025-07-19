@@ -27,10 +27,22 @@
                     {{ ucfirst(trans('validation.attributes.description')).':' }}
                 </label>
                 <div class="col-md-7">
-                    {!! Form::text('description', null, ['class' => 'form-control','required', 'placeholder'=>"","required"]) !!}
+                    {!! Form::textarea('description', null, ['class' => 'form-control','required', 'placeholder'=>"","required","rows"=>3]) !!}
                     {!! $errors->first('description', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>
+
+            <div class="form-group row {{ $errors->has('quantity') ? 'has-error' : ''}}">
+                <label for="quantity" class="col-md-4 form-control-label text-right">
+                    <span class="text-danger">*</span>
+                    {{ ucfirst(trans('validation.attributes.quantity')).':' }}
+                </label>
+                <div class="col-md-7">
+                    {!! Form::number('quantity', 1, ['class' => 'form-control',"placeholder"=>"1","required","min"=>1,]) !!}
+                    {!! $errors->first('quantity', '<p class="help-block">:message</p>') !!}
+                </div>
+            </div>
+
             <div class="form-group row {{ $errors->has('price') ? 'has-error' : ''}}">
                 <label for="price" class="col-md-4 form-control-label text-right">
                     <span class="text-danger">*</span>

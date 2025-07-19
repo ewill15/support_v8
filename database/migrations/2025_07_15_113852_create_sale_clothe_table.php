@@ -16,7 +16,8 @@ class CreateSaleClotheTable extends Migration
         Schema::create('sale_clothes', function (Blueprint $table) {
             $table->id();
             $table->date('date_sale')->nullable();
-            $table->string('description');
+            $table->text('description');
+            $table->smallInteger('quantity')->default(1);
             $table->decimal('price',5,2);
             $table->boolean('type')->comment('1=Ingreso 0=Gasto');
             $table->boolean('pay_type')->comment('1=Efectivo 0=QR');
