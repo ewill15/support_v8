@@ -61,7 +61,7 @@
         <!--------- Menu clothes  -------------------> 
         <li class="nav-item has-treeview">
           <a href="{{ url('/admin/clothes') }}" class="nav-link {{($section == 'sale_clothes')?'active':''}}">
-            <i class="fas fa-piggy-bank mr-2"></i>
+            <i class="fas fa-tshirt mr-2"></i>
             <p>
               {{ ucfirst(trans('common.clothes')) }}
             </p>
