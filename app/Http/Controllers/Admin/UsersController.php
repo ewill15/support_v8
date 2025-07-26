@@ -55,7 +55,7 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         $v = Validator::make($request->all(), [
-            'firs_name' => 'required|string|min:3',
+            'first_name' => 'required|string|min:3',
             'last_name' => 'string',
             'email'=>'required|email',
             'password' => 'min:8',
@@ -80,7 +80,6 @@ class UsersController extends Controller
         //     $m->to('ewarandia@gmail.com', $pasanaku->username)->subject('Nuevo Pasanaku creado');
         // });
         $user = User::create($fields);
-
         if ($user) {
             Session::flash('flash_message', Helper::contentFlashMessage('create')['success']);
             Session::flash('flash_message_type', 'success');
