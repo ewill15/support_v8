@@ -16,6 +16,8 @@ class CreateSaleClotheTable extends Migration
         Schema::create('sale_clothes', function (Blueprint $table) {
             $table->id();
             $table->date('date_sale')->nullable();
+            $table->tinyInteger('week')->unsigned()->comment('nro de semana de registro');
+            $table->smallInteger('year')->unsigned()->comment('anio de registro');
             $table->text('description');
             $table->smallInteger('quantity')->default(1);
             $table->decimal('price',5,2);

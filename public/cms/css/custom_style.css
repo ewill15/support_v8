@@ -217,6 +217,11 @@ table#product input._filterText {
     border: none;
 }
 
+/*resume card*/
+.resume-card{
+    padding: .5rem 10rem .5rem .5rem;
+}
+
 /* RESPONSIVE */
 @media (min-width: 768px){
     .col-12.col-md-4.d-flex.align-items-center.gap-2.mb-4{

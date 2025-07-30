@@ -64,6 +64,8 @@ class SaleClotheController extends Controller
 
         $fields = $request->all();
         $fields['date_sale'] = Carbon::parse($request->day_sale)->format('Y-m-d');
+        $fields['week'] = Carbon::parse($request->day_sale)->weekOfYear;
+        $fields['year'] = Carbon::parse($request->day_sale)->year;
         $clothe = SaleClothe::create($fields);
 
         if ($clothe) {
@@ -127,6 +129,8 @@ class SaleClotheController extends Controller
             return redirect()->back()->withInput()->withErrors($v->errors());
         }
         $fields['date_sale'] = Carbon::parse($request->day_sale)->format('Y-m-d');
+        $fields['week'] = Carbon::parse($request->day_sale)->weekOfYear;
+        $fields['year'] = Carbon::parse($request->day_sale)->year;
         $clothe = $clothe->update($fields);
 
         if ($clothe) {
@@ -188,4 +192,66 @@ class SaleClotheController extends Controller
         else
             $total = $partial->sum('price');
     }
+
+    public function getWeeklyData(Request $request)
+    {
+        $result = [
+            "msg"=> 'Error',
+            "items"=>-1
+        ];
+
+        $anio = Carbon::now()->year;
+        $semana = $request->week ? Carbon::parse($request->week)->weekOfYear : Carbon::now()->weekOfYear;
+
+        $inicioSemana = Carbon::now()->setISODate($anio, $semana)->startOfWeek();
+        $finSemana = $inicioSemana->copy()->endOfWeek();
+
+        $registros = Registro::whereBetween('week', [$inicioSemana, $finSemana])
+            ->whereYear('year', $anio)
+            ->get();
+
+        if ($registros->isNotEmpty()){
+            $result["msg"] = "Se encontraron registros en la semana $semana en $anio";
+            $result["items"] = $registros;
+        }
+
+    }
+    public function getMonthlyData(Request $request)
+    {
+        $result = [
+            "msg"=> 'Error',
+            "items"=>-1
+        ];
+
+        $anio = Carbon::now()->year;
+        $mes = $request->month ? Carbon::parse($request->month)->month : Carbon::now()->month; // 7 (julio)
+
+        $registros = SaleClothe::whereMonth('dateSale', $mes)
+            ->whereYear('year', $anio)
+            ->get();
+
+        if ($registros->isNotEmpty()){
+            $result["msg"] = "Se encontraron registros en el mes $mes en $anio";
+            $result["items"] = $registros;
+        }
+    }
+
+    public function getFullData(Request $request)
+    {
+        $result = [
+            "msg"=> 'Error',
+            "items"=>-1
+        ];
+
+
+        $registros = SaleClothe::get();
+
+        if ($registros->isNotEmpty()){
+            $result["msg"] = "Estos son todos los registros";
+            $result["items"] = $registros;
+        }
+    }
+
+
+    
 }

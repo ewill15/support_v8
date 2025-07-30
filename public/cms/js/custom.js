@@ -87,6 +87,14 @@ jQuery(function () {
         maxDate: moment().add(760, "days"),
         defaultDate: moment(),
     });
+    //Date birthday
+    $("#dob").datetimepicker({
+        format: "DD-MM-YYYY",
+        locale: "es",
+        minDate: moment().subtract(40, "years"),
+        maxDate: moment().format('DD-MM-YYYY'),
+        defaultDate: moment(),
+    });
     //function to preview before to upload image
     function readURL(input, preview) {
         if (input.files && input.files[0]) {

@@ -75,4 +75,5 @@ Route::group(['middleware'=>['auth'], 'prefix' => 'admin'], function(){
     Route::get('company/new_record', [CompanyController::class,'new_company']);
 
     Route::resource('clothes', SaleClotheController::class);
+    Route::post('clothes/resume', [SaleClotheController::class,'resume']);
 });

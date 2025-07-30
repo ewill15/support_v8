@@ -16,7 +16,9 @@ class SaleClothe extends Model
         'quantity',
         'price',
         'type',
-        'pay_type'
+        'pay_type',
+        'week',
+        'year'
     ];
 
     

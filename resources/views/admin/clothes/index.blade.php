@@ -19,7 +19,7 @@
                                     url('/admin/clothes')
                                 ]
                             ],
-                            'final'=>ucfirst(trans('common.list'))
+                            'final'=>ucfirst(trans('common.summary'))
                         ])
                     </div>
                 </div>
@@ -44,77 +44,84 @@
             @include('admin.partials.messages')
             @include('admin.partials.errors', ['errors' => $errors])
 
-            <div class="card card-primary card-outline">
-                <div class="card-body">
-                <!-- ============================================================== -->
-                <!-- Form searchs -->   
-                    @include('admin.partials.searcher', ['url' => 'admin/clothes'])
-                <!-- End form searchs --> 
-                <!-- ============================================================== -->  
-                <!-- ============================================================== --> 
-                <!-- Table  --> 
-                    <div class="ibox-content">
-                        <div class="table-responsive"> 
-                            <table class="table table-register table-striped table-bordered table-hover">                                        
-                                <thead>
-                                <tr>
-                                    <th>{{ ucfirst(trans('common.id')) }}</th>
-                                    <th>{{ ucfirst(trans('common.type')) }}</th>
-                                    <th>{{ ucfirst(trans('common.description')) }}</th>
-                                    <th>{{ ucfirst(trans('common.price')) }}</th>
-                                    <th class="actions">{{ ucfirst(trans('common.actions')) }}</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($clothes as $item)
-                                    <tr class="gradeX">
-                                        <td class="w-150p">{{ @$item->id }}</td>
-                                        <td>{{ @$item->income }}</td>
-                                        <td>{{ @$item->description }}</td>
-                                        <td>{{ @$item->payment }}</td>
-                                        <td>
-                                            <div class="input-group-prepend">
-                                                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
-                                                    {{ ucfirst(trans('common.actions')) }}
-                                                </button>
-                                                <div class="dropdown-menu">
-                                                        <a href="{{ url('admin/clothes/' . @$item->id . '/edit') }}" class="dropdown-item">
-                                                            <i class="fas fa-edit"></i> {{ ucfirst(trans('common.update')) }}
-                                                        </a>
-                                                        <div class="dropdown-divider"></div>
-                                                        <a class="dropdown-item" href="#"
-                                                            data-action="delete"
-                                                            data-name="improve" 
-                                                            data-url="{{ route('clothes.destroy', $item->id) }}" 
-                                                            data-title-msg="{{ ucfirst(trans('common.delete')) }}" 
-                                                            data-text-msg="{{ ucfirst(trans('common.msgdelete')) }}"
-                                                            data-btn-action="{{ ucwords(trans('common.delete')) }}"
-                                                            data-btn-cancel="{{ ucfirst(trans('common.cancel')) }}"
-                                                        >
-                                                            <i class="fas fa-trash-alt"></i> {{ ucfirst(trans('common.delete')) }}
-                                                        </a>
-                                                </div>
-                                            </div>       
-                                        </td>
-                                    </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
-                            @include('admin.clothes.partials.modal-delete')
-                            <div class="float-left">
-                                {{ $text_pagination }}
-                            </div>
-                            <div class="float-right">                                        
-                                <div class="btn-group">
-                                  {!! $clothes->appends(request()->except('page'))->links() !!}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <!-- End table --> 
-                <!-- ============================================================== --> 
+            <div class="card card-primary card-outline  card-outline-tabs">
+            <!-- ============================================================== -->
+                <div class="card-header p-0 border-bottom-0">
+                    <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="custom-all-tab" data-toggle="pill" href="#custom-all" role="tab" aria-controls="custom-all" aria-selected="true">{{ ucfirst(trans('common.all')) }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="custom-home-tab" data-toggle="pill" href="#custom-home" role="tab" aria-controls="custom-home" aria-selected="false">{{ ucfirst(trans('common.today')) }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="custom-week-tab" data-toggle="pill" href="#custom-week" role="tab" aria-controls="custom-week" aria-selected="false">{{ ucfirst(trans('common.week')) }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="custom-month-tab" data-toggle="pill" href="#custom-month" role="tab" aria-controls="custom-month" aria-selected="false">{{ ucfirst(trans('common.month')) }}</a>
+                        </li>
+                        
+                    </ul>
                 </div>
+                <div class="card-body">
+                    <div class="tab-content" id="custom-tabs-four-tabContent">
+                        <div class="tab-pane fade active show" id="custom-all" role="tabpanel" aria-labelledby="custom-all-tab">
+                            <div class="row p-5">
+                                <div class="col-md-6">
+                                <div class="card card-primary">
+                                <div class="card-header">
+                                    <h3 class="card-title"> {{ strtoupper(trans('common.income')) }}</h3>
+
+                                    <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                                    </button>
+                                    </div>
+                                    <!-- /.card-tools -->
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    @include('admin.clothes.partials.resume', ['money' => 0,'qr'=>0,'clothes'=>0])
+                                </div>
+                                <!-- /.card-body -->
+                                </div>
+                                <!-- /.card -->
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card card-danger">
+                                <div class="card-header">
+                                    <h3 class="card-title">{{ strtoupper(trans('common.expenses')) }}</h3>
+
+                                    <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                                    </button>
+                                    </div>
+                                    <!-- /.card-tools -->
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    @include('admin.clothes.partials.resume', ['money' => 0,'qr'=>0,'clothes'=>0])
+                                </div>
+                                <!-- /.card-body -->
+                                </div>
+                                <!-- /.card -->
+                            </div>
+                            </div>
+                            
+                        </div>
+                        <div class="tab-pane fade" id="custom-home" role="tabpanel" aria-labelledby="custom-home-tab">
+                            @include('admin.clothes.partials.resume', ['money' => 0,'qr'=>0,'clothes'=>0])
+                        </div>
+                        <div class="tab-pane fade" id="custom-week" role="tabpanel" aria-labelledby="custom-week-tab">
+                            @include('admin.clothes.partials.resume', ['money' => 0,'qr'=>0,'clothes'=>0])
+                        </div>
+                        <div class="tab-pane fade" id="custom-month" role="tabpanel" aria-labelledby="custom-month-tab">
+                            @include('admin.clothes.partials.resume', ['money' => 0,'qr'=>0,'clothes'=>0])
+                        </div>                    
+                    </div>
+                </div>
+                <!-- ============================================================== --> 
             </div>
         </div>
     </section>
 @endsection
+s

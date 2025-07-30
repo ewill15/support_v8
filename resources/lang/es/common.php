@@ -199,5 +199,19 @@ return [
     'role'=>'role',
     'read'=>'leer',
 
-    'new_companies'=>'compañias(NUEVA)'
+    'new_companies'=>'compañias(NUEVA)',
+
+    'bill'=>'cuenta',
+    'bills'=>'cuentas',
+
+    'today'=>'hoy dia',
+    'week'=>'semana',
+    'month'=>'mes',
+    'all'=>'todo',
+    'qr'=>'qr',
+    'clothe'=>'ropa',
+    'clothes'=>'ropas',
+    'income'=>'ingresos',
+    'expenses'=>'gastos',
+    'summary'=>'resumen',
 ];

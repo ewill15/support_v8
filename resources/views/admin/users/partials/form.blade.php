@@ -66,7 +66,7 @@
                                 </div>    
                             @endif
                             
-                            <div class="form-group row {{ $errors->has('dob') ? 'has-error' : ''}}">
+                            {{-- <div class="form-group row {{ $errors->has('dob') ? 'has-error' : ''}}">
                                 <label for="dob" class="col-md-4 form-control-label text-md-right">
                                     {{ ucfirst(trans('common.dob')) }}
                                 </label>    
@@ -79,7 +79,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             
                       </div>
                     </div>

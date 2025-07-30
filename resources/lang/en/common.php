@@ -210,4 +210,16 @@ return [
 
     'bill'=>'bill',
     'bills'=>'bills',
+
+    'today'=>'today',
+    'week'=>'week',
+    'month'=>'month',
+    'all'=>'all',
+    'money'=>'money',
+    'qr'=>'qr',
+    'clothe'=>'clothe',
+    'clothes'=>'clothes',
+    'income'=>'income',
+    'expenses'=>'expenses',
+    'summary'=>'summary'
 ];
