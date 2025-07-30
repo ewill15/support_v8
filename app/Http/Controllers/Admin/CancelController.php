@@ -25,7 +25,7 @@ class CancelController extends Controller
     public function index(Request $request)
     {
         $lang = app()->getLocale();
-        $cancels = Cancel::orderBy('month','DESC')->orderBy('year','DESC');
+        $cancels = Cancel::orderBy('year','DESC')->orderBy('month','DESC');
 
         $paginate = $request->pagination ? $request->pagination : 20;
         $page = (int)$request->page;
