@@ -59,63 +59,22 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="custom-month-tab" data-toggle="pill" href="#custom-month" role="tab" aria-controls="custom-month" aria-selected="false">{{ ucfirst(trans('common.month')) }}</a>
-                        </li>
-                        
+                        </li>                        
                     </ul>
                 </div>
                 <div class="card-body">
                     <div class="tab-content" id="custom-tabs-four-tabContent">
                         <div class="tab-pane fade active show" id="custom-all" role="tabpanel" aria-labelledby="custom-all-tab">
-                            <div class="row p-5">
-                                <div class="col-md-6">
-                                <div class="card card-primary">
-                                <div class="card-header">
-                                    <h3 class="card-title"> {{ strtoupper(trans('common.income')) }}</h3>
-
-                                    <div class="card-tools">
-                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                                    </button>
-                                    </div>
-                                    <!-- /.card-tools -->
-                                </div>
-                                <!-- /.card-header -->
-                                <div class="card-body">
-                                    @include('admin.clothes.partials.resume', ['money' => 0,'qr'=>0,'clothes'=>0])
-                                </div>
-                                <!-- /.card-body -->
-                                </div>
-                                <!-- /.card -->
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card card-danger">
-                                <div class="card-header">
-                                    <h3 class="card-title">{{ strtoupper(trans('common.expenses')) }}</h3>
-
-                                    <div class="card-tools">
-                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                                    </button>
-                                    </div>
-                                    <!-- /.card-tools -->
-                                </div>
-                                <!-- /.card-header -->
-                                <div class="card-body">
-                                    @include('admin.clothes.partials.resume', ['money' => 0,'qr'=>0,'clothes'=>0])
-                                </div>
-                                <!-- /.card-body -->
-                                </div>
-                                <!-- /.card -->
-                            </div>
-                            </div>
-                            
+                               @include('admin.clothes.partials.resume', ['inmoney' => 0,'inqr'=>0,'outmoney' => 0,'outqr'=>0,'clothes'=>0])                        
                         </div>
                         <div class="tab-pane fade" id="custom-home" role="tabpanel" aria-labelledby="custom-home-tab">
-                            @include('admin.clothes.partials.resume', ['money' => 0,'qr'=>0,'clothes'=>0])
+                            @include('admin.clothes.partials.resume', ['inmoney' => 0,'inqr'=>0,'outmoney' => 0,'outqr'=>0,'clothes'=>0])
                         </div>
                         <div class="tab-pane fade" id="custom-week" role="tabpanel" aria-labelledby="custom-week-tab">
-                            @include('admin.clothes.partials.resume', ['money' => 0,'qr'=>0,'clothes'=>0])
+                            @include('admin.clothes.partials.resume', ['inmoney' => 0,'inqr'=>0,'outmoney' => 0,'outqr'=>0,'clothes'=>0])
                         </div>
                         <div class="tab-pane fade" id="custom-month" role="tabpanel" aria-labelledby="custom-month-tab">
-                            @include('admin.clothes.partials.resume', ['money' => 0,'qr'=>0,'clothes'=>0])
+                            @include('admin.clothes.partials.resume', ['inmoney' => 0,'inqr'=>0,'outmoney' => 0,'outqr'=>0,'clothes'=>0])
                         </div>                    
                     </div>
                 </div>
@@ -124,4 +83,3 @@
         </div>
     </section>
 @endsection
-s
