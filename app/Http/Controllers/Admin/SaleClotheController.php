@@ -25,7 +25,7 @@ class SaleClotheController extends Controller
     public function index(Request $request)
     {
         $lang = app()->getLocale();
-        $clothes = SaleClothe::orderBy('id', 'DESC');
+        $clothes = SaleClothe::orderBy('date_sale', 'DESC');
         
         $paginate = $request->pagination ? $request->pagination : 20;
         $page = (int)$request->page;
@@ -35,8 +35,12 @@ class SaleClotheController extends Controller
         $text_pagination = Helper::messageCounterPagination($clothes->count(), $page, $paginate, $lang);
 
         $clothes = $clothes->paginate($paginate);
-
-        return view('admin.clothes.index', compact('clothes', 'paginate', 'text_pagination'));
+        $registros_full = $this->getFullData();
+        $registros_monthly = $this->getMonthlyData();
+        $registros_weekly = $this->getWeeklyData();
+        $registros_today = $this->getTodayData();
+        // dd($registros_weekly);
+        return view('admin.clothes.index', compact('clothes', 'paginate', 'text_pagination','registros_full','registros_monthly','registros_weekly','registros_today'));
     }
 
     public function create()
@@ -170,30 +174,41 @@ class SaleClotheController extends Controller
      * pay_type >> 1=Efectivo 0=QR
      * type >> 1=Ingreso 0=Gasto
      */
-    public function sumTotal(Request $request,$date)
+    public function getTodayData()#(Request $request)
     {
-        $partial = SaleClothe::whereDate('date', '=', Carbon::parse($request->date)->toDateString());
+        $result = [
+            "msg"=> 'Error',
+            "items"=>-1
+        ];
 
-        if($request->type)
-            $partial = $partial->where('type','1');
-        else
-            $partial = $partial->where('type','0');
+        $today = Carbon::now()->format('Y-m-d');
+
+        $income = SaleClothe::incomeToday($today)->get();
+        $income_qr = SaleClothe::incomeQRToday($today)->get();
+
+        $expenses = SaleClothe::expenseToday($today)->get();
+        $expenses_qr = SaleClothe::expenseQRToday($today)->get()->toArray();
+
+        $clothes = SaleClothe::clothesToday($today)->get()->toArray();
+
+        $registros['income'] = $income[0]['total'] ??['total'=>0];
+        $registros['iqr'] = $income_qr[0]['total'] ??['total'=>0];
+        $registros['expenses'] = $expenses[0]['total'] ??['total'=>0];
+        $registros['eqr'] = $expenses_qr[0]['total']??['total'=>0];
+        $registros['clothes'] = $clothes[0]['prendas']??['prendas'=>0];
 
 
-        if($request->pay_type)
-            $partial = $partial->where('pay_type','1');
-        else
-            $partial = $partial->where('pay_type','0');
+        $result["msg"] = "Se encontraron registros el dia de hoy";
+        $result["items"] = $registros;
 
-        $partial = $partial->get();
-        
-        if($partial)
-            $total = 'Error';
-        else
-            $total = $partial->sum('price');
+
+        return $registros;
     }
 
-    public function getWeeklyData(Request $request)
+    /**
+     * $type >>  1=Efectivo   0=QR
+     */
+    public function getWeeklyData()#(Request $request)
     {
         $result = [
             "msg"=> 'Error',
@@ -201,22 +216,34 @@ class SaleClotheController extends Controller
         ];
 
         $anio = Carbon::now()->year;
-        $semana = $request->week ? Carbon::parse($request->week)->weekOfYear : Carbon::now()->weekOfYear;
+        $semana = Carbon::now()->weekOfYear;#$request->week ? Carbon::parse($request->week)->weekOfYear : Carbon::now()->weekOfYear;
 
         $inicioSemana = Carbon::now()->setISODate($anio, $semana)->startOfWeek();
-        $finSemana = $inicioSemana->copy()->endOfWeek();
+        $finSemana = $inicioSemana->copy()->endOfWeek()->format('Y-m-d');
 
-        $registros = Registro::whereBetween('week', [$inicioSemana, $finSemana])
-            ->whereYear('year', $anio)
-            ->get();
+        $income = SaleClothe::incomeWeek($inicioSemana->format('Y-m-d'),$finSemana,$anio)->get();
+        $income_qr = SaleClothe::incomeQRWeek($inicioSemana->format('Y-m-d'),$finSemana,$anio)->get();
 
-        if ($registros->isNotEmpty()){
-            $result["msg"] = "Se encontraron registros en la semana $semana en $anio";
-            $result["items"] = $registros;
-        }
+        $expenses = SaleClothe::expenseWeek($inicioSemana->format('Y-m-d'),$finSemana,$anio)->get();
+        $expenses_qr = SaleClothe::expenseQRWeek($inicioSemana->format('Y-m-d'),$finSemana,$anio)->get()->toArray();
+
+        $clothes = SaleClothe::clothesWeek($inicioSemana->format('Y-m-d'),$finSemana,$anio)->get()->toArray();
+
+        $registros['income'] = $income[0]['total'] ??['total'=>0];
+        $registros['iqr'] = $income_qr[0]['total'] ??['total'=>0];
+        $registros['expenses'] = $expenses[0]['total'] ??['total'=>0];
+        $registros['eqr'] = $expenses_qr[0]['total']??['total'=>0];
+        $registros['clothes'] = $clothes[0]['prendas']??['prendas'=>0];
+
+
+        $result["msg"] = "Se encontraron registros en la semana $semana en $anio";
+        $result["items"] = $registros;
+
+
+        return $registros;
 
     }
-    public function getMonthlyData(Request $request)
+    public function getMonthlyData()#(Request $request)
     {
         $result = [
             "msg"=> 'Error',
@@ -224,19 +251,29 @@ class SaleClotheController extends Controller
         ];
 
         $anio = Carbon::now()->year;
-        $mes = $request->month ? Carbon::parse($request->month)->month : Carbon::now()->month; // 7 (julio)
+        $mes = Carbon::now()->month; # $request->month ? Carbon::parse($request->month)->month : Carbon::now()->month; // 7 (julio)
 
-        $registros = SaleClothe::whereMonth('dateSale', $mes)
-            ->whereYear('year', $anio)
-            ->get();
+        $income = SaleClothe::incomeMonth($mes,$anio)->get();
+        $income_qr = SaleClothe::incomeQRMonth($mes,$anio)->get();
 
-        if ($registros->isNotEmpty()){
-            $result["msg"] = "Se encontraron registros en el mes $mes en $anio";
-            $result["items"] = $registros;
-        }
+        $expenses = SaleClothe::expenseMonth($mes,$anio)->get();
+        $expenses_qr = SaleClothe::expenseQRMonth($mes,$anio)->get()->toArray();
+
+        $clothes = SaleClothe::clothesMonth($mes,$anio)->get()->toArray();
+
+        $registros['income'] = $income->isNotEmpty() ? $income[0]->toArray():0;
+        $registros['iqr'] = $income_qr->isNotEmpty() ? $income_qr[0]->toArray():0;
+        $registros['expenses'] = $expenses->isNotEmpty() ? $expenses[0]->toArray():0;
+        $registros['eqr'] = $expenses_qr[0]['total']??['total'=>0];
+        $registros['clothes'] = $clothes[0]['prendas']??['prendas'=>0];
+
+        $result["msg"] = "Se encontraron registros en el mes $mes en $anio";
+        $result["items"] = $registros;
+
+        return $registros;
     }
 
-    public function getFullData(Request $request)
+    public function getFullData()#(Request $request)
     {
         $result = [
             "msg"=> 'Error',
@@ -244,12 +281,24 @@ class SaleClotheController extends Controller
         ];
 
 
-        $registros = SaleClothe::get();
+        $income = SaleClothe::incomeFull()->get();
+        $income_qr = SaleClothe::incomeQRFull()->get();
 
-        if ($registros->isNotEmpty()){
-            $result["msg"] = "Estos son todos los registros";
-            $result["items"] = $registros;
-        }
+        $expenses = SaleClothe::expenseFull()->get();
+        $expenses_qr = SaleClothe::expenseQRFull()->get()->toArray();
+
+        $clothes = SaleClothe::clothesFull()->get()->toArray();
+
+        $registros['income'] = $income->isNotEmpty() ? $income[0]->toArray():0;
+        $registros['iqr'] = $income_qr->isNotEmpty() ? $income_qr[0]->toArray():0;
+        $registros['expenses'] = $expenses->isNotEmpty() ? $expenses[0]->toArray():0;
+        $registros['eqr'] = $expenses_qr[0]['total']??['total'=>0];
+        $registros['clothes'] = $clothes[0]['prendas']??['prendas'=>0];
+
+        $result["msg"] = "Estos son todos los registros";
+        $result["items"] = $registros;
+
+        return $registros;
     }
 
 

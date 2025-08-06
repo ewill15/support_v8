@@ -63,6 +63,7 @@
                                     <th>{{ ucfirst(trans('common.firstname')) }}</th>
                                     <th>{{ ucfirst(trans('common.lastname')) }}</th>
                                     <th>{{ ucfirst(trans('common.username')) }}</th>
+                                    <th>{{ ucfirst(trans('common.email')) }}</th>
                                     <th class="actions">{{ ucfirst(trans('common.actions')) }}</th>
                                 </tr>
                                 </thead>
@@ -73,6 +74,7 @@
                                         <td>{{ @$item->first_name }}</td>
                                         <td>{{ @$item->last_name }}</td>
                                         <td>{{ @$item->username }}</td>
+                                        <td>{{ @$item->email }}</td>
                                         <td>
                                             <div class="input-group-prepend">
                                                 <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">

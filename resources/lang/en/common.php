@@ -221,5 +221,6 @@ return [
     'clothes'=>'clothes',
     'income'=>'income',
     'expenses'=>'expenses',
-    'summary'=>'summary'
+    'summary'=>'summary',
+    'date_sale'=>'date sale',
 ];

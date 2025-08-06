@@ -85,6 +85,7 @@ jQuery(function () {
         locale: "es",
         minDate: moment().subtract(1, "days"),
         maxDate: moment().add(760, "days"),
+        autoclose:true,
         defaultDate: moment(),
     });
     //Date birthday
@@ -92,6 +93,15 @@ jQuery(function () {
         format: "DD-MM-YYYY",
         locale: "es",
         minDate: moment().subtract(40, "years"),
+        maxDate: moment().format('DD-MM-YYYY'),
+        defaultDate: moment(),
+    });
+
+    //sale clothes calendar
+    $('.start_clothes, .end_clothes').datetimepicker({
+        format: "DD-MM-YYYY",
+        locale: "es",
+        minDate: moment().subtract(1, "years"),
         maxDate: moment().format('DD-MM-YYYY'),
         defaultDate: moment(),
     });

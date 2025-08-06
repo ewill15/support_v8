@@ -25,7 +25,8 @@ class User extends Authenticatable
         'password',
         'image',
         'user_role',
-        'access_token'
+        'access_token',
+        'username'
     ];
 
     protected $dates = ['deleted_at'];

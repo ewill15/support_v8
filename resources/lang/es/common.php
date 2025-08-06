@@ -214,4 +214,5 @@ return [
     'income'=>'ingresos',
     'expenses'=>'gastos',
     'summary'=>'resumen',
+    'date_sale'=>'feha de venta',
 ];

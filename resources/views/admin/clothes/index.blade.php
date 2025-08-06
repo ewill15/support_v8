@@ -49,7 +49,10 @@
                 <div class="card-header p-0 border-bottom-0">
                     <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="custom-all-tab" data-toggle="pill" href="#custom-all" role="tab" aria-controls="custom-all" aria-selected="true">{{ ucfirst(trans('common.all')) }}</a>
+                            <a class="nav-link active" id="custom-list-tab" data-toggle="pill" href="#custom-list" role="tab" aria-controls="custom-list" aria-selected="true">{{ ucfirst(trans('common.list')) }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="custom-all-tab" data-toggle="pill" href="#custom-all" role="tab" aria-controls="custom-all" aria-selected="true">{{ ucfirst(trans('common.all')) }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="custom-home-tab" data-toggle="pill" href="#custom-home" role="tab" aria-controls="custom-home" aria-selected="false">{{ ucfirst(trans('common.today')) }}</a>
@@ -64,17 +67,75 @@
                 </div>
                 <div class="card-body">
                     <div class="tab-content" id="custom-tabs-four-tabContent">
-                        <div class="tab-pane fade active show" id="custom-all" role="tabpanel" aria-labelledby="custom-all-tab">
-                               @include('admin.clothes.partials.resume', ['inmoney' => 0,'inqr'=>0,'outmoney' => 0,'outqr'=>0,'clothes'=>0])                        
+                        <div class="tab-pane fade active show" id="custom-list" role="tabpanel" aria-labelledby="custom-list-tab">
+                               <div class="table-responsive"> 
+                            <table class="table table-register table-striped table-bordered table-hover">                                        
+                                <thead>
+                                <tr>
+                                    <th>{{ ucfirst(trans('common.date_sale')) }}</th>
+                                    <th>{{ ucfirst(trans('common.type')) }}</th>
+                                    <th>{{ ucfirst(trans('common.description')) }}</th>
+                                    <th>{{ ucfirst(trans('common.price')) }}</th>
+                                    <th class="actions">{{ ucfirst(trans('common.actions')) }}</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($clothes as $item)
+                                    <tr class="gradeX">
+                                        <td class="w-150p">{{ @$item->dateSaleFormat }}</td>
+                                        <td>{{ @$item->income }}</td>
+                                        <td>{{ @$item->description }}</td>
+                                        <td>{{ @$item->payment }}</td>
+                                        <td>
+                                            <div class="input-group-prepend">
+                                                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                                                    {{ ucfirst(trans('common.actions')) }}
+                                                </button>
+                                                <div class="dropdown-menu">
+                                                        <a href="{{ url('admin/clothes/' . @$item->id . '/edit') }}" class="dropdown-item">
+                                                            <i class="fas fa-edit"></i> {{ ucfirst(trans('common.update')) }}
+                                                        </a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" href="#"
+                                                            data-action="delete"
+                                                            data-name="improve" 
+                                                            data-url="{{ route('clothes.destroy', $item->id) }}" 
+                                                            data-title-msg="{{ ucfirst(trans('common.delete')) }}" 
+                                                            data-text-msg="{{ ucfirst(trans('common.msgdelete')) }}"
+                                                            data-btn-action="{{ ucwords(trans('common.delete')) }}"
+                                                            data-btn-cancel="{{ ucfirst(trans('common.cancel')) }}"
+                                                        >
+                                                            <i class="fas fa-trash-alt"></i> {{ ucfirst(trans('common.delete')) }}
+                                                        </a>
+                                                </div>
+                                            </div>       
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                            @include('admin.clothes.partials.modal-delete')
+                            <div class="float-left">
+                                {{ $text_pagination }}
+                            </div>
+                            <div class="float-right">                                        
+                                <div class="btn-group">
+                                  {!! $clothes->appends(request()->except('page'))->links() !!}
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="tab-pane fade" id="custom-all" role="tabpanel" aria-labelledby="custom-all-tab">
+                               @include('admin.clothes.partials.resume', ['inmoney' => $registros_full['income']['total'],'inqr'=>$registros_full['iqr']['total'],'outmoney' => $registros_full['expenses']['total'],'outqr'=>$registros_full['eqr']['total'],'clothes'=>$registros_full['clothes']])                        
                         </div>
                         <div class="tab-pane fade" id="custom-home" role="tabpanel" aria-labelledby="custom-home-tab">
-                            @include('admin.clothes.partials.resume', ['inmoney' => 0,'inqr'=>0,'outmoney' => 0,'outqr'=>0,'clothes'=>0])
+                            @include('admin.clothes.partials.resume', ['inmoney' => $registros_today['income']['total'],'inqr'=>$registros_today['iqr']['total'],'outmoney' => $registros_today['expenses']['total'],'outqr'=>$registros_today['eqr']['total'],'clothes'=>$registros_today['clothes']['prendas']])
                         </div>
                         <div class="tab-pane fade" id="custom-week" role="tabpanel" aria-labelledby="custom-week-tab">
-                            @include('admin.clothes.partials.resume', ['inmoney' => 0,'inqr'=>0,'outmoney' => 0,'outqr'=>0,'clothes'=>0])
+                            @include('admin.clothes.partials.resume', ['inmoney' =>  $registros_weekly['income']['total'],'inqr'=>$registros_weekly['iqr']['total'],'outmoney' => $registros_weekly['expenses']['total'],'outqr'=>$registros_weekly['eqr']['total'],'clothes'=>$registros_weekly['clothes']['prendas']])
                         </div>
                         <div class="tab-pane fade" id="custom-month" role="tabpanel" aria-labelledby="custom-month-tab">
-                            @include('admin.clothes.partials.resume', ['inmoney' => 0,'inqr'=>0,'outmoney' => 0,'outqr'=>0,'clothes'=>0])
+                            @include('admin.clothes.partials.resume', ['inmoney' => $registros_monthly['income']['total'],'inqr'=>$registros_monthly['iqr']['total'],'outmoney' => $registros_monthly['expenses']['total'],'outqr'=> $registros_monthly['eqr']['total'],'clothes'=>$registros_monthly['clothes']])
                         </div>                    
                     </div>
                 </div>
