@@ -1,28 +1,28 @@
-<div class="row p-5">
-<div class="col-md-2"></div>
-<div class="col-md-8">
-    <div class="input-group input-daterange">
-    <div class="col-md-4">
-        <div class="input-group date" id="start_clothes" data-target-input="nearest">
-            {!! Form::text('start_clothes', now()->format('d-m-Y'), ['class' => 'form-control datetimepicker-input', 'data-target' => '#start_clothes', 'readonly'=>'readonly']) !!}
-            <div class="input-group-append" data-target="#start_clothes" data-toggle="datetimepicker">
-                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+{{-- <div class="row p-5">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="input-group input-daterange">
+        <div class="col-md-4">
+            <div class="input-group date" id="start_clothes" data-target-input="nearest">
+                {!! Form::text('start_clothes', now()->format('d-m-Y'), ['class' => 'form-control datetimepicker-input', 'data-target' => '#start_clothes', 'readonly'=>'readonly']) !!}
+                <div class="input-group-append" data-target="#start_clothes" data-toggle="datetimepicker">
+                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="input-group-addon px-3">to</div>
-    <div class="col-md-4">
-        <div class="input-group date" id="end_clothes" data-target-input="nearest">
-            {!! Form::text('end_clothes', now()->format('d-m-Y'), ['class' => 'form-control datetimepicker-input', 'data-target' => '#end_clothes', 'readonly'=>'readonly']) !!}
-            <div class="input-group-append" data-target="#end_clothes" data-toggle="datetimepicker">
-                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+        <div class="input-group-addon px-3">to</div>
+        <div class="col-md-4">
+            <div class="input-group date" id="end_clothes" data-target-input="nearest">
+                {!! Form::text('end_clothes', now()->format('d-m-Y'), ['class' => 'form-control datetimepicker-input', 'data-target' => '#end_clothes', 'readonly'=>'readonly']) !!}
+                <div class="input-group-append" data-target="#end_clothes" data-toggle="datetimepicker">
+                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                </div>
             </div>
         </div>
+        </div>
     </div>
+</div> --}}
 
-</div>
-</div>
-</div>
 <div class="row p-5">
     <div class="col-md-6">
         <div class="card card-primary">
