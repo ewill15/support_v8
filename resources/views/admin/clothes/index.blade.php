@@ -137,7 +137,7 @@
                                     </div>                                
                                 </div>
                             </div>
-                            @include('admin.clothes.partials.resume', ['inmoney' => $registros_today['income']['total'],'inqr'=>$registros_today['iqr']['total'],'outmoney' => $registros_today['expenses']['total'],'outqr'=>$registros_today['eqr']['total'],'clothes'=>$registros_today['clothes']['prendas']])
+                            @include('admin.clothes.partials.resume', ['inmoney' => $registros_today['income']['total'],'inqr'=>$registros_today['iqr']['total'],'outmoney' => $registros_today['expenses']['total'],'outqr'=>$registros_today['eqr']['total'],'clothes'=>$registros_today['clothes']])
                         </div>
                         <div class="tab-pane fade" id="custom-week" role="tabpanel" aria-labelledby="custom-week-tab">
                             <div class="col-sm-5 col-md-6 mx-auto">
@@ -150,7 +150,7 @@
                                     </div>                                
                                 </div>
                             </div>
-                            @include('admin.clothes.partials.resume', ['inmoney' =>  $registros_weekly['income']['total'],'inqr'=>$registros_weekly['iqr']['total'],'outmoney' => $registros_weekly['expenses']['total'],'outqr'=>$registros_weekly['eqr']['total'],'clothes'=>$registros_weekly['clothes']['prendas']])
+                            @include('admin.clothes.partials.resume', ['inmoney' =>  $registros_weekly['income']['total'],'inqr'=>$registros_weekly['iqr']['total'],'outmoney' => $registros_weekly['expenses']['total'],'outqr'=>$registros_weekly['eqr']['total'],'clothes'=>$registros_weekly['clothes']])
                         </div>
                         <div class="tab-pane fade" id="custom-month" role="tabpanel" aria-labelledby="custom-month-tab">
                             <div class="col-sm-4 col-md-2 mx-auto">

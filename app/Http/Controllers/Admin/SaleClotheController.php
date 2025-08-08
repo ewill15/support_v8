@@ -39,7 +39,7 @@ class SaleClotheController extends Controller
         $registros_monthly = $this->getMonthlyData();
         $registros_weekly = $this->getWeeklyData();
         $registros_today = $this->getTodayData();
-        // dd($registros_weekly);
+        //  dd($registros_full,$registros_monthly,$registros_weekly,$registros_today);
         return view('admin.clothes.index', compact('clothes', 'paginate', 'text_pagination','registros_full','registros_monthly','registros_weekly','registros_today'));
     }
 
@@ -69,7 +69,6 @@ class SaleClotheController extends Controller
         $fields = $request->all();
         $fields['date_sale'] = Carbon::parse($request->day_sale)->format('Y-m-d');
         $fields['week'] = Carbon::parse($request->day_sale)->weekOfYear;
-        $fields['year'] = Carbon::parse($request->day_sale)->year;
         $clothe = SaleClothe::create($fields);
 
         if ($clothe) {
@@ -134,7 +133,6 @@ class SaleClotheController extends Controller
         }
         $fields['date_sale'] = Carbon::parse($request->day_sale)->format('Y-m-d');
         $fields['week'] = Carbon::parse($request->day_sale)->weekOfYear;
-        $fields['year'] = Carbon::parse($request->day_sale)->year;
         $clothe = $clothe->update($fields);
 
         if ($clothe) {
@@ -191,11 +189,11 @@ class SaleClotheController extends Controller
 
         $clothes = SaleClothe::clothesToday($today)->get()->toArray();
 
-        $registros['income'] = $income[0]['total'] ??['total'=>0];
-        $registros['iqr'] = $income_qr[0]['total'] ??['total'=>0];
-        $registros['expenses'] = $expenses[0]['total'] ??['total'=>0];
+        $registros['income'] = $income->isNotEmpty() ? $income[0]->toArray():0;
+        $registros['iqr'] =$income_qr->isNotEmpty() ? $income_qr[0]->toArray():0;
+        $registros['expenses'] = $expenses->isNotEmpty() ? $expenses[0]->toArray():0;
         $registros['eqr'] = $expenses_qr[0]['total']??['total'=>0];
-        $registros['clothes'] = $clothes[0]['prendas']??['prendas'=>0];
+        $registros['clothes'] = $clothes[0]['prendas']?? 0;
 
 
         $result["msg"] = "Se encontraron registros el dia de hoy";
@@ -229,11 +227,11 @@ class SaleClotheController extends Controller
 
         $clothes = SaleClothe::clothesWeek($inicioSemana->format('Y-m-d'),$finSemana,$anio)->get()->toArray();
 
-        $registros['income'] = $income[0]['total'] ??['total'=>0];
-        $registros['iqr'] = $income_qr[0]['total'] ??['total'=>0];
-        $registros['expenses'] = $expenses[0]['total'] ??['total'=>0];
+        $registros['income'] = $income->isNotEmpty() ? $income[0]->toArray():0;
+        $registros['iqr'] = $income_qr->isNotEmpty() ? $income_qr[0]->toArray():0;
+        $registros['expenses'] = $expenses->isNotEmpty() ? $expenses[0]->toArray():0;
         $registros['eqr'] = $expenses_qr[0]['total']??['total'=>0];
-        $registros['clothes'] = $clothes[0]['prendas']??['prendas'=>0];
+        $registros['clothes'] = $clothes[0]['prendas']?? 0;
 
 
         $result["msg"] = "Se encontraron registros en la semana $semana en $anio";
@@ -265,7 +263,7 @@ class SaleClotheController extends Controller
         $registros['iqr'] = $income_qr->isNotEmpty() ? $income_qr[0]->toArray():0;
         $registros['expenses'] = $expenses->isNotEmpty() ? $expenses[0]->toArray():0;
         $registros['eqr'] = $expenses_qr[0]['total']??['total'=>0];
-        $registros['clothes'] = $clothes[0]['prendas']??['prendas'=>0];
+        $registros['clothes'] = $clothes[0]['prendas']?? 0;
 
         $result["msg"] = "Se encontraron registros en el mes $mes en $anio";
         $result["items"] = $registros;
@@ -293,7 +291,7 @@ class SaleClotheController extends Controller
         $registros['iqr'] = $income_qr->isNotEmpty() ? $income_qr[0]->toArray():0;
         $registros['expenses'] = $expenses->isNotEmpty() ? $expenses[0]->toArray():0;
         $registros['eqr'] = $expenses_qr[0]['total']??['total'=>0];
-        $registros['clothes'] = $clothes[0]['prendas']??['prendas'=>0];
+        $registros['clothes'] = $clothes[0]['prendas']?? 0;
 
         $result["msg"] = "Estos son todos los registros";
         $result["items"] = $registros;
