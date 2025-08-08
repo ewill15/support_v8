@@ -42,7 +42,7 @@
                                 </div>
                                 <div class="form-group">
                                     <input id="password-field" type="password" class="form-control" name="password" />
-                                    <label class="form-control-placeholder mt-1" for="password">{{ ucfirst(trans('common.email')) }}</label>
+                                    <label class="form-control-placeholder mt-1" for="password">{{ ucfirst(trans('common.password')) }}</label>
                                     <span toggle="#password-field"
                                         class="fa fa-fw fa-eye field-icon toggle-password"></span>
                                 </div>
