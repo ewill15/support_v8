@@ -21,6 +21,8 @@ use App\Http\Controllers\Admin\BackupController;
 use App\Http\Controllers\Admin\CreditController;
 use App\Http\Controllers\Admin\PasanakusController;
 use App\Http\Controllers\Admin\SaleClotheController;
+use App\Http\Controllers\Admin\InventaryClothesController;
+use App\Http\Controllers\Admin\LegendClothesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,4 +78,7 @@ Route::group(['middleware'=>['auth'], 'prefix' => 'admin'], function(){
 
     Route::resource('clothes', SaleClotheController::class);
     Route::post('clothes/resume', [SaleClotheController::class,'resume']);
+
+     Route::resource('inventary_clothes', InventaryClothesController::class);
+      Route::resource('legend_clothes', LegendClothesController::class);
 });
