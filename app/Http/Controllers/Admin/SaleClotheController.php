@@ -39,7 +39,7 @@ class SaleClotheController extends Controller
         $registros_monthly = $this->getMonthlyData();
         $registros_weekly = $this->getWeeklyData();
         $registros_today = $this->getTodayData();
-        //  dd($registros_weekly,$registros_today);
+        //  dd($registros_full,$registros_monthly,$registros_weekly,$registros_today);
         return view('admin.clothes.index', compact('clothes', 'paginate', 'text_pagination','registros_full','registros_monthly','registros_weekly','registros_today'));
     }
 
