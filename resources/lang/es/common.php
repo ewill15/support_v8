@@ -217,4 +217,6 @@ return [
     'date_sale'=>'feha de venta',
 
     'transaction_type'=>'tipo transaccion',
+    'field'=>'campo',
+    'required'=>'obligatorio'
 ];

@@ -1,8 +1,8 @@
 <div class="row">
     <div class="col-lg-12 mb-20">
-        <p>Campos con  (
+        <p>{{ucfirst(trans('common.field'))}}  (
             <span class="text-danger">*</span>
-            ) son obligatorios
+            ) {{ucfirst(trans('common.required'))}}
         </p>
     </div>
     <div class="col-lg-10">

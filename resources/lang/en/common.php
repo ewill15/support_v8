@@ -225,4 +225,6 @@ return [
     'date_sale'=>'date sale',
 
     'transaction_type'=>'transaction type',
+    'field'=>'field',
+    'required'=>'required'
 ];
