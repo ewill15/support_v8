@@ -223,4 +223,6 @@ return [
     'expenses'=>'expenses',
     'summary'=>'summary',
     'date_sale'=>'date sale',
+
+    'transaction_type'=>'transaction type',
 ];

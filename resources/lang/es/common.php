@@ -215,4 +215,6 @@ return [
     'expenses'=>'gastos',
     'summary'=>'resumen',
     'date_sale'=>'feha de venta',
+
+    'transaction_type'=>'tipo transaccion',
 ];
