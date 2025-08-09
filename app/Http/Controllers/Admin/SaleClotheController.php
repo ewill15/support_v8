@@ -25,7 +25,7 @@ class SaleClotheController extends Controller
     public function index(Request $request)
     {
         $lang = app()->getLocale();
-        $clothes = SaleClothe::orderBy('date_sale', 'DESC');
+        $clothes = SaleClothe::orderBy('id', 'DESC');
         
         $paginate = $request->pagination ? $request->pagination : 20;
         $page = (int)$request->page;
@@ -39,7 +39,7 @@ class SaleClotheController extends Controller
         $registros_monthly = $this->getMonthlyData();
         $registros_weekly = $this->getWeeklyData();
         $registros_today = $this->getTodayData();
-        //  dd($registros_full,$registros_monthly,$registros_weekly,$registros_today);
+        //  dd($registros_weekly,$registros_today);
         return view('admin.clothes.index', compact('clothes', 'paginate', 'text_pagination','registros_full','registros_monthly','registros_weekly','registros_today'));
     }
 
@@ -226,6 +226,8 @@ class SaleClotheController extends Controller
         $expenses_qr = SaleClothe::expenseQRWeek($inicioSemana->format('Y-m-d'),$finSemana,$anio)->get()->toArray();
 
         $clothes = SaleClothe::clothesWeek($inicioSemana->format('Y-m-d'),$finSemana,$anio)->get()->toArray();
+        // dd(SaleClothe::clothesWeek($inicioSemana->format('Y-m-d'),$finSemana,$anio)->toSql(),$inicioSemana->format('Y-m-d'),$finSemana,$anio);
+
 
         $registros['income'] = $income->isNotEmpty() ? $income[0]->toArray():0;
         $registros['iqr'] = $income_qr->isNotEmpty() ? $income_qr[0]->toArray():0;
