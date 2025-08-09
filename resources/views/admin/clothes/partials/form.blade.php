@@ -71,7 +71,7 @@
                     {{ ucfirst(trans('validation.attributes.pay_type')).':' }}
                 </label>
                 <div class="col-md-7">
-                    {!! Form::select('pay_type', [1=>'Efectivo',0=>'QR'], null, ['class' => 'form-control','required' => 'required']) !!}
+                    {!! Form::select('pay_type', [1=>'Efectivo',0=>'QR',2=>'transferencia',3=>'deposito'], null, ['class' => 'form-control','required' => 'required']) !!}
                     {!! $errors->first('pay_type', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>
