@@ -110,7 +110,7 @@ class SaleClothe extends Model
     {
         return $query->where('type','=',false)
         ->where('pay_type','=',true)
-        ->whereDate('date_sale',[$start, $end])
+        ->whereBetween('date_sale',[$start, $end])
         ->whereYear('date_sale', $year)
         ->selectRaw('SUM(price) as total');
     }
@@ -142,7 +142,7 @@ class SaleClothe extends Model
     {
         return $query->where('type','=',false)
         ->where('pay_type','=',false)
-        ->whereDate('date_sale',[$start, $end])
+        ->whereBetween('date_sale',[$start, $end])
         ->whereYear('date_sale', $year)
         ->selectRaw('SUM(price) as total');
     }
@@ -164,24 +164,27 @@ class SaleClothe extends Model
     /** prendas vendidas */
     public function scopeClothesToday($query,$today)
     {
-        return $query->whereDate('date_sale','=',$today)
+        return $query->where('type','=',1)
+        ->whereDate('date_sale','=',$today)
         ->selectRaw('SUM(quantity) as prendas');
     }
-    public function scopeClothesWeek($query,$month,$year)
+    public function scopeClothesWeek($query, $start, $end,$year)
     {
-        return $query->whereMonth('date_sale',$month)
-        ->whereYear('date_sale', $year)
+        return $query->where('type','=',1)
+        ->whereBetween('date_sale',[$start, $end])
         ->selectRaw('SUM(quantity) as prendas');
     }
     public function scopeClothesMonth($query,$month,$year)
     {
-        return $query->whereMonth('date_sale',$month)
+        return $query->where('type','=',1)
+        ->whereMonth('date_sale',$month)
         ->whereYear('date_sale', $year)
         ->selectRaw('SUM(quantity) as prendas');
     }
     public function scopeClothesFull($query)
     {
-        return $query->selectRaw('SUM(quantity) as prendas');
+        return $query->where('type','=',1)
+        ->selectRaw('SUM(quantity) as prendas');
     }
     /**
      * **********************************************
@@ -192,9 +195,27 @@ class SaleClothe extends Model
     {
         return $this->type?'Ingreso':'Gasto';
     }
-    public function getPaymentAttribute()
+    public function getPaymentTextAttribute()
     {
-        return $this->pay_type?'Efectivo':'QR';
+        switch ($this->pay_type) {
+            case '1':
+                $pay_type_string = 'Efectivo';
+                break;
+            case '2':
+                $pay_type_string = 'Transferencia';
+                break;
+            case '3':
+                $pay_type_string = 'Deposito';
+                break;
+            case '0':
+                $pay_type_string = 'QR';
+                break;
+            default:
+                $pay_type_string = 'tipo de pago desconocido';
+                break;
+        }
+        
+        return $pay_type_string;
     }
     public function getDateSaleFormatAttribute()
     {
