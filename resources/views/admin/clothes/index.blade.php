@@ -75,7 +75,7 @@
                                     <th>{{ ucfirst(trans('common.date_sale')) }}</th>
                                     <th>{{ ucfirst(trans('common.type')) }}</th>
                                     <th>{{ ucfirst(trans('common.description')) }}</th>
-                                    <th>{{ ucfirst(trans('common.price')) }}</th>
+                                    <th>{{ ucfirst(trans('common.transaction_type')) }}</th>
                                     <th class="actions">{{ ucfirst(trans('common.actions')) }}</th>
                                 </tr>
                                 </thead>
@@ -85,7 +85,7 @@
                                         <td class="w-150p">{{ @$item->dateSaleFormat }}</td>
                                         <td>{{ @$item->income }}</td>
                                         <td>{{ @$item->description }}</td>
-                                        <td>{{ @$item->payment }}</td>
+                                        <td>{{ @$item->paymentText }}</td>
                                         <td>
                                             <div class="input-group-prepend">
                                                 <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
@@ -98,7 +98,7 @@
                                                         <div class="dropdown-divider"></div>
                                                         <a class="dropdown-item" href="#"
                                                             data-action="delete"
-                                                            data-name="improve" 
+                                                            data-name="{{ $item->description }}" 
                                                             data-url="{{ route('clothes.destroy', $item->id) }}" 
                                                             data-title-msg="{{ ucfirst(trans('common.delete')) }}" 
                                                             data-text-msg="{{ ucfirst(trans('common.msgdelete')) }}"
