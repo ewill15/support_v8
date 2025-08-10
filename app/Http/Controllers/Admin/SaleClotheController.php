@@ -189,10 +189,10 @@ class SaleClotheController extends Controller
 
         $clothes = SaleClothe::clothesToday($today)->get()->toArray();
 
-        $registros['income'] = $income->isNotEmpty() ? $income[0]->toArray():0;
-        $registros['iqr'] =$income_qr->isNotEmpty() ? $income_qr[0]->toArray():0;
-        $registros['expenses'] = $expenses->isNotEmpty() ? $expenses[0]->toArray():0;
-        $registros['eqr'] = $expenses_qr[0]['total']??['total'=>0];
+        $registros['income'] = $income->isNotEmpty() ? $income[0]->toArray():['total'=>0];
+        $registros['iqr'] =$income_qr->isNotEmpty() ? $income_qr[0]->toArray():['total'=>0];
+        $registros['expenses'] = $expenses->isNotEmpty() ? $expenses[0]->toArray():['total'=>0];
+        $registros['eqr'] = $expenses_qr[0]['total']?? 0;
         $registros['clothes'] = $clothes[0]['prendas']?? 0;
 
 
@@ -229,10 +229,10 @@ class SaleClotheController extends Controller
         // dd(SaleClothe::clothesWeek($inicioSemana->format('Y-m-d'),$finSemana,$anio)->toSql(),$inicioSemana->format('Y-m-d'),$finSemana,$anio);
 
 
-        $registros['income'] = $income->isNotEmpty() ? $income[0]->toArray():0;
-        $registros['iqr'] = $income_qr->isNotEmpty() ? $income_qr[0]->toArray():0;
-        $registros['expenses'] = $expenses->isNotEmpty() ? $expenses[0]->toArray():0;
-        $registros['eqr'] = $expenses_qr[0]['total']??['total'=>0];
+        $registros['income'] = $income->isNotEmpty() ? $income[0]->toArray():['total'=>0];
+        $registros['iqr'] = $income_qr->isNotEmpty() ? $income_qr[0]->toArray():['total'=>0];
+        $registros['expenses'] = $expenses->isNotEmpty() ? $expenses[0]->toArray():['total'=>0];
+        $registros['eqr'] = $expenses_qr[0]['total']?? 0;
         $registros['clothes'] = $clothes[0]['prendas']?? 0;
 
 
@@ -261,10 +261,10 @@ class SaleClotheController extends Controller
 
         $clothes = SaleClothe::clothesMonth($mes,$anio)->get()->toArray();
 
-        $registros['income'] = $income->isNotEmpty() ? $income[0]->toArray():0;
-        $registros['iqr'] = $income_qr->isNotEmpty() ? $income_qr[0]->toArray():0;
-        $registros['expenses'] = $expenses->isNotEmpty() ? $expenses[0]->toArray():0;
-        $registros['eqr'] = $expenses_qr[0]['total']??['total'=>0];
+        $registros['income'] = $income->isNotEmpty() ? $income[0]->toArray():['total'=>0];
+        $registros['iqr'] = $income_qr->isNotEmpty() ? $income_qr[0]->toArray():['total'=>0];
+        $registros['expenses'] = $expenses->isNotEmpty() ? $expenses[0]->toArray():['total'=>0];
+        $registros['eqr'] = $expenses_qr[0]['total']?? 0;
         $registros['clothes'] = $clothes[0]['prendas']?? 0;
 
         $result["msg"] = "Se encontraron registros en el mes $mes en $anio";
@@ -289,10 +289,10 @@ class SaleClotheController extends Controller
 
         $clothes = SaleClothe::clothesFull()->get()->toArray();
 
-        $registros['income'] = $income->isNotEmpty() ? $income[0]->toArray():0;
-        $registros['iqr'] = $income_qr->isNotEmpty() ? $income_qr[0]->toArray():0;
-        $registros['expenses'] = $expenses->isNotEmpty() ? $expenses[0]->toArray():0;
-        $registros['eqr'] = $expenses_qr[0]['total']??['total'=>0];
+        $registros['income'] = $income->isNotEmpty() ? $income[0]->toArray():['total'=>0];
+        $registros['iqr'] = $income_qr->isNotEmpty() ? $income_qr[0]->toArray():['total'=>0];
+        $registros['expenses'] = $expenses->isNotEmpty() ? $expenses[0]->toArray():['total'=>0];
+        $registros['eqr'] = $expenses_qr[0]['total']?? 0;
         $registros['clothes'] = $clothes[0]['prendas']?? 0;
 
         $result["msg"] = "Estos son todos los registros";
