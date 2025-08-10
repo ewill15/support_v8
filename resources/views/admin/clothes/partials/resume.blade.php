@@ -41,9 +41,36 @@
                 <div class="col-12 col-sm-6 col-md-3">
                     <div class="info-box resume-card">
                         <span class="info-box-icon bg-success elevation-1 p-2">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                        </span>
+                        <div class="info-box-content">
+                            <span class="info-box-text">{{ ucfirst(trans('common.money')) .'+'. strtoupper(trans('common.qr'))}}</span>
+                            <span class="info-box-number">
+                             @switch($type_date)
+                                 @case('today')
+                                    {{$inmoney + $inqr}}
+                                    @break
+                                 @case('week')
+                                    {{$inmoney + $inqr}}
+                                    @break
+                                @case('month')
+                                    {{$inmoney + $inqr}}
+                                    @break
+                                 @default
+                                    {{$inmoney + $inqr}}
+                             @endswitch
+                            </span>
+                        </div>
+                         <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="info-box resume-card">
+                        <span class="info-box-icon bg-success elevation-1 p-2">
                             <i class="fas fa-users"></i>
                         </span>
-
                         <div class="info-box-content">
                             <span class="info-box-text">{{ ucfirst(trans('common.money')) }}</span>
                             <span class="info-box-number">
@@ -107,6 +134,33 @@
         </div>
         <!-- /.card-header -->
         <div class="card-body">
+            <div class="col-12 col-sm-6 col-md-3">
+                    <div class="info-box resume-card">
+                        <span class="info-box-icon bg-success elevation-1 p-2">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                        </span>
+                        <div class="info-box-content">
+                            <span class="info-box-text">{{ ucfirst(trans('common.money')) .'+'. strtoupper(trans('common.qr'))}}</span>
+                            <span class="info-box-number">
+                             @switch($type_date)
+                                 @case('today')
+                                    {{$outmoney + $outqr}}
+                                    @break
+                                 @case('week')
+                                    {{$outmoney + $outqr}}
+                                    @break
+                                @case('month')
+                                    {{$outmoney + $outqr}}
+                                    @break
+                                 @default
+                                    {{$outmoney + $outqr}}
+                             @endswitch
+                            </span>
+                        </div>
+                         <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
             <div class="col-12 col-sm-6 col-md-3">
                 <div class="info-box resume-card">
                     <span class="info-box-icon bg-success elevation-1 p-2">
