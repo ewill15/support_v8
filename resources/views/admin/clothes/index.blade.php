@@ -76,6 +76,7 @@
                                     <th>{{ ucfirst(trans('common.type')) }}</th>
                                     <th>{{ ucfirst(trans('common.description')) }}</th>
                                     <th>{{ ucfirst(trans('common.transaction_type')) }}</th>
+                                    <th>{{ ucfirst(trans('common.price')) }}</th>
                                     <th class="actions">{{ ucfirst(trans('common.actions')) }}</th>
                                 </tr>
                                 </thead>
@@ -86,6 +87,7 @@
                                         <td>{{ @$item->income }}</td>
                                         <td>{{ @$item->description }}</td>
                                         <td>{{ @$item->paymentText }}</td>
+                                        <td>{{ @$item->price }}</td>
                                         <td>
                                             <div class="input-group-prepend">
                                                 <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
@@ -126,8 +128,9 @@
                         </div>
                         </div>
                         <div class="tab-pane fade" id="custom-all" role="tabpanel" aria-labelledby="custom-all-tab">
-                               @include('admin.clothes.partials.resume', ['inmoney' => $registros_full['income']['total'],'inqr'=>$registros_full['iqr']['total'],'outmoney' => $registros_full['expenses']['total'],'outqr'=>$registros_full['eqr'],'clothes'=>$registros_full['clothes']])                        
+                               @include('admin.clothes.partials.resume', ['type_date'=>'full','inmoney' => $registros_full['income']['total'],'inqr'=>$registros_full['iqr']['total'],'outmoney' => $registros_full['expenses']['total'],'outqr'=>$registros_full['eqr'],'clothes'=>$registros_full['clothes']])                        
                         </div>
+
                         <div class="tab-pane fade" id="custom-home" role="tabpanel" aria-labelledby="custom-home-tab">
                             <div class="col-sm-5 col-md-6 mx-auto">
                                 <div class="color-palette-set">
@@ -137,7 +140,7 @@
                                     </div>                                
                                 </div>
                             </div>
-                            @include('admin.clothes.partials.resume', ['inmoney' => $registros_today['income']['total'],'inqr'=>$registros_today['iqr']['total'],'outmoney' => $registros_today['expenses']['total'],'outqr'=>$registros_today['eqr'],'clothes'=>$registros_today['clothes']])
+                            @include('admin.clothes.partials.resume', ['type_date'=>'today','inmoney' => $registros_today['income']['total'],'inqr'=>$registros_today['iqr']['total'],'outmoney' => $registros_today['expenses']['total'],'outqr'=>$registros_today['eqr'],'clothes'=>$registros_today['clothes']])
                         </div>
                         <div class="tab-pane fade" id="custom-week" role="tabpanel" aria-labelledby="custom-week-tab">
                             <div class="col-sm-5 col-md-6 mx-auto">
@@ -150,8 +153,9 @@
                                     </div>                                
                                 </div>
                             </div>
-                            @include('admin.clothes.partials.resume', ['inmoney' =>  $registros_weekly['income']['total'],'inqr'=>$registros_weekly['iqr']['total'],'outmoney' => $registros_weekly['expenses']['total'],'outqr'=>$registros_weekly['eqr'],'clothes'=>$registros_weekly['clothes']])
+                            @include('admin.clothes.partials.resume', ['type_date'=>'week','inmoney' =>  $registros_weekly['income']['total'],'inqr'=>$registros_weekly['iqr']['total'],'outmoney' => $registros_weekly['expenses']['total'],'outqr'=>$registros_weekly['eqr'],'clothes'=>$registros_weekly['clothes']])
                         </div>
+
                         <div class="tab-pane fade" id="custom-month" role="tabpanel" aria-labelledby="custom-month-tab">
                             <div class="col-sm-4 col-md-2 mx-auto">
                                 <div class="color-palette-set">
@@ -160,7 +164,7 @@
                                     </div>                                
                                 </div>
                             </div>
-                            @include('admin.clothes.partials.resume', ['inmoney' => $registros_monthly['income']['total'],'inqr'=>$registros_monthly['iqr']['total'],'outmoney' => $registros_monthly['expenses']['total'],'outqr'=> $registros_monthly['eqr'],'clothes'=>$registros_monthly['clothes']])
+                            @include('admin.clothes.partials.resume', ['type_date'=>'month','inmoney' => $registros_monthly['income']['total'],'inqr'=>$registros_monthly['iqr']['total'],'outmoney' => $registros_monthly['expenses']['total'],'outqr'=> $registros_monthly['eqr'],'clothes'=>$registros_monthly['clothes']])
                         </div>                    
                     </div>
                 </div>
