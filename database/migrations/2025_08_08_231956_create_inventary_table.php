@@ -20,7 +20,7 @@ class CreateInventaryTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('inventary', function (Blueprint $table) {
+        Schema::create('inventary_clothes', function (Blueprint $table) {
             $table->id();
             $table->text('description')->nullable();
             $table->string('size',3)->nullable()->comment('0m,3m,6m,9m,12m,24m,3a-14a');
