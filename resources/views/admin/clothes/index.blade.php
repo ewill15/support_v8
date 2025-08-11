@@ -62,7 +62,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="custom-month-tab" data-toggle="pill" href="#custom-month" role="tab" aria-controls="custom-month" aria-selected="false">{{ ucfirst(trans('common.month')) }}</a>
-                        </li>                        
+                        </li>
                     </ul>
                 </div>
                 <div class="card-body">
