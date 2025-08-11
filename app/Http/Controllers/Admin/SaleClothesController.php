@@ -4,13 +4,13 @@ namespace App\Http\Controllers\Admin;
 
 use App\Helper;
 use Carbon\Carbon;
-use App\Models\SaleClothe;
+use App\Models\SaleClothes;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 
-class SaleClotheController extends Controller
+class SaleClothesController extends Controller
 {
     public function __construct()
     {
@@ -25,7 +25,7 @@ class SaleClotheController extends Controller
     public function index(Request $request)
     {
         $lang = app()->getLocale();
-        $clothes = SaleClothe::orderBy('id', 'DESC');
+        $clothes = SaleClothes::orderBy('id', 'DESC');
         
         $paginate = $request->pagination ? $request->pagination : 20;
         $page = (int)$request->page;
@@ -69,7 +69,7 @@ class SaleClotheController extends Controller
         $fields = $request->all();
         $fields['date_sale'] = Carbon::parse($request->day_sale)->format('Y-m-d');
         $fields['week'] = Carbon::parse($request->day_sale)->weekOfYear;
-        $clothe = SaleClothe::create($fields);
+        $clothe = SaleClothes::create($fields);
 
         if ($clothe) {
             Session::flash('flash_message', Helper::contentFlashMessage('create')['success']);
@@ -101,7 +101,7 @@ class SaleClotheController extends Controller
      */
     public function edit($id)
     {
-        $clothe = SaleClothe::find($id);
+        $clothe = SaleClothes::find($id);
         // $guarantees = clothe::orderBy('last_name', 'Asc')
         // ->clothes()
         // ->get()
@@ -119,7 +119,7 @@ class SaleClotheController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $clothe = SaleClothe::find($id);
+        $clothe = SaleClothes::find($id);
         $fields = $request->all();
 
         $v = Validator::make($request->all(), [
@@ -154,7 +154,7 @@ class SaleClotheController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        $clothe = SaleClothe::findOrFail($id);
+        $clothe = SaleClothes::findOrFail($id);
 
         if ($clothe) {
             $clothe->delete(); //delete phisically   
@@ -181,13 +181,13 @@ class SaleClotheController extends Controller
 
         $today = Carbon::now()->format('Y-m-d');
 
-        $income = SaleClothe::incomeToday($today)->get();
-        $income_qr = SaleClothe::incomeQRToday($today)->get();
+        $income = SaleClothes::incomeToday($today)->get();
+        $income_qr = SaleClothes::incomeQRToday($today)->get();
 
-        $expenses = SaleClothe::expenseToday($today)->get();
-        $expenses_qr = SaleClothe::expenseQRToday($today)->get()->toArray();
+        $expenses = SaleClothes::expenseToday($today)->get();
+        $expenses_qr = SaleClothes::expenseQRToday($today)->get()->toArray();
 
-        $clothes = SaleClothe::clothesToday($today)->get()->toArray();
+        $clothes = SaleClothes::clothesToday($today)->get()->toArray();
 
         $registros['income'] = $income->isNotEmpty() ? $income[0]->toArray():['total'=>0];
         $registros['iqr'] =$income_qr->isNotEmpty() ? $income_qr[0]->toArray():['total'=>0];
@@ -219,14 +219,14 @@ class SaleClotheController extends Controller
         $inicioSemana = Carbon::now()->setISODate($anio, $semana)->startOfWeek();
         $finSemana = $inicioSemana->copy()->endOfWeek()->format('Y-m-d');
 
-        $income = SaleClothe::incomeWeek($inicioSemana->format('Y-m-d'),$finSemana,$anio)->get();
-        $income_qr = SaleClothe::incomeQRWeek($inicioSemana->format('Y-m-d'),$finSemana,$anio)->get();
+        $income = SaleClothes::incomeWeek($inicioSemana->format('Y-m-d'),$finSemana,$anio)->get();
+        $income_qr = SaleClothes::incomeQRWeek($inicioSemana->format('Y-m-d'),$finSemana,$anio)->get();
 
-        $expenses = SaleClothe::expenseWeek($inicioSemana->format('Y-m-d'),$finSemana,$anio)->get();
-        $expenses_qr = SaleClothe::expenseQRWeek($inicioSemana->format('Y-m-d'),$finSemana,$anio)->get()->toArray();
+        $expenses = SaleClothes::expenseWeek($inicioSemana->format('Y-m-d'),$finSemana,$anio)->get();
+        $expenses_qr = SaleClothes::expenseQRWeek($inicioSemana->format('Y-m-d'),$finSemana,$anio)->get()->toArray();
 
-        $clothes = SaleClothe::clothesWeek($inicioSemana->format('Y-m-d'),$finSemana,$anio)->get()->toArray();
-        // dd(SaleClothe::clothesWeek($inicioSemana->format('Y-m-d'),$finSemana,$anio)->toSql(),$inicioSemana->format('Y-m-d'),$finSemana,$anio);
+        $clothes = SaleClothes::clothesWeek($inicioSemana->format('Y-m-d'),$finSemana,$anio)->get()->toArray();
+        // dd(SaleClothes::clothesWeek($inicioSemana->format('Y-m-d'),$finSemana,$anio)->toSql(),$inicioSemana->format('Y-m-d'),$finSemana,$anio);
 
 
         $registros['income'] = $income->isNotEmpty() ? $income[0]->toArray():['total'=>0];
@@ -253,13 +253,13 @@ class SaleClotheController extends Controller
         $anio = Carbon::now()->year;
         $mes = Carbon::now()->month; # $request->month ? Carbon::parse($request->month)->month : Carbon::now()->month; // 7 (julio)
 
-        $income = SaleClothe::incomeMonth($mes,$anio)->get();
-        $income_qr = SaleClothe::incomeQRMonth($mes,$anio)->get();
+        $income = SaleClothes::incomeMonth($mes,$anio)->get();
+        $income_qr = SaleClothes::incomeQRMonth($mes,$anio)->get();
 
-        $expenses = SaleClothe::expenseMonth($mes,$anio)->get();
-        $expenses_qr = SaleClothe::expenseQRMonth($mes,$anio)->get()->toArray();
+        $expenses = SaleClothes::expenseMonth($mes,$anio)->get();
+        $expenses_qr = SaleClothes::expenseQRMonth($mes,$anio)->get()->toArray();
 
-        $clothes = SaleClothe::clothesMonth($mes,$anio)->get()->toArray();
+        $clothes = SaleClothes::clothesMonth($mes,$anio)->get()->toArray();
 
         $registros['income'] = $income->isNotEmpty() ? $income[0]->toArray():['total'=>0];
         $registros['iqr'] = $income_qr->isNotEmpty() ? $income_qr[0]->toArray():['total'=>0];
@@ -281,13 +281,13 @@ class SaleClotheController extends Controller
         ];
 
 
-        $income = SaleClothe::incomeFull()->get();
-        $income_qr = SaleClothe::incomeQRFull()->get();
+        $income = SaleClothes::incomeFull()->get();
+        $income_qr = SaleClothes::incomeQRFull()->get();
 
-        $expenses = SaleClothe::expenseFull()->get();
-        $expenses_qr = SaleClothe::expenseQRFull()->get()->toArray();
+        $expenses = SaleClothes::expenseFull()->get();
+        $expenses_qr = SaleClothes::expenseQRFull()->get()->toArray();
 
-        $clothes = SaleClothe::clothesFull()->get()->toArray();
+        $clothes = SaleClothes::clothesFull()->get()->toArray();
 
         $registros['income'] = $income->isNotEmpty() ? $income[0]->toArray():['total'=>0];
         $registros['iqr'] = $income_qr->isNotEmpty() ? $income_qr[0]->toArray():['total'=>0];
@@ -301,6 +301,6 @@ class SaleClotheController extends Controller
         return $registros;
     }
 
-
+    
     
 }

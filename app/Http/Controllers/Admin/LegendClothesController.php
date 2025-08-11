@@ -5,11 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class InventaryController extends Controller
+class LegendClothesController extends Controller
 {
-    
-
-
     public function __construct()
     {
         view()->share('section','legend_clothes');
@@ -23,23 +20,23 @@ class InventaryController extends Controller
     public function index(Request $request)
     {
         $lang = app()->getLocale();
-        $inventary = Inventary::orderBy('id', 'DESC');
+        $legend_clothe = LegendClothe::orderBy('id', 'DESC');
         
         $paginate = $request->pagination ? $request->pagination : 20;
         $page = (int)$request->page;
         if ($request->search != '')
-            $inventary = $inventary->where('description', 'LIKE', '%' . $request->search . '%');
+            $legend_clothe = $legend_clothe->where('description', 'LIKE', '%' . $request->search . '%');
 
-        $text_pagination = Helper::messageCounterPagination($inventary->count(), $page, $paginate, $lang);
+        $text_pagination = Helper::messageCounterPagination($legend_clothe->count(), $page, $paginate, $lang);
 
-        $inventary = $inventary->paginate($paginate);
+        $legend_clothe = $legend_clothe->paginate($paginate);
         
-        return view('admin.inventary_clothes.index', compact('clothes', 'paginate', 'text_pagination'));
+        return view('admin.legend_clothes.index', compact('clothes', 'paginate', 'text_pagination'));
     }
 
     public function create()
     {
-        return view('admin.inventary_clothes.create');
+        return view('admin.legend_clothes.create');
     }
 
     /**
@@ -52,19 +49,16 @@ class InventaryController extends Controller
     {
         $v = Validator::make($request->all(), [
             'description' => 'required|string|min:3',
-            'size' => 'required',
-            'buy_price' => 'required',
-            'code' => 'required',
-            'date_in' => 'required',
+            'code' => 'required|min:4',
         ]);
         if ($v && $v->fails()) {
             return redirect()->back()->withInput()->withErrors($v->errors());
         }
 
         $fields = $request->all();
-        $inventary_clothe = Inventary::create($fields);
+        $clothe = LegendClothe::create($fields);
 
-        if ($inventary_clothe) {
+        if ($clothe) {
             Session::flash('flash_message', Helper::contentFlashMessage('create')['success']);
             Session::flash('flash_message_type', 'success');
         } else {
@@ -72,7 +66,7 @@ class InventaryController extends Controller
             Session::flash('flash_message_type', 'danger');
         }
 
-        return redirect('admin/inventary_clothes');
+        return redirect('admin/legend_clothes');
     }
 
     /**
@@ -94,9 +88,9 @@ class InventaryController extends Controller
      */
     public function edit($id)
     {
-        $inventary_clothe = Inventary::find($id);
+        $clothe = LegendClothe::find($id);
 
-        return view('admin.inventary_clothes.edit', compact('clothe'));
+        return view('admin.legend_clothes.edit', compact('clothe'));
     }
 
     /**
@@ -108,23 +102,20 @@ class InventaryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $inventary_clothes = Inventary::find($id);
+        $clothes = LegendClothe::find($id);
         $fields = $request->all();
 
         $v = Validator::make($request->all(), [
             'description' => 'required|string|min:3',
-            'size' => 'required',
-            'buy_price' => 'required',
-            'code' => 'required',
-            'date_in' => 'required',
+            'code' => 'required|min:4',
         ]);
         if ($v && $v->fails()) {
             return redirect()->back()->withInput()->withErrors($v->errors());
         }
 
-        $inventary_clothes = $inventary_clothes->update($fields);
+        $clothes = $clothes->update($fields);
 
-        if ($inventary_clothes) {
+        if ($clothes) {
             Session::flash('flash_message', Helper::contentFlashMessage('update')['success']);
             Session::flash('flash_message_type', 'success');
         } else {
@@ -132,7 +123,7 @@ class InventaryController extends Controller
             Session::flash('flash_message_type', 'danger');
         }
 
-        return redirect('admin/inventary_clothes');
+        return redirect('admin/legend_clothes');
     }
 
     /**
@@ -143,10 +134,10 @@ class InventaryController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        $inventary_clothes = Inventary::findOrFail($id);
+        $clothes = LegendClothe::findOrFail($id);
 
-        if ($inventary_clothes) {
-            $inventary_clothes->delete(); //delete phisically   
+        if ($clothes) {
+            $clothes->delete(); //delete phisically   
             Session::flash('flash_message', Helper::contentFlashMessage('delete')['success']);
             Session::flash('flash_message_type', 'success');
         } else {
@@ -154,6 +145,7 @@ class InventaryController extends Controller
             Session::flash('flash_message_type', 'danger');
         }
         
-        return redirect('admin/inventary_clothes');
+        return redirect('admin/legend_clothes');
     }
+    
 }

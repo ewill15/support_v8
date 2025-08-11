@@ -6,7 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class SaleClothe extends Model
+class SaleClothes extends Model
 {
     use HasFactory;
 
@@ -185,6 +185,19 @@ class SaleClothe extends Model
     {
         return $query->where('type','=',1)
         ->selectRaw('SUM(quantity) as prendas');
+    }
+
+    public function scopeSummaryByDate($query)
+    {
+        return $query->selectRaw('
+            DATE(date_sale) AS fecha,
+            SUM(CASE WHEN type = 1 THEN quantity * price ELSE 0 END) AS ingreso,
+            SUM(CASE WHEN type = 0 THEN quantity * price ELSE 0 END) AS gasto,
+            SUM(CASE WHEN type = 1 THEN quantity * price ELSE 0 END) - 
+            SUM(CASE WHEN type = 0 THEN quantity * price ELSE 0 END) AS total,
+            SUM(quantity) AS prendas
+        ')
+        ->groupBy(DB::raw('DATE(date_sale)'));
     }
     /**
      * **********************************************
