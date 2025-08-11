@@ -29,4 +29,9 @@ class DashboardController extends Controller
 
         return view('admin.dashboard',compact('register'));
     }
+
+    public function calendar()
+    {   
+        return view('admin.calendar');
+    }
 }
