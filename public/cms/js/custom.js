@@ -79,6 +79,16 @@ jQuery(function () {
             firstDay: 1,
         },
     });
+
+    //Date range picker incomes
+    $("#date_in").datetimepicker({
+        format: "DD-MM-YYYY",
+        minDate: moment().subtract(1, "days"),
+        maxDate: moment().add(760, "days"),
+        autoclose:true,
+        defaultDate: moment().format('MM-DD-YYYY')
+    });
+
     //Date range picker incomes
     $("#date_sale").datetimepicker({
         format: "DD-MM-YYYY",
@@ -86,15 +96,15 @@ jQuery(function () {
         minDate: moment().subtract(1, "days"),
         maxDate: moment().add(760, "days"),
         autoclose:true,
-        defaultDate: moment(),
+        defaultDate: moment().format('MM-DD-YYYY')
     });
     //Date birthday
     $("#dob").datetimepicker({
         format: "DD-MM-YYYY",
         locale: "es",
         minDate: moment().subtract(40, "years"),
-        maxDate: moment().format('DD-MM-YYYY'),
-        defaultDate: moment(),
+        maxDate: moment(),
+        defaultDate: moment().format('MM-DD-YYYY')
     });
 
     //sale clothes calendar
@@ -102,8 +112,7 @@ jQuery(function () {
         format: "DD-MM-YYYY",
         locale: "es",
         minDate: moment().subtract(1, "years"),
-        maxDate: moment().format('DD-MM-YYYY'),
-        defaultDate: moment(),
+        defaultDate: moment().format("MM-DD-YYYY")
     });
     //function to preview before to upload image
     function readURL(input, preview) {
