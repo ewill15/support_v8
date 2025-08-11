@@ -218,5 +218,14 @@ return [
 
     'transaction_type'=>'tipo transaccion',
     'field'=>'campo',
-    'required'=>'obligatorio'
+    'required'=>'obligatorio',
+
+    'inventary_clothes'=>'inventario de ropas',
+    'inventary'=>'inventario',
+    'date_in'=>'fecha ingreso',
+    'date_out'=>'fecha salida',
+    'size'=>'talla',
+    'code'=>'codigo',
+    'buy_price'=>'precio compra',
+    'sales'=>'ventas'
 ];

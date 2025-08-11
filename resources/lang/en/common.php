@@ -226,5 +226,14 @@ return [
 
     'transaction_type'=>'transaction type',
     'field'=>'field',
-    'required'=>'required'
+    'required'=>'required',
+
+    'inventary_clothes'=>'inventary clothes',
+    'inventary'=>'inventary',
+    'date_in'=>'date in',
+    'date_out'=>'date out',
+    'size'=>'size',
+    'code'=>'code',
+    'buy_price'=>'buy price',
+    'sales'=>'sales'
 ];

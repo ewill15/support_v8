@@ -227,5 +227,11 @@ return [
         'months_to_pay'         => 'meses a pagar',
         'pay_type'              => 'tipo de pago',
         'quantity'              => 'cantidad',
+        'size'                  => 'talla',
+        'buy_price'             => 'precio compra',
+        'sell_price'            => 'precio venta',
+        'suggested'             => 'sugerido',
+        'code'                  => 'codigo',
+        'date_in'               => 'fecha ingreso'
     ],
 ];

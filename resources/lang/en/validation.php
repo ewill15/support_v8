@@ -235,5 +235,11 @@ return [
         'months_to_pay'         => 'months to pay',
         'pay_type'              => 'pay type',
         'quantity'              => 'quantity',
+        'size'                  => 'talla',
+        'buy_price'             => 'buy price',
+        'sale_price'            => 'sale price',
+        'suggested'             => 'suggested',
+        'code'                  => 'code',
+        'date_in'               => 'date in'
     ],
 ];
