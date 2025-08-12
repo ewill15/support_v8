@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Api\v1;
 
 use App\Models\Bank;
 use App\Models\User;
+use App\Models\SaleClothes;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\BankResource;
+use App\Http\Resources\ReportFullResource;
 use Illuminate\Support\Facades\Validator;
 
 class BankController extends Controller
@@ -192,6 +194,42 @@ class BankController extends Controller
                     $result = [
                         'detail' => 'ERROR account bank does not was deleted'
                     ];  
+                }
+            }else{
+                $result = [
+                    'code' => 'user not found',
+                    'detail' => 'user not found'
+                ];
+                $responseCode = 409;
+            }
+        }
+
+        return response()->json($result, $responseCode);
+    }
+
+    /** Lista de bancos registrados */
+    public function list_sumary(Request $request)
+    {
+        $responseCode = 200;
+
+        $v = Validator::make($request->all(), [
+            'access_token' => 'required|string|exists:users,access_token'
+        ]);
+        if ($v && $v->fails()) {
+            $result = [
+                'code' => 'banks couldn\'t be listed',
+                'detail' => 'banks couldn\'t be listed',
+                'errors' => $v->errors()
+            ];
+            $responseCode = 409;
+        } else {
+            $user = User::byAccessToken($request->access_token)->first();
+            if($user){
+                $result = [];
+                $registers = SaleClothes::summaryByDate()->get();
+                foreach ($registers as $register) {
+                    $result_register = new ReportFullResource($register);
+                    array_push($result, $result_register);
                 }
             }else{
                 $result = [
