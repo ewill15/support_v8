@@ -301,6 +301,21 @@ class SaleClothesController extends Controller
         return $registros;
     }
 
+    public function salesByDate(Request $request)   
+    {
+        $lang = app()->getLocale();        
+        $paginate = $request->pagination ? $request->pagination : 20;
+        $page = (int)$request->page;
+
+        $clothes = SaleClothes::orderBy('id', 'DESC');
+        $clothes = $clothes->paginate($paginate);
+        $summariesByDate = SaleClothes::summaryByDate()->get();
+        // dd($summariesByDate);
+        $text_pagination = Helper::messageCounterPagination($summariesByDate->count(), $page, $paginate, $lang);        
+
+        return view('admin.clothes.full_sales', compact('summariesByDate', 'paginate', 'text_pagination','clothes'));
+    }
+
     
     
 }
