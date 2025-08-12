@@ -65,6 +65,21 @@
                                     </div>
                                 </div>    
                             @endif
+
+                            <div class="form-group row {{ $errors->has('user_role') ? 'has-error' : ''}}">
+                                <label for="role" class="col-md-4 form-control-label text-md-right">
+                                    {{ ucfirst(trans('common.role')) }}
+                                </label>
+                                <div class="col-md-4">
+                                    <select name="user_role" id="role" class="form-control">
+                                        <option value="">-- Selecciona un rol --</option>
+                                        <option value="user"> {{ ucfirst(trans('common.user')) }}</option>
+                                        <option value="seller"> {{ ucfirst(trans('common.seller')) }}</option>
+                                    </select>
+                                    {!! $errors->first('user_role', '<p class="help-block">:message</p>') !!}
+                                </div>
+                            </div>
+    
                             
                             {{-- <div class="form-group row {{ $errors->has('dob') ? 'has-error' : ''}}">
                                 <label for="dob" class="col-md-4 form-control-label text-md-right">
