@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -197,7 +198,8 @@ class SaleClothes extends Model
             SUM(CASE WHEN type = 0 THEN quantity * price ELSE 0 END) AS total,
             SUM(quantity) AS prendas
         ')
-        ->groupBy(DB::raw('DATE(date_sale)'));
+        ->groupBy(DB::raw('DATE(date_sale)'))
+        ->orderBy('fecha','desc');
     }
     /**
      * **********************************************
