@@ -227,5 +227,10 @@ return [
     'size'=>'talla',
     'code'=>'codigo',
     'buy_price'=>'precio compra',
-    'sales'=>'ventas'
+    'sales'=>'ventas',
+
+    'report_day'=>'diario',
+    'report'=>'reporte',
+    'reports'=>'reportes',
+    'report_detail'=>'detallada'
 ];

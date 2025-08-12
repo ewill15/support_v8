@@ -235,5 +235,10 @@ return [
     'size'=>'size',
     'code'=>'code',
     'buy_price'=>'buy price',
-    'sales'=>'sales'
+    'sales'=>'sales',
+
+    'report_day'=>'by day',
+    'report'=>'report',
+    'reports'=>'reports',
+    'report_detail'=>'detail'
 ];
