@@ -71,4 +71,6 @@ Route::group(['prefix'=>'v1'], function(){
     Route::post('edit_machine', [MachineController::class,'edit_machine']);
     //delete
     Route::post('delete_machine', [MachineController::class,'remove_machine']);
+
+    Route::get('clothes_report', [BankController::class, 'list_sumary']);
 });

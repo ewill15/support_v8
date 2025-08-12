@@ -20,9 +20,10 @@ use App\Http\Controllers\Admin\RegisterController;
 use App\Http\Controllers\Admin\BackupController;
 use App\Http\Controllers\Admin\CreditController;
 use App\Http\Controllers\Admin\PasanakusController;
-use App\Http\Controllers\Admin\SaleClotheController;
+use App\Http\Controllers\Admin\SaleClothesController;
 use App\Http\Controllers\Admin\InventaryClothesController;
 use App\Http\Controllers\Admin\LegendClothesController;
+use App\Http\Controllers\Admin\ReportClothesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,9 +77,11 @@ Route::group(['middleware'=>['auth'], 'prefix' => 'admin'], function(){
     Route::get('autocomplete', [BillController::class,'autocomplete'])->name('autocomplete');
     Route::get('company/new_record', [CompanyController::class,'new_company']);
 
-    Route::resource('clothes', SaleClotheController::class);
-    Route::post('clothes/resume', [SaleClotheController::class,'resume']);
+    Route::resource('clothes', SaleClothesController::class);
 
-     Route::resource('inventary_clothes', InventaryClothesController::class);
-      Route::resource('legend_clothes', LegendClothesController::class);
+    Route::resource('inventary_clothes', InventaryClothesController::class);
+    Route::resource('legend_clothes', LegendClothesController::class);
+
+    // Route::get('calendar', [DashboardController::class, 'calendar']);
+    Route::get('clothes_report', [SaleClothesController::class, 'salesByDate']);
 });

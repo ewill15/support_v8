@@ -60,12 +60,45 @@
 
         <!--------- Menu clothes  -------------------> 
         <li class="nav-item has-treeview">
-          <a href="{{ url('/admin/clothes') }}" class="nav-link {{($section == 'sale_clothes')?'active':''}}">
-            <i class="fas fa-tshirt mr-2"></i>
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-table"></i>
             <p>
               {{ ucfirst(trans('common.clothes')) }}
+              <i class="fas fa-angle-left right"></i>
             </p>
           </a>
+          <ul class="nav nav-treeview">
+            <!--------- Sale clothes  -------------------> 
+            <li class="nav-item pl-3">
+              <a href="{{ url('/admin/clothes') }}" class="nav-link {{($section == 'sale_clothes')?'active':''}}">
+                <i class="fas fa-tshirt mr-2"></i>
+                <p>
+                  {{ ucfirst(trans('common.sales')) }}
+                </p>
+              </a>
+            </li>
+
+            <!--------- Report clothes  -------------------> 
+            <li class="nav-item pl-3">
+              <a href="{{ url('/admin/clothes_report') }}" class="nav-link {{($section == 'report_clothes')?'active':''}}">
+                <i class="fas fa-chart-line mr-2"></i>
+                <p>
+                  {{ ucfirst(trans('common.reports')) }}
+                </p>
+              </a>
+            </li>
+
+            @if ( auth()->user()->role == 'admin' )
+              <li class="nav-item pl-3">
+                <a href="{{ url('/admin/inventary_clothes') }}" class="nav-link {{($section == 'inventary_clothes')?'active':''}}">
+                  <i class="fas fa-list mr-2"></i>
+                  <p>
+                    {{ ucfirst(trans('common.inventary')) }}
+                  </p>
+                </a>
+              </li>
+            @endif
+          </ul>
         </li>
 
         <!--------- Menu services  -------------------> 
