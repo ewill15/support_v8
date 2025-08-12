@@ -71,7 +71,7 @@ class UsersController extends Controller
 
         $fields['password'] = bcrypt($request->password);
         $fields['username'] = $request->username ? $request->username : explode(" ", $request->first_name)[0];
-        $fields['user_role'] = 'user';
+        // $fields['user_role'] = 'user';
         // dd($fields);
         // OPTION 1::   
         // Mail::to()->send(new PasanakuMail($admin,$pasanaku));
