@@ -201,6 +201,34 @@ class SaleClothes extends Model
         ->groupBy(DB::raw('DATE(date_sale)'))
         ->orderBy('fecha','desc');
     }
+
+    public function scopeSummaryByWeek($query)
+    {
+        return $query->selectRaw('
+            WEEK(date_sale, 1) AS semana,
+            SUM(CASE WHEN type = 1 THEN quantity * price ELSE 0 END) AS ingreso,
+            SUM(CASE WHEN type = 0 THEN quantity * price ELSE 0 END) AS gasto,
+            SUM(CASE WHEN type = 1 THEN quantity * price ELSE 0 END) - 
+            SUM(CASE WHEN type = 0 THEN quantity * price ELSE 0 END) AS total,
+            SUM(quantity) AS prendas
+        ')
+        ->groupBy(DB::raw('WEEK(date_sale, 1)'))
+        ->orderBy('semana', 'desc');
+    }
+
+    public function scopeSummaryByMonth($query)
+    {
+        DB::statement("SET lc_time_names = 'es_ES'");
+        return $query->selectRaw('
+            DATE_FORMAT(date_sale, "%Y-%M") AS mes,
+            SUM(CASE WHEN type = 1 THEN quantity * price ELSE 0 END) AS ingreso,
+            SUM(CASE WHEN type = 0 THEN quantity * price ELSE 0 END) AS gasto,
+            SUM(CASE WHEN type = 1 THEN quantity * price ELSE 0 END) - 
+            SUM(CASE WHEN type = 0 THEN quantity * price ELSE 0 END) AS total,
+            SUM(quantity) AS prendas
+        ')
+        ->groupBy(DB::raw('DATE_FORMAT(date_sale, "%Y-%M")'));
+    }
     /**
      * **********************************************
      * GETTERS
