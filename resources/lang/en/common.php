@@ -238,7 +238,12 @@ return [
     'sales'=>'sales',
 
     'report_day'=>'by day',
+    'report_week'=>'by week',
+    'report_month'=>'by month ',
     'report'=>'report',
     'reports'=>'reports',
-    'report_detail'=>'detail'
+    'report_detail'=>'total by day',
+    'report_detail_week'=>'total by week',
+    'report_detail_month'=>'total by month',
+    'week_number'=>'week'
 ];

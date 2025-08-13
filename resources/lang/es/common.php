@@ -230,7 +230,12 @@ return [
     'sales'=>'ventas',
 
     'report_day'=>'diario',
+    'report_week'=>'semanal',
+    'report_month'=>'mensual',
     'report'=>'reporte',
     'reports'=>'reportes',
-    'report_detail'=>'detallada'
+    'report_detail'=>'diario total',
+    'report_detail_week'=>'semanal total',
+    'report_detail_month'=>'mensual total',
+    'week_number'=>'semana'
 ];
