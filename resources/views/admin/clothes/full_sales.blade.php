@@ -44,17 +44,34 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="custom-list-tab" data-toggle="pill" href="#custom-list" role="tab" aria-controls="custom-list" aria-selected="true">
-                                {{ ucfirst(trans('common.report_detail')) }}
+                            <a class="nav-link" id="custom-list-week-tab" data-toggle="pill" href="#custom-list-week" role="tab" aria-controls="custom-list-week" aria-selected="false">
+                                {{ ucfirst(trans('common.report_week')) }}
                             </a>
                         </li>
-                        
+                        <li class="nav-item">
+                            <a class="nav-link" id="custom-list-month-tab" data-toggle="pill" href="#custom-list-month" role="tab" aria-controls="custom-list-month" aria-selected="false">
+                                {{ ucfirst(trans('common.report_month')) }}
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="custom-list-graph-tab" data-toggle="pill" href="#custom-list-graph" role="tab" aria-controls="custom-list-graph" aria-selected="false">
+                                {{ ucfirst(trans('common.report_graph')) }}
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <div class="card-body">
                     <div class="tab-content" id="custom-tabs-four-tabContent">
+                        <!-----------------DAY------------------------->
                         <div class="tab-pane fade active show" id="custom-all" role="tabpanel" aria-labelledby="custom-all-tab">
-                            <div class="table-responsive"> 
+                            <div class="row">
+                                <div class="col-md-6 mx-auto text-center">
+                                    <a class="btn btn-block btn-success" href="#">
+                                       {{ ucfirst(trans('common.total_day')) }}
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="table-responsive">                                
                                 <table class="table table-register table-striped table-bordered table-hover">                                        
                                     <thead>
                                         <tr>
@@ -68,7 +85,7 @@
                                     </thead>
                                     <tbody>
                                         @foreach($clothes as $item)
-                                            <tr class="gradeX">
+                                            <tr class="gradeX {{ $item->type == 1 ? '' : 'text-danger' }}">
                                                 <td class="w-150p">{{ @$item->dateSaleFormat }}</td>
                                                 <td>{{ @$item->income }}</td>
                                                 <td>{{ @$item->description }}</td>
@@ -113,26 +130,33 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="tab-pane fade" id="custom-list" role="tabpanel" aria-labelledby="custom-list-tab">
-                            <div class="table-responsive"> 
+                        <!-----------------WEEK------------------------->
+                        <div class="tab-pane fade" id="custom-list-week" role="tabpanel" aria-labelledby="custom-list-week-tab">
+                            <div class="row">
+                                <div class="col-md-6 mx-auto text-center">
+                                    <a class="btn btn-block btn-success" href="#">
+                                        {{ ucfirst(trans('common.total_week')) }}
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="table-responsive">                                
                                 <table class="table table-register table-striped table-bordered table-hover">                                        
                                     <thead>
                                     <tr>
-                                        <th>{{ ucfirst(trans('common.date')) }}</th>
+                                        <th>{{ ucfirst(trans('common.week_number')) }}</th>
                                         <th>{{ ucfirst(trans('common.income')) }}</th>
-                                        <th>{{ ucfirst(trans('common.clothes')) }}</th>
                                         <th>{{ ucfirst(trans('common.expenses')) }}</th>
+                                        <th>{{ ucfirst(trans('common.clothes')) }}</th>                                        
                                         <th>{{ ucfirst(trans('common.total')) }}</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($summariesByDate as $item)
+                                        @foreach($summariesByWeek as $item)
                                             <tr class="gradeX">
-                                                <td>{{ \Carbon\Carbon::parse($item->fecha)->format('d-m-Y') }}</td>
+                                                <td>{{ @$item->semana}}</td>
                                                 <td>{{ @$item->ingreso }}</td>
-                                                <td>{{ @$item->prendas }}</td>
                                                 <td>{{ @$item->gasto }}</td>
+                                                <td>{{ @$item->prendas }}</td>                                                
                                                 <td>{{ @$item->total }}</td>
                                             </tr>
                                         @endforeach
@@ -143,12 +167,58 @@
                                 </div>
                                 <div class="float-right">                                        
                                     <div class="btn-group">
-                                    {{-- {!! $summariesByDate->appends(request()->except('page'))->links() !!} --}}
+                                    {!! $summariesByDate->appends(request()->except('page'))->links() !!}
                                     </div>
                                 </div>
                             </div>
                         </div>
-                                            
+                        <!-----------------MONTH------------------------->
+                        <div class="tab-pane fade" id="custom-list-month" role="tabpanel" aria-labelledby="custom-list-month-tab">
+                            <div class="table-responsive">                                
+                                <div class="row">
+                                    <div class="col-md-6 mx-auto text-center">
+                                        <a class="btn btn-block btn-success" href="#">
+                                            {{ ucfirst(trans('common.total_month')) }}
+                                        </a>
+                                    </div>
+                                </div>
+                                <table class="table table-register table-striped table-bordered table-hover">                                        
+                                    <thead>
+                                    <tr>
+                                        <th>{{ ucfirst(trans('common.date')) }}</th>
+                                        <th>{{ ucfirst(trans('common.income')) }}</th>
+                                        <th>{{ ucfirst(trans('common.expenses')) }}</th>
+                                        <th>{{ ucfirst(trans('common.clothes')) }}</th>                                        
+                                        <th>{{ ucfirst(trans('common.total')) }}</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($summariesByMonth as $item)
+                                            <tr class="gradeX">
+                                                <td>{{ @$item->mes }}</td>
+                                                <td>{{ @$item->ingreso }}</td>
+                                                <td>{{ @$item->gasto }}</td>
+                                                <td>{{ @$item->prendas }}</td>                                                
+                                                <td>{{ @$item->total }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                                <div class="float-left">
+                                    {{ $text_pagination }}
+                                </div>
+                                <div class="float-right">                                        
+                                    <div class="btn-group">
+                                    {!! $summariesByDate->appends(request()->except('page'))->links() !!}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-----------------GRAPH------------------------->
+                        <div class="tab-pane fade" id="custom-list-graph" role="tabpanel" aria-labelledby="custom-list-graph-tab">
+                            <span>under contruction</span>
+                        </div>  
                     </div>
                 </div>
             </div>
