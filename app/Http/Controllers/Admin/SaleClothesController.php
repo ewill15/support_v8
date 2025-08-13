@@ -39,7 +39,7 @@ class SaleClothesController extends Controller
         $registros_monthly = $this->getMonthlyData();
         $registros_weekly = $this->getWeeklyData();
         $registros_today = $this->getTodayData();
-        //  dd($registros_full,$registros_monthly,$registros_weekly,$registros_today);
+        // dd($registros_full,$registros_monthly,$registros_weekly,$registros_today);
         return view('admin.clothes.index', compact('clothes', 'paginate', 'text_pagination','registros_full','registros_monthly','registros_weekly','registros_today'));
     }
 
@@ -189,9 +189,9 @@ class SaleClothesController extends Controller
 
         $clothes = SaleClothes::clothesToday($today)->get()->toArray();
 
-        $registros['income'] = $income->isNotEmpty() ? $income[0]->toArray():['total'=>0];
-        $registros['iqr'] =$income_qr->isNotEmpty() ? $income_qr[0]->toArray():['total'=>0];
-        $registros['expenses'] = $expenses->isNotEmpty() ? $expenses[0]->toArray():['total'=>0];
+        $registros['income'] = $income[0]['total']?? 0;
+        $registros['iqr'] = $income_qr[0]['total']?? 0;
+        $registros['expenses'] = $expenses[0]['total']?? 0;
         $registros['eqr'] = $expenses_qr[0]['total']?? 0;
         $registros['clothes'] = $clothes[0]['prendas']?? 0;
 
@@ -229,9 +229,9 @@ class SaleClothesController extends Controller
         // dd(SaleClothes::clothesWeek($inicioSemana->format('Y-m-d'),$finSemana,$anio)->toSql(),$inicioSemana->format('Y-m-d'),$finSemana,$anio);
 
 
-        $registros['income'] = $income->isNotEmpty() ? $income[0]->toArray():['total'=>0];
-        $registros['iqr'] = $income_qr->isNotEmpty() ? $income_qr[0]->toArray():['total'=>0];
-        $registros['expenses'] = $expenses->isNotEmpty() ? $expenses[0]->toArray():['total'=>0];
+        $registros['income'] = $income[0]['total']?? 0;
+        $registros['iqr'] = $income_qr[0]['total']?? 0;
+        $registros['expenses'] = $expenses[0]['total']?? 0;
         $registros['eqr'] = $expenses_qr[0]['total']?? 0;
         $registros['clothes'] = $clothes[0]['prendas']?? 0;
 
@@ -261,9 +261,9 @@ class SaleClothesController extends Controller
 
         $clothes = SaleClothes::clothesMonth($mes,$anio)->get()->toArray();
 
-        $registros['income'] = $income->isNotEmpty() ? $income[0]->toArray():['total'=>0];
-        $registros['iqr'] = $income_qr->isNotEmpty() ? $income_qr[0]->toArray():['total'=>0];
-        $registros['expenses'] = $expenses->isNotEmpty() ? $expenses[0]->toArray():['total'=>0];
+        $registros['income'] = $income[0]['total']?? 0;
+        $registros['iqr'] = $income_qr[0]['total']?? 0;
+        $registros['expenses'] = $expenses[0]['total']?? 0;
         $registros['eqr'] = $expenses_qr[0]['total']?? 0;
         $registros['clothes'] = $clothes[0]['prendas']?? 0;
 
@@ -289,9 +289,9 @@ class SaleClothesController extends Controller
 
         $clothes = SaleClothes::clothesFull()->get()->toArray();
 
-        $registros['income'] = $income->isNotEmpty() ? $income[0]->toArray():['total'=>0];
-        $registros['iqr'] = $income_qr->isNotEmpty() ? $income_qr[0]->toArray():['total'=>0];
-        $registros['expenses'] = $expenses->isNotEmpty() ? $expenses[0]->toArray():['total'=>0];
+        $registros['income'] = $income[0]['total']?? 0;
+        $registros['iqr'] = $income_qr[0]['total']?? 0;
+        $registros['expenses'] = $expenses[0]['total']?? 0;
         $registros['eqr'] = $expenses_qr[0]['total']?? 0;
         $registros['clothes'] = $clothes[0]['prendas']?? 0;
 
@@ -309,11 +309,13 @@ class SaleClothesController extends Controller
 
         $clothes = SaleClothes::orderBy('id', 'DESC');
         $clothes = $clothes->paginate($paginate);
-        $summariesByDate = SaleClothes::summaryByDate()->get();
-        // dd($summariesByDate);
+        $summariesByDate = SaleClothes::summaryByDate()->paginate($paginate);
+        $summariesByWeek = SaleClothes::summaryByWeek()->paginate($paginate);
+        $summariesByMonth = SaleClothes::summaryByMonth()->paginate($paginate);
+        // dd($summariesByDate,$summariesByWeek,$summariesByMonth);
         $text_pagination = Helper::messageCounterPagination($summariesByDate->count(), $page, $paginate, $lang);        
 
-        return view('admin.clothes.full_sales', compact('summariesByDate', 'paginate', 'text_pagination','clothes'));
+        return view('admin.clothes.full_sales', compact('summariesByDate', 'paginate', 'text_pagination','clothes','summariesByWeek','summariesByMonth'));
     }
 
     
