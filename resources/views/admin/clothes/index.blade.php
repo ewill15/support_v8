@@ -78,9 +78,20 @@
                                     <div class="bg-info color-palette">
                                         <span class="ml-3">
                                             {{now()->format('d-m-Y')}} - {{ ucfirst(trans('common.week')) . ' : '.\Carbon\Carbon::parse(now())->weekOfYear }}
-                                        </span>                                  
+                                        </span>
+                                    </div>
 
-                                    </div>                                
+                                    <div class="color-palette-set">    
+                                        <div class="bg-success color-palette mt-3">
+                                            <span class="ml-3">
+                                                saldo: {{$registros_today['income'] - $registros_today['expenses']}}
+                                            </span>
+
+                                            <span class="ml-3">
+                                                saldo QR: {{$registros_today['iqr'] - $registros_today['eqr']}}
+                                            </span>
+                                        </div>                                
+                                    </div>
                                 </div>
                             </div>
                             @include('admin.clothes.partials.resume', ['type_date'=>'today','inmoney' => $registros_today['income'],'inqr'=>$registros_today['iqr'],'outmoney' => $registros_today['expenses'],'outqr'=>$registros_today['eqr'],'clothes'=>$registros_today['clothes']])
