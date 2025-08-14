@@ -73,7 +73,10 @@
                                             <th>{{ ucfirst(trans('common.description')) }}</th>
                                             <th>{{ ucfirst(trans('common.transaction_type')) }}</th>
                                             <th>{{ ucfirst(trans('common.price')) }}</th>
-                                            <th class="actions">{{ ucfirst(trans('common.actions')) }}</th>
+                                            @if (auth()->user()->role == 'admin')
+                                                <th class="actions">{{ ucfirst(trans('common.actions')) }}</th>
+                                            @endif
+                                            
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -84,7 +87,8 @@
                                                 <td>{{ @$item->description }}</td>
                                                 <td>{{ @$item->paymentText }}</td>
                                                 <td>{{ @$item->price }}</td>
-                                                <td>
+                                                @if (auth()->user()->role == 'admin')
+                                                    <td>
                                                     <div class="input-group-prepend">
                                                         <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
                                                             {{ ucfirst(trans('common.actions')) }}
@@ -108,6 +112,7 @@
                                                         </div>
                                                     </div>       
                                                 </td>
+                                                @endif                                                
                                             </tr>
                                         @endforeach
                                     </tbody>
