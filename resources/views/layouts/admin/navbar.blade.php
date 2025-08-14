@@ -123,7 +123,10 @@
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <img src="{{auth()->user()->image_path}}" class="img-size-38 img-circle" alt="User Image">
-          {{ auth()->user()->first_name }}
+          {{ auth()->user()->first_name }} 
+          @if (auth()->user()->role=='seller')
+              (vendedor)
+          @endif
           <i class="fas fa-angle-down right ml-3"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
