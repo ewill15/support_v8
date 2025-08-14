@@ -21,7 +21,7 @@
         <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
 
-        @if (in_array(auth()->user()->role,['admin','seller']))
+        @if (in_array(auth()->user()->role,['seller']))
           <!--------- Menu clothes  -------------------> 
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
