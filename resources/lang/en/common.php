@@ -245,5 +245,9 @@ return [
     'report_detail'=>'total by day',
     'report_detail_week'=>'total by week',
     'report_detail_month'=>'total by month',
-    'week_number'=>'week'
+    'week_number'=>'week',
+
+    'inqr'=>'income QR',
+    'eqr'=>'expenses QR',
+    'totalqr'=>'total QR',
 ];

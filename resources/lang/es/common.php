@@ -237,5 +237,9 @@ return [
     'report_detail'=>'diario total',
     'report_detail_week'=>'semanal total',
     'report_detail_month'=>'mensual total',
-    'week_number'=>'semana'
+    'week_number'=>'semana',
+
+    'inqr'=>'ingresos QR',
+    'eqr'=>'gastos QR',
+    'totalqr'=>'total QR',
 ];
