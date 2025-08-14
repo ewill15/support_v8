@@ -192,11 +192,22 @@ class SaleClothes extends Model
     {
         return $query->selectRaw('
             DATE(date_sale) AS fecha,
-            SUM(CASE WHEN type = 1 THEN quantity * price ELSE 0 END) AS ingreso,
-            SUM(CASE WHEN type = 0 THEN quantity * price ELSE 0 END) AS gasto,
-            SUM(CASE WHEN type = 1 THEN quantity * price ELSE 0 END) - 
-            SUM(CASE WHEN type = 0 THEN quantity * price ELSE 0 END) AS total,
-            SUM(quantity) AS prendas
+            -- Ingresos
+            SUM(CASE WHEN type = 1 AND pay_type = 1 THEN price ELSE 0 END) AS ingreso,
+            SUM(CASE WHEN type = 1 AND pay_type = 0 THEN price ELSE 0 END) AS ingreso_qr,
+            
+            -- Gastos
+            SUM(CASE WHEN type = 0 AND pay_type = 1 THEN price ELSE 0 END) AS gasto,
+            SUM(CASE WHEN type = 0 AND pay_type = 0 THEN price ELSE 0 END) AS gasto_qr,
+
+            -- Totales
+            SUM(CASE WHEN type = 1 THEN price ELSE 0 END) AS ingreso_total,
+            SUM(CASE WHEN type = 0 THEN price ELSE 0 END) AS gasto_total,
+            SUM(CASE WHEN type = 1 THEN price ELSE 0 END) -
+            SUM(CASE WHEN type = 0 THEN price ELSE 0 END) AS total_neto,
+
+            -- Total de prendas vendidas
+            SUM(CASE WHEN type = 1 THEN quantity ELSE 0 END) AS total_prendas
         ')
         ->groupBy(DB::raw('DATE(date_sale)'))
         ->orderBy('fecha','desc');
@@ -205,14 +216,20 @@ class SaleClothes extends Model
     public function scopeSummaryByWeek($query)
     {
         return $query->selectRaw('
-            WEEK(date_sale, 1) AS semana,
-            SUM(CASE WHEN type = 1 THEN quantity * price ELSE 0 END) AS ingreso,
-            SUM(CASE WHEN type = 0 THEN quantity * price ELSE 0 END) AS gasto,
-            SUM(CASE WHEN type = 1 THEN quantity * price ELSE 0 END) - 
-            SUM(CASE WHEN type = 0 THEN quantity * price ELSE 0 END) AS total,
-            SUM(quantity) AS prendas
+            YEARWEEK(date_sale,1) AS semana,
+            -- Ingresos
+            SUM(CASE WHEN type = 1 AND pay_type = 1 THEN price ELSE 0 END) AS ingreso,
+            SUM(CASE WHEN type = 1 AND pay_type = 0 THEN price ELSE 0 END) AS ingreso_qr,
+            
+            -- Gastos
+            SUM(CASE WHEN type = 0 AND pay_type = 1 THEN price ELSE 0 END) AS gasto,
+            SUM(CASE WHEN type = 0 AND pay_type = 0 THEN price ELSE 0 END) AS gasto_qr,
+
+            -- Total de prendas vendidas
+            SUM(CASE WHEN type = 1 THEN quantity ELSE 0 END) AS total_prendas
+
         ')
-        ->groupBy(DB::raw('WEEK(date_sale, 1)'))
+        ->groupBy(DB::raw('YEARWEEK(date_sale,1)'))
         ->orderBy('semana', 'desc');
     }
 
@@ -221,11 +238,16 @@ class SaleClothes extends Model
         DB::statement("SET lc_time_names = 'es_ES'");
         return $query->selectRaw('
             DATE_FORMAT(date_sale, "%Y-%M") AS mes,
-            SUM(CASE WHEN type = 1 THEN quantity * price ELSE 0 END) AS ingreso,
-            SUM(CASE WHEN type = 0 THEN quantity * price ELSE 0 END) AS gasto,
-            SUM(CASE WHEN type = 1 THEN quantity * price ELSE 0 END) - 
-            SUM(CASE WHEN type = 0 THEN quantity * price ELSE 0 END) AS total,
-            SUM(quantity) AS prendas
+            -- Ingresos
+            SUM(CASE WHEN type = 1 AND pay_type = 1 THEN price ELSE 0 END) AS ingreso,
+            SUM(CASE WHEN type = 1 AND pay_type = 0 THEN price ELSE 0 END) AS ingreso_qr,
+            
+            -- Gastos
+            SUM(CASE WHEN type = 0 AND pay_type = 1 THEN price ELSE 0 END) AS gasto,
+            SUM(CASE WHEN type = 0 AND pay_type = 0 THEN price ELSE 0 END) AS gasto_qr,
+
+            -- Total de prendas vendidas
+            SUM(CASE WHEN type = 1 THEN quantity ELSE 0 END) AS total_prendas
         ')
         ->groupBy(DB::raw('DATE_FORMAT(date_sale, "%Y-%M")'));
     }

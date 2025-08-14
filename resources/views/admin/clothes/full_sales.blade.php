@@ -53,24 +53,17 @@
                                 {{ ucfirst(trans('common.report_month')) }}
                             </a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link" id="custom-list-graph-tab" data-toggle="pill" href="#custom-list-graph" role="tab" aria-controls="custom-list-graph" aria-selected="false">
                                 {{ ucfirst(trans('common.report_graph')) }}
                             </a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
                 <div class="card-body">
                     <div class="tab-content" id="custom-tabs-four-tabContent">
                         <!-----------------DAY------------------------->
                         <div class="tab-pane fade active show" id="custom-all" role="tabpanel" aria-labelledby="custom-all-tab">
-                            <div class="row">
-                                <div class="col-md-6 mx-auto text-center">
-                                    <a class="btn btn-block btn-success" href="#">
-                                       {{ ucfirst(trans('common.total_day')) }}
-                                    </a>
-                                </div>
-                            </div>
                             <div class="table-responsive">                                
                                 <table class="table table-register table-striped table-bordered table-hover">                                        
                                     <thead>
@@ -132,32 +125,31 @@
                         </div>
                         <!-----------------WEEK------------------------->
                         <div class="tab-pane fade" id="custom-list-week" role="tabpanel" aria-labelledby="custom-list-week-tab">
-                            <div class="row">
-                                <div class="col-md-6 mx-auto text-center">
-                                    <a class="btn btn-block btn-success" href="#">
-                                        {{ ucfirst(trans('common.total_week')) }}
-                                    </a>
-                                </div>
-                            </div>
                             <div class="table-responsive">                                
                                 <table class="table table-register table-striped table-bordered table-hover">                                        
                                     <thead>
                                     <tr>
                                         <th>{{ ucfirst(trans('common.week_number')) }}</th>
                                         <th>{{ ucfirst(trans('common.income')) }}</th>
+                                        <th>{{ ucfirst(trans('common.inqr')) }}</th>
                                         <th>{{ ucfirst(trans('common.expenses')) }}</th>
+                                        <th>{{ ucfirst(trans('common.eqr')) }}</th>
                                         <th>{{ ucfirst(trans('common.clothes')) }}</th>                                        
                                         <th>{{ ucfirst(trans('common.total')) }}</th>
+                                        <th>{{ ucfirst(trans('common.totalqr')) }}</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                         @foreach($summariesByWeek as $item)
                                             <tr class="gradeX">
-                                                <td>{{ @$item->semana}}</td>
+                                                <td>{{ substr(@$item->semana,4) }}</td>
                                                 <td>{{ @$item->ingreso }}</td>
+                                                <td>{{ @$item->ingreso_qr }}</td>
                                                 <td>{{ @$item->gasto }}</td>
-                                                <td>{{ @$item->prendas }}</td>                                                
-                                                <td>{{ @$item->total }}</td>
+                                                <td>{{ @$item->gasto_qr }}</td>
+                                                <td>{{ @$item->total_prendas }}</td>                                                
+                                                <td>{{ @$item->ingreso - @$item->gasto }}</td>
+                                                <td>{{ @$item->ingreso_qr -  @$item->gasto_qr}}</td>
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -174,22 +166,18 @@
                         </div>
                         <!-----------------MONTH------------------------->
                         <div class="tab-pane fade" id="custom-list-month" role="tabpanel" aria-labelledby="custom-list-month-tab">
-                            <div class="table-responsive">                                
-                                <div class="row">
-                                    <div class="col-md-6 mx-auto text-center">
-                                        <a class="btn btn-block btn-success" href="#">
-                                            {{ ucfirst(trans('common.total_month')) }}
-                                        </a>
-                                    </div>
-                                </div>
+                            <div class="table-responsive">
                                 <table class="table table-register table-striped table-bordered table-hover">                                        
                                     <thead>
                                     <tr>
                                         <th>{{ ucfirst(trans('common.date')) }}</th>
                                         <th>{{ ucfirst(trans('common.income')) }}</th>
+                                        <th>{{ ucfirst(trans('common.inqr')) }}</th>
                                         <th>{{ ucfirst(trans('common.expenses')) }}</th>
+                                        <th>{{ ucfirst(trans('common.eqr')) }}</th>
                                         <th>{{ ucfirst(trans('common.clothes')) }}</th>                                        
                                         <th>{{ ucfirst(trans('common.total')) }}</th>
+                                        <th>{{ ucfirst(trans('common.totalqr')) }}</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -197,9 +185,12 @@
                                             <tr class="gradeX">
                                                 <td>{{ @$item->mes }}</td>
                                                 <td>{{ @$item->ingreso }}</td>
+                                                <td>{{ @$item->ingreso_qr }}</td>
                                                 <td>{{ @$item->gasto }}</td>
-                                                <td>{{ @$item->prendas }}</td>                                                
-                                                <td>{{ @$item->total }}</td>
+                                                <td>{{ @$item->gasto_qr }}</td>
+                                                <td>{{ @$item->total_prendas }}</td>                                                
+                                                <td>{{ @$item->ingreso - @$item->gasto }}</td>
+                                                <td>{{ @$item->ingreso_qr -  @$item->gasto_qr}}</td>
                                             </tr>
                                         @endforeach
                                     </tbody>
