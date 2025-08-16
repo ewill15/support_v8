@@ -72,6 +72,7 @@
                                             <th>{{ ucfirst(trans('common.type')) }}</th>
                                             <th>{{ ucfirst(trans('common.description')) }}</th>
                                             <th>{{ ucfirst(trans('common.transaction_type')) }}</th>
+                                            <th>{{ ucfirst(trans('common.quantity')) }}</th>
                                             <th>{{ ucfirst(trans('common.price')) }}</th>
                                             @if (auth()->user()->role == 'admin')
                                                 <th class="actions">{{ ucfirst(trans('common.actions')) }}</th>
@@ -86,6 +87,7 @@
                                                 <td>{{ @$item->income }}</td>
                                                 <td>{{ @$item->description }}</td>
                                                 <td>{{ @$item->paymentText }}</td>
+                                                <td>{{ @$item->quantity }}</td>
                                                 <td>{{ @$item->price }}</td>
                                                 @if (auth()->user()->role == 'admin')
                                                     <td>
@@ -221,3 +223,5 @@
         </div>
     </section>
 @endsection
+
+
