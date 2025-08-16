@@ -143,7 +143,7 @@ class SaleClothesController extends Controller
             Session::flash('flash_message_type', 'danger');
         }
 
-        return redirect('admin/clothes');
+        return redirect('admin/clothes_report');
     }
 
     /**
