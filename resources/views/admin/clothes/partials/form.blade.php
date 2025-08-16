@@ -38,7 +38,7 @@
                     {{ ucfirst(trans('validation.attributes.quantity')).':' }}
                 </label>
                 <div class="col-md-7">
-                    {!! Form::number('quantity', 1, ['class' => 'form-control',"placeholder"=>"1","required","min"=>1,]) !!}
+                    {!! Form::number('quantity', null, ['id' => 'quantity','class' => 'form-control',"placeholder"=>"1","required","min"=>1,]) !!}
                     {!! $errors->first('quantity', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>
@@ -49,7 +49,7 @@
                     {{ ucfirst(trans('validation.attributes.price')).':' }}
                 </label>
                 <div class="col-md-7">
-                    {!! Form::number('price', null, ['class' => 'form-control',"placeholder"=>"0","required","min"=>0,"step"=>0.1,"max"=>999.9]) !!}
+                    {!! Form::number('price', null, ['id' => 'price','class' => 'form-control',"placeholder"=>"0","required","min"=>0,"step"=>0.1,"max"=>999.9]) !!}
                     {!! $errors->first('price', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>
@@ -78,3 +78,22 @@
         </fieldset>
     </div>
 </div>
+
+@section('js')
+<script>
+    $(document).ready(function () {
+        function updateTotal() {
+            let quantity = parseFloat($('#quantity').val()) || 0;
+            let price = parseFloat($('#price').val()) || 0;
+            let total = quantity * price;
+            $('#total').val(total.toFixed(2));
+        }
+
+        // Al cambiar los valores
+        $('#quantity, #price').on('input', updateTotal);
+
+        // Al cargar la página (modo edición)
+        updateTotal();
+    });
+</script>
+@endsection
