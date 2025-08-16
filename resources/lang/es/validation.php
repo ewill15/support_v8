@@ -232,6 +232,7 @@ return [
         'sell_price'            => 'precio venta',
         'suggested'             => 'sugerido',
         'code'                  => 'codigo',
-        'date_in'               => 'fecha ingreso'
+        'date_in'               => 'fecha ingreso',
+        'unit_price'            => 'precio unitario',
     ],
 ];

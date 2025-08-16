@@ -242,4 +242,7 @@ return [
     'inqr'=>'ingresos QR',
     'eqr'=>'gastos QR',
     'totalqr'=>'total QR',
+    'quantity'=>'cantidad',
+
+    'unit_price'=>'precio unitario',
 ];

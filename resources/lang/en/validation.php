@@ -240,6 +240,7 @@ return [
         'sale_price'            => 'sale price',
         'suggested'             => 'suggested',
         'code'                  => 'code',
-        'date_in'               => 'date in'
+        'date_in'               => 'date in',
+        'unit_price'            => 'unit price',
     ],
 ];

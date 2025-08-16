@@ -250,4 +250,7 @@ return [
     'inqr'=>'income QR',
     'eqr'=>'expenses QR',
     'totalqr'=>'total QR',
+    'quantity'=>'quantity',
+
+    'unit_price'=>'unit price',
 ];
