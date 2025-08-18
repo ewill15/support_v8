@@ -6,6 +6,7 @@ use App\Helper;
 use Carbon\Carbon;
 use App\Models\SaleClothes;
 use Illuminate\Http\Request;
+use App\Models\ClientClothes;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
@@ -316,6 +317,35 @@ class SaleClothesController extends Controller
         $text_pagination = Helper::messageCounterPagination($summariesByDate->count(), $page, $paginate, $lang);        
 
         return view('admin.clothes.full_sales', compact('summariesByDate', 'paginate', 'text_pagination','clothes','summariesByWeek','summariesByMonth'));
+    }
+
+    public function wsp_user_list(Request $request)
+    {
+        $lang = app()->getLocale();        
+        $paginate = $request->pagination ? $request->pagination : 20;
+        $page = (int)$request->page;
+
+        $wsp_users = ClientClothes::orderBy('created_at','desc')->paginate($paginate);
+
+        $text_pagination = Helper::messageCounterPagination($wsp_users->count(), $page, $paginate, $lang);        
+
+        return view('admin.clothes.wsp_user', compact('wsp_users', 'paginate', 'text_pagination'));
+
+    }
+
+    public function add_wsp_user(Request $request)
+    {
+        $fields = $request->all();
+        
+        $wsp_user = ClientClothes::create($fields);
+        
+        echo json_encode([
+            'name'=> $wsp_user->first_name,
+            'last_name'=> $wsp_user->last_name,
+            'mobile'=> $wsp_user->cellphone
+        ]);
+
+        //  return redirect()->refresh();
     }
 
     

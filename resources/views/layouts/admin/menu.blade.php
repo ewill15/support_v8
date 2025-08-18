@@ -132,7 +132,7 @@
                 </a>
               </li>
 
-              
+              <!--------- Inventary clothes  -------------------> 
                 <li class="nav-item pl-3">
                   <a href="{{ url('/admin/inventary_clothes') }}" class="nav-link {{($section == 'inventary_clothes')?'active':''}}">
                     <i class="fas fa-list mr-2"></i>
@@ -141,7 +141,16 @@
                     </p>
                   </a>
                 </li>
-              
+              <!--------- Users clothes  -------------------> 
+                <li class="nav-item pl-3">
+                  <a href="{{ url('/admin/wsp_user_clothes') }}" class="nav-link {{($section == 'users_clothes')?'active':''}}">
+                    <i class="fab fa-whatsapp mr-2"></i>
+                    <p>
+                      {{ ucfirst(trans('common.wsp_users')) }}
+                    </p>
+                  </a>
+                </li>
+
             </ul>
           </li>
 

@@ -223,6 +223,58 @@ jQuery(function () {
 
         $("#" + modal_action.modal_id).modal("show");
     }
+    // add
+    $("a[data-action=add]").on("click", function (event){
+        event.preventDefault();
+
+        let modal_object = {
+            modal_id: "modalAdd",
+            modal_title: $(this).attr("data-title-msg"), //title of modal
+            btn_accept: $(this).attr("data-btn-action"), // text to send form
+            btn_cancel: $(this).attr("data-btn-cancel"), // text to send form
+            icon_accept: "<i class='fas fa-address-book' aria-hidden='true'></i>", //icon to accept btn
+            icon_cancel: "<i class='fas fa-ban' aria-hidden='true'></i>", //icon to cancel btn
+        };
+        //agregar url a modal
+        $("#" + modal_object.modal_id + " form").attr(
+            "action",
+            modal_object.url
+        );
+        //agregar titulo al modal
+        $("#" + modal_object.modal_id + " .modal-title")
+            .empty()
+            .text(modal_object.modal_title);
+        //agregar icono y texto a los botones
+        $("#" + modal_object.modal_id + " button[type=submit]")
+            .empty()
+            .html(modal_object.icon_accept + modal_object.btn_accept);
+        $("#" + modal_object.modal_id + " .modal-footer button[type=button]")
+            .empty()
+            .html(modal_object.icon_cancel + modal_object.btn_cancel);
+
+        //mostrar modal
+        $("#" + modal_object.modal_id).modal("show");
+
+        //envio de peticion ajax
+        if(!modal_object.url){
+            $("#" + modal_object.modal_id + " button[type=submit]").on("click",function(evt){
+                evt.preventDefault();
+                const data = $("#" + modal_object.modal_id +" form").serialize();
+                $.ajax({
+                    method: "POST",
+                    url: window.location.origin+'/admin/add_wsp_user',
+                    data: data,
+                }).done(function (data) {
+                    console.log(data);
+                }) .fail(function(xhr, status, error) {
+                    alert( error );
+                });
+
+                $("#" + modal_object.modal_id).modal("hide");
+                location.reload();  
+            });
+        }
+    });
     // delete
     $("a[data-action=delete]").on("click", function (event) {
         event.preventDefault();

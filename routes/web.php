@@ -84,4 +84,8 @@ Route::group(['middleware'=>['auth'], 'prefix' => 'admin'], function(){
 
     // Route::get('calendar', [DashboardController::class, 'calendar']);
     Route::get('clothes_report', [SaleClothesController::class, 'salesByDate']);
+
+    Route::get('wsp_user_clothes', [SaleClothesController::class, 'wsp_user_list']);
+    Route::post('add_wsp_user', [SaleClothesController::class, 'add_wsp_user']);
+    
 });
