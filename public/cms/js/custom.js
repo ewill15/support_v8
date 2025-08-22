@@ -318,4 +318,39 @@ jQuery(function () {
             }, 3000);
         });
     });
+        /**********************************************************************************************
+     *  buttons to display resume
+     **********************************************************************************************/
+    $('#btn-resume').on('click',function(){ 
+        $(this).addClass('disabled');
+        $("a#btn-detail").removeClass('disabled');
+        $("div#daily").fadeOut();
+        $("div#resume").fadeIn("slow");;
+    }) ;
+
+    $('#btn-detail').on('click',function(){
+        $(this).addClass('disabled');
+        $("a#btn-resume").removeClass('disabled');
+        $("div#resume").fadeOut();
+        $("div#daily").fadeIn("slow");
+    }) 
+
+    $("#calc_resume").on("click", function () {
+        let date = $('input[name="date_sale"]').val()
+        console.log(date);
+        $.ajax({
+            method: "POST",
+            url: "clothes/resume_daily",
+            data: { name: "John", location: "Boston" }
+        }).done(function (data) {
+            $(".date").val(data.date);
+            $(".income").val(data.income);
+            $(".income_qr").val(data.income_qr);
+            $(".expenses").val(data.expenses);
+            $(".expenses_qr").val(data.expenses_qr);
+            $(".total_income").val(data.total_income);
+            $(".total_expenses").val(data.total_expenses);
+            $(".total_clothes").val(data.total_clothes);
+        });
+    });
 });
