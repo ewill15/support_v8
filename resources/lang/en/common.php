@@ -253,4 +253,13 @@ return [
     'quantity'=>'quantity',
 
     'unit_price'=>'unit price',
+
+    'income_qr'=>'income QR',
+    'expenses_qr'=>'expenses QR',
+    'total_income'=>'total income',
+    'total_expenses'=>'total expenses',
+    'total_clothes'=>'total clothes',
+    'calculate'=>'Calcular',
+    'sales_detail'=>'sales detail',
+    'sales_resume'=>'sales resume'
 ];

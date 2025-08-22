@@ -245,4 +245,13 @@ return [
     'quantity'=>'cantidad',
 
     'unit_price'=>'precio unitario',
+
+    'income_qr'=>'ingreso QR',
+    'expenses_qr'=>'gastos QR',
+    'total_income'=>'ingreso total',
+    'total_expenses'=>'gasto total',
+    'total_clothes'=>'total prendas',
+    'calculate'=>'Calcular',
+    'sales_detail'=>'detalle de ventas',
+    'sales_resume'=>'resumen de venta'
 ];
