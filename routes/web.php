@@ -23,7 +23,6 @@ use App\Http\Controllers\Admin\PasanakusController;
 use App\Http\Controllers\Admin\SaleClothesController;
 use App\Http\Controllers\Admin\InventaryClothesController;
 use App\Http\Controllers\Admin\LegendClothesController;
-use App\Http\Controllers\Admin\ReportClothesController;
 
 /*
 |--------------------------------------------------------------------------
