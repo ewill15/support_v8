@@ -188,9 +188,11 @@ class SaleClothes extends Model
         ->selectRaw('SUM(quantity) as prendas');
     }
 
-    public function scopeSummaryByDate($query)
+    public function scopeSummaryByDate($query,$tmp_date='')
     {
-        return $query->selectRaw('
+        $date = isset($tmp_date) ? $tmp_date : Carbon::now()->format('Y-m-d');
+        
+        $tmp = $query->selectRaw('
             DATE(date_sale) AS fecha,
             -- Ingresos
             SUM(CASE WHEN type = 1 AND pay_type = 1 THEN price ELSE 0 END) AS ingreso,
@@ -209,8 +211,11 @@ class SaleClothes extends Model
             -- Total de prendas vendidas
             SUM(CASE WHEN type = 1 THEN quantity ELSE 0 END) AS total_prendas
         ')
+        ->whereDate('date_sale', $date)
         ->groupBy(DB::raw('DATE(date_sale)'))
         ->orderBy('fecha','desc');
+
+        return $tmp;
     }
 
     public function scopeSummaryByWeek($query)
