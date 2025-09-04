@@ -9,7 +9,3 @@ Support web use following version:
 - Laravel/ui ^3.0
 - doctrine/dbal ^2.12
 - laravelcollective/html ^6.3
-
-
-cambiar texto price  por tipo transacion (efectivo,qr,transferencia,deposito)  DONE
-edicion de registro solo admin, vendedor no tien opcion
